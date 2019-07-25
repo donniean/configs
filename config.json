@@ -1,0 +1,10 @@
+{
+  "editorconfig": true,
+  "prettier": true,
+  "eslint": "es6",
+  "stylelint": true,
+  "lint-staged": true,
+  "gitignore": true,
+  "gitattributes": true,
+  "license": true
+}
