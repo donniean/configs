@@ -1,0 +1,19 @@
+{
+  "author": "y <acmilank22@gmail.com>",
+  "devDependencies": {},
+  "dependencies": {
+    "yeoman-generator": "^2.0.1",
+    "chalk": "^2.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acmilank22/generator-configs.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/acmilank22/generator-configs/issues"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
