@@ -19,9 +19,7 @@
     "generators"
   ],
   "main": "generators/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "devDependencies": {
     "babel-eslint": "^10.0.2",
     "eslint": "^6.1.0",
