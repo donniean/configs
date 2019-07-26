@@ -4,13 +4,10 @@ const Generator = require('yeoman-generator');
 const { base, eslint } = require('./questions');
 
 module.exports = class extends Generator {
-  prompting() {
+  async prompting() {
     const prompts = [base, eslint];
-
-    return this.prompt(prompts).then(props => {
-      this.log(props);
-      this.props = props;
-    });
+    const answers = await this.prompt(prompts);
+    this.log(answers);
   }
 
   writing() {

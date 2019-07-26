@@ -1,7 +1,7 @@
 module.exports = {
   type: 'checkbox',
-  name: 'config',
-  message: 'Choose Config',
+  name: 'configs',
+  message: 'Choose Configs',
   choices: [
     {
       name: 'EditorConfig',
