@@ -1,42 +1,77 @@
-"use strict";
-const Generator = require("yeoman-generator");
-const chalk = require("chalk");
-const yosay = require("yosay");
+'use strict';
+const Generator = require('yeoman-generator');
 
 module.exports = class extends Generator {
   prompting() {
-    // Have Yeoman greet the user.
-    this.log(
-      yosay(
-        `Welcome to the exquisite ${chalk.red(
-          "@acmilank22/generator-configs"
-        )} generator!`
-      )
-    );
-
     const prompts = [
       {
-        type: "confirm",
-        name: "someAnswer",
-        message: "Would you like to enable this option?",
-        default: true
+        type: 'checkbox',
+        name: 'config',
+        message: 'Choose Config',
+        choices: [
+          {
+            name: 'EditorConfig',
+            value: 'editorconfig',
+            checked: true
+          },
+          {
+            name: 'Prettier',
+            value: 'prettier',
+            checked: true
+          },
+          {
+            name: 'ESLint',
+            value: 'eslint',
+            checked: true
+          },
+          {
+            name: 'stylelint',
+            value: 'stylelint',
+            checked: true
+          },
+          {
+            name: 'lint-staged',
+            value: 'lint-staged',
+            checked: true
+          },
+          {
+            name: 'HTMLHint',
+            value: 'htmlhint',
+            checked: false
+          },
+          {
+            name: '.gitignore',
+            value: 'gitignore',
+            checked: true
+          },
+          {
+            name: '.gitattributes',
+            value: 'gitattributes',
+            checked: true
+          },
+          {
+            name: 'LICENSE(MIT)',
+            value: 'license',
+            checked: true
+          }
+        ]
       }
     ];
 
     return this.prompt(prompts).then(props => {
-      // To access props later use this.props.someAnswer;
+      this.log(props);
       this.props = props;
     });
   }
 
   writing() {
     this.fs.copy(
-      this.templatePath("dummyfile.txt"),
-      this.destinationPath("dummyfile.txt")
+      this.templatePath('dummyfile.txt'),
+      this.destinationPath('dummyfile.txt')
     );
   }
 
   install() {
-    this.installDependencies();
+    // this.installDependencies();
   }
 };
