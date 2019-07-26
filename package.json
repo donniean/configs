@@ -16,7 +16,7 @@
   },
   "homepage": "https://github.com/acmilank22/generator-configs#readme",
   "files": [
-    "generators"
+    "app"
   ],
   "main": "generators/index.js",
   "scripts": {},
