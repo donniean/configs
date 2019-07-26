@@ -5,9 +5,15 @@ const { base, eslint } = require('./questions');
 
 module.exports = class extends Generator {
   async prompting() {
-    const prompts = [base, eslint];
-    const answers = await this.prompt(prompts);
-    this.log(answers);
+    const baseQuestions = base;
+    const eslintQuestions = [eslint];
+    const { configs } = await this.prompt(baseQuestions);
+    const hasESLint = configs.includes('eslint');
+    if (hasESLint) {
+      const { eslint: preset } = await this.prompt(eslintQuestions);
+      console.log(preset);
+    }
+    console.log(configs, hasESLint);
   }
 
   writing() {
