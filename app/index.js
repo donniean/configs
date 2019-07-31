@@ -9,17 +9,12 @@ module.exports = class extends Generator {
   constructor(args, options) {
     super(args, options);
 
-    this.configs = null;
-
     this.getConfigsObject = list => {
-      let config = {
-        editorconfig: true,
-        prettier: true
-      };
+      let configs = {};
       list.forEach(item => {
-        config[item] = true;
+        configs[item] = true;
       });
-      return config;
+      return configs;
     };
 
     this.writeObjectModuleJS = (filePath, object) => {
@@ -27,9 +22,16 @@ module.exports = class extends Generator {
       contents = prettier.format(contents, formatOptions);
       this.fs.write(filePath, contents);
     };
+
+    this.config.save();
   }
 
   async prompting() {
+    /* const hasConfigsFile = this.fs.exists(this.configsFilePath);
+    if (hasConfigsFile) {
+      return;
+    } */
+
     const { getConfigsObject } = this;
     const baseQuestions = base;
     const eslintQuestions = eslint;
@@ -42,10 +44,17 @@ module.exports = class extends Generator {
     }
     this.configs = configs;
     console.log(this.configs);
+    this.config.set(this.configs);
   }
 
   configuring() {
-    this.writeObjectModuleJS(this.destinationPath('configs.js'), this.configs);
+    /* const hasConfigsFile = this.fs.exists(this.configsFilePath);
+    if (hasConfigsFile) {
+      const configs = require(this.configsFilePath);
+    } else {
+    }
+    console.log(configs); */
+    // this.writeObjectModuleJS(this.destinationPath('configs.js'), this.configs);
   }
 
   install() {
