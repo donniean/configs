@@ -27,6 +27,9 @@ module.exports = class extends Generator {
   }
 
   async prompting() {
+    const c = this.config.getAll();
+    console.log(c);
+
     /* const hasConfigsFile = this.fs.exists(this.configsFilePath);
     if (hasConfigsFile) {
       return;
