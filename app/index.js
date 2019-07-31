@@ -19,9 +19,15 @@ module.exports = class extends Generator {
       });
       return config;
     };
+
+    this.writeObjectModuleJS = (filePath, object) => {
+      const contents = `module.exports=${JSON.stringify(object)};`;
+      this.fs.write(filePath, contents);
+    };
   }
 
   async prompting() {
+    console.log(this.destinationPath(), this.templatePath());
     const { getConfigsObject } = this;
     const baseQuestions = base;
     const eslintQuestions = eslint;
@@ -36,15 +42,8 @@ module.exports = class extends Generator {
     console.log(this.configs);
   }
 
-  configuring() {}
-
-  default() {}
-
-  writing() {
-    this.fs.copy(
-      this.templatePath('dummyfile.txt'),
-      this.destinationPath('dummyfile.txt')
-    );
+  configuring() {
+    this.writeObjectModuleJS('configs.js', this.configs);
   }
 
   install() {
