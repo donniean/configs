@@ -43,7 +43,7 @@ module.exports = class extends Generator {
   }
 
   configuring() {
-    this.writeObjectModuleJS('configs.js', this.configs);
+    this.writeObjectModuleJS(this.destinationPath('configs.js'), this.configs);
   }
 
   install() {
