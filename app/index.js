@@ -1,6 +1,8 @@
 'use strict';
 const Generator = require('yeoman-generator');
+const prettier = require('prettier');
 
+const formatOptions = require('./templates/prettier.config');
 const { base, eslint } = require('./questions');
 
 module.exports = class extends Generator {
@@ -21,7 +23,8 @@ module.exports = class extends Generator {
     };
 
     this.writeObjectModuleJS = (filePath, object) => {
-      const contents = `module.exports=${JSON.stringify(object)};`;
+      let contents = `module.exports=${JSON.stringify(object)};`;
+      contents = prettier.format(contents, formatOptions);
       this.fs.write(filePath, contents);
     };
   }
