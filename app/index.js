@@ -27,7 +27,6 @@ module.exports = class extends Generator {
   }
 
   async prompting() {
-    console.log(this.destinationPath(), this.templatePath());
     const { getConfigsObject } = this;
     const baseQuestions = base;
     const eslintQuestions = eslint;
