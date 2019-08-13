@@ -4,19 +4,11 @@ const Generator = require('yeoman-generator');
 const prettier = require('prettier');
 
 const formatOptions = require('./templates/prettier.config');
-const { base, eslint } = require('./questions');
+const { base: baseQuestions, eslint: eslintQuestions } = require('./questions');
 
 module.exports = class extends Generator {
   constructor(args, options) {
     super(args, options);
-
-    this.getConfigsObject = list => {
-      let configs = {};
-      list.forEach(item => {
-        configs[item] = true;
-      });
-      return configs;
-    };
 
     this.writeObjectModuleJS = (filePath, object) => {
       let contents = `module.exports=${JSON.stringify(object)};`;
@@ -24,44 +16,35 @@ module.exports = class extends Generator {
       this.fs.write(filePath, contents);
     };
 
-    this.config.save();
+    this.deleteConfigFile = () => {
+      const configFilePath = this.destinationPath('.yo-rc.json');
+      this.fs.delete(configFilePath);
+    };
+  }
+
+  initializing() {
+    this.log('initializing...');
   }
 
   async prompting() {
-    const currentConfig = this.config.getAll();
-    console.log(currentConfig);
-
-    /* const hasConfigsFile = this.fs.exists(this.configsFilePath);
-    if (hasConfigsFile) {
-      return;
-    } */
-
-    const { getConfigsObject } = this;
-    const baseQuestions = base;
-    const eslintQuestions = eslint;
-    const { configs: baseConfigs } = await this.prompt(baseQuestions);
-    const hasESLint = baseConfigs.includes('eslint');
-    let configs = getConfigsObject(baseConfigs);
-    if (hasESLint) {
-      const { eslint: preset } = await this.prompt(eslintQuestions);
-      configs.eslint = preset;
+    const { promptValues } = this.config.getAll();
+    if (promptValues) {
+      return false;
     }
-    this.configs = configs;
-    console.log(this.configs);
-    this.config.set(this.configs);
+
+    this.deleteConfigFile();
+    const { configs: baseAnswers } = await this.prompt(baseQuestions);
+    const hasESLint = baseAnswers.includes('eslint');
+    if (hasESLint) {
+      await this.prompt(eslintQuestions);
+    }
   }
 
   configuring() {
-    /* const hasConfigsFile = this.fs.exists(this.configsFilePath);
-    if (hasConfigsFile) {
-      const configs = require(this.configsFilePath);
-    } else {
-    }
-    console.log(configs); */
-    // this.writeObjectModuleJS(this.destinationPath('configs.js'), this.configs);
+    this.log('configuring...');
   }
 
   install() {
-    // this.installDependencies();
+    this.log('install');
   }
 };

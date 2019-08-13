@@ -3,6 +3,7 @@ module.exports = [
     type: 'list',
     name: 'eslint',
     message: 'Select an ESLint preset',
+    store: true,
     choices: [
       { name: 'ECMAScript 6', value: 'es6' },
       { name: 'ECMAScript 5', value: 'es5' },
