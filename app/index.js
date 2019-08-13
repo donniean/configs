@@ -7,8 +7,14 @@ const formatOptions = require('./templates/prettier.config');
 const { base: baseQuestions, eslint: eslintQuestions } = require('./questions');
 
 module.exports = class extends Generator {
-  constructor(args, options) {
-    super(args, options);
+  constructor(args, opts) {
+    super(args, opts);
+
+    this.option('prompt', {
+      alias: 'p',
+      type: Boolean,
+      default: false
+    });
 
     this.writeObjectModuleJS = (filePath, object) => {
       let contents = `module.exports=${JSON.stringify(object)};`;
@@ -27,8 +33,10 @@ module.exports = class extends Generator {
   }
 
   async prompting() {
-    const { promptValues } = this.config.getAll();
-    if (promptValues) {
+    const { options, config } = this;
+    const { prompt } = options;
+    const { promptValues } = config.getAll();
+    if (!prompt && promptValues) {
       return false;
     }
 
