@@ -52,6 +52,10 @@ module.exports = class extends Generator {
     this.log('configuring...');
   }
 
+  writing() {
+    this.log('writing...');
+  }
+
   install() {
     this.log('install');
   }
