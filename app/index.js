@@ -28,9 +28,10 @@ module.exports = class extends Generator {
     };
 
     this.copyConfigTemplateFile = (...path) => {
+      const { length } = path;
+      const file = path[length - 1];
       const templatePath = this.templatePath(...path);
-      const destinationPath = this.destinationRoot();
-      console.log(templatePath, destinationPath);
+      const destinationPath = this.destinationPath(file);
       this.fs.copy(templatePath, destinationPath);
     };
   }
@@ -72,6 +73,6 @@ module.exports = class extends Generator {
   }
 
   install() {
-    this.log('install');
+    this.log('install...');
   }
 };
