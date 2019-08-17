@@ -3,8 +3,20 @@
 const Generator = require('yeoman-generator');
 const prettier = require('prettier');
 
-const formatOptions = require('./templates/prettier/prettier.config');
 const { base: baseQuestions, eslint: eslintQuestions } = require('./questions');
+
+const formatOptions = require('./templates/prettier/prettier.config');
+const eslintConfigs = require('./templates/eslint/rules');
+const stylelintConfig = require('./templates/stylelint/stylelint.config');
+
+const {
+  integratePrettier: integrateESLintPrettier,
+  getPackages: getESLintPackages
+} = require('./utils/eslint');
+const {
+  integratePrettier: integrateStylelintPrettier,
+  getPackages: getStylelintPackages
+} = require('./utils/stylelint');
 
 module.exports = class extends Generator {
   constructor(args, opts) {
@@ -15,6 +27,8 @@ module.exports = class extends Generator {
       type: Boolean,
       default: false
     });
+
+    this.devDependenciesPackages = [];
 
     this.writeObjectModuleJS = (filePath, object) => {
       let contents = `module.exports=${JSON.stringify(object)};`;
@@ -38,6 +52,11 @@ module.exports = class extends Generator {
 
   initializing() {
     this.log('initializing...');
+    const packageJsonFilePath = this.destinationPath('package.json');
+    const hasPackageJsonFile = this.fs.exists(packageJsonFilePath);
+    if (!hasPackageJsonFile) {
+      this.spawnCommandSync('npm init');
+    }
   }
 
   async prompting() {
@@ -60,16 +79,67 @@ module.exports = class extends Generator {
     this.log('configuring...');
     const config = this.config.getAll();
     const { promptValues } = config;
-    const { configs: baseAnswers, eslint: eslintAnswers } = promptValues;
-    this.log(eslintAnswers);
+    const { configs: baseAnswers, eslint: eslintPreset } = promptValues;
 
-    if (baseAnswers.includes('editorconfig')) {
+    const hasEditorConfig = baseAnswers.includes('editorconfig');
+    const hasPrettier = baseAnswers.includes('prettier');
+    const hasESLint = baseAnswers.includes('eslint');
+    const hasStylelint = baseAnswers.includes('stylelint');
+    const hasLintStaged = baseAnswers.includes('lint-staged');
+    const hasHTMLHint = baseAnswers.includes('htmlhint');
+    const hasGitignore = baseAnswers.includes('gitignore');
+    const hasGitattributes = baseAnswers.includes('gitattributes');
+    const hasLicense = baseAnswers.includes('license');
+
+    if (hasEditorConfig) {
       this.copyConfigTemplateFile('editorconfig', '.editorconfig');
     }
 
-    if (baseAnswers.includes('prettier')) {
+    if (hasPrettier) {
       this.copyConfigTemplateFile('prettier', 'prettier.config.js');
       this.copyConfigTemplateFile('prettier', '.prettierignore');
+      this.devDependenciesPackages.push('prettier');
+    }
+
+    if (hasESLint) {
+      const filePath = this.destinationPath('.eslintrc.js');
+      const packages = getESLintPackages({
+        preset: eslintPreset,
+        prettier: hasPrettier
+      });
+      let config = eslintConfigs[eslintPreset];
+      config = integrateESLintPrettier({ preset: eslintPreset, config });
+      this.writeObjectModuleJS(filePath, config);
+      this.copyConfigTemplateFile('eslint', '.eslintignore');
+      this.devDependenciesPackages.push(...packages);
+    }
+
+    if (hasStylelint) {
+      const filePath = this.destinationPath('stylelint.config.js');
+      const packages = getStylelintPackages({ prettier: hasPrettier });
+      const config = integrateStylelintPrettier({ config: stylelintConfig });
+      this.writeObjectModuleJS(filePath, config);
+      this.devDependenciesPackages.push(...packages);
+    }
+
+    if (hasLintStaged) {
+      //
+    }
+
+    if (hasHTMLHint) {
+      //
+    }
+
+    if (hasGitignore) {
+      //
+    }
+
+    if (hasGitattributes) {
+      //
+    }
+
+    if (hasLicense) {
+      //
     }
   }
 
@@ -79,5 +149,7 @@ module.exports = class extends Generator {
 
   install() {
     this.log('install...');
+    this.log(this.devDependenciesPackages);
+    // this.npmInstall('prettier', { 'save-dev': true });
   }
 };

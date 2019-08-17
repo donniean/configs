@@ -1,0 +1,7 @@
+# TODOs
+
+- [ ] request: ora
+- [ ] eslint: rule, cli
+- [ ] stylelint: rule, cli
+- [ ] prettier: cli
+- [ ] license: name
