@@ -26,6 +26,13 @@ module.exports = class extends Generator {
       const configFilePath = this.destinationPath('.yo-rc.json');
       this.fs.delete(configFilePath);
     };
+
+    this.copyConfigTemplateFile = (...path) => {
+      const templatePath = this.templatePath(...path);
+      const destinationPath = this.destinationRoot();
+      console.log(templatePath, destinationPath);
+      this.fs.copy(templatePath, destinationPath);
+    };
   }
 
   initializing() {
@@ -53,7 +60,11 @@ module.exports = class extends Generator {
     const config = this.config.getAll();
     const { promptValues } = config;
     const { configs: baseAnswers, eslint: eslintAnswers } = promptValues;
-    this.log(baseAnswers, eslintAnswers);
+    this.log(eslintAnswers);
+
+    if (baseAnswers.includes('editorconfig')) {
+      this.copyConfigTemplateFile('editorconfig', '.editorconfig');
+    }
   }
 
   writing() {
