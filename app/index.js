@@ -3,7 +3,7 @@
 const Generator = require('yeoman-generator');
 const prettier = require('prettier');
 
-const formatOptions = require('./templates/prettier');
+const formatOptions = require('./templates/prettier/prettier.config');
 const { base: baseQuestions, eslint: eslintQuestions } = require('./questions');
 
 module.exports = class extends Generator {
@@ -65,6 +65,11 @@ module.exports = class extends Generator {
 
     if (baseAnswers.includes('editorconfig')) {
       this.copyConfigTemplateFile('editorconfig', '.editorconfig');
+    }
+
+    if (baseAnswers.includes('prettier')) {
+      this.copyConfigTemplateFile('prettier', 'prettier.config.js');
+      this.copyConfigTemplateFile('prettier', '.prettierignore');
     }
   }
 
