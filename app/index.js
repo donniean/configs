@@ -50,6 +50,8 @@ module.exports = class extends Generator {
 
   configuring() {
     this.log('configuring...');
+    const c = this.config.getAll();
+    this.log(c);
   }
 
   writing() {
