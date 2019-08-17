@@ -50,8 +50,10 @@ module.exports = class extends Generator {
 
   configuring() {
     this.log('configuring...');
-    const c = this.config.getAll();
-    this.log(c);
+    const config = this.config.getAll();
+    const { promptValues } = config;
+    const { configs: baseAnswers, eslint: eslintAnswers } = promptValues;
+    this.log(baseAnswers, eslintAnswers);
   }
 
   writing() {
