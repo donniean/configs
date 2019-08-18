@@ -20,11 +20,6 @@ module.exports = class extends Generator {
       this.log(yellow(...args));
     };
 
-    this.deleteConfigFile = () => {
-      const configFilePath = this.destinationPath('.yo-rc.json');
-      this.fs.delete(configFilePath);
-    };
-
     this.composeWithGenerator = path => {
       this.composeWith(require.resolve(path));
     };
@@ -49,7 +44,6 @@ module.exports = class extends Generator {
     }
 
     this.tips('prompting...');
-    this.deleteConfigFile();
     const { configs: baseAnswers } = await this.prompt(baseQuestions);
     const hasESLint = baseAnswers.includes('eslint');
     if (hasESLint) {

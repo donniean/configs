@@ -9,6 +9,7 @@
         "gitignore",
         "gitattributes",
         "license",
+        "htmllint",
         "sort-package-json"
       ],
       "eslint": "es6"
