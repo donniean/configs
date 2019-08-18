@@ -77,6 +77,10 @@ module.exports = class extends Generator {
 
   configuring() {
     this.log('configuring...');
+  }
+
+  writing() {
+    this.log('writing...');
     const config = this.config.getAll();
     const { promptValues } = config;
     const { configs: baseAnswers, eslint: eslintPreset } = promptValues;
@@ -92,7 +96,8 @@ module.exports = class extends Generator {
     const hasLicense = baseAnswers.includes('license');
 
     if (hasEditorConfig) {
-      this.copyConfigTemplateFile('editorconfig', '.editorconfig');
+      // this.copyConfigTemplateFile('editorconfig', '.editorconfig');
+      this.composeWith(require.resolve('../editorconfig'));
     }
 
     if (hasPrettier) {
@@ -141,10 +146,6 @@ module.exports = class extends Generator {
     if (hasLicense) {
       //
     }
-  }
-
-  writing() {
-    this.log('writing...');
   }
 
   install() {

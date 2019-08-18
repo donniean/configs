@@ -1,5 +1,6 @@
 # TODOs
 
+- [ ] 'use strict'
 - [ ] package.json main
 - [ ] request: ora
 - [ ] eslint: rule, cli
