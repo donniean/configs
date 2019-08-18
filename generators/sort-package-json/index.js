@@ -15,8 +15,7 @@ module.exports = class extends Generator {
 
   writing() {
     let json = getPackageJSON({ context: this });
-    sortPackageJson(json);
-    this.log(json);
+    json = sortPackageJson(json);
     extendPackageJSON({ context: this, json });
   }
 };

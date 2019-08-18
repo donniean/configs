@@ -8,7 +8,8 @@
         "lint-staged",
         "gitignore",
         "gitattributes",
-        "license"
+        "license",
+        "sort-package-json"
       ],
       "eslint": "es6"
     }
