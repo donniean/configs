@@ -4,7 +4,10 @@ const Generator = require('yeoman-generator');
 const moment = require('moment');
 
 const { copyTplFileFromTemplate } = require('../../utils/fs');
-const { getPackageJSON } = require('../../utils/package-json');
+const {
+  getPackageJSON,
+  extendPackageJSON
+} = require('../../utils/package-json');
 
 module.exports = class extends Generator {
   constructor(args, opts) {
@@ -14,13 +17,13 @@ module.exports = class extends Generator {
   writing() {
     const fileName = 'LICENSE';
     const hasLicenseFile = this.fs.exists(this.destinationPath(fileName));
+    extendPackageJSON({ context: this, json: { license: 'MIT' } });
     if (!hasLicenseFile) {
       const year = moment().year();
       const json = getPackageJSON({ context: this });
       const { author = '' } = json;
       const data = { year, author };
       copyTplFileFromTemplate({ context: this, fileName, data });
-      this.log(json);
     }
   }
 };
