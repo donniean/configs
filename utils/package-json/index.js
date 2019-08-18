@@ -3,6 +3,10 @@
 const latestVersion = require('latest-version');
 const ora = require('ora');
 
+function getPackageJSON({ context }) {
+  return context.fs.readJSON(context.destinationPath('package.json'));
+}
+
 function extendPackageJSON({ context, json }) {
   context.fs.extendJSON(context.destinationPath('package.json'), json);
 }
@@ -35,6 +39,7 @@ async function extendDependencies({ context, packageNames }) {
 }
 
 module.exports = {
+  getPackageJSON,
   extendPackageJSON,
   extendPackages,
   extendDevDependencies,
