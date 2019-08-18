@@ -1,6 +1,7 @@
 'use strict';
 
 const Generator = require('yeoman-generator');
+const yosay = require('yosay');
 const { yellow } = require('chalk');
 
 const { base: baseQuestions, eslint: eslintQuestions } = require('./questions');
@@ -30,6 +31,7 @@ module.exports = class extends Generator {
   }
 
   initializing() {
+    this.log(yosay('Welcome to Configs generator'));
     this.tips('initializing...');
     const packageJsonFilePath = this.destinationPath('package.json');
     const hasPackageJsonFile = this.fs.exists(packageJsonFilePath);
