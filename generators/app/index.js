@@ -14,8 +14,6 @@ module.exports = class extends Generator {
       default: false
     });
 
-    this.devDependenciesPackages = [];
-
     this.deleteConfigFile = () => {
       const configFilePath = this.destinationPath('.yo-rc.json');
       this.fs.delete(configFilePath);
