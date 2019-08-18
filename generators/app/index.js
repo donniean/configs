@@ -12,11 +12,11 @@ const stylelintConfig = require('./templates/stylelint/stylelint.config');
 const {
   integratePrettier: integrateESLintPrettier,
   getPackages: getESLintPackages
-} = require('../utils/eslint');
+} = require('../../utils/eslint');
 const {
   integratePrettier: integrateStylelintPrettier,
   getPackages: getStylelintPackages
-} = require('../utils/stylelint');
+} = require('../../utils/stylelint');
 
 module.exports = class extends Generator {
   constructor(args, opts) {

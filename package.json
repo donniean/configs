@@ -16,9 +16,11 @@
   },
   "homepage": "https://github.com/acmilank22/generator-configs#readme",
   "files": [
-    "generators"
+    "generators",
+    "utils",
+    "index.js"
   ],
-  "main": "generators/index.js",
+  "main": "index.js",
   "scripts": {},
   "devDependencies": {
     "babel-eslint": "^10.0.2",
