@@ -1,6 +1,6 @@
 # TODOs
 
-- [ ] 'use strict'
+- [x] 'use strict'
 - [x] console.log
 - [x] package.json main
 - [ ] request: ora
