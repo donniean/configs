@@ -5,16 +5,16 @@
   "keywords": [
     "yeoman-generator"
   ],
+  "homepage": "https://github.com/acmilank22/generator-configs#readme",
+  "bugs": {
+    "url": "https://github.com/acmilank22/generator-configs/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/acmilank22/generator-configs.git"
   },
-  "author": "Dongyi An",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/acmilank22/generator-configs/issues"
-  },
-  "homepage": "https://github.com/acmilank22/generator-configs#readme",
+  "author": "Dongyi An",
   "files": [
     "generators",
     "utils",
@@ -22,9 +22,14 @@
   ],
   "main": "index.js",
   "scripts": {
-    "prettier": "npx prettier \"**/*.{js,jsx,html,vue,css,scss,json,md}\"",
     "eslint": "npx eslint --fix \"**/*.{js,jsx,html,vue}\"",
-    "lint": "npm run prettier && npm run eslint"
+    "lint": "npm run prettier && npm run eslint",
+    "prettier": "npx prettier \"**/*.{js,jsx,html,vue,css,scss,json,md}\""
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "dependencies": {
     "chalk": "^2.4.2",
@@ -40,20 +45,15 @@
     "yosay": "^2.0.2"
   },
   "devDependencies": {
-    "prettier": "^1.18.2",
-    "eslint-plugin-prettier": "^3.1.0",
-    "eslint-config-prettier": "^6.0.0",
-    "eslint-plugin-html": "^6.0.0",
-    "eslint-plugin-node": "^9.1.0",
-    "eslint-plugin-import": "^2.18.2",
     "babel-eslint": "^10.0.2",
     "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-html": "^6.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^3.0.4",
     "lint-staged": "^9.2.3",
-    "husky": "^3.0.4"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "prettier": "^1.18.2"
   }
 }

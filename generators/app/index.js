@@ -41,7 +41,6 @@ module.exports = class extends Generator {
   }
 
   async prompting() {
-    this.tips('prompting...');
     const { options, config } = this;
     const { prompt } = options;
     const { promptValues } = config.getAll();
@@ -49,6 +48,7 @@ module.exports = class extends Generator {
       return false;
     }
 
+    this.tips('prompting...');
     this.deleteConfigFile();
     const { configs: baseAnswers } = await this.prompt(baseQuestions);
     const hasESLint = baseAnswers.includes('eslint');
