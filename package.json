@@ -21,7 +21,11 @@
     "index.js"
   ],
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "prettier": "npx prettier \"**/*.{js,jsx,html,vue,css,scss,json,md}\"",
+    "eslint": "npx eslint --fix \"**/*.{js,jsx,html,vue}\"",
+    "lint": "npm run prettier && npm run eslint"
+  },
   "dependencies": {
     "chalk": "^2.4.2",
     "latest-version": "^5.1.0",
@@ -33,5 +37,22 @@
     "webpack-merge": "^4.2.1",
     "yeoman-generator": "^4.0.1",
     "yosay": "^2.0.2"
+  },
+  "devDependencies": {
+    "prettier": "^1.18.2",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-html": "^6.0.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "babel-eslint": "^10.0.2",
+    "eslint": "^6.1.0",
+    "lint-staged": "^9.2.3",
+    "husky": "^3.0.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
