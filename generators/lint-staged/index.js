@@ -7,7 +7,6 @@ const {
   extendDevDependencies
 } = require('../../utils/package-json');
 const { writeObjectModuleJS } = require('../../utils/fs');
-const { extendDevDependencies } = require('../../utils/package-json');
 
 function addHuskyToPackageJSON({
   context,
@@ -49,7 +48,6 @@ function createFile({ context, prettier, eslint, stylelint, sortPackageJson }) {
   }
 
   if (sortPackageJson) {
-    extendDevDependencies({ context, packageNames: ['sort-package-json'] });
     config['package.json'] = ['sort-package-json', 'git add'];
   }
 
@@ -72,6 +70,9 @@ module.exports = class extends Generator {
     const hasESLint = baseAnswers.includes('eslint');
     const hasStylelint = baseAnswers.includes('stylelint');
     const hasSortPackageJson = baseAnswers.includes('sort-package-json');
+    const packageNames = hasSortPackageJson
+      ? ['husky', 'lint-staged', 'sort-package-json']
+      : ['husky', 'lint-staged'];
 
     addHuskyToPackageJSON({
       context: this,
@@ -81,10 +82,7 @@ module.exports = class extends Generator {
       sortPackageJson: hasSortPackageJson
     });
 
-    await extendDevDependencies({
-      context: this,
-      packageNames: ['husky', 'lint-staged']
-    });
+    await extendDevDependencies({ context: this, packageNames });
 
     createFile({
       context: this,
