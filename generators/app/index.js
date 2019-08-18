@@ -23,6 +23,10 @@ module.exports = class extends Generator {
       const configFilePath = this.destinationPath('.yo-rc.json');
       this.fs.delete(configFilePath);
     };
+
+    this.composeWithGenerator = path => {
+      this.composeWith(require.resolve(path));
+    };
   }
 
   initializing() {
@@ -71,31 +75,31 @@ module.exports = class extends Generator {
     const hasLicense = baseAnswers.includes('license');
 
     if (hasEditorConfig) {
-      this.composeWith(require.resolve('../editorconfig'));
+      this.composeWithGenerator('../editorconfig');
     }
 
     if (hasPrettier) {
-      this.composeWith(require.resolve('../prettier'));
+      this.composeWithGenerator('../prettier');
     }
 
     if (hasESLint) {
-      this.composeWith(require.resolve('../eslint'));
+      this.composeWithGenerator('../eslint');
     }
 
     if (hasStylelint) {
-      this.composeWith(require.resolve('../stylelint'));
+      this.composeWithGenerator('../stylelint');
     }
 
     if (hasLintStaged) {
-      //
+      this.composeWithGenerator('../lint-staged');
     }
 
     if (hasHTMLHint) {
-      //
+      this.composeWithGenerator('../htmlhint');
     }
 
     if (hasGitignore) {
-      //
+      this.composeWithGenerator('../gitignore');
     }
 
     if (hasGitattributes) {
