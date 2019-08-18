@@ -7,6 +7,10 @@ function getPackageJSON({ context }) {
   return context.fs.readJSON(context.destinationPath('package.json'));
 }
 
+function writePackageJSON({ context, json }) {
+  context.fs.writeJSON(context.destinationPath('package.json'), json);
+}
+
 function extendPackageJSON({ context, json }) {
   context.fs.extendJSON(context.destinationPath('package.json'), json);
 }
@@ -40,6 +44,7 @@ async function extendDependencies({ context, packageNames }) {
 
 module.exports = {
   getPackageJSON,
+  writePackageJSON,
   extendPackageJSON,
   extendPackages,
   extendDevDependencies,
