@@ -2,7 +2,10 @@
 
 const Generator = require('yeoman-generator');
 
-const { extendDevDependencies } = require('../../utils/package-json');
+const {
+  extendPackageJSON,
+  extendDevDependencies
+} = require('../../utils/package-json');
 const {
   copyFilesFromTemplate,
   writeObjectModuleJS
@@ -66,5 +69,13 @@ module.exports = class extends Generator {
     config = integratePrettier({ preset, config });
     writeObjectModuleJS({ context: this, fileName, object: config });
     copyFilesFromTemplate({ context: this, fileNames });
+    extendPackageJSON({
+      context: this,
+      json: {
+        scripts: {
+          eslint: 'npx eslint --fix "**/*.{js,jsx,html,vue}"'
+        }
+      }
+    });
   }
 };

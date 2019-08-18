@@ -2,7 +2,10 @@
 
 const Generator = require('yeoman-generator');
 
-const { extendDevDependencies } = require('../../utils/package-json');
+const {
+  extendPackageJSON,
+  extendDevDependencies
+} = require('../../utils/package-json');
 const { writeObjectModuleJS } = require('../../utils/fs');
 let config = require('./rules');
 
@@ -36,5 +39,13 @@ module.exports = class extends Generator {
     await extendDevDependencies({ context: this, packageNames });
     config = integratePrettier({ config });
     writeObjectModuleJS({ context: this, fileName, object: config });
+    extendPackageJSON({
+      context: this,
+      json: {
+        scripts: {
+          stylelint: 'npx stylelint --fix "**/*.{css,scss,html,js,jsx,vue}"'
+        }
+      }
+    });
   }
 };

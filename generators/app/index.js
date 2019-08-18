@@ -108,6 +108,8 @@ module.exports = class extends Generator {
     if (hasLicense) {
       this.composeWithGenerator('../license');
     }
+
+    this.composeWithGenerator('../npm-lint');
   }
 
   install() {
