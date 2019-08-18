@@ -8,8 +8,14 @@ const {
 } = require('../../utils/package-json');
 const { writeObjectModuleJS } = require('../../utils/fs');
 
-function addHuskyToPackageJSON({ context, prettier, eslint, stylelint }) {
-  if (prettier || eslint || stylelint) {
+function addHuskyToPackageJSON({
+  context,
+  prettier,
+  eslint,
+  stylelint,
+  sortPackageJson
+}) {
+  if (prettier || eslint || stylelint || sortPackageJson) {
     extendPackageJSON({
       context,
       json: {
@@ -23,7 +29,7 @@ function addHuskyToPackageJSON({ context, prettier, eslint, stylelint }) {
   }
 }
 
-function createFile({ context, prettier, eslint, stylelint }) {
+function createFile({ context, prettier, eslint, stylelint, sortPackageJson }) {
   let config = {};
 
   if (prettier) {
@@ -39,6 +45,10 @@ function createFile({ context, prettier, eslint, stylelint }) {
 
   if (stylelint) {
     config['*.{css,scss,html,js,jsx,vue}'] = ['stylelint --fix', 'git add'];
+  }
+
+  if (sortPackageJson) {
+    config['package.json'] = ['sort-package-json', 'git add'];
   }
 
   writeObjectModuleJS({
@@ -59,12 +69,14 @@ module.exports = class extends Generator {
     const hasPrettier = baseAnswers.includes('prettier');
     const hasESLint = baseAnswers.includes('eslint');
     const hasStylelint = baseAnswers.includes('stylelint');
+    const hasSortPackageJson = baseAnswers.includes('sort-package-json');
 
     addHuskyToPackageJSON({
       context: this,
       prettier: hasPrettier,
       eslint: hasESLint,
-      stylelint: hasStylelint
+      stylelint: hasStylelint,
+      sortPackageJson: hasSortPackageJson
     });
 
     await extendDevDependencies({
@@ -76,7 +88,8 @@ module.exports = class extends Generator {
       context: this,
       prettier: hasPrettier,
       eslint: hasESLint,
-      stylelint: hasStylelint
+      stylelint: hasStylelint,
+      sortPackageJson: hasSortPackageJson
     });
   }
 };
