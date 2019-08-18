@@ -4,11 +4,11 @@
 - [x] console.log
 - [x] package.json main
 - [ ] request: ora
-- [ ] prettier: cli
+- [x] prettier: cli
 - [ ] eslint
   - [ ] rule
-  - [ ] cli
+  - [x] cli
 - [ ] stylelint
   - [ ] rule
-  - [ ] cli
+  - [x] cli
 - [x] license: name
