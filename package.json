@@ -23,7 +23,7 @@
   "main": "index.js",
   "scripts": {
     "eslint": "npx eslint --fix \"**/*.{js,jsx,html,vue}\"",
-    "lint": "npm run prettier && npm run eslint",
+    "lint": "npm run eslint && npm run prettier",
     "prettier": "npx prettier \"**/*.{js,jsx,html,vue,css,scss,json,md}\""
   },
   "husky": {
