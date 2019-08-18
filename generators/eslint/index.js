@@ -59,7 +59,7 @@ module.exports = class extends Generator {
     const fileNames = ['.eslintignore'];
     let config = configs[preset];
 
-    extendDevDependencies({ context: this, packageNames });
+    await extendDevDependencies({ context: this, packageNames });
     config = integratePrettier({ preset, config });
     writeObjectModuleJS({ context: this, fileName, object: config });
     copyTemplateFiles({ context: this, fileNames });

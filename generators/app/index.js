@@ -1,6 +1,7 @@
 'use strict';
 
 const Generator = require('yeoman-generator');
+const { yellow } = require('chalk');
 
 const { base: baseQuestions, eslint: eslintQuestions } = require('./questions');
 
@@ -14,6 +15,10 @@ module.exports = class extends Generator {
       default: false
     });
 
+    this.tips = (...args) => {
+      this.log(yellow(...args));
+    };
+
     this.deleteConfigFile = () => {
       const configFilePath = this.destinationPath('.yo-rc.json');
       this.fs.delete(configFilePath);
@@ -21,7 +26,7 @@ module.exports = class extends Generator {
   }
 
   initializing() {
-    this.log('initializing...');
+    this.tips(yellow('initializing...'));
     const packageJsonFilePath = this.destinationPath('package.json');
     const hasPackageJsonFile = this.fs.exists(packageJsonFilePath);
     if (!hasPackageJsonFile) {
@@ -46,11 +51,11 @@ module.exports = class extends Generator {
   }
 
   configuring() {
-    this.log('configuring...');
+    this.tips('configuring...');
   }
 
   writing() {
-    this.log('writing...');
+    this.tips('writing...');
     const config = this.config.getAll();
     const { promptValues } = config;
     const { configs: baseAnswers } = promptValues;
@@ -103,6 +108,10 @@ module.exports = class extends Generator {
   }
 
   install() {
-    this.log('install...');
+    this.tips('install...');
+  }
+
+  end() {
+    this.tips('END');
   }
 };

@@ -33,7 +33,7 @@ module.exports = class extends Generator {
     const packageNames = getPackages({ prettier: hasPrettier });
     const fileName = 'stylelint.config.js';
 
-    extendDevDependencies({ context: this, packageNames });
+    await extendDevDependencies({ context: this, packageNames });
     config = integratePrettier({ config });
     writeObjectModuleJS({ context: this, fileName, object: config });
   }
