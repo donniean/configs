@@ -103,7 +103,7 @@ module.exports = class extends Generator {
     }
 
     if (hasGitattributes) {
-      //
+      this.composeWithGenerator('../gitattributes');
     }
 
     if (hasLicense) {

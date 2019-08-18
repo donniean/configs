@@ -5,7 +5,7 @@ const ora = require('ora');
 
 module.exports = url => {
   const spinner = ora();
-  spinner.start('Request\n');
+  spinner.start(`Request - ${url}\n`);
   return rp(url)
     .then(res => {
       spinner.succeed(`Request Success - ${url}`);
