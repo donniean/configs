@@ -4,15 +4,15 @@ const prettier = require('prettier');
 
 const prettierFormatOptions = require('../../generators/prettier/templates/prettier.config');
 
-function copyTemplateFile({ context, fileName }) {
+function copyFileFromTemplate({ context, fileName }) {
   context.fs.copy(
     context.templatePath(fileName),
     context.destinationPath(fileName)
   );
 }
 
-function copyTemplateFiles({ context, fileNames }) {
-  fileNames.forEach(fileName => copyTemplateFile({ context, fileName }));
+function copyFilesFromTemplate({ context, fileNames }) {
+  fileNames.forEach(fileName => copyFileFromTemplate({ context, fileName }));
 }
 
 function writeObjectModuleJS({ context, fileName, object }) {
@@ -22,7 +22,7 @@ function writeObjectModuleJS({ context, fileName, object }) {
 }
 
 module.exports = {
-  copyTemplateFile,
-  copyTemplateFiles,
+  copyFileFromTemplate,
+  copyFilesFromTemplate,
   writeObjectModuleJS
 };

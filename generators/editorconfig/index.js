@@ -2,7 +2,7 @@
 
 const Generator = require('yeoman-generator');
 
-const { copyTemplateFiles } = require('../../utils/fs');
+const { copyFilesFromTemplate } = require('../../utils/fs');
 
 module.exports = class extends Generator {
   constructor(args, opts) {
@@ -11,6 +11,6 @@ module.exports = class extends Generator {
 
   writing() {
     const fileNames = ['.editorconfig'];
-    copyTemplateFiles({ context: this, fileNames });
+    copyFilesFromTemplate({ context: this, fileNames });
   }
 };

@@ -3,7 +3,10 @@
 const Generator = require('yeoman-generator');
 
 const { extendDevDependencies } = require('../../utils/package-json');
-const { copyTemplateFiles, writeObjectModuleJS } = require('../../utils/fs');
+const {
+  copyFilesFromTemplate,
+  writeObjectModuleJS
+} = require('../../utils/fs');
 const configs = require('./rules');
 
 function getPackages({ preset, prettier: usePrettier }) {
@@ -62,6 +65,6 @@ module.exports = class extends Generator {
     await extendDevDependencies({ context: this, packageNames });
     config = integratePrettier({ preset, config });
     writeObjectModuleJS({ context: this, fileName, object: config });
-    copyTemplateFiles({ context: this, fileNames });
+    copyFilesFromTemplate({ context: this, fileNames });
   }
 };

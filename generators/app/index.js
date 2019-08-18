@@ -107,7 +107,7 @@ module.exports = class extends Generator {
     }
 
     if (hasLicense) {
-      //
+      this.composeWithGenerator('../license');
     }
   }
 
