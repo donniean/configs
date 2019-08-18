@@ -1,10 +1,10 @@
 # TODOs
 
 - [ ] 'use strict'
-- [ ] console.log
+- [x] console.log
 - [ ] package.json main
 - [ ] request: ora
 - [ ] eslint: rule, cli
 - [ ] stylelint: rule, cli
 - [ ] prettier: cli
-- [ ] license: name
+- [x] license: name

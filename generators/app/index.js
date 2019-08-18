@@ -30,15 +30,16 @@ module.exports = class extends Generator {
   }
 
   initializing() {
-    this.tips(yellow('initializing...'));
+    this.tips('initializing...');
     const packageJsonFilePath = this.destinationPath('package.json');
     const hasPackageJsonFile = this.fs.exists(packageJsonFilePath);
     if (!hasPackageJsonFile) {
-      this.spawnCommandSync('npm init');
+      throw new Error('Please run command "npm init" first');
     }
   }
 
   async prompting() {
+    this.tips('prompting...');
     const { options, config } = this;
     const { prompt } = options;
     const { promptValues } = config.getAll();
@@ -52,10 +53,6 @@ module.exports = class extends Generator {
     if (hasESLint) {
       await this.prompt(eslintQuestions);
     }
-  }
-
-  configuring() {
-    this.tips('configuring...');
   }
 
   writing() {
@@ -113,6 +110,7 @@ module.exports = class extends Generator {
 
   install() {
     this.tips('install...');
+    this.npmInstall();
   }
 
   end() {
