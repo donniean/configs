@@ -14,7 +14,6 @@ async function extendPackages({ context, packageNames, devDependencies }) {
   };
   const promises = packageNames.map(async packageName => {
     const version = await latestVersion(packageName);
-
     json[key][packageName] = `^${version}`;
     return version;
   });
