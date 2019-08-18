@@ -1,5 +1,6 @@
 # TODOs
 
+- [ ] package.json main
 - [ ] request: ora
 - [ ] eslint: rule, cli
 - [ ] stylelint: rule, cli
