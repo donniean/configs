@@ -7,6 +7,7 @@ const {
   extendDevDependencies
 } = require('../../utils/package-json');
 const { writeObjectModuleJS } = require('../../utils/fs');
+const { extendDevDependencies } = require('../../utils/package-json');
 
 function addHuskyToPackageJSON({
   context,
@@ -48,6 +49,7 @@ function createFile({ context, prettier, eslint, stylelint, sortPackageJson }) {
   }
 
   if (sortPackageJson) {
+    extendDevDependencies({ context, packageNames: ['sort-package-json'] });
     config['package.json'] = ['sort-package-json', 'git add'];
   }
 
