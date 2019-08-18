@@ -116,6 +116,6 @@ module.exports = class extends Generator {
   }
 
   end() {
-    this.tips('Thanks');
+    this.tips('Everything is OK, Thanks! ');
   }
 };
