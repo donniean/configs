@@ -1,3 +1,5 @@
+'use strict';
+
 const base = require('./base');
 const eslint = require('./eslint');
 

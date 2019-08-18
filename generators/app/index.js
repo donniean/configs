@@ -1,22 +1,8 @@
 'use strict';
 
 const Generator = require('yeoman-generator');
-const prettier = require('prettier');
 
 const { base: baseQuestions, eslint: eslintQuestions } = require('./questions');
-
-const formatOptions = require('./templates/prettier/prettier.config');
-const eslintConfigs = require('./templates/eslint/rules');
-const stylelintConfig = require('./templates/stylelint/stylelint.config');
-
-const {
-  integratePrettier: integrateESLintPrettier,
-  getPackages: getESLintPackages
-} = require('../../utils/eslint');
-const {
-  integratePrettier: integrateStylelintPrettier,
-  getPackages: getStylelintPackages
-} = require('../../utils/stylelint');
 
 module.exports = class extends Generator {
   constructor(args, opts) {
@@ -30,23 +16,9 @@ module.exports = class extends Generator {
 
     this.devDependenciesPackages = [];
 
-    this.writeObjectModuleJS = (filePath, object) => {
-      let contents = `module.exports=${JSON.stringify(object)};`;
-      contents = prettier.format(contents, formatOptions);
-      this.fs.write(filePath, contents);
-    };
-
     this.deleteConfigFile = () => {
       const configFilePath = this.destinationPath('.yo-rc.json');
       this.fs.delete(configFilePath);
-    };
-
-    this.copyConfigTemplateFile = (...path) => {
-      const { length } = path;
-      const file = path[length - 1];
-      const templatePath = this.templatePath(...path);
-      const destinationPath = this.destinationPath(file);
-      this.fs.copy(templatePath, destinationPath);
     };
   }
 
@@ -83,7 +55,7 @@ module.exports = class extends Generator {
     this.log('writing...');
     const config = this.config.getAll();
     const { promptValues } = config;
-    const { configs: baseAnswers, eslint: eslintPreset } = promptValues;
+    const { configs: baseAnswers } = promptValues;
 
     const hasEditorConfig = baseAnswers.includes('editorconfig');
     const hasPrettier = baseAnswers.includes('prettier');
@@ -96,35 +68,19 @@ module.exports = class extends Generator {
     const hasLicense = baseAnswers.includes('license');
 
     if (hasEditorConfig) {
-      // this.copyConfigTemplateFile('editorconfig', '.editorconfig');
       this.composeWith(require.resolve('../editorconfig'));
     }
 
     if (hasPrettier) {
-      this.copyConfigTemplateFile('prettier', 'prettier.config.js');
-      this.copyConfigTemplateFile('prettier', '.prettierignore');
-      this.devDependenciesPackages.push('prettier');
+      this.composeWith(require.resolve('../prettier'));
     }
 
     if (hasESLint) {
-      const filePath = this.destinationPath('.eslintrc.js');
-      const packages = getESLintPackages({
-        preset: eslintPreset,
-        prettier: hasPrettier
-      });
-      let config = eslintConfigs[eslintPreset];
-      config = integrateESLintPrettier({ preset: eslintPreset, config });
-      this.writeObjectModuleJS(filePath, config);
-      this.copyConfigTemplateFile('eslint', '.eslintignore');
-      this.devDependenciesPackages.push(...packages);
+      this.composeWith(require.resolve('../eslint'));
     }
 
     if (hasStylelint) {
-      const filePath = this.destinationPath('stylelint.config.js');
-      const packages = getStylelintPackages({ prettier: hasPrettier });
-      const config = integrateStylelintPrettier({ config: stylelintConfig });
-      this.writeObjectModuleJS(filePath, config);
-      this.devDependenciesPackages.push(...packages);
+      this.composeWith(require.resolve('../stylelint'));
     }
 
     if (hasLintStaged) {
@@ -150,7 +106,5 @@ module.exports = class extends Generator {
 
   install() {
     this.log('install...');
-    this.log(this.devDependenciesPackages);
-    // this.npmInstall('prettier', { 'save-dev': true });
   }
 };

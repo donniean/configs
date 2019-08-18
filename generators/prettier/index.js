@@ -2,6 +2,7 @@
 
 const Generator = require('yeoman-generator');
 
+const { extendDevDependencies } = require('../../utils/package-json');
 const { copyTemplateFiles } = require('../../utils/fs');
 
 module.exports = class extends Generator {
@@ -9,8 +10,10 @@ module.exports = class extends Generator {
     super(args, opts);
   }
 
-  writing() {
-    const fileNames = ['.editorconfig'];
+  async writing() {
+    const packageNames = ['prettier'];
+    const fileNames = ['prettier.config.js', '.prettierignore'];
+    await extendDevDependencies({ context: this, packageNames });
     copyTemplateFiles({ context: this, fileNames });
   }
 };
