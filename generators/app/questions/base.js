@@ -51,6 +51,11 @@ module.exports = [
         name: 'LICENSE(MIT)',
         value: 'license',
         checked: true
+      },
+      {
+        name: 'Sort Package.json',
+        value: 'sort-package-json',
+        checked: true
       }
     ]
   }

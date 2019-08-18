@@ -110,6 +110,8 @@ module.exports = class extends Generator {
     }
 
     this.composeWithGenerator('../npm-lint');
+
+    this.composeWithGenerator('../sort-package-json');
   }
 
   install() {
