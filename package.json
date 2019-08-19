@@ -24,7 +24,7 @@
   "scripts": {
     "prettier": "npx prettier \"**/*.{js,jsx,html,vue,css,scss,json,md}\"",
     "eslint": "npx eslint --fix \"**/*.{js,jsx,html,vue}\"",
-    "lint": "npm run eslint && npm run prettier",
+    "lint": "npm run prettier && npm run eslint",
     "publish": "npm publish --access public"
   },
   "husky": {
@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.2",
-    "eslint": "^6.1.0",
+    "eslint": "^6.2.0",
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-html": "^6.0.0",
     "eslint-plugin-import": "^2.18.2",
