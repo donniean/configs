@@ -22,9 +22,9 @@
   ],
   "main": "index.js",
   "scripts": {
+    "prettier": "npx prettier \"**/*.{js,jsx,html,vue,css,scss,json,md}\"",
     "eslint": "npx eslint --fix \"**/*.{js,jsx,html,vue}\"",
     "lint": "npm run eslint && npm run prettier",
-    "prettier": "npx prettier \"**/*.{js,jsx,html,vue,css,scss,json,md}\"",
     "publish": "npm publish --access public"
   },
   "husky": {
