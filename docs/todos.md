@@ -13,3 +13,4 @@
   - [x] cli
 - [x] license: name
 - [x] sort-package-json
+- [ ] .yo-rc.json
