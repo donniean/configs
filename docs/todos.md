@@ -12,4 +12,4 @@
   - [ ] rule
   - [x] cli
 - [x] license: name
-- [ ] sort-package-json
+- [x] sort-package-json

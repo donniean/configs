@@ -1,5 +1,4 @@
 module.exports = {
   '*.{js,jsx,html,vue,css,scss,json,md}': ['prettier --write', 'git add'],
-  '*.{js,jsx,html,vue}': ['eslint --fix', 'git add'],
-  'package.json': ['sort-package-json', 'git add']
+  '*.{js,jsx,html,vue}': ['eslint --fix', 'git add']
 };
