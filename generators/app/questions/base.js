@@ -1,5 +1,10 @@
 'use strict';
 
+const separator = {
+  type: 'separator',
+  line: '---------------'
+};
+
 module.exports = [
   {
     type: 'checkbox',
@@ -28,13 +33,14 @@ module.exports = [
         checked: true
       },
       {
-        name: 'lint-staged',
-        value: 'lint-staged',
-        checked: true
-      },
-      {
         name: 'HTMLHint',
         value: 'htmlhint',
+        checked: true
+      },
+      separator,
+      {
+        name: 'lint-staged',
+        value: 'lint-staged',
         checked: true
       },
       {
@@ -47,11 +53,13 @@ module.exports = [
         value: 'gitattributes',
         checked: true
       },
+      separator,
       {
         name: 'LICENSE(MIT)',
         value: 'license',
         checked: true
-      }
+      },
+      separator
     ]
   }
 ];
