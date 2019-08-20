@@ -35,7 +35,7 @@ module.exports = [
       {
         name: 'HTMLHint',
         value: 'htmlhint',
-        checked: false
+        checked: true
       },
       {
         name: '.gitignore',
