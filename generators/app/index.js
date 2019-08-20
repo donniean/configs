@@ -61,11 +61,12 @@ module.exports = class extends Generator {
     const hasPrettier = baseAnswers.includes('prettier');
     const hasESLint = baseAnswers.includes('eslint');
     const hasStylelint = baseAnswers.includes('stylelint');
-    const hasLintStaged = baseAnswers.includes('lint-staged');
     const hasHTMLHint = baseAnswers.includes('htmlhint');
+    const hasLintStaged = baseAnswers.includes('lint-staged');
     const hasGitignore = baseAnswers.includes('gitignore');
     const hasGitattributes = baseAnswers.includes('gitattributes');
     const hasLicense = baseAnswers.includes('license');
+    const hasPrivate = baseAnswers.includes('private');
 
     if (hasEditorConfig) {
       this.composeWithGenerator('../editorconfig');
@@ -83,12 +84,12 @@ module.exports = class extends Generator {
       this.composeWithGenerator('../stylelint');
     }
 
-    if (hasLintStaged) {
-      this.composeWithGenerator('../lint-staged');
-    }
-
     if (hasHTMLHint) {
       this.composeWithGenerator('../htmlhint');
+    }
+
+    if (hasLintStaged) {
+      this.composeWithGenerator('../lint-staged');
     }
 
     if (hasGitignore) {
@@ -101,6 +102,10 @@ module.exports = class extends Generator {
 
     if (hasLicense) {
       this.composeWithGenerator('../license');
+    }
+
+    if (hasPrivate) {
+      this.composeWithGenerator('../private');
     }
 
     this.composeWithGenerator('../npm-lint');

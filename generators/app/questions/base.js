@@ -52,9 +52,14 @@ module.exports = [
       },
       separator,
       {
-        name: 'LICENSE(MIT)',
+        name: 'LICENSE (MIT)',
         value: 'license',
         checked: true
+      },
+      {
+        name: 'Private (package.json)',
+        value: 'private',
+        checked: false
       },
       end
     ]
