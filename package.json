@@ -1,6 +1,6 @@
 {
   "name": "@acmilank22/generator-configs",
-  "version": "0.6.1",
+  "version": "0.7.0",
   "description": "Create config files",
   "keywords": [
     "yeoman-generator"
@@ -25,7 +25,7 @@
     "prettier": "npx prettier \"**/*.{js,jsx,html,vue,css,scss,json,md}\"",
     "eslint": "npx eslint --fix \"**/*.{js,jsx,html,vue}\"",
     "lint": "npm run prettier && npm run eslint",
-    "publish": "npm publish --access public"
+    "pub": "npm publish --access public"
   },
   "husky": {
     "hooks": {
