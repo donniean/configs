@@ -1,7 +1,6 @@
 # TODOs
 
 - [x] 'use strict'
-- [x] console.log
 - [x] package.json main
 - [ ] request: ora
 - [x] prettier: cli
