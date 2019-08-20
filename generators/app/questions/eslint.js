@@ -1,7 +1,5 @@
 'use strict';
 
-const { end } = require('../../../utils/separator');
-
 module.exports = [
   {
     type: 'list',
@@ -15,8 +13,7 @@ module.exports = [
       { name: 'React Native', value: 'react-native' },
       { name: 'Vue', value: 'vue' },
       { name: 'WeChat Mini Program', value: 'wechat-miniprogram' },
-      { name: 'AppCan', value: 'appcan' },
-      end
+      { name: 'AppCan', value: 'appcan' }
     ]
   }
 ];
