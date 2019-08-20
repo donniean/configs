@@ -1,9 +1,6 @@
 'use strict';
 
-const separator = {
-  type: 'separator',
-  line: '---------------'
-};
+const { separator, end } = require('../../../utils/separator');
 
 module.exports = [
   {
@@ -59,7 +56,7 @@ module.exports = [
         value: 'license',
         checked: true
       },
-      separator
+      end
     ]
   }
 ];
