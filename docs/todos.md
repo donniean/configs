@@ -8,6 +8,7 @@
   - [ ] rule
   - [x] cli
 - [ ] stylelint
+  - [ ] styled-components
   - [ ] rule
   - [x] cli
 - [x] license: name
