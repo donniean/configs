@@ -5,5 +5,9 @@ module.exports = {
     }
   },
   plugins: ['react', 'react-hooks'],
-  extends: ['plugin:react/recommended']
+  extends: ['plugin:react/recommended'],
+  rules: {
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn'
+  }
 };
