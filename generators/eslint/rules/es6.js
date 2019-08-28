@@ -41,7 +41,13 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['webpack.js', 'gulpfile.js', 'webpack.*.js', 'gulpfile.*.js'],
+      files: [
+        'webpack.js',
+        'webpack.*.js',
+        '**/config-overrides/**/*.js',
+        'gulpfile.js',
+        'gulpfile.*.js'
+      ],
       rules: {
         'node/no-unpublished-require': 'off'
       }
