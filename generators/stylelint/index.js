@@ -12,10 +12,17 @@ const {
 const styledComponentsConfig = require('./rules/styled-components');
 let config = require('./rules');
 
-function getPackages({ prettier }) {
+function getPackages({ prettier, 'styled-components': styledComponents }) {
   let packages = ['stylelint', 'stylelint-config-standard'];
   if (prettier) {
     packages = [...packages, 'stylelint-config-prettier', 'stylelint-prettier'];
+  }
+  if (styledComponents) {
+    packages = [
+      ...packages,
+      'stylelint-processor-styled-components',
+      'stylelint-config-styled-components'
+    ];
   }
   return packages;
 }
@@ -37,15 +44,18 @@ module.exports = class extends Generator {
     const hasPrettier = baseAnswers.includes('prettier');
     const hasStyledComponents = stylelintAnswers.includes('styled-components');
 
-    const packageNames = getPackages({ prettier: hasPrettier });
+    const packageNames = getPackages({
+      prettier: hasPrettier,
+      'styled-components': hasStyledComponents
+    });
     const fileName = 'stylelint.config.js';
     const fileNames = ['.stylelintignore'];
 
     await extendDevDependencies({ context: this, packageNames });
-    config = integratePrettier({ config });
     if (hasStyledComponents) {
       config = merge({}, config, styledComponentsConfig);
     }
+    config = integratePrettier({ config });
     writeObjectModuleJS({ context: this, fileName, object: config });
     copyFilesFromTemplate({ context: this, fileNames });
     extendPackageJSON({
