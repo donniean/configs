@@ -35,6 +35,10 @@ function getPackages({ preset, prettier: usePrettier }) {
   if (usePrettier) {
     packages = [...packages, ...prettier];
   }
+  // TODO: create react appcan
+  if (preset === 'react') {
+    packages = packages.filter(packageName => packageName !== 'babel-eslint');
+  }
   return packages;
 }
 
