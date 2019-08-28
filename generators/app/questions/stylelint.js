@@ -4,6 +4,12 @@ module.exports = [
     name: 'stylelint',
     message: 'Choose stylelint',
     store: true,
-    choices: [{ name: 'styled components', value: 'styled-components' }]
+    choices: [
+      {
+        name: 'styled components',
+        value: 'styled-components',
+        checked: false
+      }
+    ]
   }
 ];

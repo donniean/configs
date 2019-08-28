@@ -1,4 +1,5 @@
 const Generator = require('yeoman-generator');
+const merge = require('webpack-merge');
 
 const {
   extendPackageJSON,
@@ -8,6 +9,7 @@ const {
   copyFilesFromTemplate,
   writeObjectModuleJS
 } = require('../../utils/fs');
+const styledComponentsConfig = require('./rules/styled-components');
 let config = require('./rules');
 
 function getPackages({ prettier }) {
@@ -31,8 +33,9 @@ module.exports = class extends Generator {
 
   async writing() {
     const { promptValues } = this.config.getAll();
-    const { configs: baseAnswers } = promptValues;
+    const { configs: baseAnswers, stylelint: stylelintAnswers } = promptValues;
     const hasPrettier = baseAnswers.includes('prettier');
+    const hasStyledComponents = stylelintAnswers.includes('styled-components');
 
     const packageNames = getPackages({ prettier: hasPrettier });
     const fileName = 'stylelint.config.js';
@@ -40,6 +43,9 @@ module.exports = class extends Generator {
 
     await extendDevDependencies({ context: this, packageNames });
     config = integratePrettier({ config });
+    if (hasStyledComponents) {
+      config = merge({}, config, styledComponentsConfig);
+    }
     writeObjectModuleJS({ context: this, fileName, object: config });
     copyFilesFromTemplate({ context: this, fileNames });
     extendPackageJSON({

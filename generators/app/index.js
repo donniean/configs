@@ -2,7 +2,11 @@ const Generator = require('yeoman-generator');
 const yosay = require('yosay');
 const { yellow } = require('chalk');
 
-const { base: baseQuestions, eslint: eslintQuestions } = require('./questions');
+const {
+  base: baseQuestions,
+  eslint: eslintQuestions,
+  stylelint: stylelintQuestions
+} = require('./questions');
 
 module.exports = class extends Generator {
   constructor(args, opts) {
@@ -44,8 +48,12 @@ module.exports = class extends Generator {
     this.tips('prompting...');
     const { configs: baseAnswers } = await this.prompt(baseQuestions);
     const hasESLint = baseAnswers.includes('eslint');
+    const hasStylelint = baseAnswers.includes('stylelint');
     if (hasESLint) {
       await this.prompt(eslintQuestions);
+    }
+    if (hasStylelint) {
+      await this.prompt(stylelintQuestions);
     }
   }
 
