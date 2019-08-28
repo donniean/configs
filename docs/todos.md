@@ -14,3 +14,4 @@
 - [x] license: name
 - [x] sort-package-json
 - [ ] .yo-rc.json
+- [ ] create-react-app babel-eslint
