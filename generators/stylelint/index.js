@@ -6,7 +6,10 @@ const {
   extendPackageJSON,
   extendDevDependencies
 } = require('../../utils/package-json');
-const { writeObjectModuleJS } = require('../../utils/fs');
+const {
+  copyFilesFromTemplate,
+  writeObjectModuleJS
+} = require('../../utils/fs');
 let config = require('./rules');
 
 function getPackages({ prettier }) {
@@ -35,10 +38,12 @@ module.exports = class extends Generator {
 
     const packageNames = getPackages({ prettier: hasPrettier });
     const fileName = 'stylelint.config.js';
+    const fileNames = ['.eslintignore'];
 
     await extendDevDependencies({ context: this, packageNames });
     config = integratePrettier({ config });
     writeObjectModuleJS({ context: this, fileName, object: config });
+    copyFilesFromTemplate({ context: this, fileNames });
     extendPackageJSON({
       context: this,
       json: {
