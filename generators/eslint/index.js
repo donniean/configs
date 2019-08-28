@@ -1,7 +1,9 @@
 const Generator = require('yeoman-generator');
+const merge = require('webpack-merge');
 
 const {
-  extendPackageJSON,
+  getPackageJSON,
+  writePackageJSON,
   extendDevDependencies
 } = require('../../utils/package-json');
 const {
@@ -62,18 +64,18 @@ module.exports = class extends Generator {
     const fileName = '.eslintrc.js';
     const fileNames = ['.eslintignore'];
     let config = configs[preset];
+    let packageJSON = getPackageJSON({ context: this });
 
     await extendDevDependencies({ context: this, packageNames });
     config = integratePrettier({ preset, config });
     writeObjectModuleJS({ context: this, fileName, object: config });
     copyFilesFromTemplate({ context: this, fileNames });
-    extendPackageJSON({
-      context: this,
-      json: {
-        scripts: {
-          eslint: 'npx eslint --fix "**/*.{js,jsx,html,vue}"'
-        }
+    delete packageJSON.eslintConfig;
+    packageJSON = merge({}, packageJSON, {
+      scripts: {
+        eslint: 'npx eslint --fix "**/*.{js,jsx,html,vue}"'
       }
     });
+    writePackageJSON({ context: this, json: packageJSON });
   }
 };
