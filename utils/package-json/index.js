@@ -1,5 +1,3 @@
-'use strict';
-
 const latestVersion = require('latest-version');
 const ora = require('ora');
 

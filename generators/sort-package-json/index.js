@@ -1,5 +1,3 @@
-'use strict';
-
 const Generator = require('yeoman-generator');
 const sortPackageJson = require('sort-package-json');
 

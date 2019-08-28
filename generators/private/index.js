@@ -1,5 +1,3 @@
-'use strict';
-
 const Generator = require('yeoman-generator');
 
 const { extendPackageJSON } = require('../../utils/package-json');

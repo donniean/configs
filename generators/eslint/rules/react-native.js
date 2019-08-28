@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = {
   env: {
     'react-native/react-native': true

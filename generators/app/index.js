@@ -1,5 +1,3 @@
-'use strict';
-
 const Generator = require('yeoman-generator');
 const yosay = require('yosay');
 const { yellow } = require('chalk');

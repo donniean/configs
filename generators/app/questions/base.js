@@ -1,5 +1,3 @@
-'use strict';
-
 const { separator, end } = require('../../../utils/separator');
 
 module.exports = [

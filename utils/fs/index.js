@@ -1,5 +1,3 @@
-'use strict';
-
 const prettier = require('prettier');
 
 const prettierFormatOptions = require('../../generators/prettier/templates/prettier.config');
