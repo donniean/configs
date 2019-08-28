@@ -45,20 +45,5 @@ module.exports = {
     ],
     'selector-list-comma-space-after': ['always-single-line'],
     'no-unknown-animations': true
-  },
-  ignoreFiles: [
-    '**/.git/',
-    '**/.svn/',
-    '**/.hg/',
-    '**/CVS/',
-    '**/.DS_Store/',
-    '**/node_modules/',
-    '**/lib/',
-    '**/libs/',
-    '**/typings/',
-    '**/jsconfig.json',
-    '**/build/',
-    '**/dist/',
-    '**/*.min.*'
-  ]
+  }
 };
