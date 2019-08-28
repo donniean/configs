@@ -2,13 +2,13 @@
 
 - [x] 'use strict'
 - [x] package.json main
-- [ ] request: ora
+- [ ] request: ora - windows bug
 - [x] prettier: cli
 - [ ] eslint
   - [ ] rule
   - [x] cli
 - [ ] stylelint
-  - [ ] styled-components
+  - [x] styled-components
   - [ ] rule
   - [x] cli
 - [x] license: name
