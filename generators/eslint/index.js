@@ -64,12 +64,13 @@ module.exports = class extends Generator {
     const fileName = '.eslintrc.js';
     const fileNames = ['.eslintignore'];
     let config = configs[preset];
-    let packageJSON = getPackageJSON({ context: this });
 
     await extendDevDependencies({ context: this, packageNames });
     config = integratePrettier({ preset, config });
     writeObjectModuleJS({ context: this, fileName, object: config });
     copyFilesFromTemplate({ context: this, fileNames });
+
+    let packageJSON = getPackageJSON({ context: this });
     delete packageJSON.eslintConfig;
     packageJSON = merge({}, packageJSON, {
       scripts: {
