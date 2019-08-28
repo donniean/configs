@@ -1,6 +1,6 @@
 {
   "name": "@acmilank22/generator-configs",
-  "version": "0.9.6",
+  "version": "0.9.7",
   "description": "Create config files",
   "keywords": [
     "yeoman-generator"

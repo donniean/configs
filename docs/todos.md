@@ -11,6 +11,7 @@
   - [x] styled-components
   - [ ] rule
   - [x] cli
+  - [ ] html
 - [x] license: name
 - [x] sort-package-json
 - [ ] .yo-rc.json

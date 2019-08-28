@@ -36,7 +36,7 @@ function createFile({ context, prettier, eslint, stylelint }) {
   }
 
   if (stylelint) {
-    config['*.{css,scss,html,js,jsx,vue}'] = ['stylelint --fix', 'git add'];
+    config['*.{css,scss,js,jsx,vue}'] = ['stylelint --fix', 'git add'];
   }
 
   writeObjectModuleJS({

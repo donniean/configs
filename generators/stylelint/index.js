@@ -62,7 +62,7 @@ module.exports = class extends Generator {
       context: this,
       json: {
         scripts: {
-          stylelint: 'npx stylelint --fix "**/*.{css,scss,html,js,jsx,vue}"'
+          stylelint: 'npx stylelint --fix "**/*.{css,scss,js,jsx,vue}"'
         }
       }
     });
