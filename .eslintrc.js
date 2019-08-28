@@ -19,7 +19,6 @@ module.exports = {
   rules: {
     curly: 'warn',
     'default-case': 'warn',
-    'no-empty-function': 'warn',
     'no-extra-bind': 'warn',
     'no-extra-label': 'warn',
     'no-useless-call': 'warn',
