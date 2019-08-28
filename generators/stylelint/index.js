@@ -40,7 +40,10 @@ module.exports = class extends Generator {
 
   async writing() {
     const { promptValues } = this.config.getAll();
-    const { configs: baseAnswers, stylelint: stylelintAnswers } = promptValues;
+    const {
+      configs: baseAnswers,
+      stylelint: stylelintAnswers = []
+    } = promptValues;
     const hasPrettier = baseAnswers.includes('prettier');
     const hasStyledComponents = stylelintAnswers.includes('styled-components');
 
