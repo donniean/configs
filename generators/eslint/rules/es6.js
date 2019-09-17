@@ -53,6 +53,7 @@ module.exports = {
         '**/config-overrides/**/*.js'
       ],
       rules: {
+        'node/no-unpublished-import': 'off',
         'node/no-unpublished-require': 'off'
       }
     }
