@@ -48,6 +48,8 @@ module.exports = {
         'rollup.*.js',
         'gulpfile.js',
         'gulpfile.*.js',
+        'postcss.config.js',
+        'postcss.*.js',
         'config-overrides.js',
         'config-overrides.*.js',
         '**/config-overrides/**/*.js'
