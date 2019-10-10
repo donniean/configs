@@ -18,6 +18,7 @@ module.exports = class extends Generator {
         'build/',
         'dist/',
         'miniprogram_npm/',
+        '!public/',
         '!bin/',
         '!.env',
         '!.env.test'
