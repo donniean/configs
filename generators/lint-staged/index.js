@@ -21,7 +21,13 @@ function addHuskyToPackageJSON({ context, prettier, eslint, stylelint }) {
   }
 }
 
-function createFile({ context, prettier, eslint, stylelint }) {
+function createFile({
+  context,
+  prettier,
+  eslint,
+  stylelint,
+  styledComponents
+}) {
   let config = {};
 
   if (prettier) {
@@ -35,7 +41,7 @@ function createFile({ context, prettier, eslint, stylelint }) {
     config['*.{js,jsx,html,vue}'] = ['eslint --fix', 'git add'];
   }
 
-  if (stylelint) {
+  if (stylelint && !styledComponents) {
     config['*.{css,scss,js,jsx,vue}'] = ['stylelint --fix', 'git add'];
   }
 
@@ -53,10 +59,14 @@ module.exports = class extends Generator {
 
   async writing() {
     const { promptValues } = this.config.getAll();
-    const { configs: baseAnswers } = promptValues;
+    const {
+      configs: baseAnswers,
+      stylelint: stylelintAnswers = []
+    } = promptValues;
     const hasPrettier = baseAnswers.includes('prettier');
     const hasESLint = baseAnswers.includes('eslint');
     const hasStylelint = baseAnswers.includes('stylelint');
+    const hasStyledComponents = stylelintAnswers.includes('styled-components');
     const packageNames = ['husky', 'lint-staged'];
 
     addHuskyToPackageJSON({
@@ -72,7 +82,8 @@ module.exports = class extends Generator {
       context: this,
       prettier: hasPrettier,
       eslint: hasESLint,
-      stylelint: hasStylelint
+      stylelint: hasStylelint,
+      styledComponents: hasStyledComponents
     });
   }
 };
