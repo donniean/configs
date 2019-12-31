@@ -33,28 +33,28 @@
     }
   },
   "dependencies": {
-    "chalk": "^2.4.2",
+    "chalk": "^3.0.0",
     "latest-version": "^5.1.0",
     "moment": "^2.24.0",
-    "ora": "^3.4.0",
-    "prettier": "^1.18.2",
+    "ora": "^4.0.3",
+    "prettier": "^1.19.1",
     "request": "^2.88.0",
-    "request-promise": "^4.2.4",
-    "sort-package-json": "^1.22.1",
+    "request-promise": "^4.2.5",
+    "sort-package-json": "^1.35.0",
     "webpack-merge": "^4.2.2",
-    "yeoman-generator": "^4.0.2",
+    "yeoman-generator": "^4.4.0",
     "yosay": "^2.0.2"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
-    "eslint": "^6.4.0",
-    "eslint-config-prettier": "^6.3.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-html": "^6.0.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-node": "^10.0.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "husky": "^3.0.5",
-    "lint-staged": "^9.2.5",
-    "prettier": "^1.18.2"
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.5.0",
+    "prettier": "^1.19.1"
   }
 }
