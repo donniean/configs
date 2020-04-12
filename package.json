@@ -1,6 +1,6 @@
 {
   "name": "@acmilank22/generator-configs",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Create config files",
   "keywords": [
     "yeoman-generator"
@@ -15,14 +15,14 @@
   },
   "license": "MIT",
   "author": "Dongyi An",
+  "main": "index.js",
   "files": [
     "generators",
     "utils",
     "index.js"
   ],
-  "main": "index.js",
   "scripts": {
-    "prettier": "npx prettier \"**/*.{js,jsx,html,vue,css,scss,json,md}\"",
+    "prettier": "npx prettier \"**/*.{js,jsx,ts,tsx,html,vue,css,scss,json,md}\"",
     "eslint": "npx eslint --fix \"**/*.{js,jsx,html,vue}\"",
     "lint": "npm run prettier && npm run eslint",
     "pub": "npm publish --access public"
