@@ -10,56 +10,56 @@ module.exports = [
       {
         name: 'EditorConfig',
         value: 'editorconfig',
-        checked: true
+        checked: true,
       },
       {
         name: 'Prettier',
         value: 'prettier',
-        checked: true
+        checked: true,
       },
       {
         name: 'ESLint',
         value: 'eslint',
-        checked: true
+        checked: true,
       },
       {
         name: 'stylelint',
         value: 'stylelint',
-        checked: true
+        checked: true,
       },
       {
         name: 'HTMLHint',
         value: 'htmlhint',
-        checked: true
+        checked: true,
       },
       separator,
       {
         name: 'lint-staged',
         value: 'lint-staged',
-        checked: true
+        checked: true,
       },
       {
         name: '.gitignore',
         value: 'gitignore',
-        checked: true
+        checked: true,
       },
       {
         name: '.gitattributes',
         value: 'gitattributes',
-        checked: true
+        checked: true,
       },
       separator,
       {
         name: 'LICENSE (MIT)',
         value: 'license',
-        checked: true
+        checked: true,
       },
       {
         name: 'Private (package.json)',
         value: 'private',
-        checked: false
+        checked: false,
       },
-      end
-    ]
-  }
+      end,
+    ],
+  },
 ];

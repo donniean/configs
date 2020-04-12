@@ -5,6 +5,6 @@ module.exports = {
     Component: 'readonly',
     getApp: 'readonly',
     getCurrentPages: 'readonly',
-    wx: 'readonly'
-  }
+    wx: 'readonly',
+  },
 };

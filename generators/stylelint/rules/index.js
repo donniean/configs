@@ -4,15 +4,15 @@ module.exports = {
     'color-named': [
       'never',
       {
-        ignore: ['inside-function']
-      }
+        ignore: ['inside-function'],
+      },
     ],
     'font-family-name-quotes': 'always-where-recommended',
     'unit-no-unknown': [
       true,
       {
-        ignoreUnits: ['rpx']
-      }
+        ignoreUnits: ['rpx'],
+      },
     ],
     // wechat miniprogram
     'selector-type-no-unknown': [true, { ignoreTypes: ['page'] }],
@@ -20,28 +20,28 @@ module.exports = {
     'shorthand-property-no-redundant-values': [
       true,
       {
-        severity: 'warning'
-      }
+        severity: 'warning',
+      },
     ],
     'property-no-vendor-prefix': [
       true,
       {
-        severity: 'warning'
-      }
+        severity: 'warning',
+      },
     ],
     'declaration-block-no-redundant-longhand-properties': [
       true,
       {
-        severity: 'warning'
-      }
+        severity: 'warning',
+      },
     ],
     'selector-attribute-quotes': [
       'always',
       {
-        severity: 'warning'
-      }
+        severity: 'warning',
+      },
     ],
     'selector-list-comma-space-after': ['always-single-line'],
-    'no-unknown-animations': true
-  }
+    'no-unknown-animations': true,
+  },
 };

@@ -10,7 +10,7 @@ function copyFileFromTemplate({ context, fileName }) {
 }
 
 function copyFilesFromTemplate({ context, fileNames }) {
-  fileNames.forEach(fileName => copyFileFromTemplate({ context, fileName }));
+  fileNames.forEach((fileName) => copyFileFromTemplate({ context, fileName }));
 }
 
 function copyTplFileFromTemplate({ context, fileName, data }) {
@@ -22,7 +22,7 @@ function copyTplFileFromTemplate({ context, fileName, data }) {
 }
 
 function copyTplFilesFromTemplate({ context, fileNames, data }) {
-  fileNames.forEach(fileName =>
+  fileNames.forEach((fileName) =>
     copyTplFileFromTemplate({ context, fileName, data })
   );
 }
@@ -38,5 +38,5 @@ module.exports = {
   copyFilesFromTemplate,
   copyTplFileFromTemplate,
   copyTplFilesFromTemplate,
-  writeObjectModuleJS
+  writeObjectModuleJS,
 };

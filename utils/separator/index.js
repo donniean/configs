@@ -1,10 +1,10 @@
 module.exports = {
   separator: {
     type: 'separator',
-    line: '---------------'
+    line: '---------------',
   },
   end: {
     type: 'separator',
-    line: '------END------'
-  }
+    line: '------END------',
+  },
 };

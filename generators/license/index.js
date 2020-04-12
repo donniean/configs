@@ -4,7 +4,7 @@ const moment = require('moment');
 const { copyTplFileFromTemplate } = require('../../utils/fs');
 const {
   getPackageJSON,
-  extendPackageJSON
+  extendPackageJSON,
 } = require('../../utils/package-json');
 
 module.exports = class extends Generator {

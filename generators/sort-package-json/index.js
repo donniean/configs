@@ -3,7 +3,7 @@ const sortPackageJson = require('sort-package-json');
 
 const {
   getPackageJSON,
-  writePackageJSON
+  writePackageJSON,
 } = require('../../utils/package-json');
 
 module.exports = class extends Generator {

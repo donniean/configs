@@ -4,11 +4,11 @@ const merge = require('webpack-merge');
 const {
   getPackageJSON,
   writePackageJSON,
-  extendDevDependencies
+  extendDevDependencies,
 } = require('../../utils/package-json');
 const {
   copyFilesFromTemplate,
-  writeObjectModuleJS
+  writeObjectModuleJS,
 } = require('../../utils/fs');
 const configs = require('./rules');
 
@@ -29,7 +29,7 @@ function getPackages({ preset, prettier: usePrettier }) {
     'react-native': [...base, ...es6, ...react, ...reactNative],
     vue: [...base, ...es6, ...vue],
     'wechat-miniprogram': [...base, ...es6, ...wechatMiniprogram],
-    appcan: [...base, ...es5, ...appcan]
+    appcan: [...base, ...es5, ...appcan],
   };
   let packages = map[preset];
   if (usePrettier) {
@@ -78,8 +78,8 @@ module.exports = class extends Generator {
     delete packageJSON.eslintConfig;
     packageJSON = merge({}, packageJSON, {
       scripts: {
-        eslint: 'npx eslint --fix "**/*.{js,jsx,html,vue}"'
-      }
+        eslint: 'npx eslint --fix "**/*.{js,jsx,html,vue}"',
+      },
     });
     writePackageJSON({ context: this, json: packageJSON });
   }

@@ -8,8 +8,8 @@ module.exports = [
       {
         name: 'styled components',
         value: 'styled-components',
-        checked: false
-      }
-    ]
-  }
+        checked: false,
+      },
+    ],
+  },
 ];

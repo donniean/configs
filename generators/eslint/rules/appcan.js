@@ -2,10 +2,10 @@
 
 module.exports = {
   env: {
-    jquery: true
+    jquery: true,
   },
   globals: {
-    appcan: 'readonly'
+    appcan: 'readonly',
   },
-  plugins: ['jquery']
+  plugins: ['jquery'],
 };

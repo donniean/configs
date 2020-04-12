@@ -2,7 +2,7 @@ const Generator = require('yeoman-generator');
 
 const {
   extendPackageJSON,
-  extendDevDependencies
+  extendDevDependencies,
 } = require('../../utils/package-json');
 const { writeObjectModuleJS } = require('../../utils/fs');
 
@@ -13,10 +13,10 @@ function addHuskyToPackageJSON({ context, prettier, eslint, stylelint }) {
       json: {
         husky: {
           hooks: {
-            'pre-commit': 'lint-staged'
-          }
-        }
-      }
+            'pre-commit': 'lint-staged',
+          },
+        },
+      },
     });
   }
 }
@@ -26,14 +26,14 @@ function createFile({
   prettier,
   eslint,
   stylelint,
-  styledComponents
+  styledComponents,
 }) {
   let config = {};
 
   if (prettier) {
     config['*.{js,jsx,ts,tsx,html,vue,css,scss,json,md}'] = [
       'prettier --write',
-      'git add'
+      'git add',
     ];
   }
 
@@ -48,7 +48,7 @@ function createFile({
   writeObjectModuleJS({
     context,
     fileName: 'lint-staged.config.js',
-    object: config
+    object: config,
   });
 }
 
@@ -61,7 +61,7 @@ module.exports = class extends Generator {
     const { promptValues } = this.config.getAll();
     const {
       configs: baseAnswers,
-      stylelint: stylelintAnswers = []
+      stylelint: stylelintAnswers = [],
     } = promptValues;
     const hasPrettier = baseAnswers.includes('prettier');
     const hasESLint = baseAnswers.includes('eslint');
@@ -73,7 +73,7 @@ module.exports = class extends Generator {
       context: this,
       prettier: hasPrettier,
       eslint: hasESLint,
-      stylelint: hasStylelint
+      stylelint: hasStylelint,
     });
 
     await extendDevDependencies({ context: this, packageNames });
@@ -83,7 +83,7 @@ module.exports = class extends Generator {
       prettier: hasPrettier,
       eslint: hasESLint,
       stylelint: hasStylelint,
-      styledComponents: hasStyledComponents
+      styledComponents: hasStyledComponents,
     });
   }
 };

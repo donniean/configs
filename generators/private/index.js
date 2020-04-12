@@ -11,8 +11,8 @@ module.exports = class extends Generator {
     extendPackageJSON({
       context: this,
       json: {
-        private: true
-      }
+        private: true,
+      },
     });
   }
 };

@@ -3,11 +3,11 @@ const merge = require('webpack-merge');
 
 const {
   extendPackageJSON,
-  extendDevDependencies
+  extendDevDependencies,
 } = require('../../utils/package-json');
 const {
   copyFilesFromTemplate,
-  writeObjectModuleJS
+  writeObjectModuleJS,
 } = require('../../utils/fs');
 const styledComponentsConfig = require('./rules/styled-components');
 let config = require('./rules');
@@ -21,7 +21,7 @@ function getPackages({ prettier, 'styled-components': styledComponents }) {
     packages = [
       ...packages,
       'stylelint-processor-styled-components',
-      'stylelint-config-styled-components'
+      'stylelint-config-styled-components',
     ];
   }
   return packages;
@@ -42,14 +42,14 @@ module.exports = class extends Generator {
     const { promptValues } = this.config.getAll();
     const {
       configs: baseAnswers,
-      stylelint: stylelintAnswers = []
+      stylelint: stylelintAnswers = [],
     } = promptValues;
     const hasPrettier = baseAnswers.includes('prettier');
     const hasStyledComponents = stylelintAnswers.includes('styled-components');
 
     const packageNames = getPackages({
       prettier: hasPrettier,
-      'styled-components': hasStyledComponents
+      'styled-components': hasStyledComponents,
     });
     const fileName = 'stylelint.config.js';
     const fileNames = ['.stylelintignore'];
@@ -65,9 +65,9 @@ module.exports = class extends Generator {
       context: this,
       json: {
         scripts: {
-          stylelint: 'npx stylelint --fix "**/*.{css,scss,js,jsx,vue}"'
-        }
-      }
+          stylelint: 'npx stylelint --fix "**/*.{css,scss,js,jsx,vue}"',
+        },
+      },
     });
   }
 };

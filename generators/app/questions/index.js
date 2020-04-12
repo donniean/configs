@@ -5,5 +5,5 @@ const stylelint = require('./stylelint');
 module.exports = {
   base,
   eslint,
-  stylelint
+  stylelint,
 };

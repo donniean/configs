@@ -21,7 +21,7 @@ module.exports = class extends Generator {
         '!public/',
         '!bin/',
         '!.env',
-        '!.env.test'
+        '!.env.test',
       ].join('\n');
       const contents = [res, '\n', custom, '\n'].join('');
       this.fs.write(this.destinationPath(fileName), contents);

@@ -16,9 +16,9 @@ function extendPackageJSON({ context, json }) {
 async function extendPackages({ context, packageNames, devDependencies }) {
   const key = devDependencies ? 'devDependencies' : 'dependencies';
   let json = {
-    [key]: {}
+    [key]: {},
   };
-  const promises = packageNames.map(async packageName => {
+  const promises = packageNames.map(async (packageName) => {
     const version = await latestVersion(packageName);
     json[key][packageName] = `^${version}`;
     return version;
@@ -46,5 +46,5 @@ module.exports = {
   extendPackageJSON,
   extendPackages,
   extendDevDependencies,
-  extendDependencies
+  extendDependencies,
 };

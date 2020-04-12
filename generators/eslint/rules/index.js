@@ -16,5 +16,5 @@ module.exports = {
   'react-native': merge({}, base, es6, react, reactNative),
   vue: merge({}, base, es6, vue),
   'wechat-miniprogram': merge({}, base, es6, wechatMiniprogram),
-  appcan: merge({}, base, es5, appcan)
+  appcan: merge({}, base, es5, appcan),
 };

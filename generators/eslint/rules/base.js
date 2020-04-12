@@ -2,7 +2,7 @@ module.exports = {
   env: {
     browser: true,
     'shared-node-browser': true,
-    amd: true
+    amd: true,
   },
   plugins: ['html'],
   extends: ['eslint:recommended'],
@@ -19,9 +19,9 @@ module.exports = {
       'warn',
       2,
       {
-        SwitchCase: 1
-      }
+        SwitchCase: 1,
+      },
     ],
-    semi: 'error'
-  }
+    semi: 'error',
+  },
 };

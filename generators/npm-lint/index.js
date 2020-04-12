@@ -2,7 +2,7 @@ const Generator = require('yeoman-generator');
 
 const {
   getPackageJSON,
-  extendPackageJSON
+  extendPackageJSON,
 } = require('../../utils/package-json');
 
 module.exports = class extends Generator {
@@ -12,17 +12,17 @@ module.exports = class extends Generator {
 
   writing() {
     const { scripts } = getPackageJSON({ context: this });
-    const array = Object.keys(scripts).filter(key =>
+    const array = Object.keys(scripts).filter((key) =>
       ['prettier', 'eslint', 'stylelint'].includes(key)
     );
-    const script = array.map(item => `npm run ${item}`).join(' && ');
+    const script = array.map((item) => `npm run ${item}`).join(' && ');
     extendPackageJSON({
       context: this,
       json: {
         scripts: {
-          lint: script
-        }
-      }
+          lint: script,
+        },
+      },
     });
   }
 };

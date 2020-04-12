@@ -5,7 +5,7 @@ const { yellow } = require('chalk');
 const {
   base: baseQuestions,
   eslint: eslintQuestions,
-  stylelint: stylelintQuestions
+  stylelint: stylelintQuestions,
 } = require('./questions');
 
 module.exports = class extends Generator {
@@ -15,14 +15,14 @@ module.exports = class extends Generator {
     this.option('prompt', {
       alias: 'p',
       type: Boolean,
-      default: false
+      default: false,
     });
 
     this.tips = (...args) => {
       this.log(yellow(...args));
     };
 
-    this.composeWithGenerator = path => {
+    this.composeWithGenerator = (path) => {
       this.composeWith(require.resolve(path));
     };
   }
