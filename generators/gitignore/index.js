@@ -9,7 +9,7 @@ module.exports = class extends Generator {
 
   async writing() {
     const url =
-      'https://www.gitignore.io/api/code,flutter,grunt,jetbrains,jetbrains+all,macos,node,osx,reactnative,sass,visualstudiocode,windows';
+      'https://www.toptal.com/developers/gitignore/api/code,grunt,jetbrains,jetbrains+all,macos,node,osx,sass,visualstudiocode,windows';
     const fileName = '.gitignore';
     const res = await request(url);
     if (typeof res === 'string') {
