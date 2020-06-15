@@ -20,3 +20,4 @@ yo @acmilank22/generator-configs
 - [ ] stylelint-order
 - [ ] commitlint
 - [ ] cspell
+- [ ] no install
