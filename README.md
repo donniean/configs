@@ -18,6 +18,6 @@ yo @acmilank22/generator-configs
 
 - [ ] eslint-config-airbnb
 - [ ] stylelint-order
-- [ ] commitlint
+- [x] commitlint
 - [ ] cspell
 - [ ] no install
