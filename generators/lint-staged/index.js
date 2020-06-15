@@ -1,4 +1,5 @@
 const Generator = require('yeoman-generator');
+const merge = require('lodash/merge');
 
 const {
   extendPackageJSON,
@@ -6,19 +7,53 @@ const {
 } = require('../../utils/package-json');
 const { writeObjectModuleJS } = require('../../utils/fs');
 
-function addHuskyToPackageJSON({ context, prettier, eslint, stylelint }) {
-  if (prettier || eslint || stylelint) {
-    extendPackageJSON({
-      context,
-      json: {
+function addHuskyToPackageJSON({
+  context,
+  prettier,
+  eslint,
+  stylelint,
+  commitlint,
+}) {
+  const json = {
+    husky: {
+      hooks: {
+        'pre-commit': 'lint-staged',
+      },
+    },
+  };
+
+  const preCommit = (() => {
+    if (prettier || eslint || stylelint) {
+      return {
         husky: {
           hooks: {
             'pre-commit': 'lint-staged',
           },
         },
-      },
-    });
-  }
+      };
+    } else {
+      return null;
+    }
+  })();
+
+  const commitMsg = (() => {
+    if (commitlint) {
+      return {
+        husky: {
+          hooks: {
+            'commit-msg': 'commitlint -E HUSKY_GIT_PARAMS',
+          },
+        },
+      };
+    } else {
+      return null;
+    }
+  })();
+
+  extendPackageJSON({
+    context,
+    json: merge({}, json, preCommit, commitMsg),
+  });
 }
 
 function createFile({
@@ -66,17 +101,19 @@ module.exports = class extends Generator {
     const hasPrettier = baseAnswers.includes('prettier');
     const hasESLint = baseAnswers.includes('eslint');
     const hasStylelint = baseAnswers.includes('stylelint');
+    const hasCommitlint = baseAnswers.includes('commitlint');
     const hasStyledComponents = stylelintAnswers.includes('styled-components');
     const packageNames = ['husky', 'lint-staged'];
+
+    await extendDevDependencies({ context: this, packageNames });
 
     addHuskyToPackageJSON({
       context: this,
       prettier: hasPrettier,
       eslint: hasESLint,
       stylelint: hasStylelint,
+      commitlint: hasCommitlint,
     });
-
-    await extendDevDependencies({ context: this, packageNames });
 
     createFile({
       context: this,

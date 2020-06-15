@@ -32,6 +32,11 @@ module.exports = [
         value: 'htmlhint',
         checked: true,
       },
+      {
+        name: 'commitlint & Commitizen',
+        value: 'commitlint',
+        checked: true,
+      },
       separator,
       {
         name: 'lint-staged',

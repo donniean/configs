@@ -9,9 +9,11 @@ module.exports = class extends Generator {
   }
 
   async writing() {
-    const packageNames = ['htmlhint'];
-    const fileNames = ['.htmlhintrc'];
+    const packageNames = ['@commitlint/cli', '@commitlint/config-conventional'];
+    const fileNames = ['commitlint.config.js'];
+
     await extendDevDependencies({ context: this, packageNames });
+
     copyFilesFromTemplate({ context: this, fileNames });
   }
 };

@@ -68,6 +68,7 @@ module.exports = class extends Generator {
     const hasESLint = baseAnswers.includes('eslint');
     const hasStylelint = baseAnswers.includes('stylelint');
     const hasHTMLHint = baseAnswers.includes('htmlhint');
+    const hasCommitlint = baseAnswers.includes('commitlint');
     const hasLintStaged = baseAnswers.includes('lint-staged');
     const hasGitignore = baseAnswers.includes('gitignore');
     const hasGitattributes = baseAnswers.includes('gitattributes');
@@ -92,6 +93,11 @@ module.exports = class extends Generator {
 
     if (hasHTMLHint) {
       this.composeWithGenerator('../htmlhint');
+    }
+
+    if (hasCommitlint) {
+      this.composeWithGenerator('../commitlint');
+      this.composeWithGenerator('../commitizen');
     }
 
     if (hasLintStaged) {
@@ -119,10 +125,10 @@ module.exports = class extends Generator {
     this.composeWithGenerator('../sort-package-json');
   }
 
-  install() {
+  /* install() {
     this.tips('install...');
     this.npmInstall();
-  }
+  } */
 
   end() {
     this.tips('Everything is OK, Thanks! ');

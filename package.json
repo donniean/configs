@@ -42,6 +42,7 @@
   "dependencies": {
     "chalk": "^4.0.0",
     "latest-version": "^5.1.0",
+    "lodash": "^4.17.15",
     "moment": "^2.26.0",
     "ora": "^4.0.4",
     "prettier": "^2.0.5",
