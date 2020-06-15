@@ -29,6 +29,7 @@
   },
   "husky": {
     "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "lint-staged"
     }
   },
@@ -46,6 +47,8 @@
     "yosay": "^2.0.2"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.1.0",
     "eslint-config-prettier": "^6.11.0",
