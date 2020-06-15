@@ -131,6 +131,6 @@ module.exports = class extends Generator {
   } */
 
   end() {
-    this.tips('Everything is OK, Thanks! ');
+    this.tips('Everything is OK, Thanks! Please run "npm install".');
   }
 };
