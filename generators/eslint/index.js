@@ -55,7 +55,7 @@ function getPackages({ preset, prettier: usePrettier }) {
 }
 
 function integratePrettier({ preset, config }) {
-  let { extends: extendsAlias = [] } = config;
+  const { extends: extendsAlias = [] } = config;
   extendsAlias.push('plugin:prettier/recommended');
   if (['react'].includes(preset)) {
     extendsAlias.push('prettier/react');
@@ -67,9 +67,9 @@ function integratePrettier({ preset, config }) {
 }
 
 module.exports = class extends Generator {
-  constructor(args, opts) {
+  /* constructor(args, opts) {
     super(args, opts);
-  }
+  } */
 
   async writing() {
     const { promptValues } = this.config.getAll();

@@ -7,9 +7,9 @@ const {
 const { copyFilesFromTemplate } = require('../../utils/fs');
 
 module.exports = class extends Generator {
-  constructor(args, opts) {
+  /* constructor(args, opts) {
     super(args, opts);
-  }
+  } */
 
   async writing() {
     const packageNames = ['prettier'];

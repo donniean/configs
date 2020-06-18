@@ -7,9 +7,9 @@ const {
 } = require('../../utils/package-json');
 
 module.exports = class extends Generator {
-  constructor(args, opts) {
+  /* constructor(args, opts) {
     super(args, opts);
-  }
+  } */
 
   writing() {
     let json = getPackageJSON({ context: this });

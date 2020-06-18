@@ -4,9 +4,9 @@ const { copyFilesFromTemplate } = require('../../utils/fs');
 const { extendDevDependencies } = require('../../utils/package-json');
 
 module.exports = class extends Generator {
-  constructor(args, opts) {
+  /* constructor(args, opts) {
     super(args, opts);
-  }
+  } */
 
   async writing() {
     const packageNames = ['htmlhint'];

@@ -31,9 +31,8 @@ function addHuskyToPackageJSON({
           },
         },
       };
-    } else {
-      return null;
     }
+    return null;
   })();
 
   const commitMsg = (() => {
@@ -45,9 +44,8 @@ function addHuskyToPackageJSON({
           },
         },
       };
-    } else {
-      return null;
     }
+    return null;
   })();
 
   extendPackageJSON({
@@ -63,7 +61,7 @@ function createFile({
   stylelint,
   styledComponents,
 }) {
-  let config = {};
+  const config = {};
 
   if (prettier) {
     config['*.{js,jsx,ts,tsx,html,vue,css,scss,json,md}'] = [
@@ -88,9 +86,9 @@ function createFile({
 }
 
 module.exports = class extends Generator {
-  constructor(args, opts) {
+  /* constructor(args, opts) {
     super(args, opts);
-  }
+  } */
 
   async writing() {
     const { promptValues } = this.config.getAll();

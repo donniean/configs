@@ -27,16 +27,16 @@ function getPackages({ prettier, 'styled-components': styledComponents }) {
   return packages;
 }
 
-function integratePrettier({ config }) {
-  let { extends: extendsAlias = [] } = config;
+function integratePrettier({ c }) {
+  const { extends: extendsAlias = [] } = c;
   extendsAlias.push('stylelint-prettier/recommended');
-  return config;
+  return c;
 }
 
 module.exports = class extends Generator {
-  constructor(args, opts) {
+  /* constructor(args, opts) {
     super(args, opts);
-  }
+  } */
 
   async writing() {
     const { promptValues } = this.config.getAll();

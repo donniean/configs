@@ -18,8 +18,8 @@ module.exports = class extends Generator {
       default: false,
     });
 
-    this.tips = (...args) => {
-      this.log(yellow(...args));
+    this.tips = (...rest) => {
+      this.log(yellow(...rest));
     };
 
     this.composeWithGenerator = (path) => {
@@ -42,7 +42,7 @@ module.exports = class extends Generator {
     const { prompt } = options;
     const { promptValues } = config.getAll();
     if (!prompt && promptValues) {
-      return false;
+      return;
     }
 
     this.tips('prompting...');

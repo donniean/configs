@@ -6,9 +6,9 @@ const {
 } = require('../../utils/package-json');
 
 module.exports = class extends Generator {
-  constructor(args, opts) {
+  /* constructor(args, opts) {
     super(args, opts);
-  }
+  } */
 
   async writing() {
     const packageNames = ['commitizen', 'cz-conventional-changelog'];

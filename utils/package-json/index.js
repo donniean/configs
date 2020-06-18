@@ -15,7 +15,7 @@ function extendPackageJSON({ context, json }) {
 
 async function extendPackages({ context, packageNames, devDependencies }) {
   const key = devDependencies ? 'devDependencies' : 'dependencies';
-  let json = {
+  const json = {
     [key]: {},
   };
   const promises = packageNames.map(async (packageName) => {
