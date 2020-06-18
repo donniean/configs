@@ -5,6 +5,7 @@
         "editorconfig",
         "prettier",
         "eslint",
+        "commitlint",
         "lint-staged",
         "gitignore",
         "gitattributes",
