@@ -27,7 +27,7 @@ function getPackages({ prettier, 'styled-components': styledComponents }) {
   return packages;
 }
 
-function integratePrettier({ c }) {
+function integratePrettier({ c = {} } = {}) {
   const { extends: extendsAlias = [] } = c;
   extendsAlias.push('stylelint-prettier/recommended');
   return c;

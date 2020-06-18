@@ -11,7 +11,7 @@ const appcan = require('./appcan');
 module.exports = {
   es6: merge({}, base, es6),
   es5: merge({}, base, es5),
-  react: merge({}, base, es6, react),
+  react: merge({}, base, react),
   vue: merge({}, base, es6, vue),
   'wechat-miniprogram': merge({}, base, es6, wechatMiniprogram),
   appcan: merge({}, base, es5, appcan),

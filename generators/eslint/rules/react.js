@@ -1,5 +1,8 @@
 module.exports = {
-  extends: ['airbnb', 'airbnb/hooks'],
+  parserOptions: {
+    parser: 'babel-eslint',
+  },
+  extends: ['airbnb', 'airbnb/hooks', 'plugin:node/recommended'],
 };
 
 /* module.exports = {
