@@ -1,4 +1,8 @@
 module.exports = {
+  extends: ['airbnb-base/legacy'],
+};
+
+/* module.exports = {
   parserOptions: {
     ecmaVersion: 5,
     sourceType: 'script',
@@ -10,4 +14,4 @@ module.exports = {
   },
   plugins: ['es5'],
   extends: ['plugin:es5/no-es2015', 'plugin:es5/no-es2016'],
-};
+}; */

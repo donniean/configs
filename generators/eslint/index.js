@@ -13,11 +13,24 @@ const {
 const configs = require('./rules');
 
 function getPackages({ preset, prettier: usePrettier }) {
-  const base = ['eslint', 'eslint-plugin-html'];
-  const es6 = ['babel-eslint', 'eslint-plugin-import', 'eslint-plugin-node'];
-  const es5 = ['eslint-plugin-es5'];
-  const react = ['eslint-plugin-react', 'eslint-plugin-react-hooks'];
-  const reactNative = ['eslint-plugin-react-native'];
+  const base = ['eslint', 'eslint-plugin-html', 'eslint-plugin-import'];
+  const es6 = [
+    'babel-eslint',
+    'eslint-config-airbnb-base',
+    'eslint-plugin-node',
+  ];
+  const es5 = [
+    // 'eslint-plugin-es5',
+    'eslint-config-airbnb-base',
+  ];
+  const react = [
+    'babel-eslint',
+    'eslint-config-airbnb',
+    'eslint-plugin-node',
+    'eslint-plugin-jsx-a11y',
+    'eslint-plugin-react',
+    'eslint-plugin-react-hooks',
+  ];
   const vue = ['eslint-plugin-vue'];
   const wechatMiniprogram = [];
   const appcan = ['eslint-plugin-jquery'];
@@ -25,8 +38,7 @@ function getPackages({ preset, prettier: usePrettier }) {
   const map = {
     es6: [...base, ...es6],
     es5: [...base, ...es5],
-    react: [...base, ...es6, ...react],
-    'react-native': [...base, ...es6, ...react, ...reactNative],
+    react: [...base, ...react],
     vue: [...base, ...es6, ...vue],
     'wechat-miniprogram': [...base, ...es6, ...wechatMiniprogram],
     appcan: [...base, ...es5, ...appcan],
@@ -45,7 +57,7 @@ function getPackages({ preset, prettier: usePrettier }) {
 function integratePrettier({ preset, config }) {
   let { extends: extendsAlias = [] } = config;
   extendsAlias.push('plugin:prettier/recommended');
-  if (['react', 'react-native'].includes(preset)) {
+  if (['react'].includes(preset)) {
     extendsAlias.push('prettier/react');
   }
   if (['vue'].includes(preset)) {

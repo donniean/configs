@@ -1,4 +1,8 @@
 module.exports = {
+  plugins: ['html'],
+};
+
+/* module.exports = {
   env: {
     browser: true,
     'shared-node-browser': true,
@@ -24,4 +28,4 @@ module.exports = {
     ],
     semi: 'error',
   },
-};
+}; */

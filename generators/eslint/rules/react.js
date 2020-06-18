@@ -1,4 +1,8 @@
 module.exports = {
+  extends: ['airbnb', 'airbnb/hooks'],
+};
+
+/* module.exports = {
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -10,4 +14,4 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
   },
-};
+}; */
