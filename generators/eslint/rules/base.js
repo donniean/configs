@@ -1,16 +1,11 @@
 module.exports = {
-  plugins: ['html'],
-};
-
-/* module.exports = {
   env: {
     browser: true,
     'shared-node-browser': true,
     amd: true,
   },
   plugins: ['html'],
-  extends: ['eslint:recommended'],
-  rules: {
+  /* rules: {
     curly: 'warn',
     'default-case': 'warn',
     'no-extra-bind': 'warn',
@@ -27,5 +22,5 @@ module.exports = {
       },
     ],
     semi: 'error',
-  },
-}; */
+  }, */
+};
