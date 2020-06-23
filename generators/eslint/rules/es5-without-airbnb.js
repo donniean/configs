@@ -3,9 +3,6 @@ module.exports = {
     ecmaVersion: 5,
     sourceType: 'script',
   },
-};
-
-/* module.exports = {
   env: {
     node: false,
     commonjs: false,
@@ -14,6 +11,4 @@ module.exports = {
     es2020: false,
     worker: false,
   },
-  plugins: ['es5'],
-  extends: ['plugin:es5/no-es2015', 'plugin:es5/no-es2016'],
-}; */
+};
