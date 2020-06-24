@@ -13,11 +13,3 @@ cd project-folder
 
 yo @acmilank22/generator-configs
 ```
-
-## TODOs
-
-- [ ] eslint-config-airbnb
-- [ ] stylelint-order
-- [x] commitlint
-- [ ] cspell
-- [x] no install
