@@ -9,6 +9,5 @@ module.exports = {
     es6: false,
     es2017: false,
     es2020: false,
-    worker: false,
   },
 };
