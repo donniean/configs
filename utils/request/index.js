@@ -1,13 +1,13 @@
-const rp = require('request-promise');
+const got = require('got');
 const ora = require('ora');
 
 module.exports = (url) => {
   const spinner = ora();
   spinner.start(`Request - ${url}\n`);
-  return rp(url, { timeout: 60 * 1000 })
-    .then((res) => {
+  return got(url, { timeout: 60 * 1000 })
+    .then((resp) => {
       spinner.succeed(`Request Success - ${url}`);
-      return res;
+      return resp.body;
     })
     .catch((err) => {
       const { name, message } = err;
