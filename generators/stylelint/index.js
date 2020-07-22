@@ -1,5 +1,5 @@
 const Generator = require('yeoman-generator');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 
 const {
   extendPackageJSON,

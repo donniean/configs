@@ -1,4 +1,4 @@
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 
 const airbnbBase = require('./airbnb-base');
 const airbnbBaseLegacy = require('./airbnb-base-legacy');
