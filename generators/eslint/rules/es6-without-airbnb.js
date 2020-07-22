@@ -5,8 +5,6 @@ module.exports = {
     parser: 'babel-eslint',
   },
   env: {
-    node: true,
-    commonjs: true,
     es6: true,
     es2017: true,
     es2020: true,
