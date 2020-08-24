@@ -64,7 +64,7 @@ function createFile({
   const config = {};
 
   if (prettier) {
-    config['*.{js,jsx,ts,tsx,html,vue,css,scss,json,md}'] = [
+    config['*.{js,ts,jsx,tsx,json,html,vue,css,less,scss,md,yaml}'] = [
       'prettier --write',
       'git add',
     ];

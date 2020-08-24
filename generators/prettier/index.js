@@ -21,7 +21,7 @@ module.exports = class extends Generator {
       json: {
         scripts: {
           prettier:
-            'npx prettier "**/*.{js,jsx,ts,tsx,html,vue,css,scss,json,md}"',
+            'npx prettier "**/*.{js,ts,jsx,tsx,json,html,vue,css,less,scss,md,yaml}"',
         },
       },
     });
