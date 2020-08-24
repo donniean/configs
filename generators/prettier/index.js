@@ -13,7 +13,7 @@ module.exports = class extends Generator {
 
   async writing() {
     const packageNames = ['prettier'];
-    const fileNames = ['prettier.config.js', '.prettierignore'];
+    const fileNames = ['.prettierrc.js', '.prettierignore'];
     await extendDevDependencies({ context: this, packageNames });
     copyFilesFromTemplate({ context: this, fileNames });
     extendPackageJSON({

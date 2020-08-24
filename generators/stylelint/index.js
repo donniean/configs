@@ -51,7 +51,7 @@ module.exports = class extends Generator {
       prettier: hasPrettier,
       'styled-components': hasStyledComponents,
     });
-    const fileName = 'stylelint.config.js';
+    const fileName = '.stylelintrc.js';
     const fileNames = ['.stylelintignore'];
 
     await extendDevDependencies({ context: this, packageNames });

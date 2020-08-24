@@ -1,6 +1,6 @@
 const prettier = require('prettier');
 
-const prettierFormatOptions = require('../../generators/prettier/templates/prettier.config');
+const prettierFormatOptions = require('../../generators/prettier/templates/.prettierrc.js');
 
 function copyFileFromTemplate({ context, fileName }) {
   context.fs.copy(
