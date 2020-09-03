@@ -1,9 +1,9 @@
-# @acmilank22/generator-configs
+# @donniean/generator-configs
 
 ## Install
 
 ```bash
-npm install -g yo @acmilank22/generator-configs
+npm install -g yo @donniean/generator-configs
 ```
 
 ## Usage
@@ -11,5 +11,5 @@ npm install -g yo @acmilank22/generator-configs
 ```bash
 cd project-folder
 
-yo @acmilank22/generator-configs
+yo @donniean/generator-configs
 ```
