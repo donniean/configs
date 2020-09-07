@@ -6,6 +6,7 @@ module.exports = {
   },
   settings: {
     'import/resolver': {
+      node: {},
       webpack: {
         config: './config/webpack.config.dev.js',
       },
