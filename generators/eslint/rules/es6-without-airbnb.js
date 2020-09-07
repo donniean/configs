@@ -11,6 +11,7 @@ module.exports = {
   },
   extends: ['plugin:node/recommended'],
   rules: {
+    'node/no-missing-import': 'off',
     'node/no-unsupported-features/es-builtins': [
       'error',
       { version: '>=12.0.0', ignores: [] },

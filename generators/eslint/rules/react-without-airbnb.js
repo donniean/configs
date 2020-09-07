@@ -4,13 +4,14 @@ module.exports = {
       jsx: true,
     },
   },
+  settings: {
+    'import/resolver': {
+      webpack: {
+        config: './config/webpack.config.dev.js',
+      },
+    },
+  },
   rules: {
     'react/jsx-props-no-spreading': 'off',
-    'node/no-missing-import': [
-      'error',
-      {
-        tryExtensions: ['.js', '.jsx', '.json'],
-      },
-    ],
   },
 };

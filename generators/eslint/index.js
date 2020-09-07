@@ -30,6 +30,7 @@ function getPackages({ preset, prettier: usePrettier }) {
     'eslint-plugin-jsx-a11y',
     'eslint-plugin-react',
     'eslint-plugin-react-hooks',
+    'eslint-import-resolver-webpack',
   ];
   const vue = ['eslint-plugin-vue'];
   const wechatMiniprogram = [];
