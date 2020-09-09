@@ -25,7 +25,7 @@
     "commit": "git-cz",
     "eslint": "npx eslint --fix \"**/*.{js,jsx,html,vue}\"",
     "lint": "npm run eslint && npm run prettier",
-    "prettier": "npx prettier \"**/*.{js,jsx,ts,tsx,html,vue,css,scss,json,md}\"",
+    "prettier": "npx prettier \"**/*.{js,ts,jsx,tsx,json,html,vue,css,less,scss,md,yaml}\"",
     "release": "standard-version",
     "pub": "npm run release &&  npm publish --access public"
   },
