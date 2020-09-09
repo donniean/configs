@@ -1,6 +1,6 @@
 {
   "name": "@donniean/generator-configs",
-  "version": "1.4.2",
+  "version": "1.5.0",
   "description": "Create config files",
   "keywords": [
     "yeoman-generator"
@@ -26,6 +26,7 @@
     "eslint": "npx eslint --fix \"**/*.{js,jsx,html,vue}\"",
     "lint": "npm run eslint && npm run prettier",
     "prettier": "npx prettier \"**/*.{js,jsx,ts,tsx,html,vue,css,scss,json,md}\"",
+    "release": "standard-version",
     "pub": "npm publish --access public"
   },
   "husky": {
@@ -66,6 +67,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.2.5",
-    "lint-staged": "^10.3.0"
+    "lint-staged": "^10.3.0",
+    "standard-version": "^9.0.0"
   }
 }
