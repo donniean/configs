@@ -13,16 +13,17 @@ const styledComponentsConfig = require('./rules/styled-components');
 let config = require('./rules');
 
 function getPackages({ prettier, 'styled-components': styledComponents }) {
-  let packages = ['stylelint', 'stylelint-config-standard'];
+  let packages = [
+    'stylelint',
+    'stylelint-config-standard',
+    'stylelint-config-rational-order',
+    'stylelint-order',
+  ];
+  if (styledComponents) {
+    packages = [...packages, 'stylelint-config-styled-components'];
+  }
   if (prettier) {
     packages = [...packages, 'stylelint-config-prettier', 'stylelint-prettier'];
-  }
-  if (styledComponents) {
-    packages = [
-      ...packages,
-      'stylelint-processor-styled-components',
-      'stylelint-config-styled-components',
-    ];
   }
   return packages;
 }
@@ -34,10 +35,6 @@ function integratePrettier({ config: c }) {
 }
 
 module.exports = class extends Generator {
-  /* constructor(args, opts) {
-    super(args, opts);
-  } */
-
   async writing() {
     const { promptValues } = this.config.getAll();
     const {
