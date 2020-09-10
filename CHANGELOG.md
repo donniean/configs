@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/donniean/generator-configs/compare/v1.5.2...v1.6.0) (2020-09-10)
+
+### Features
+
+- add eslint-formatter-friendly ([3da3120](https://github.com/donniean/generator-configs/commit/3da3120dc3d69d3a9a5befb744290784acb85fac))
+- updates ([365c080](https://github.com/donniean/generator-configs/commit/365c0805fae14cde0f38a8b7bbc14b9d61328f89))
+
 ### [1.5.2](https://github.com/donniean/generator-configs/compare/v1.5.1...v1.5.2) (2020-09-09)
 
 ### [1.5.1](https://github.com/donniean/generator-configs/compare/v1.5.0...v1.5.1) (2020-09-09)
