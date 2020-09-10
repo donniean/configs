@@ -48,10 +48,7 @@ function getPackages({ preset, prettier: usePrettier }) {
   if (usePrettier) {
     packages = [...packages, ...prettier];
   }
-  // TODO: create-react-app
-  if (preset === 'react') {
-    // packages = packages.filter(packageName => packageName !== 'babel-eslint');
-  }
+  packages = [...packages, 'eslint-formatter-friendly'];
   return packages;
 }
 
@@ -68,10 +65,6 @@ function integratePrettier({ preset, config }) {
 }
 
 module.exports = class extends Generator {
-  /* constructor(args, opts) {
-    super(args, opts);
-  } */
-
   async writing() {
     const { promptValues } = this.config.getAll();
     const { configs: baseAnswers, eslint: preset } = promptValues;
@@ -91,7 +84,7 @@ module.exports = class extends Generator {
     delete packageJSON.eslintConfig;
     packageJSON = merge({}, packageJSON, {
       scripts: {
-        eslint: 'npx eslint --fix "**/*.{js,jsx,html,vue}"',
+        eslint: 'npx eslint --fix "**/*.{js,jsx,html,vue}" --format friendly',
       },
     });
     writePackageJSON({ context: this, json: packageJSON });
