@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/donniean/generator-configs/compare/v1.6.0...v1.7.0) (2020-09-10)
+
+### Features
+
+- add stylelint-order, remove stylelint-processor-styled-components ([c0c7bbd](https://github.com/donniean/generator-configs/commit/c0c7bbde3d59c0cc01e797e653f28f507161ad9d))
+
 ## [1.6.0](https://github.com/donniean/generator-configs/compare/v1.5.2...v1.6.0) (2020-09-10)
 
 ### Features
