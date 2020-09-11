@@ -1,5 +1,6 @@
 const Generator = require('yeoman-generator');
 
+const { copyFilesFromTemplate } = require('../../utils/fs');
 const {
   extendDevDependencies,
   extendPackageJSON,
@@ -7,18 +8,16 @@ const {
 
 module.exports = class extends Generator {
   async writing() {
-    const packageNames = ['commitizen', 'cz-conventional-changelog'];
+    const packageNames = ['cspell'];
+    const fileNames = ['.cspell.json'];
+
     await extendDevDependencies({ context: this, packageNames });
+    copyFilesFromTemplate({ context: this, fileNames });
     extendPackageJSON({
       context: this,
       json: {
         scripts: {
-          commit: 'git-cz',
-        },
-        config: {
-          commitizen: {
-            path: 'cz-conventional-changelog',
-          },
+          cspell: 'cspell "**/**"',
         },
       },
     });

@@ -81,7 +81,6 @@ module.exports = class extends Generator {
     copyFilesFromTemplate({ context: this, fileNames });
 
     let packageJSON = getPackageJSON({ context: this });
-    delete packageJSON.eslintConfig;
     packageJSON = merge({}, packageJSON, {
       scripts: {
         eslint: 'npx eslint --fix "**/*.{js,jsx,html,vue}" --format friendly',

@@ -12,6 +12,7 @@ function addHuskyToPackageJSON({
   prettier,
   eslint,
   stylelint,
+  cspell,
   commitlint,
 }) {
   const json = {
@@ -23,7 +24,7 @@ function addHuskyToPackageJSON({
   };
 
   const preCommit = (() => {
-    if (prettier || eslint || stylelint) {
+    if (prettier || eslint || stylelint || cspell) {
       return {
         husky: {
           hooks: {
@@ -60,6 +61,7 @@ function createFile({
   eslint,
   stylelint,
   styledComponents,
+  cspell,
 }) {
   const config = {};
 
@@ -78,6 +80,11 @@ function createFile({
     config['*.{css,scss,js,jsx,vue}'] = ['stylelint --fix', 'git add'];
   }
 
+  if (cspell) {
+    // TODO: no git add ?
+    config['*.*'] = ['cspell'];
+  }
+
   writeObjectModuleJS({
     context,
     fileName: 'lint-staged.config.js',
@@ -86,10 +93,6 @@ function createFile({
 }
 
 module.exports = class extends Generator {
-  /* constructor(args, opts) {
-    super(args, opts);
-  } */
-
   async writing() {
     const { promptValues } = this.config.getAll();
     const {
@@ -99,7 +102,8 @@ module.exports = class extends Generator {
     const hasPrettier = baseAnswers.includes('prettier');
     const hasESLint = baseAnswers.includes('eslint');
     const hasStylelint = baseAnswers.includes('stylelint');
-    const hasCommitlint = baseAnswers.includes('commitlint');
+    const hasCommitlint = baseAnswers.includes('cspell');
+    const hasCspell = baseAnswers.includes('commitlint');
     const hasStyledComponents = stylelintAnswers.includes('styled-components');
     const packageNames = ['husky', 'lint-staged'];
 
@@ -110,6 +114,7 @@ module.exports = class extends Generator {
       prettier: hasPrettier,
       eslint: hasESLint,
       stylelint: hasStylelint,
+      cspell: hasCspell,
       commitlint: hasCommitlint,
     });
 
@@ -119,6 +124,7 @@ module.exports = class extends Generator {
       eslint: hasESLint,
       stylelint: hasStylelint,
       styledComponents: hasStyledComponents,
+      cspell: hasCspell,
     });
   }
 };

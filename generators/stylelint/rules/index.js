@@ -15,9 +15,13 @@ module.exports = {
         ignoreUnits: ['rpx'],
       },
     ],
-    // wechat miniprogram
     'selector-type-no-unknown': [true, { ignoreTypes: ['page'] }],
-    'value-keyword-case': 'lower',
+    'value-keyword-case': [
+      'lower',
+      {
+        ignoreKeywords: [/^[a-z]+[A-Z][a-z]*/],
+      },
+    ],
     'shorthand-property-no-redundant-values': [
       true,
       {
