@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.9.0](https://github.com/donniean/generator-configs/compare/v1.8.1...v1.9.0) (2020-09-11)
+
+### Features
+
+- m ([fc2db3b](https://github.com/donniean/generator-configs/commit/fc2db3b5a019b876ccffa4cbdaece335ea1d0acf))
+
+### Bug Fixes
+
+- add cspell to questions ([c20369b](https://github.com/donniean/generator-configs/commit/c20369bf67eab8f2fab3cec2513f097d0575c2e5))
+
 ### [1.8.1](https://github.com/donniean/generator-configs/compare/v1.8.0...v1.8.1) (2020-09-11)
 
 ## [1.8.0](https://github.com/donniean/generator-configs/compare/v1.7.0...v1.8.0) (2020-09-11)
