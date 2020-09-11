@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/donniean/generator-configs/compare/v1.7.0...v1.8.0) (2020-09-11)
+
+### Features
+
+- add cspell ([a6c62ff](https://github.com/donniean/generator-configs/commit/a6c62fff015f0891f168e055860e862c803631bf))
+
 ## [1.7.0](https://github.com/donniean/generator-configs/compare/v1.6.0...v1.7.0) (2020-09-10)
 
 ### Features
