@@ -34,6 +34,7 @@ function getPackages({ preset, prettier: usePrettier }) {
   ];
   const vue = ['eslint-plugin-vue'];
   const wechatMiniprogram = [];
+  /* cspell:disable-next-line */
   const appcan = ['eslint-plugin-jquery'];
   const prettier = ['eslint-config-prettier', 'eslint-plugin-prettier'];
   const map = {
@@ -42,13 +43,13 @@ function getPackages({ preset, prettier: usePrettier }) {
     react: [...base, ...react],
     vue: [...base, ...es6, ...vue],
     'wechat-miniprogram': [...base, ...es6, ...wechatMiniprogram],
+    /* cspell:disable-next-line */
     appcan: [...base, ...es5, ...appcan],
   };
   let packages = map[preset];
   if (usePrettier) {
     packages = [...packages, ...prettier];
   }
-  packages = [...packages, 'eslint-formatter-pretty'];
   return packages;
 }
 
@@ -83,7 +84,7 @@ module.exports = class extends Generator {
     let packageJSON = getPackageJSON({ context: this });
     packageJSON = merge({}, packageJSON, {
       scripts: {
-        eslint: 'npx eslint --fix "**/*.{js,jsx,html,vue}" --format pretty',
+        eslint: 'npx eslint --fix "**/*.{js,jsx,html,vue}"',
       },
     });
     writePackageJSON({ context: this, json: packageJSON });
