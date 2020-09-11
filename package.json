@@ -23,7 +23,7 @@
   ],
   "scripts": {
     "prettier": "npx prettier \"**/*.{js,ts,jsx,tsx,json,html,vue,css,less,scss,md,yaml}\"",
-    "eslint": "npx eslint --fix \"**/*.{js,jsx,html,vue}\" --format friendly",
+    "eslint": "npx eslint --fix \"**/*.{js,jsx,html,vue}\" --format pretty",
     "lint": "npm run prettier && npm run eslint",
     "cspell": "cspell \"**/*\"",
     "commit": "git-cz",
@@ -58,6 +58,7 @@
     "eslint": "^7.8.1",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-prettier": "^6.11.0",
+    "eslint-formatter-pretty": "^4.0.0",
     "eslint-plugin-html": "^6.1.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-node": "^11.1.0",
