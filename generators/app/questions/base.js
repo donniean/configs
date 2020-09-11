@@ -33,6 +33,11 @@ module.exports = [
         checked: true,
       },
       {
+        name: 'cspell',
+        value: 'cspell',
+        checked: true,
+      },
+      {
         name: 'commitlint & Commitizen',
         value: 'commitlint',
         checked: true,

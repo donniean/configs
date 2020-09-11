@@ -68,6 +68,7 @@ module.exports = class extends Generator {
     const hasESLint = baseAnswers.includes('eslint');
     const hasStylelint = baseAnswers.includes('stylelint');
     const hasHTMLHint = baseAnswers.includes('htmlhint');
+    const hasCspell = baseAnswers.includes('cspell');
     const hasCommitlint = baseAnswers.includes('commitlint');
     const hasLintStaged = baseAnswers.includes('lint-staged');
     const hasGitignore = baseAnswers.includes('gitignore');
@@ -93,6 +94,10 @@ module.exports = class extends Generator {
 
     if (hasHTMLHint) {
       this.composeWithGenerator('../htmlhint');
+    }
+
+    if (hasCspell) {
+      this.composeWithGenerator('../cspell');
     }
 
     if (hasCommitlint) {
