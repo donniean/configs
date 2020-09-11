@@ -12,14 +12,15 @@
     "gitattributes",
     "htmlhint",
     "htmlhintrc",
-    "huskyrc",
     "miniprogram",
     "prettierignore",
     "sourcemap",
     "stylelint",
     "todos",
     "webpackbar",
-    "wechat"
+    "wechat",
+    "huskyrc",
+    "yosay"
   ],
   "ignorePaths": [
     "**/dist/**",

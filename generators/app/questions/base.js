@@ -44,7 +44,7 @@ module.exports = [
       },
       separator,
       {
-        name: 'lint-staged',
+        name: 'Husky & lint-staged',
         value: 'lint-staged',
         checked: true,
       },

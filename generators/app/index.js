@@ -1,4 +1,5 @@
 const Generator = require('yeoman-generator');
+/* cspell:disable-next-line */
 const yosay = require('yosay');
 const { yellow } = require('chalk');
 
@@ -28,6 +29,7 @@ module.exports = class extends Generator {
   }
 
   initializing() {
+    /* cspell:disable-next-line */
     this.log(yosay('Welcome to Configs generator'));
     this.tips('initializing...');
     const packageJsonFilePath = this.destinationPath('package.json');
@@ -106,6 +108,7 @@ module.exports = class extends Generator {
     }
 
     if (hasLintStaged) {
+      this.composeWithGenerator('../husky');
       this.composeWithGenerator('../lint-staged');
     }
 
