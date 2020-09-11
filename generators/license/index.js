@@ -8,10 +8,6 @@ const {
 } = require('../../utils/package-json');
 
 module.exports = class extends Generator {
-  /* constructor(args, opts) {
-    super(args, opts);
-  } */
-
   writing() {
     const fileName = 'LICENSE';
     const hasLicenseFile = this.fs.exists(this.destinationPath(fileName));

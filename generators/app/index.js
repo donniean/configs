@@ -133,11 +133,6 @@ module.exports = class extends Generator {
     this.composeWithGenerator('../sort-package-json');
   }
 
-  /* install() {
-    this.tips('install...');
-    this.npmInstall();
-  } */
-
   end() {
     this.tips('Everything is OK, Thanks! Please run "npm install".');
   }
