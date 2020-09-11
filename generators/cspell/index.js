@@ -17,7 +17,6 @@ module.exports = class extends Generator {
       context: this,
       json: {
         scripts: {
-          // TODO: glob ?
           cspell: 'cspell "**/*"',
         },
       },
