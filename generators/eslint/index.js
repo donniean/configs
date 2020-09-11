@@ -48,7 +48,7 @@ function getPackages({ preset, prettier: usePrettier }) {
   if (usePrettier) {
     packages = [...packages, ...prettier];
   }
-  packages = [...packages, 'eslint-formatter-friendly'];
+  packages = [...packages, 'eslint-formatter-pretty'];
   return packages;
 }
 
@@ -83,7 +83,7 @@ module.exports = class extends Generator {
     let packageJSON = getPackageJSON({ context: this });
     packageJSON = merge({}, packageJSON, {
       scripts: {
-        eslint: 'npx eslint --fix "**/*.{js,jsx,html,vue}" --format friendly',
+        eslint: 'npx eslint --fix "**/*.{js,jsx,html,vue}" --format pretty',
       },
     });
     writePackageJSON({ context: this, json: packageJSON });

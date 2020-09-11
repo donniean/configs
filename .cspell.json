@@ -8,6 +8,7 @@
     "devtool",
     "donniean",
     "editorconfig",
+    "eslintignore",
     "favicons",
     "gitattributes",
     "htmlhint",
@@ -20,6 +21,7 @@
     "todos",
     "webpackbar",
     "wechat",
+    "appcan",
     "yosay"
   ],
   "ignorePaths": [
