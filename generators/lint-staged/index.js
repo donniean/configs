@@ -1,13 +1,10 @@
 const Generator = require('yeoman-generator');
 const merge = require('lodash/merge');
 
-const {
-  extendPackageJSON,
-  extendDevDependencies,
-} = require('../../utils/package-json');
+const { extendDevDependencies } = require('../../utils/package-json');
 const { writeObjectModuleJS } = require('../../utils/fs');
 
-function addHuskyToPackageJSON({
+function createHuskyFile({
   context,
   prettier,
   eslint,
@@ -15,21 +12,11 @@ function addHuskyToPackageJSON({
   cspell,
   commitlint,
 }) {
-  const json = {
-    husky: {
-      hooks: {
-        'pre-commit': 'lint-staged',
-      },
-    },
-  };
-
   const preCommit = (() => {
     if (prettier || eslint || stylelint || cspell) {
       return {
-        husky: {
-          hooks: {
-            'pre-commit': 'lint-staged',
-          },
+        hooks: {
+          'pre-commit': 'lint-staged',
         },
       };
     }
@@ -39,23 +26,26 @@ function addHuskyToPackageJSON({
   const commitMsg = (() => {
     if (commitlint) {
       return {
-        husky: {
-          hooks: {
-            'commit-msg': 'commitlint -E HUSKY_GIT_PARAMS',
-          },
+        hooks: {
+          'commit-msg': 'commitlint -E HUSKY_GIT_PARAMS',
         },
       };
     }
     return null;
   })();
 
-  extendPackageJSON({
-    context,
-    json: merge({}, json, preCommit, commitMsg),
-  });
+  const config = merge(null, preCommit, commitMsg);
+
+  if (config) {
+    writeObjectModuleJS({
+      context,
+      fileName: '.huskyrc.js',
+      object: config,
+    });
+  }
 }
 
-function createFile({
+function createLintStagedFile({
   context,
   prettier,
   eslint,
@@ -66,23 +56,20 @@ function createFile({
   const config = {};
 
   if (prettier) {
-    config['*.{js,ts,jsx,tsx,json,html,vue,css,less,scss,md,yaml}'] = [
-      'prettier --write',
-      'git add',
-    ];
+    config['*.{js,ts,jsx,tsx,json,html,vue,css,less,scss,md,yaml}'] =
+      'prettier --write';
   }
 
   if (eslint) {
-    config['*.{js,jsx,html,vue}'] = ['eslint --fix', 'git add'];
+    config['*.{js,jsx,html,vue}'] = 'eslint --fix';
   }
 
   if (stylelint && !styledComponents) {
-    config['*.{css,scss,js,jsx,vue}'] = ['stylelint --fix', 'git add'];
+    config['*.{css,scss,js,jsx,vue}'] = 'stylelint --fix';
   }
 
   if (cspell) {
-    // TODO: no git add ?
-    config['*.*'] = ['cspell'];
+    config['*.*'] = 'cspell';
   }
 
   writeObjectModuleJS({
@@ -109,7 +96,7 @@ module.exports = class extends Generator {
 
     await extendDevDependencies({ context: this, packageNames });
 
-    addHuskyToPackageJSON({
+    createHuskyFile({
       context: this,
       prettier: hasPrettier,
       eslint: hasESLint,
@@ -118,7 +105,7 @@ module.exports = class extends Generator {
       commitlint: hasCommitlint,
     });
 
-    createFile({
+    createLintStagedFile({
       context: this,
       prettier: hasPrettier,
       eslint: hasESLint,
