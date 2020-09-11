@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.10.0](https://github.com/donniean/generator-configs/compare/v1.9.1...v1.10.0) (2020-09-11)
+
+### Features
+
+- remove git add; add .huskyrc.js ([5134350](https://github.com/donniean/generator-configs/commit/5134350c4376dc5782708223b1e3399fd41c0b4d))
+- split husky and lint-staged ([3991205](https://github.com/donniean/generator-configs/commit/3991205f7e909c8859106aec28048e73c04fafef))
+
 ### [1.9.1](https://github.com/donniean/generator-configs/compare/v1.9.0...v1.9.1) (2020-09-11)
 
 ## [1.9.0](https://github.com/donniean/generator-configs/compare/v1.8.1...v1.9.0) (2020-09-11)
