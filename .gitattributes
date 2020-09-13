@@ -98,8 +98,8 @@ TODO              text
 
 # Configs
 *.cnf             text
-*.conf            text
-*.config          text
+*.configParsed            text
+*.configParsed          text
 .editorconfig     text
 .env              text
 .gitattributes    text

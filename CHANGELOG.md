@@ -68,7 +68,7 @@ All notable changes to this project will be documented in this file. See [standa
 ### Features
 
 - add commitlint and commitizen ([b138380](https://github.com/donniean/generator-configs/commit/b13838016ced398c86353a1ab9baf6231731d7b9))
-- change config name ([ef0f89b](https://github.com/donniean/generator-configs/commit/ef0f89b13e51131ce19591682079503e1fc6d5f6))
+- change configParsed name ([ef0f89b](https://github.com/donniean/generator-configs/commit/ef0f89b13e51131ce19591682079503e1fc6d5f6))
 - change npm scoop ([21bc340](https://github.com/donniean/generator-configs/commit/21bc340383a28c4ea5827bd334744d337ad1b69c))
 - modified eslint rules ([fadc042](https://github.com/donniean/generator-configs/commit/fadc0429cdd8791c63ebc74a387c22fa243430a3))
 - modified eslint rules ([5321afa](https://github.com/donniean/generator-configs/commit/5321afa15721923529b8ff0c7cb16410dfafd30c))
