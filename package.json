@@ -3,13 +3,13 @@
   "version": "2.0.0",
   "description": "",
   "keywords": [],
-  "homepage": "https://github.com/donniean/generator-configs#readme",
+  "homepage": "https://github.com/donniean/configs#readme",
   "bugs": {
-    "url": "https://github.com/donniean/generator-configs/issues"
+    "url": "https://github.com/donniean/configs/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/donniean/generator-configs.git"
+    "url": "git+https://github.com/donniean/configs.git"
   },
   "license": "MIT",
   "author": "Donnie An",

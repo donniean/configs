@@ -1,20 +1,22 @@
-# @donniean/generator-configs
+# @donniean/configs
 
 ## Install
 
-```bash
-npm install -g yo @donniean/generator-configs
+```shell
+npm install -g @donniean/configs
 ```
 
 ## Usage
 
-```bash
+```shell
 cd project-folder
-
-yo @donniean/generator-configs
 ```
 
-## Config
+```shell
+configs
+```
+
+## Config File
 
 .configsrc.js
 
