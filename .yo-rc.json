@@ -1,0 +1,18 @@
+{
+  "@donniean/generator-configs": {
+    "promptValues": {
+      "configs": [
+        "editorconfig",
+        "prettier",
+        "eslint",
+        "cspell",
+        "commitlint",
+        "lint-staged",
+        "gitignore",
+        "gitattributes",
+        "license"
+      ],
+      "eslint": "es6"
+    }
+  }
+}
