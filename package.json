@@ -24,7 +24,7 @@
   "scripts": {
     "prettier": "npx prettier \"**/*.{js,ts,jsx,tsx,json,html,vue,css,less,scss,md,yaml}\"",
     "eslint": "npx eslint --fix \"**/*.{js,jsx,html,vue}\"",
-    "lint": "npm run eslint && npm run prettier",
+    "lint": "npm run prettier && npm run eslint",
     "cspell": "cspell \"**/*\"",
     "commit": "git-cz",
     "release": "standard-version",
@@ -54,8 +54,8 @@
     "yargs": "^16.0.3"
   },
   "devDependencies": {
-    "@commitlint/cli": "^9.1.2",
-    "@commitlint/config-conventional": "^9.1.2",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "babel-eslint": "^10.1.0",
     "commitizen": "^4.2.1",
     "cspell": "^4.1.0",
@@ -68,7 +68,8 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.3.0",
-    "lint-staged": "^10.3.0",
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.1.2",
     "standard-version": "^9.0.0"
   }
 }
