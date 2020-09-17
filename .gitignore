@@ -277,7 +277,7 @@ ehthumbs_vista.db
 # Dump file
 *.stackdump
 
-# Folder configParsed file
+# Folder config file
 [Dd]esktop.ini
 
 # Recycle Bin used on file shares
