@@ -1,0 +1,33 @@
+{
+  "version": "0.1",
+  "language": "en",
+  "words": [
+    "browserslistrc",
+    "chunkhash",
+    "commitlint",
+    "devtool",
+    "donniean",
+    "editorconfig",
+    "eslintignore",
+    "favicons",
+    "gitattributes",
+    "htmlhint",
+    "htmlhintrc",
+    "huskyrc",
+    "miniprogram",
+    "prettierignore",
+    "sourcemap",
+    "stylelint",
+    "todos",
+    "webpackbar",
+    "wechat",
+    "yosay"
+  ],
+  "ignorePaths": [
+    "**/dist/**",
+    "**/build/**",
+    "**/libs/**",
+    "**/*.min.*",
+    "**/package-lock.json"
+  ]
+}
