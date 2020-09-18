@@ -48,6 +48,6 @@ module.exports = {
   gitignore: true,
   gitattributes: true,
   license: true,
-  private: false,
+  'private-package': false,
 };
 ```

@@ -2,7 +2,22 @@
   "name": "@donniean/configs",
   "version": "2.0.0",
   "description": "",
-  "keywords": [],
+  "keywords": [
+    "cli",
+    "editorconfig",
+    "prettier",
+    "eslint",
+    "stylelint",
+    "htmlhint",
+    "cspell",
+    "commitlint",
+    "commitizen",
+    "husky",
+    "lint-staged",
+    ".gitignore",
+    ".gitattributes",
+    "license"
+  ],
   "homepage": "https://github.com/donniean/configs#readme",
   "bugs": {
     "url": "https://github.com/donniean/configs/issues"
