@@ -6,7 +6,9 @@
     "browserslistrc",
     "chunkhash",
     "commitlint",
+    "commitlintrc",
     "configsrc",
+    "cosmiconfig",
     "devtool",
     "donniean",
     "editorconfig",
@@ -21,6 +23,8 @@
     "prettierignore",
     "sourcemap",
     "stylelint",
+    "stylelintignore",
+    "stylelintrc",
     "todos",
     "webpackbar",
     "wechat"
