@@ -4,6 +4,7 @@
   "words": [
     "appcan",
     "browserslistrc",
+    "builtins",
     "chunkhash",
     "commitlint",
     "commitlintrc",
@@ -15,6 +16,7 @@
     "eslintignore",
     "favicons",
     "gitattributes",
+    "gulpfile",
     "htmlhint",
     "htmlhintrc",
     "huskyrc",

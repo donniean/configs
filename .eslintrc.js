@@ -15,6 +15,7 @@ module.exports = {
     es2020: true,
   },
   plugins: ['html'],
+  root: true,
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: 'module',
