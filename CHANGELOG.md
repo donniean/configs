@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/donniean/configs/compare/v2.1.0...v2.2.0) (2020-09-21)
+
+### Features
+
+- update cspell words ([be03a5a](https://github.com/donniean/configs/commit/be03a5a2501212724c8052447799058da29dc0c3))
+
 ## 2.1.0 (2020-09-18)
 
 ### Features
