@@ -1,7 +1,7 @@
 module.exports = {
   editorconfig: true,
   prettier: true,
-  eslint: [true, { es6: true }],
+  eslint: [true, { preset: 'es6' }],
   cspell: true,
   commitlint: true,
   'lint-staged': true,
