@@ -1,6 +1,6 @@
 {
   "name": "@donniean/configs",
-  "version": "2.3.2",
+  "version": "2.6.0",
   "description": "",
   "keywords": [
     "cli",
@@ -37,8 +37,8 @@
     "bin"
   ],
   "scripts": {
-    "prettier": "npx prettier \"**/*.{js,ts,jsx,tsx,json,html,vue,css,less,scss,md,yaml}\"",
-    "eslint": "npx eslint --fix \"**/*.{js,jsx,html,vue}\"",
+    "prettier": "npx prettier \"**/*.{js,json,html,md,yaml}\"",
+    "eslint": "npx eslint --fix \"**/*.{js,html\"",
     "lint": "npm run prettier && npm run eslint",
     "cspell": "cspell \"**/*\"",
     "commit": "git-cz",
@@ -84,7 +84,6 @@
     "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.3.0",
     "lint-staged": "^10.4.0",
-    "prettier": "^2.1.2",
     "standard-version": "^9.0.0"
   }
 }
