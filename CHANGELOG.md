@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.3.2](https://github.com/donniean/configs/compare/v2.3.1...v2.3.2) (2020-09-22)
+
+### Bug Fixes
+
+- packageJson.merge ([d2b83b6](https://github.com/donniean/configs/commit/d2b83b68352ec2ccc7b8697f3a5fb015aa71155e))
+
 ### [2.3.1](https://github.com/donniean/configs/compare/v2.3.0...v2.3.1) (2020-09-21)
 
 ## [2.3.0](https://github.com/donniean/configs/compare/v2.2.0...v2.3.0) (2020-09-21)
