@@ -27,7 +27,7 @@ module.exports = {
   eslint: [
     true,
     {
-      preset: 'es6', // es6, es5, react, vue, wechat-miniprogram, appcan
+      preset: 'es6', // es6, es5, react, vue, wechat-miniprogram
     },
   ],
   stylelint: [
