@@ -28,7 +28,7 @@
   },
   "license": "MIT",
   "author": "Donnie An",
-  "main": "./lib/cli/index.js",
+  "main": "lib/cli/index.js",
   "bin": {
     "configs": "./bin/configs.js"
   },

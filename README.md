@@ -18,31 +18,41 @@ configs
 
 ## Config File
 
-.configsrc.js
+`.configsrc.js` full config
 
 ```js
 module.exports = {
-  editorconfig: true,
-  prettier: true,
-  eslint: [
-    true,
-    {
-      preset: 'es6', // es6, es5, react, vue, wechat-miniprogram
-    },
+  languages: [
+    'js',
+    'jsx',
+    'vue',
+    'css',
+    'scss',
+    'less',
+    'html',
+    'json',
+    'yaml',
+    'md',
   ],
-  stylelint: [
-    true,
-    {
-      'styled-components': false,
-    },
-  ],
-  htmlhint: true,
-  cspell: true,
-  commitlint: true,
-  'lint-staged': true,
-  gitignore: true,
-  gitattributes: true,
-  license: true,
-  'private-package': false,
+  env: 'es6', // es6, es5, wechat-miniprogram
+  modules: {
+    editorconfig: true,
+    prettier: true,
+    eslint: true,
+    stylelint: [
+      true,
+      {
+        'styled-components': false,
+      },
+    ],
+    htmlhint: true,
+    cspell: true,
+    commitlint: true,
+    'lint-staged': true,
+    gitignore: true,
+    gitattributes: true,
+    license: true,
+    'private-package': false,
+  },
 };
 ```
