@@ -22,37 +22,36 @@ configs
 
 ```js
 module.exports = {
-  languages: [
-    'js',
-    'jsx',
-    'vue',
-    'css',
-    'scss',
-    'less',
-    'html',
-    'json',
-    'yaml',
-    'md',
-  ],
+  languages: {
+    js: true,
+    jsx: false,
+    vue: false,
+    css: true,
+    scss: false,
+    less: false,
+    html: true,
+    json: true,
+    yaml: false,
+    md: true,
+  },
   env: 'es6', // es6, es5, wechat-miniprogram
-  modules: {
-    editorconfig: true,
-    prettier: true,
-    eslint: true,
-    stylelint: [
-      true,
-      {
-        'styled-components': false,
-      },
-    ],
-    htmlhint: true,
-    cspell: true,
-    commitlint: true,
-    'lint-staged': true,
-    gitignore: true,
-    gitattributes: true,
-    license: true,
+  options: {
+    'styled-components': false,
+    git: true,
     'private-package': false,
+    license: true,
+  },
+  disabled: {
+    editorconfig: false,
+    prettier: false,
+    eslint: false,
+    stylelint: false,
+    htmlhint: false,
+    cspell: false,
+    commitlint: false,
+    'lint-staged': false,
+    gitignore: false,
+    gitattributes: false,
   },
 };
 ```
