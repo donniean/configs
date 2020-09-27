@@ -35,23 +35,34 @@ module.exports = {
     md: true,
   },
   env: 'es6', // es6, es5, wechat-miniprogram
-  options: {
-    'styled-components': false,
-    git: true,
+  modules: {
+    editorconfig: true,
+    prettier: true,
+    eslint: [
+      true,
+      {
+        'eslint-plugin-simple-import-sort': [
+          false,
+          {
+            files: ['./src/**'],
+          },
+        ],
+      },
+    ],
+    stylelint: [
+      true,
+      {
+        'styled-components': false,
+      },
+    ],
+    htmlhint: true,
+    cspell: true,
+    commitlint: true,
+    'lint-staged': true,
+    gitignore: true,
+    gitattributes: true,
     'private-package': false,
     license: true,
-  },
-  disabled: {
-    editorconfig: false,
-    prettier: false,
-    eslint: false,
-    stylelint: false,
-    htmlhint: false,
-    cspell: false,
-    commitlint: false,
-    'lint-staged': false,
-    gitignore: false,
-    gitattributes: false,
   },
 };
 ```
