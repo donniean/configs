@@ -13,6 +13,7 @@ module.exports = {
     es6: true,
     es2017: true,
     es2020: true,
+    es2021: true,
   },
   plugins: ['html'],
   root: true,
@@ -48,7 +49,7 @@ module.exports = {
     ],
   },
   parserOptions: {
-    ecmaVersion: 2020,
+    ecmaVersion: 2021,
     sourceType: 'module',
     parser: 'babel-eslint',
   },
