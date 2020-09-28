@@ -1,11 +1,15 @@
 module.exports = {
-  languages: ['js', 'css', 'scss'],
-  configs: [
-    'editorconfig',
-    'prettier',
-    'eslint',
-    'stylelint',
-    'htmlhint',
-    'commitlint',
-  ],
+  languages: { js: true, json: true, md: true },
+  env: 'es6',
+  modules: {
+    editorconfig: true,
+    prettier: true,
+    eslint: true,
+    cspell: true,
+    commitlint: true,
+    'lint-staged': true,
+    gitignore: true,
+    gitattributes: true,
+    license: true,
+  },
 };
