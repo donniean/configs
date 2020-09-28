@@ -38,7 +38,7 @@
   ],
   "scripts": {
     "prettier": "npx prettier \"**/*.{js,json,md}\"",
-    "eslint": "npx eslint --fix \"**/*.{js\"",
+    "eslint": "npx eslint --fix \"**/*.{js}\"",
     "lint": "npm run prettier && npm run eslint",
     "cspell": "cspell \"**/*\"",
     "commit": "git-cz",
@@ -84,6 +84,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.3.0",
     "lint-staged": "^10.4.0",
+    "prettier": "^2.1.2",
     "standard-version": "^9.0.0"
   }
 }
