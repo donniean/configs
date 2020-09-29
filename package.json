@@ -42,8 +42,7 @@
     "cspell": "cspell \"**/*\"",
     "commit": "git-cz",
     "release": "standard-version",
-    "pub": "npm run release &&  npm publish --access public",
-    "lint": "npm run prettier && npm run eslint"
+    "pub": "npm run release &&  npm publish --access public"
   },
   "config": {
     "commitizen": {
