@@ -39,11 +39,11 @@
   "scripts": {
     "prettier": "npx prettier \"**/*.{js,json,md}\"",
     "eslint": "npx eslint --fix \"**/*.{js}\"",
-    "lint": "npm run prettier && npm run eslint",
     "cspell": "cspell \"**/*\"",
     "commit": "git-cz",
     "release": "standard-version",
-    "pub": "npm run release &&  npm publish --access public"
+    "pub": "npm run release &&  npm publish --access public",
+    "lint": "npm run prettier && npm run eslint"
   },
   "config": {
     "commitizen": {
