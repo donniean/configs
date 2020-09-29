@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.5.0](https://github.com/donniean/configs/compare/v3.4.0...v3.5.0) (2020-09-29)
+
+### Features
+
+- add "contenthash" in cspell ([0a1d314](https://github.com/donniean/configs/commit/0a1d3145ece6a82be3e59e88578aaf773d8a90a0))
+
 ## [3.4.0](https://github.com/donniean/configs/compare/v3.3.1...v3.4.0) (2020-09-29)
 
 ### Features
