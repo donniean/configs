@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.4.0](https://github.com/donniean/configs/compare/v3.3.1...v3.4.0) (2020-09-29)
+
+### Features
+
+- add analyze sort in npm scripts ([b45a16e](https://github.com/donniean/configs/commit/b45a16eb3e0ac2ffffc3258fadc6310a4a8e8198))
+
+### Bug Fixes
+
+- npm scripts stylelint bug ([2e73b99](https://github.com/donniean/configs/commit/2e73b995a579ef7f76f0e1a9d38dcbfe7f7bacb3))
+
 ### [3.3.1](https://github.com/donniean/configs/compare/v3.3.0...v3.3.1) (2020-09-29)
 
 ## [3.3.0](https://github.com/donniean/configs/compare/v3.2.0...v3.3.0) (2020-09-29)
