@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.3.0](https://github.com/donniean/configs/compare/v3.2.0...v3.3.0) (2020-09-29)
+
+### Features
+
+- remove npm-lint ([a8141eb](https://github.com/donniean/configs/commit/a8141eb1305cac42708cdb031435fc9861e0180f))
+- remove prettier in devDependencies ([1e39059](https://github.com/donniean/configs/commit/1e39059c3a6017f84faef6d50cc82dc79027f72b))
+
 ## [3.2.0](https://github.com/donniean/configs/compare/v2.3.2...v3.2.0) (2020-09-29)
 
 ### Features
