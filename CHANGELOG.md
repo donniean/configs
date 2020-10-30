@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.6.0](https://github.com/donniean/configs/compare/v3.5.0...v3.6.0) (2020-10-30)
+
+### Features
+
+- update eslint rules ([69f55bc](https://github.com/donniean/configs/commit/69f55bc650cf1f72b1cb559e323348f605f643fc))
+
 ## [3.5.0](https://github.com/donniean/configs/compare/v3.4.0...v3.5.0) (2020-09-29)
 
 ### Features
