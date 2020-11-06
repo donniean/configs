@@ -8,6 +8,7 @@
     "commitlint",
     "commitlintrc",
     "configsrc",
+    "contenthash",
     "cosmiconfig",
     "devtool",
     "donniean",
@@ -20,6 +21,7 @@
     "htmlhint",
     "htmlhintrc",
     "huskyrc",
+    "iphonex",
     "lintstagedrc",
     "miniprogram",
     "prettierignore",
@@ -30,8 +32,7 @@
     "todos",
     "webpackbar",
     "webstorm",
-    "wechat",
-    "iphonex"
+    "wechat"
   ],
   "ignorePaths": [
     "**/.idea/**",
@@ -44,7 +45,6 @@
     "**/.gitignore",
     "**/.htmlhintrc",
     "**/package.json",
-    "**/package-lock.json",
-    "CHANGELOG.md"
+    "**/package-lock.json"
   ]
 }
