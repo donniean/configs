@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.7.0](https://github.com/donniean/configs/compare/v3.6.0...v3.7.0) (2020-11-06)
+
+### Features
+
+- add 'iphonex' in .cspell.json ([b7d841c](https://github.com/donniean/configs/commit/b7d841c388f38010f4b315bd9705e9fa56b4193f))
+- update eslint rules ([1f990a8](https://github.com/donniean/configs/commit/1f990a82dfac14a03aec17295789c12d4816d050))
+
 ## [3.6.0](https://github.com/donniean/configs/compare/v3.5.0...v3.6.0) (2020-10-30)
 
 ### Features
