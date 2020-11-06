@@ -30,7 +30,8 @@
     "todos",
     "webpackbar",
     "webstorm",
-    "wechat"
+    "wechat",
+    "iphonex"
   ],
   "ignorePaths": [
     "**/.idea/**",
