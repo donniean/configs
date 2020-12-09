@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.10.1](https://github.com/donniean/configs/compare/v3.10.0...v3.10.1) (2020-12-09)
+
 ## [3.10.0](https://github.com/donniean/configs/compare/v3.7.3...v3.10.0) (2020-12-09)
 
 ### Features
