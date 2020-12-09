@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.10.2](https://github.com/donniean/configs/compare/v3.10.1...v3.10.2) (2020-12-09)
+
+### Bug Fixes
+
+- bugs ([4c4203c](https://github.com/donniean/configs/commit/4c4203cd78a3228e74edb0e28f778520fd8e28ec))
+- glob braces ([b1b5dc4](https://github.com/donniean/configs/commit/b1b5dc4bb8aa87407eed0f3f8775c37d17595592))
+
 ### [3.10.1](https://github.com/donniean/configs/compare/v3.10.0...v3.10.1) (2020-12-09)
 
 ## [3.10.0](https://github.com/donniean/configs/compare/v3.7.3...v3.10.0) (2020-12-09)
