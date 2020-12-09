@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.10.0](https://github.com/donniean/configs/compare/v3.7.3...v3.10.0) (2020-12-09)
+
+### Features
+
+- update eslint config for eslint-plugin-simple-import-sort v8 ([277b335](https://github.com/donniean/configs/commit/277b33524165d3b48fbc38013cdcc660bcfb93ea))
+- update configs ([9fa93f1](https://github.com/donniean/configs/commit/9fa93f129a73554b7de9277838ac729691b22c47))
+- update configs ([043e2a8](https://github.com/donniean/configs/commit/043e2a8c76bf4e2e3cde70921822864f9ed190bf))
+
+### Bug Fixes
+
+- glob braces ([3a57e58](https://github.com/donniean/configs/commit/3a57e58283cc664bbb99f0af7940589329ea4a14))
+
+## [3.9.0](https://github.com/donniean/configs/compare/v3.7.3...v3.9.0) (2020-12-09)
+
+### Features
+
+- update eslint config for eslint-plugin-simple-import-sort v8 ([277b335](https://github.com/donniean/configs/commit/277b33524165d3b48fbc38013cdcc660bcfb93ea))
+- update configs ([9fa93f1](https://github.com/donniean/configs/commit/9fa93f129a73554b7de9277838ac729691b22c47))
+- update configs ([043e2a8](https://github.com/donniean/configs/commit/043e2a8c76bf4e2e3cde70921822864f9ed190bf))
+
+### Bug Fixes
+
+- glob braces ([3a57e58](https://github.com/donniean/configs/commit/3a57e58283cc664bbb99f0af7940589329ea4a14))
+
+## [3.8.0](https://github.com/donniean/configs/compare/v3.7.3...v3.8.0) (2020-12-09)
+
+### Features
+
+- update eslint config for eslint-plugin-simple-import-sort v8 ([277b335](https://github.com/donniean/configs/commit/277b33524165d3b48fbc38013cdcc660bcfb93ea))
+- update configs ([9fa93f1](https://github.com/donniean/configs/commit/9fa93f129a73554b7de9277838ac729691b22c47))
+- update configs ([043e2a8](https://github.com/donniean/configs/commit/043e2a8c76bf4e2e3cde70921822864f9ed190bf))
+
+### Bug Fixes
+
+- glob braces ([3a57e58](https://github.com/donniean/configs/commit/3a57e58283cc664bbb99f0af7940589329ea4a14))
+
 ### [3.7.3](https://github.com/donniean/configs/compare/v3.7.1...v3.7.3) (2020-12-02)
 
 ### [3.7.2](https://github.com/donniean/configs/compare/v3.7.1...v3.7.2) (2020-12-02)
