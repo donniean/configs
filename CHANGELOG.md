@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.12.0](https://github.com/donniean/configs/compare/v3.10.5...v3.12.0) (2021-05-07)
+
+### Features
+
+- adapt husky 6 ([1c6954f](https://github.com/donniean/configs/commit/1c6954fa3cf317f0738aeb6859732b3f9b4907a7))
+- add eslint rule for immer ([472460c](https://github.com/donniean/configs/commit/472460cdfff12c111107c3fa5117942a9698cb91))
+- add sort keys in package.json scripts ([977409c](https://github.com/donniean/configs/commit/977409c38c1aadc60fbdb95e0dcc78b054677c71))
+- add sort keys in package.json scripts ([b3d0e72](https://github.com/donniean/configs/commit/b3d0e72f8ecfe93a74f797139eb19192842517b7))
+- upgrade npm packages ([5dcca46](https://github.com/donniean/configs/commit/5dcca461b618cd1a545d4fc6149c5af3d64508c3))
+- upgrade npm packages ([4a296db](https://github.com/donniean/configs/commit/4a296db82a8bb2ee91662aeb97eabf7988180a1e))
+- upgrade npm packages ([8094082](https://github.com/donniean/configs/commit/809408232087903f3c866d4128b88a4b2401908e))
+
+## [3.11.0](https://github.com/donniean/configs/compare/v3.10.5...v3.11.0) (2021-05-07)
+
+### Features
+
+- adapt husky 6 ([1c6954f](https://github.com/donniean/configs/commit/1c6954fa3cf317f0738aeb6859732b3f9b4907a7))
+- add eslint rule for immer ([472460c](https://github.com/donniean/configs/commit/472460cdfff12c111107c3fa5117942a9698cb91))
+- add sort keys in package.json scripts ([977409c](https://github.com/donniean/configs/commit/977409c38c1aadc60fbdb95e0dcc78b054677c71))
+- add sort keys in package.json scripts ([b3d0e72](https://github.com/donniean/configs/commit/b3d0e72f8ecfe93a74f797139eb19192842517b7))
+- upgrade npm packages ([5dcca46](https://github.com/donniean/configs/commit/5dcca461b618cd1a545d4fc6149c5af3d64508c3))
+- upgrade npm packages ([4a296db](https://github.com/donniean/configs/commit/4a296db82a8bb2ee91662aeb97eabf7988180a1e))
+- upgrade npm packages ([8094082](https://github.com/donniean/configs/commit/809408232087903f3c866d4128b88a4b2401908e))
+
 ### [3.10.5](https://github.com/donniean/configs/compare/v3.10.4...v3.10.5) (2020-12-23)
 
 ### [3.10.4](https://github.com/donniean/configs/compare/v3.10.3...v3.10.4) (2020-12-23)
