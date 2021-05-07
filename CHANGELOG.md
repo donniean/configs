@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.13.0](https://github.com/donniean/configs/compare/v3.12.0...v3.13.0) (2021-05-07)
+
+### Features
+
+- upgrade npm packages ([e5c046b](https://github.com/donniean/configs/commit/e5c046b958c63e0c6e92e1cbeeb19192e7fd845e))
+
 ## [3.12.0](https://github.com/donniean/configs/compare/v3.10.5...v3.12.0) (2021-05-07)
 
 ### Features
