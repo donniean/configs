@@ -27,6 +27,7 @@
     "lintstagedrc",
     "miniprogram",
     "prettierignore",
+    "readonly",
     "sourcemap",
     "stylelint",
     "stylelintignore",
