@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.16.0](https://github.com/donniean/configs/compare/v3.15.6...v3.16.0) (2021-08-26)
+
+### Features
+
+- modified default config ([c51fe3d](https://github.com/donniean/configs/commit/c51fe3d0ead19e1a48809b1f2faa84667af8eb66))
+- modified gitignore and cspell ([4f88bed](https://github.com/donniean/configs/commit/4f88bedf4ea69698da6a0e3c2e99b1ab95e7752d))
+
 ### [3.15.6](https://github.com/donniean/configs/compare/v3.15.5...v3.15.6) (2021-07-19)
 
 ### [3.15.5](https://github.com/donniean/configs/compare/v3.15.3...v3.15.5) (2021-07-16)
