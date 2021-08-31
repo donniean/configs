@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.23.0](https://github.com/donniean/configs/compare/v3.22.0...v3.23.0) (2021-08-31)
+
+### Features
+
+- cspell 0.1 => 0.2 ([42621e0](https://github.com/donniean/configs/commit/42621e0bc1d5f2c828ac74b6987f22cac8cac232))
+
 ## [3.22.0](https://github.com/donniean/configs/compare/v3.21.0...v3.22.0) (2021-08-31)
 
 ### Features
