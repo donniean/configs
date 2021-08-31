@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.21.0](https://github.com/donniean/configs/compare/v3.20.0...v3.21.0) (2021-08-31)
+
+### Features
+
+- add gitignore constants ([4a3e33c](https://github.com/donniean/configs/commit/4a3e33cd703b480ddcd849901bec57368ffa717d))
+
 ## [3.20.0](https://github.com/donniean/configs/compare/v3.19.0...v3.20.0) (2021-08-31)
 
 ### Features
