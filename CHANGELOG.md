@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.19.0](https://github.com/donniean/configs/compare/v3.18.0...v3.19.0) (2021-08-31)
+
+### Features
+
+- update eslint rules ([edbfcab](https://github.com/donniean/configs/commit/edbfcab37fd70a7238dc233e8fc0cf2c3bba2ca1))
+
 ## [3.18.0](https://github.com/donniean/configs/compare/v3.17.0...v3.18.0) (2021-08-27)
 
 ### Features
