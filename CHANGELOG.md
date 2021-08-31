@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.22.0](https://github.com/donniean/configs/compare/v3.21.0...v3.22.0) (2021-08-31)
+
+### Features
+
+- modified lint-staged ([bf3b5f4](https://github.com/donniean/configs/commit/bf3b5f4ed5f54992c67103f63673f4014e080f93))
+
 ## [3.21.0](https://github.com/donniean/configs/compare/v3.20.0...v3.21.0) (2021-08-31)
 
 ### Features
