@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.24.0](https://github.com/donniean/configs/compare/v3.23.0...v3.24.0) (2021-09-08)
+
+### Features
+
+- add \**/.cache/ to *ignore ([09b3505](https://github.com/donniean/configs/commit/09b35052dd466eb634fd3ca0207631963b6eed95))
+
 ## [3.23.0](https://github.com/donniean/configs/compare/v3.22.0...v3.23.0) (2021-08-31)
 
 ### Features
