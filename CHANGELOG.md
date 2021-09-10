@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.25.0](https://github.com/donniean/configs/compare/v3.24.1...v3.25.0) (2021-09-10)
+
+### Features
+
+- update gitignore ([960a73e](https://github.com/donniean/configs/commit/960a73e4ddb23ec18678a7493fdd60afa59b1cbd))
+- update sort package json ([b77f84f](https://github.com/donniean/configs/commit/b77f84fbbc3e88948ebf55e4e5e265159d547ed9))
+
 ### [3.24.1](https://github.com/donniean/configs/compare/v3.24.0...v3.24.1) (2021-09-10)
 
 ## [3.24.0](https://github.com/donniean/configs/compare/v3.23.0...v3.24.0) (2021-09-08)
