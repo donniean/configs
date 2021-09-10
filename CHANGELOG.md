@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.29.1](https://github.com/donniean/configs/compare/v3.29.0...v3.29.1) (2021-09-10)
+
+### Bug Fixes
+
+- prettier ([9ba4e74](https://github.com/donniean/configs/commit/9ba4e74643d9f4c59ec4fa24a3bbdf17a48b6fdf))
+
 ## [3.29.0](https://github.com/donniean/configs/compare/v3.28.0...v3.29.0) (2021-09-10)
 
 ### Features
