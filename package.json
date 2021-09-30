@@ -38,7 +38,7 @@
   ],
   "scripts": {
     "prettier": "npx prettier \"**/*.{js,json,md}\"",
-    "eslint": "npx eslint --fix \"**/*.{js}\"",
+    "eslint": "npx eslint --fix \"**/*.js\"",
     "cspell": "cspell \"**\"",
     "prepare": "husky install",
     "pre-commit": "lint-staged",
