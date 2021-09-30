@@ -1,14 +1,24 @@
 module.exports = {
+  root: true,
+  parser: '@babel/eslint-parser',
+  parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
+  env: {
+    browser: true,
+    node: true,
+    commonjs: true,
+    'shared-node-browser': true,
+    amd: true,
+    es6: true,
+    es2017: true,
+    es2020: true,
+    es2021: true,
+  },
   extends: [
     'airbnb-base',
     'plugin:node/recommended',
     'plugin:prettier/recommended',
   ],
   rules: {
-    'no-param-reassign': [
-      'error',
-      { props: true, ignorePropertyModificationsFor: ['draft'] },
-    ],
     'no-useless-call': 'error',
     'init-declarations': ['error', 'always'],
     'import/order': [
@@ -26,47 +36,18 @@ module.exports = {
       },
     ],
     'node/no-missing-import': 'off',
-    /* 'node/no-unsupported-features/es-builtins': [
-      'error',
-      { version: '>=14.0.0', ignores: [] },
-    ], */
     'node/no-unsupported-features/es-syntax': [
       'error',
       { version: '>=14.0.0', ignores: ['modules'] },
     ],
-    /* 'node/no-unsupported-features/node-builtins': [
-      'error',
-      { version: '>=14.0.0', ignores: [] },
-    ], */
-  },
-  env: {
-    browser: true,
-    node: true,
-    commonjs: true,
-    'shared-node-browser': true,
-    amd: true,
-    es6: true,
-    es2017: true,
-    es2020: true,
-    es2021: true,
-  },
-  plugins: ['html'],
-  root: true,
-  parserOptions: {
-    ecmaVersion: 2021,
-    sourceType: 'module',
-    parser: 'babel-eslint',
   },
   overrides: [
     {
       files: [
         '**/webpack.js',
         '**/webpack.*.js',
-        '**/rollup.js',
-        '**/rollup.*.js',
-        '**/gulpfile.js',
-        '**/gulpfile.*.js',
-        '**/postcss.config.js',
+        '**/webpack.ts',
+        '**/webpack.*.ts',
         '**/postcss.*.js',
       ],
       rules: {
