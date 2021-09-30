@@ -5,7 +5,6 @@ module.exports = {
     editorconfig: true,
     prettier: true,
     eslint: true,
-    cspell: true,
     commitlint: true,
     'lint-staged': true,
     husky: true,
