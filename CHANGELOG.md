@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.31.0](https://github.com/donniean/configs/compare/v3.30.0...v3.31.0) (2021-09-30)
+
+### Features
+
+- m ([5e2ee2a](https://github.com/donniean/configs/commit/5e2ee2a2b7b6e9494efba4dff3110c2af5394ccc))
+- update eslint ([c18d3ac](https://github.com/donniean/configs/commit/c18d3ac0ec582d0041843fb6cd22a7436cd0e141))
+- update eslint ([f1cc671](https://github.com/donniean/configs/commit/f1cc6715e8a4be0a1bb25c88b312a13ddd189d84))
+- update eslint ([b971a1d](https://github.com/donniean/configs/commit/b971a1ddcb0c78519e7a09d4610df89b48f599e1))
+- update eslint rules ([0764c45](https://github.com/donniean/configs/commit/0764c459efe6e8194e029c5c73c0a2b0a0355ab2))
+- update eslint rules ([ffa3035](https://github.com/donniean/configs/commit/ffa30359d44b049a6c3b0719ead778f477d3a22b))
+- update eslint rules ([a00de13](https://github.com/donniean/configs/commit/a00de13a63c57344506ff001955ab1b6d50b746b))
+- update eslint rules ([a036336](https://github.com/donniean/configs/commit/a03633611bfa01436e0b2b9e7d929d5b9fc851c2))
+- update eslint rules ([5865890](https://github.com/donniean/configs/commit/5865890b8af85a10b9568c7e12544b72694785b1))
+
 ## [3.30.0](https://github.com/donniean/configs/compare/v3.29.1...v3.30.0) (2021-09-10)
 
 ### Features
