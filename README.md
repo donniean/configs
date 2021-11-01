@@ -47,6 +47,9 @@ module.exports = {
             files: ['./src/**'],
           },
         ],
+        'eslint-plugin-import': {
+          'resolver-webpack-config-file': './webpack/webpack.config.dev.js',
+        },
       },
     ],
     stylelint: [
