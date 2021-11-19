@@ -64,5 +64,3 @@ config/local-*.*
 # Production
 build/
 dist/
-
-
