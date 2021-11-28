@@ -1,12 +1,12 @@
-import {get, intersection, pull, uniq} from 'lodash';
+import { get, intersection, pull, uniq } from 'lodash';
 
 import * as configFile from '@/utils/config-file';
 
-const sort = ({data, sorter}) =>
+const sort = ({ data, sorter }) =>
   data.sort((a, b) => sorter.indexOf(a) - sorter.indexOf(b));
 
 const addGlobBraces = (data) => {
-  const {length} = data;
+  const { length } = data;
   const extensions = data.join(',');
   if (length <= 1) {
     return extensions;
@@ -14,7 +14,7 @@ const addGlobBraces = (data) => {
   return `{${extensions}}`;
 };
 
-const getPrettier = ({parsedConfig, withGlobBraces} = {}) => {
+const getPrettier = ({ parsedConfig, withGlobBraces } = {}) => {
   const sorter = [
     'js',
     'jsx',
@@ -29,33 +29,33 @@ const getPrettier = ({parsedConfig, withGlobBraces} = {}) => {
     'yaml',
     'md',
   ];
-  const {languages} = parsedConfig;
+  const { languages } = parsedConfig;
   let data = configFile.arrayValuesToBoolean(languages);
   data = configFile.objectToArray(data);
   data = uniq(intersection(data, sorter));
-  data = sort({data, sorter});
+  data = sort({ data, sorter });
   if (withGlobBraces) {
     return addGlobBraces(data);
   }
   return data.join(',');
 };
 
-const getESLint = ({parsedConfig, withGlobBraces} = {}) => {
+const getESLint = ({ parsedConfig, withGlobBraces } = {}) => {
   const sorter = ['js', 'jsx', 'ts', 'tsx', 'html'];
-  const {languages} = parsedConfig;
+  const { languages } = parsedConfig;
   let data = configFile.arrayValuesToBoolean(languages);
   data = configFile.objectToArray(data);
   data = uniq(intersection(data, sorter));
-  data = sort({data, sorter});
+  data = sort({ data, sorter });
   if (withGlobBraces) {
     return addGlobBraces(data);
   }
   return data.join(',');
 };
 
-const getStylelint = ({parsedConfig, withGlobBraces} = {}) => {
+const getStylelint = ({ parsedConfig, withGlobBraces } = {}) => {
   const sorter = ['css', 'scss', 'less', 'js', 'jsx', 'ts', 'tsx'];
-  const {languages, modules} = parsedConfig;
+  const { languages, modules } = parsedConfig;
   const styledComponents = get(modules, ['stylelint', 1, 'styled-components']);
   let data = configFile.arrayValuesToBoolean(languages);
   data = configFile.objectToArray(data);
@@ -63,11 +63,11 @@ const getStylelint = ({parsedConfig, withGlobBraces} = {}) => {
     pull(data, 'js', 'jsx', 'ts', 'tsx');
   }
   data = uniq(intersection(data, sorter));
-  data = sort({data, sorter});
+  data = sort({ data, sorter });
   if (withGlobBraces) {
     return addGlobBraces(data);
   }
   return data.join(',');
 };
 
-export {getPrettier, getESLint, getStylelint};
+export { getPrettier, getESLint, getStylelint };

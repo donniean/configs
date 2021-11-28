@@ -1,5 +1,5 @@
 import inquirer from 'inquirer';
-import {get} from 'lodash';
+import { get } from 'lodash';
 
 const separator = new inquirer.Separator();
 
@@ -51,20 +51,20 @@ const choices = [
   },
 ];
 
-const getLanguage = ({parsedLanguages, name}) =>
+const getLanguage = ({ parsedLanguages, name }) =>
   get(parsedLanguages, [name, 0]);
 
-const getDisabled = ({value, parsedLanguages}) => {
-  const js = getLanguage({parsedLanguages, name: 'js'});
-  const jsx = getLanguage({parsedLanguages, name: 'jsx'});
-  const vue = getLanguage({parsedLanguages, name: 'vue'});
-  const css = getLanguage({parsedLanguages, name: 'css'});
-  const scss = getLanguage({parsedLanguages, name: 'scss'});
-  const less = getLanguage({parsedLanguages, name: 'less'});
-  const html = getLanguage({parsedLanguages, name: 'html'});
-  const json = getLanguage({parsedLanguages, name: 'json'});
-  const yaml = getLanguage({parsedLanguages, name: 'yaml'});
-  const md = getLanguage({parsedLanguages, name: 'md'});
+const getDisabled = ({ value, parsedLanguages }) => {
+  const js = getLanguage({ parsedLanguages, name: 'js' });
+  const jsx = getLanguage({ parsedLanguages, name: 'jsx' });
+  const vue = getLanguage({ parsedLanguages, name: 'vue' });
+  const css = getLanguage({ parsedLanguages, name: 'css' });
+  const scss = getLanguage({ parsedLanguages, name: 'scss' });
+  const less = getLanguage({ parsedLanguages, name: 'less' });
+  const html = getLanguage({ parsedLanguages, name: 'html' });
+  const json = getLanguage({ parsedLanguages, name: 'json' });
+  const yaml = getLanguage({ parsedLanguages, name: 'yaml' });
+  const md = getLanguage({ parsedLanguages, name: 'md' });
 
   let enabled = true;
 
@@ -96,17 +96,17 @@ const getDisabled = ({value, parsedLanguages}) => {
   return !enabled;
 };
 
-export default ({lastParsedConfig, parsedLanguages}) => [
+export default ({ lastParsedConfig, parsedLanguages }) => [
   {
     type: 'checkbox',
     name: 'modules',
     message: 'Choose Modules',
     choices() {
       return choices.map((item) => {
-        const {value} = item;
-        const disabled = getDisabled({value, parsedLanguages});
+        const { value } = item;
+        const disabled = getDisabled({ value, parsedLanguages });
         const checked = !disabled && get(lastParsedConfig, ['modules', value]);
-        return {...item, checked, disabled};
+        return { ...item, checked, disabled };
       });
     },
     pageSize: 100,

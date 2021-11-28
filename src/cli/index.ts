@@ -1,5 +1,5 @@
-import {bold} from 'chalk';
-import {get, isEmpty} from 'lodash';
+import { bold } from 'chalk';
+import { get, isEmpty } from 'lodash';
 import yargs from 'yargs';
 
 import handleModules from '@/cli/modules';
@@ -10,7 +10,7 @@ import {
   SCSS_AND_LESS_ERROR,
 } from '@/constants/messages';
 import * as configFile from '@/utils/config-file';
-import {command, success, successBold} from '@/utils/console';
+import { command, success, successBold } from '@/utils/console';
 import * as defaultConfig from '@/utils/default-config';
 import * as packageJson from '@/utils/package-json';
 
@@ -20,7 +20,7 @@ export default async () => {
     throw new Error(bold.red('Error: Please run command "npm init" first'));
   }
 
-  const {argv} = yargs
+  const { argv } = yargs
     .options({
       p: {
         alias: 'prompt',
@@ -33,13 +33,13 @@ export default async () => {
     .version()
     .alias('v', 'version');
 
-  const {prompt: isPrompt} = argv;
+  const { prompt: isPrompt } = argv;
   const lastConfig = configFile.readSync();
   let config = null;
 
   if (lastConfig) {
-    const lastParsedConfig = configFile.parse({config: lastConfig});
-    const {languages = {}} = lastParsedConfig;
+    const lastParsedConfig = configFile.parse({ config: lastConfig });
+    const { languages = {} } = lastParsedConfig;
 
     if (isEmpty(languages)) {
       throw new Error(bold.red(NO_LANGUAGES));
@@ -52,21 +52,21 @@ export default async () => {
     }
 
     if (isPrompt) {
-      config = await prompt({lastParsedConfig});
-      configFile.writeSync({config});
+      config = await prompt({ lastParsedConfig });
+      configFile.writeSync({ config });
       success('.configsrc.js has been overwritten');
     } else {
       config = lastConfig;
     }
   } else {
-    const lastParsedConfig = configFile.parse({config: defaultConfig});
-    config = await prompt({lastParsedConfig});
-    configFile.writeSync({config});
+    const lastParsedConfig = configFile.parse({ config: defaultConfig });
+    config = await prompt({ lastParsedConfig });
+    configFile.writeSync({ config });
     successBold('.configsrc.js has been created');
   }
 
-  const parsedConfig = configFile.parse({config});
-  await handleModules({parsedConfig});
+  const parsedConfig = configFile.parse({ config });
+  await handleModules({ parsedConfig });
 
   success('Everything is OK, Thanks! Please run: ');
   command('npm install');

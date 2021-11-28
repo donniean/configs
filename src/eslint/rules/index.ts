@@ -1,4 +1,4 @@
-import {merge} from 'webpack-merge';
+import { merge } from 'webpack-merge';
 
 import airbnbBase from '@/eslint/rules/airbnb-base';
 import airbnbReact from '@/eslint/rules/airbnb-react';

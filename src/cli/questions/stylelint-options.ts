@@ -1,4 +1,4 @@
-import {get} from 'lodash';
+import { get } from 'lodash';
 
 const choices = [
   {
@@ -7,21 +7,21 @@ const choices = [
   },
 ];
 
-export default ({lastParsedConfig}) => [
+export default ({ lastParsedConfig }) => [
   {
     type: 'checkbox',
     name: 'stylelint-options',
     message: 'Choose stylelint Options',
     choices() {
       return choices.map((item) => {
-        const {value} = item;
+        const { value } = item;
         const checked = get(lastParsedConfig, [
           'modules',
           'stylelint',
           1,
           value,
         ]);
-        return {...item, checked};
+        return { ...item, checked };
       });
     },
     pageSize: 100,

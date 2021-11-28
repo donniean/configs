@@ -30,7 +30,7 @@ export default {
     'node/no-missing-import': 'off',
     'node/no-unsupported-features/es-syntax': [
       'error',
-      {version: '>=14.0.0', ignores: ['modules']},
+      { version: '>=14.0.0', ignores: ['modules'] },
     ],
   },
   overrides: [

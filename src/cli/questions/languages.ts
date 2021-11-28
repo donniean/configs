@@ -1,4 +1,4 @@
-import {get} from 'lodash';
+import { get } from 'lodash';
 
 import {
   JS_IS_REQUIRED_CAUSE_JSX,
@@ -49,16 +49,16 @@ const choices = [
   },
 ];
 
-export default ({lastParsedConfig}) => [
+export default ({ lastParsedConfig }) => [
   {
     type: 'checkbox',
     name: 'languages',
     message: 'Choose Languages',
     choices() {
       return choices.map((item) => {
-        const {value} = item;
+        const { value } = item;
         const checked = get(lastParsedConfig, ['languages', value, 0]);
-        return {...item, checked};
+        return { ...item, checked };
       });
     },
     validate(values) {

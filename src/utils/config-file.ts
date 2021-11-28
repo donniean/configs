@@ -1,7 +1,7 @@
-import {cosmiconfigSync} from 'cosmiconfig';
-import {get, isEmpty, mapValues} from 'lodash';
+import { cosmiconfigSync } from 'cosmiconfig';
+import { get, isEmpty, mapValues } from 'lodash';
 
-import {writeObjectToDestModuleJSFileSync} from '@/utils/fs';
+import { writeObjectToDestModuleJSFileSync } from '@/utils/fs';
 
 const explorerSync = cosmiconfigSync('configs');
 
@@ -10,7 +10,7 @@ const readSync = () => {
   return get(res, 'config', null);
 };
 
-const writeSync = ({config}) => {
+const writeSync = ({ config }) => {
   writeObjectToDestModuleJSFileSync({
     fileName: '.configsrc.js',
     data: config,
@@ -54,11 +54,11 @@ const arrayValueToBoolean = (value) => {
 
 const arrayValuesToBoolean = (values) => mapValues(values, arrayValueToBoolean);
 
-const parse = ({config}) => {
-  const {languages = {}, modules = {}, ...rest} = config;
+const parse = ({ config }) => {
+  const { languages = {}, modules = {}, ...rest } = config;
   const l = booleanValuesToArray(languages);
   const m = booleanValuesToArray(modules);
-  return {languages: l, modules: m, ...rest};
+  return { languages: l, modules: m, ...rest };
 };
 
 export {

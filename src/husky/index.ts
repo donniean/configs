@@ -1,9 +1,9 @@
-import {command, warn} from '@/utils/console';
+import { command, warn } from '@/utils/console';
 import * as packageJson from '@/utils/package-json';
 
-function showTips({parsedConfig}) {
-  const {modules = {}} = parsedConfig;
-  const {'lint-staged': lintStaged = [], commitlint = []} = modules;
+function showTips({ parsedConfig }) {
+  const { modules = {} } = parsedConfig;
+  const { 'lint-staged': lintStaged = [], commitlint = [] } = modules;
   const [useLintStaged] = lintStaged;
   const [useCommitlint] = commitlint;
 
@@ -26,8 +26,8 @@ function showTips({parsedConfig}) {
   }
 }
 
-export default async ({parsedConfig}) => {
+export default async ({ parsedConfig }) => {
   const packageNames = ['husky'];
-  await packageJson.mergeDevDependencies({packageNames});
-  showTips({parsedConfig});
+  await packageJson.mergeDevDependencies({ packageNames });
+  showTips({ parsedConfig });
 };

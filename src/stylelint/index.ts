@@ -1,6 +1,6 @@
-import {get} from 'lodash';
+import { get } from 'lodash';
 import sortObject from 'sort-object-keys';
-import {merge} from 'webpack-merge';
+import { merge } from 'webpack-merge';
 
 import baseConfig from '@/stylelint/rules/base';
 import rationalOrderConfig from '@/stylelint/rules/rational-order';
@@ -13,7 +13,7 @@ import {
 } from '@/utils/fs';
 import * as packageJson from '@/utils/package-json';
 
-const getPackages = ({hasScss, usePrettier, styledComponents}) => {
+const getPackages = ({ hasScss, usePrettier, styledComponents }) => {
   let packages = [
     'stylelint',
     'stylelint-config-standard',
@@ -36,13 +36,13 @@ const getPackages = ({hasScss, usePrettier, styledComponents}) => {
   return packages;
 };
 
-const integratePrettier = ({config: c}) => {
-  const {extends: extendsAlias = []} = c;
+const integratePrettier = ({ config: c }) => {
+  const { extends: extendsAlias = [] } = c;
   extendsAlias.push('stylelint-prettier/recommended');
   return c;
 };
 
-export default async ({parsedConfig}) => {
+export default async ({ parsedConfig }) => {
   const hasScss = get(parsedConfig, ['languages', 'scss']);
   const styledComponents = get(parsedConfig, [
     'modules',
@@ -64,7 +64,7 @@ export default async ({parsedConfig}) => {
     withGlobBraces: true,
   });
 
-  await packageJson.mergeDevDependencies({packageNames});
+  await packageJson.mergeDevDependencies({ packageNames });
 
   let config = baseConfig;
   if (hasScss) {
@@ -75,15 +75,15 @@ export default async ({parsedConfig}) => {
   }
 
   config = merge({}, config, rationalOrderConfig);
-  config = integratePrettier({config});
+  config = integratePrettier({ config });
   config = sortObject(config, ['plugins', 'extends', 'rules', 'overrides']);
 
   const data = JSON.stringify(config).replace(
     '"ignoreKeywords":[{}]',
     'ignoreKeywords: [/^[a-z]+[A-Z][a-z]*/]'
   );
-  writeObjectToDestModuleJSFileSync({fileName, data});
-  copyFilesToDestByTemplatesSync({modulePath: __dirname, fileNames});
+  writeObjectToDestModuleJSFileSync({ fileName, data });
+  copyFilesToDestByTemplatesSync({ modulePath: __dirname, fileNames });
   await packageJson.merge({
     data: {
       scripts: {

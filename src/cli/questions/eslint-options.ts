@@ -1,4 +1,4 @@
-import {get} from 'lodash';
+import { get } from 'lodash';
 
 const choices = [
   {
@@ -7,14 +7,14 @@ const choices = [
   },
 ];
 
-export default ({lastParsedConfig}) => [
+export default ({ lastParsedConfig }) => [
   {
     type: 'checkbox',
     name: 'eslint-options',
     message: 'Choose ESLint Options',
     choices() {
       return choices.map((item) => {
-        const {value} = item;
+        const { value } = item;
         const checked = get(lastParsedConfig, [
           'modules',
           'eslint',
@@ -22,7 +22,7 @@ export default ({lastParsedConfig}) => [
           value,
           0,
         ]);
-        return {...item, checked};
+        return { ...item, checked };
       });
     },
     pageSize: 100,

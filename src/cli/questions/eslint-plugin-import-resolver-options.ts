@@ -1,8 +1,8 @@
-import {get} from 'lodash';
+import { get } from 'lodash';
 
-import {DEFAULT_ESLINT_PLUGIN_IMPORT_RESOLVER_WEBPACK_CONFIG_FILE} from '@/constants/defaults';
+import { DEFAULT_ESLINT_PLUGIN_IMPORT_RESOLVER_WEBPACK_CONFIG_FILE } from '@/constants/defaults';
 
-export default ({lastParsedConfig}) => [
+export default ({ lastParsedConfig }) => [
   {
     type: 'input',
     name: 'eslint-plugin-import-resolver-webpack-config-file',

@@ -1,4 +1,4 @@
-import {prompt} from 'inquirer';
+import { prompt } from 'inquirer';
 
 import {
   getEnvQuestions,
@@ -11,33 +11,33 @@ import {
 } from '@/cli/questions';
 import * as configFile from '@/utils/config-file';
 
-const promptLanguages = async ({lastParsedConfig}) => {
-  const questions = getLanguagesQuestions({lastParsedConfig});
-  const {languages = []} = await prompt(questions);
+const promptLanguages = async ({ lastParsedConfig }) => {
+  const questions = getLanguagesQuestions({ lastParsedConfig });
+  const { languages = [] } = await prompt(questions);
   return configFile.arrayToObject(languages);
 };
 
-const promptEnv = async ({lastParsedConfig, parsedLanguages}) => {
-  const questions = getEnvQuestions({lastParsedConfig, parsedLanguages});
-  const {env = ''} = await prompt(questions);
+const promptEnv = async ({ lastParsedConfig, parsedLanguages }) => {
+  const questions = getEnvQuestions({ lastParsedConfig, parsedLanguages });
+  const { env = '' } = await prompt(questions);
   return env;
 };
 
-const promptModules = async ({lastParsedConfig, parsedLanguages}) => {
-  const questions = getModulesQuestions({lastParsedConfig, parsedLanguages});
-  const {modules = []} = await prompt(questions);
+const promptModules = async ({ lastParsedConfig, parsedLanguages }) => {
+  const questions = getModulesQuestions({ lastParsedConfig, parsedLanguages });
+  const { modules = [] } = await prompt(questions);
   return configFile.arrayToObject(modules);
 };
 
-const promptESLintOptions = async ({lastParsedConfig}) => {
-  const questions = getESLintOptionsQuestions({lastParsedConfig});
-  const {'eslint-options': options = []} = await prompt(questions);
+const promptESLintOptions = async ({ lastParsedConfig }) => {
+  const questions = getESLintOptionsQuestions({ lastParsedConfig });
+  const { 'eslint-options': options = [] } = await prompt(questions);
   return configFile.arrayToObject(options);
 };
 
 const promptESLintPluginSimpleImportSortOptions = async ({
-                                                           lastParsedConfig,
-                                                         }) => {
+  lastParsedConfig,
+}) => {
   const questions = getESLintPluginSimpleImportSortOptionsQuestions({
     lastParsedConfig,
   });
@@ -53,8 +53,8 @@ const promptESLintPluginSimpleImportSortOptions = async ({
 };
 
 const promptESLintPluginImportResolverOptions = async ({
-                                                         lastParsedConfig,
-                                                       }) => {
+  lastParsedConfig,
+}) => {
   const questions = getESLintPluginImportResolverOptionsQuestions({
     lastParsedConfig,
   });
@@ -67,27 +67,27 @@ const promptESLintPluginImportResolverOptions = async ({
   };
 };
 
-const promptStylelintOptions = async ({lastParsedConfig}) => {
-  const questions = getStylelintOptionsQuestions({lastParsedConfig});
-  const {'stylelint-options': options = []} = await prompt(questions);
+const promptStylelintOptions = async ({ lastParsedConfig }) => {
+  const questions = getStylelintOptionsQuestions({ lastParsedConfig });
+  const { 'stylelint-options': options = [] } = await prompt(questions);
   return configFile.arrayToObject(options);
 };
 
-export default async ({lastParsedConfig}) => {
-  const languages = await promptLanguages({lastParsedConfig});
+export default async ({ lastParsedConfig }) => {
+  const languages = await promptLanguages({ lastParsedConfig });
   const parsedLanguages = configFile.booleanValuesToArray(languages);
 
   let env = '';
   if (languages.js || languages.jsx) {
-    env = await promptEnv({lastParsedConfig, parsedLanguages});
+    env = await promptEnv({ lastParsedConfig, parsedLanguages });
   }
 
-  const modules = await promptModules({lastParsedConfig, parsedLanguages});
+  const modules = await promptModules({ lastParsedConfig, parsedLanguages });
 
-  const {eslint} = modules;
+  const { eslint } = modules;
   if (eslint) {
-    const eslintOptions = await promptESLintOptions({lastParsedConfig});
-    const {'eslint-plugin-simple-import-sort': eslintPluginSimpleImportSort} =
+    const eslintOptions = await promptESLintOptions({ lastParsedConfig });
+    const { 'eslint-plugin-simple-import-sort': eslintPluginSimpleImportSort } =
       eslintOptions;
 
     if (eslintPluginSimpleImportSort) {
@@ -128,12 +128,12 @@ export default async ({lastParsedConfig}) => {
     }
   }
 
-  const {stylelint} = modules;
+  const { stylelint } = modules;
   if (stylelint) {
-    const stylelintOptions = await promptStylelintOptions({lastParsedConfig});
-    const {'styled-components': styledComponents} = stylelintOptions;
+    const stylelintOptions = await promptStylelintOptions({ lastParsedConfig });
+    const { 'styled-components': styledComponents } = stylelintOptions;
     if (styledComponents) {
-      modules.stylelint = [true, {'styled-components': true}];
+      modules.stylelint = [true, { 'styled-components': true }];
     }
   }
 

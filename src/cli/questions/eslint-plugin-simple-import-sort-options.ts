@@ -1,8 +1,8 @@
-import {get, isEmpty} from 'lodash';
+import { get, isEmpty } from 'lodash';
 
-import {DEFAULT_ESLINT_PLUGIN_SIMPLE_IMPORT_SORT_FILES} from '@/constants/defaults';
+import { DEFAULT_ESLINT_PLUGIN_SIMPLE_IMPORT_SORT_FILES } from '@/constants/defaults';
 
-export default ({lastParsedConfig}) => [
+export default ({ lastParsedConfig }) => [
   {
     type: 'input',
     name: 'eslint-plugin-simple-import-sort-files',

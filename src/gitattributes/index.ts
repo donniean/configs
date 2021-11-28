@@ -1,4 +1,4 @@
-import {writeFileToDestSync} from '@/utils/fs';
+import { writeFileToDestSync } from '@/utils/fs';
 import request from '@/utils/request';
 
 export default async () => {
@@ -7,6 +7,6 @@ export default async () => {
   const fileName = '.gitattributes';
   const data = await request(url);
   if (typeof data === 'string') {
-    writeFileToDestSync({fileName, data});
+    writeFileToDestSync({ fileName, data });
   }
 };

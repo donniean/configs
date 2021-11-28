@@ -26,4 +26,4 @@ const command = (...args) => {
   console.info(chalk.inverse(...args));
 };
 
-export {success, successBold, error, warn, info, command};
+export { success, successBold, error, warn, info, command };

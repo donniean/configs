@@ -1,5 +1,5 @@
-import {blue} from 'chalk';
-import {get} from 'lodash';
+import { blue } from 'chalk';
+import { get } from 'lodash';
 import ora from 'ora';
 
 const run = async (name, func) => {
@@ -7,8 +7,8 @@ const run = async (name, func) => {
   await func();
 };
 
-export default async ({parsedConfig}) => {
-  const {languages, modules} = parsedConfig;
+export default async ({ parsedConfig }) => {
+  const { languages, modules } = parsedConfig;
 
   const js = get(languages, ['js', 0]);
   const jsx = get(languages, ['jsx', 0]);
@@ -45,21 +45,21 @@ export default async ({parsedConfig}) => {
   ) {
     await run('Prettier', async () => {
       // eslint-disable-next-line global-require
-      await require('../prettier')({parsedConfig});
+      await require('../prettier')({ parsedConfig });
     });
   }
 
   if ((js || jsx) && eslint) {
     await run('ESLint', async () => {
       // eslint-disable-next-line global-require
-      await require('../eslint')({parsedConfig});
+      await require('../eslint')({ parsedConfig });
     });
   }
 
   if ((css || scss || less || ((js || jsx) && styledComponents)) && stylelint) {
     await run('stylelint', async () => {
       // eslint-disable-next-line global-require
-      await require('../stylelint')({parsedConfig});
+      await require('../stylelint')({ parsedConfig });
     });
   }
 
@@ -83,14 +83,14 @@ export default async ({parsedConfig}) => {
   if (lintStaged) {
     await run('lint-staged', async () => {
       // eslint-disable-next-line global-require
-      await require('../lint-staged')({parsedConfig});
+      await require('../lint-staged')({ parsedConfig });
     });
   }
 
   if (husky) {
     await run('Husky', async () => {
       // eslint-disable-next-line global-require
-      await require('../husky')({parsedConfig});
+      await require('../husky')({ parsedConfig });
     });
   }
 

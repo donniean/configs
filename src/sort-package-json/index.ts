@@ -5,7 +5,7 @@ import * as packageJson from '@/utils/package-json';
 
 export default async () => {
   const json = packageJson.readSync();
-  const {scripts} = json;
+  const { scripts } = json;
   const data = sortPackageJson(json);
   data.scripts = sortObject(scripts, [
     'dev',
@@ -27,5 +27,5 @@ export default async () => {
     'release',
     'pub',
   ]);
-  packageJson.writeSync({data});
+  packageJson.writeSync({ data });
 };

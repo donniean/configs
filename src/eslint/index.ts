@@ -1,8 +1,8 @@
-import {get, isEmpty} from 'lodash';
+import { get, isEmpty } from 'lodash';
 import sortObject from 'sort-object-keys';
-import {merge} from 'webpack-merge';
+import { merge } from 'webpack-merge';
 
-import {DEFAULT_ENV} from '@/constants/defaults';
+import { DEFAULT_ENV } from '@/constants/defaults';
 import configs from '@/eslint/rules';
 import fileExtensions from '@/utils/file-extensions';
 import {
@@ -11,8 +11,8 @@ import {
 } from '@/utils/fs';
 import * as packageJson from '@/utils/package-json';
 
-const getPreset = ({parsedConfig}) => {
-  const {languages = {}, env = DEFAULT_ENV} = parsedConfig;
+const getPreset = ({ parsedConfig }) => {
+  const { languages = {}, env = DEFAULT_ENV } = parsedConfig;
   const jsx = get(languages, ['jsx', 0]);
 
   if (jsx) {
@@ -23,11 +23,11 @@ const getPreset = ({parsedConfig}) => {
 };
 
 const getPackages = ({
-                       preset,
-                       enableESLintPluginSimpleImportSort,
-                       hasHtml,
-                       usePrettier,
-                     }) => {
+  preset,
+  enableESLintPluginSimpleImportSort,
+  hasHtml,
+  usePrettier,
+}) => {
   const base = ['eslint'];
   const airbnbBase = ['eslint-plugin-import', 'eslint-config-airbnb-base'];
   const airbnbReact = [
@@ -57,13 +57,13 @@ const getPackages = ({
   return packages;
 };
 
-const integratePrettier = ({config}) => {
-  const {extends: extendsAlias = []} = config;
+const integratePrettier = ({ config }) => {
+  const { extends: extendsAlias = [] } = config;
   extendsAlias.push('plugin:prettier/recommended');
   return config;
 };
 
-export default async ({parsedConfig}) => {
+export default async ({ parsedConfig }) => {
   const hasHtml = get(parsedConfig, ['languages', 'html']);
   const options = get(parsedConfig, ['modules', 'eslint', 1]);
 
@@ -87,7 +87,7 @@ export default async ({parsedConfig}) => {
     !isEmpty(eslintPluginSimpleImportSortFiles);
   const usePrettier = get(parsedConfig, ['modules', 'prettier', 0]);
 
-  const preset = getPreset({parsedConfig});
+  const preset = getPreset({ parsedConfig });
   const packageNames = getPackages({
     preset,
     enableESLintPluginSimpleImportSort,
@@ -102,10 +102,10 @@ export default async ({parsedConfig}) => {
   });
   let config = configs[preset];
 
-  await packageJson.mergeDevDependencies({packageNames});
+  await packageJson.mergeDevDependencies({ packageNames });
 
   if (hasHtml) {
-    config = merge({}, config, {plugins: ['html']});
+    config = merge({}, config, { plugins: ['html'] });
   }
 
   if (preset === 'react') {
@@ -155,7 +155,7 @@ export default async ({parsedConfig}) => {
     });
   }
 
-  config = integratePrettier({preset, config});
+  config = integratePrettier({ preset, config });
 
   config = sortObject(config, [
     'root',
@@ -172,8 +172,8 @@ export default async ({parsedConfig}) => {
     'noInlineConfig',
   ]);
 
-  writeObjectToDestModuleJSFileSync({fileName, data: config});
-  copyFilesToDestByTemplatesSync({modulePath: __dirname, fileNames});
+  writeObjectToDestModuleJSFileSync({ fileName, data: config });
+  copyFilesToDestByTemplatesSync({ modulePath: __dirname, fileNames });
   await packageJson.merge({
     data: {
       scripts: {
