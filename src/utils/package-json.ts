@@ -1,23 +1,35 @@
-import { green } from 'chalk';
+import chalk from 'chalk';
 import { pathExistsSync } from 'fs-extra';
 import latestVersion from 'latest-version';
 import ora from 'ora';
-import readPackage from 'read-pkg';
-import { merge as wm } from 'webpack-merge';
-import writePackage from 'write-pkg';
+import { readPackage, readPackageSync } from 'read-pkg';
+import { merge as webpackMerge } from 'webpack-merge';
+import { writePackage, writePackageSync } from 'write-pkg';
 
 import { packageJson } from '@/utils/paths';
 
 const read = ({ options = { normalize: false } } = {}) => readPackage(options);
 
-const write = ({ data }) => writePackage(data);
+const write = ({ data }: { data: object }) => writePackage(data);
 
-const merge = ({ data }) =>
-  read().then((res) => write({ data: wm({}, res, data) }));
+const merge = ({ data }: { data: object }) =>
+  read().then((res) => write({ data: webpackMerge({}, res, data) }));
 
-const mergePackages = async ({ packageNames, isDevDependencies }) => {
+const mergePackages = async ({
+  packageNames,
+  isDevDependencies,
+}: {
+  packageNames: string[];
+  isDevDependencies: boolean;
+}) => {
+  type Data = {
+    [key: string]: {
+      [packageName: string]: string;
+    };
+  };
+
   const key = isDevDependencies ? 'devDependencies' : 'dependencies';
-  const data = {
+  const data: Data = {
     [key]: {},
   };
   const promises = packageNames.map(async (packageName) => {
@@ -29,27 +41,35 @@ const mergePackages = async ({ packageNames, isDevDependencies }) => {
   spinner.start(`Get npm packages latest version: ${packageNames.join(', ')}`);
   await Promise.all(promises);
   spinner.succeed(
-    green(
+    chalk.green(
       `Success - Get npm packages latest version: ${packageNames.join(', ')}`
     )
   );
   await merge({ data });
 };
 
-const mergeDependencies = async ({ packageNames }) => {
+const mergeDependencies = async ({
+  packageNames,
+}: {
+  packageNames: string[];
+}) => {
   await mergePackages({ packageNames, isDevDependencies: false });
 };
 
-const mergeDevDependencies = async ({ packageNames }) => {
+const mergeDevDependencies = async ({
+  packageNames,
+}: {
+  packageNames: string[];
+}) => {
   await mergePackages({ packageNames, isDevDependencies: true });
 };
 
 const existsSync = () => pathExistsSync(packageJson);
 
 const readSync = ({ options = { normalize: false } } = {}) =>
-  readPackage.sync(options);
+  readPackageSync(options);
 
-const writeSync = ({ data }) => writePackage.sync(data);
+const writeSync = ({ data }: { data: object }) => writePackageSync(data);
 
 const mergeSync = ({ data }) => {
   const res = readSync();

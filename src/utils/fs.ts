@@ -1,11 +1,9 @@
-import { path } from 'node:path';
+import { resolve } from 'node:path';
 
-import { copy, copySync, writeFile, writeFileSync } from 'fs-extra';
-import prettier from 'prettier';
-import { merge } from 'webpack-merge';
+import { copySync, writeFileSync } from 'fs-extra';
+import { format } from 'prettier';
 
 import prettierFormatOptions from '@/prettier/templates/.prettierrc';
-import { error } from '@/utils/console';
 import { dest, getDestFilePath, getTemplatesFilePath } from '@/utils/paths';
 
 const copyFilesToDestByTemplates = ({ modulePath, fileNames, options }) => {
@@ -37,7 +35,15 @@ const writeObjectToDestModuleJSFile = ({ fileName, data }) => {
   });
 };
 
-const copyFilesToDestByTemplatesSync = ({ modulePath, fileNames, options }) => {
+const copyFilesToDestByTemplatesSync = ({
+  modulePath,
+  fileNames,
+  options,
+}: {
+  modulePath: string;
+  fileNames: string[];
+  options: object;
+}) => {
   const array = Array.isArray(fileNames) ? fileNames : [fileNames];
   array.forEach((fileName) => {
     const srcFilePath = getTemplatesFilePath({ modulePath, fileName });
@@ -46,14 +52,27 @@ const copyFilesToDestByTemplatesSync = ({ modulePath, fileNames, options }) => {
   });
 };
 
-const writeFileToDestSync = ({ fileName, data }) => {
+const writeFileToDestSync = ({
+  fileName,
+  data,
+}: {
+  fileName: string;
+  data: string;
+}) => {
   writeFileSync(resolve(dest, fileName), data);
 };
 
-const writeObjectToDestModuleJSFileSync = ({ fileName, data }) => {
-  const s = typeof data === 'string' ? data : JSON.stringify(data);
-  const string = `module.exports=${s};`;
-  const stringFormatted = prettier.format(string, prettierFormatOptions);
+const writeObjectToDestModuleJSFileSync = ({
+  fileName,
+  data,
+}: {
+  fileName: string;
+  data: object | string;
+}) => {
+  const res = typeof data === 'string' ? data : JSON.stringify(data);
+  const string = `module.exports=${res};`;
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-assignment
+  const stringFormatted: string = format(string, prettierFormatOptions);
   writeFileSync(resolve(dest, fileName), stringFormatted);
 };
 

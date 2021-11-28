@@ -2,10 +2,10 @@ import { get, intersection, pull, uniq } from 'lodash';
 
 import * as configFile from '@/utils/config-file';
 
-const sort = ({ data, sorter }) =>
+const sort = ({ data, sorter }: { data: string[]; sorter: string[] }) =>
   data.sort((a, b) => sorter.indexOf(a) - sorter.indexOf(b));
 
-const addGlobBraces = (data) => {
+const addGlobBraces = (data: string[]) => {
   const { length } = data;
   const extensions = data.join(',');
   if (length <= 1) {
@@ -14,7 +14,10 @@ const addGlobBraces = (data) => {
   return `{${extensions}}`;
 };
 
-const getPrettier = ({ parsedConfig, withGlobBraces } = {}) => {
+const getPrettier = ({
+  parsedConfig,
+  withGlobBraces,
+}: { parsedConfig: object; withGlobBraces: boolean } = {}) => {
   const sorter = [
     'js',
     'jsx',
