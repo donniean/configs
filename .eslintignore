@@ -9,3 +9,6 @@
 **/build/
 **/dist/
 **/*.min.*
+
+**/lib/
+bin/

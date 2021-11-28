@@ -15,8 +15,7 @@
     "husky",
     "lint-staged",
     ".gitignore",
-    ".gitattributes",
-    "license"
+    ".gitattributes"
   ],
   "homepage": "https://github.com/donniean/configs#readme",
   "bugs": {
@@ -28,7 +27,7 @@
   },
   "license": "MIT",
   "author": "Donnie An",
-  "main": "lib/cli/index.js",
+  "main": "lib/index.js",
   "bin": {
     "configs": "./bin/configs.js"
   },
@@ -37,17 +36,18 @@
     "bin"
   ],
   "scripts": {
-    "dev": "",
-    "build": "",
-    "lint:format": "prettier --write \"**/*.{js,json,md}\"",
+    "dev": "ts-node ./src/index.ts",
+    "build": "tsc",
+    "lint:format": "prettier --write \"**/*.{js,ts,json,md}\"",
     "lint:typescript": "tsc --noEmit",
-    "lint:script": "eslint --fix \"**/*.js\"",
+    "lint:script": "eslint --fix \"**/*.{js,ts}\"",
     "lint:spell": "cspell \"**\"",
     "prepare": "husky install",
     "pre-commit": "lint-staged",
     "commit": "git-cz",
     "release": "standard-version",
-    "pub": "npm run release &&  npm publish --access public"
+    "pub": "npm run release &&  npm publish --access public",
+    "prettier": "npx prettier --write \"**/*.{js,json,md}\""
   },
   "config": {
     "commitizen": {
@@ -64,7 +64,7 @@
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "ora": "^5.4.1",
-    "prettier": "^2.4.0",
+    "prettier": "^2.5.0",
     "read-pkg": "^5.2.0",
     "sort-object-keys": "^1.1.3",
     "sort-package-json": "^1.50.0",
@@ -78,19 +78,31 @@
     "@commitlint/cli": "^13.2.0",
     "@commitlint/config-conventional": "^13.2.0",
     "@tsconfig/node16": "^1.0.2",
+    "@types/lodash": "^4.14.177",
+    "@types/sort-object-keys": "^1.1.0",
+    "@types/yargs": "^17.0.7",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
     "commitizen": "^4.2.4",
     "cspell": "^5.9.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-airbnb-typescript": "^16.0.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^5.1.1",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-unicorn": "^39.0.0",
     "husky": "^7.0.2",
     "lint-staged": "^11.2.0",
     "standard-version": "^9.3.1",
     "ts-node": "^10.4.0",
+    "tsconfig-paths": "^3.12.0",
     "typescript": "^4.5.2"
   }
 }
