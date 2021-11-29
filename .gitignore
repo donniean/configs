@@ -52,11 +52,11 @@ config/local-*.*
 *.tsbuildinfo
 
 # Testing
-/coverage
+coverage/
 
 # Next.js
-/.next/
-/out/
+.next/
+out/
 
 # Vercel
 .vercel
