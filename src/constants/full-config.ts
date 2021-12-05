@@ -2,33 +2,17 @@ const CONFIG = {
   modules: {
     editorconfig: true,
     prettier: {
-      extensions: [
-        'js',
-        'jsx',
-        'ts',
-        'tsx',
-        'json',
-        'html',
-        'vue',
-        'hbs',
-        'handlebars',
-        'css',
-        'less',
-        'scss',
-        'md',
-        'mdx',
-        'yaml',
-      ],
+      extensions: [],
       ignore: [],
     },
     eslint: {
-      extensions: ['js', 'jsx', 'ts', 'tsx', 'html', 'vue'],
+      extensions: [],
       presets: [],
       addons: {},
       ignore: [],
     },
     stylelint: {
-      extensions: ['css', 'less', 'scss', 'js', 'jsx', 'ts', 'tsx'],
+      extensions: [],
       ignore: [],
     },
     htmlhint: true,
@@ -44,22 +28,10 @@ const CONFIG = {
       cspell: true,
     },
     husky: true,
-    gitignore: {
-      custom: [
-        'build/',
-        'miniprogram_npm/',
-        '',
-        '!.env',
-        '!.env.*',
-        '.env.local',
-        '.env.*.local',
-        '',
-        'config/local.*',
-        'config/local-*.*',
-      ],
-    },
+    gitignore: true,
     gitattributes: true,
   },
+  ignore: [],
 };
 
 export default CONFIG;
