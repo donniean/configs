@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   modules: {
     editorconfig: true,
     prettier: {
@@ -22,8 +22,8 @@ export default {
       ignore: [],
     },
     eslint: {
-      extensions: ['js', 'jsx', 'ts', 'tsx', 'html'],
-      presets: ['node', 'es6', 'react'],
+      extensions: ['js', 'jsx', 'ts', 'tsx', 'html', 'vue'],
+      presets: ['node', 'es6', 'react', 'wechat-miniprogram'],
       addons: {
         'eslint-plugin-simple-import-sort': {
           files: ['./src/**'],
@@ -66,6 +66,13 @@ export default {
       ],
     },
     gitattributes: true,
+    'private-package': false,
+    license: {
+      mit: {
+        year: 2021,
+        author: '',
+      },
+    },
   },
   ignore: [
     '**/.git/',
