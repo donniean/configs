@@ -1,0 +1,16 @@
+{
+  "extends": "@tsconfig/node16/tsconfig.json",
+  "compilerOptions": {
+    "outDir": "lib",
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["."],
+  "exclude": ["node_modules", "lib"],
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  }
+}

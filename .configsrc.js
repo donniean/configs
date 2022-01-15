@@ -10,6 +10,5 @@ module.exports = {
     husky: true,
     gitignore: true,
     gitattributes: true,
-    license: true,
   },
 };

@@ -7,7 +7,7 @@ module.exports = {
     requireConfigFile: false,
   },
   env: {
-    browser: true,
+    browser: false,
     node: true,
     commonjs: true,
     'shared-node-browser': true,
@@ -19,12 +19,13 @@ module.exports = {
   },
   extends: [
     'airbnb-base',
-    'plugin:node/recommended',
+    'plugin:eslint-comments/recommended',
+    'plugin:promise/recommended',
+    'plugin:unicorn/recommended',
     'plugin:prettier/recommended',
   ],
   rules: {
     'no-useless-call': 'error',
-    'init-declarations': ['error', 'always'],
     'import/order': [
       'error',
       {
@@ -39,24 +40,62 @@ module.exports = {
         'newlines-between': 'always',
       },
     ],
-    'node/no-missing-import': 'off',
-    'node/no-unsupported-features/es-syntax': [
+    'unicorn/filename-case': [
       'error',
-      { version: '>=14.0.0', ignores: ['modules'] },
+      {
+        cases: {
+          kebabCase: true,
+        },
+      },
     ],
+    'unicorn/no-array-for-each': 'off',
+    'unicorn/no-null': 'off',
+    'unicorn/prefer-export-from': 'off',
+    'unicorn/prevent-abbreviations': 'off',
   },
   overrides: [
     {
-      files: [
-        '**/webpack.js',
-        '**/webpack.*.js',
-        '**/webpack.ts',
-        '**/webpack.*.ts',
-        '**/postcss.*.js',
+      files: ['**/*.ts'],
+      parserOptions: {
+        project: './tsconfig.json',
+      },
+      settings: {
+        'import/resolver': {
+          typescript: {
+            alwaysTryTypes: true,
+          },
+        },
+      },
+      extends: [
+        'airbnb-typescript/base',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
+        'plugin:prettier/recommended',
       ],
+    },
+    {
+      files: ['./src/**/*.{js,ts}'],
+      plugins: ['simple-import-sort'],
       rules: {
-        'node/no-unpublished-import': 'off',
-        'node/no-unpublished-require': 'off',
+        'sort-imports': 'off',
+        'import/order': 'off',
+        'simple-import-sort/imports': [
+          'error',
+          {
+            groups: [
+              ['^node:\\w'],
+              ['^@?\\w'],
+              ['^@(/.*|$)'],
+              ['^\\.', '^\\u0000'],
+            ],
+          },
+        ],
+      },
+    },
+    {
+      files: ['!(./src/**/*.{js,ts})'],
+      rules: {
+        'unicorn/prefer-module': 'off',
       },
     },
   ],

@@ -34,7 +34,7 @@ module.exports = {
     yaml: false,
     md: true,
   },
-  env: 'es6', // es6, es5, wechat-miniprogram
+  env: 'es6', // es6
   modules: {
     editorconfig: true,
     prettier: true,
@@ -64,8 +64,6 @@ module.exports = {
     'lint-staged': true,
     gitignore: true,
     gitattributes: true,
-    'private-package': false,
-    license: true,
   },
 };
 ```

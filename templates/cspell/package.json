@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "lint:spell": "cspell --no-must-find-files \"**\""
+  },
+  "devDependencies": {
+    "cspell": ""
+  }
+}
