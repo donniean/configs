@@ -1,6 +1,8 @@
 {
+  "scripts": {
+    "lint:spell": "cspell --no-must-find-files \"**\""
+  },
   "devDependencies": {
-    "@commitlint/cli": "",
-    "@commitlint/config-conventional": ""
+    "cspell": ""
   }
 }
