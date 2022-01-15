@@ -37,7 +37,7 @@
   ],
   "scripts": {
     "dev": "ts-node ./src/index.ts",
-    "build": "tsc",
+    "build": "tsc --project tsconfig.build.json",
     "lint:format": "prettier --write \"**/*.{js,ts,json,md}\"",
     "lint:typescript": "tsc --noEmit",
     "lint:script": "eslint --fix \"**/*.{js,ts}\"",
