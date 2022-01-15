@@ -1,4 +1,3 @@
-// cjs, mjs
 const CONFIG = {
   modules: {
     editorconfig: true,
