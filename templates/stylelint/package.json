@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "lint:style": "stylelint --fix \"**/*.{css,less,scss,js,jsx,ts,tsx}\""
+  },
+  "devDependencies": {
+    "stylelint": ""
+  }
+}

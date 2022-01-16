@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "lint:script": "eslint --fix \"**/*.{js,jsx,ts,tsx,mjs,cjs}\""
+  },
+  "devDependencies": {
+    "eslint": ""
+  }
+}
