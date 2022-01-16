@@ -29,6 +29,8 @@ export type StylelintExtension =
   | 'ts'
   | 'tsx';
 
+export type ESLintPreset = 'react' | 'node';
+
 export interface Config {
   modules?: {
     editorconfig?: boolean;
@@ -38,7 +40,7 @@ export interface Config {
     };
     eslint?: {
       extensions?: ESLintExtension[];
-      presets?: string[];
+      presets?: ESLintPreset[];
       ignore?: string[];
     };
     stylelint?: {
