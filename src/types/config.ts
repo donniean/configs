@@ -50,6 +50,7 @@ export interface Config {
       extensions?: ['*'];
       ignore?: string[];
     };
+    commitizen?: boolean;
     commitlint?: boolean;
     'lint-staged'?: {
       prettier?: boolean;
