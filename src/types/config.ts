@@ -33,6 +33,11 @@ export type ESLintAddons = {
   node?: boolean;
 };
 
+export type StylelintAddons = {
+  scss?: boolean;
+  'css-in-js'?: boolean;
+};
+
 export interface Config {
   modules?: {
     editorconfig?: boolean;
@@ -47,6 +52,7 @@ export interface Config {
     };
     stylelint?: {
       extensions?: StylelintExtension[];
+      addons?: StylelintAddons;
       ignore?: string[];
     };
     htmlhint?: boolean;
