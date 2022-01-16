@@ -1,4 +1,6 @@
-export default {
+import { Config } from '@/types/config';
+
+const CONFIG: Config = {
   modules: {
     editorconfig: true,
     prettier: {
@@ -7,7 +9,6 @@ export default {
     },
     eslint: {
       extensions: [],
-      presets: [],
       addons: {},
       ignore: [],
     },
@@ -33,3 +34,5 @@ export default {
   },
   ignore: [],
 };
+
+export default CONFIG;
