@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   '*.{js,jsx,ts,tsx,mjs,cjs,json,html,vue,hbs,handlebars,css,less,scss,md,mdx,yaml,yml}':
     'prettier --write',
   '*.{js,jsx,ts,tsx,mjs,cjs,vue}': 'eslint --fix',
