@@ -18,5 +18,7 @@ module.exports = {
     '**/.dockerignore',
   ],
   dictionaries: ['custom'],
-  dictionaryDefinitions: [{ name: 'custom', path: './custom.dic' }],
+  dictionaryDefinitions: [
+    { name: 'custom', path: './dictionaries/custom.dic' },
+  ],
 };
