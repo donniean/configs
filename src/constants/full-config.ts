@@ -1,4 +1,4 @@
-const CONFIG = {
+export default {
   modules: {
     editorconfig: true,
     prettier: {
@@ -33,5 +33,3 @@ const CONFIG = {
   },
   ignore: [],
 };
-
-export default CONFIG;
