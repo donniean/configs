@@ -14,6 +14,7 @@
     "htmlhint",
     "husky",
     "lint-staged",
+    "markdownlint",
     "prettier",
     "stylelint",
     "tsc"

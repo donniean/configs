@@ -5,5 +5,6 @@ module.exports = {
   '*.{ts,tsx}': 'tsc --noEmit',
   '*.{css,less,scss,js,jsx,ts,tsx,html,vue}': 'stylelint --fix',
   '*.html': 'htmlhint',
+  '*.md': 'markdownlint --fix',
   '**': 'cspell --no-must-find-files',
 };
