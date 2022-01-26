@@ -25,11 +25,6 @@ module.exports = {
     'plugin:unicorn/recommended',
     'plugin:prettier/recommended',
   ],
-  /* settings: {
-    'import/resolver': {
-      webpack: { config: './webpack/webpack.config.dev.js' },
-    },
-  }, */
   rules: {
     'no-console': process.env.NODE_ENV === 'development' ? 'warn' : 'error',
     'no-param-reassign': [
@@ -63,9 +58,14 @@ module.exports = {
           'internal',
           ['parent', 'sibling', 'index'],
           'object',
+          'type',
           'unknown',
         ],
         'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+        },
+        warnOnUnassignedImports: true,
       },
     ],
     'react/jsx-key': 'error',
@@ -85,6 +85,7 @@ module.exports = {
     'unicorn/no-array-for-each': 'off',
     'unicorn/no-null': 'off',
     'unicorn/prevent-abbreviations': 'off',
+    'unicorn/prefer-module': 'off',
     'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
   },
   overrides: [
@@ -106,13 +107,6 @@ module.exports = {
         'airbnb-typescript',
         'plugin:prettier/recommended',
       ],
-      rules: {
-        '@typescript-eslint/ban-ts-comment': 'off',
-        '@typescript-eslint/no-floating-promises': 'off',
-      },
-    },
-    {
-      files: ['./src/**/*.{js,jsx,ts,tsx}'],
       plugins: ['simple-import-sort'],
       rules: {
         'sort-imports': 'off',
@@ -137,12 +131,8 @@ module.exports = {
           },
         ],
         'simple-import-sort/exports': 'error',
-      },
-    },
-    {
-      files: ['!(./src/**/*.{js,jsx,ts,tsx})'],
-      rules: {
-        'unicorn/prefer-module': 'off',
+        '@typescript-eslint/ban-ts-comment': 'off',
+        '@typescript-eslint/no-floating-promises': 'off',
       },
     },
   ],
