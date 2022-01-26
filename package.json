@@ -4,18 +4,19 @@
   "description": "",
   "keywords": [
     "cli",
-    "editorconfig",
-    "prettier",
-    "eslint",
-    "stylelint",
-    "htmlhint",
-    "cspell",
-    "commitlint",
     "commitizen",
+    "commitlint",
+    "cspell",
+    "editorconfig",
+    "eslint",
+    "gitattributes",
+    "gitignore",
+    "htmlhint",
     "husky",
     "lint-staged",
-    ".gitignore",
-    ".gitattributes"
+    "prettier",
+    "stylelint",
+    "tsc"
   ],
   "homepage": "https://github.com/donniean/configs#readme",
   "bugs": {
