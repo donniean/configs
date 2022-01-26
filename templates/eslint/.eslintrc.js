@@ -23,6 +23,7 @@ module.exports = {
     'plugin:eslint-comments/recommended',
     'plugin:promise/recommended',
     'plugin:unicorn/recommended',
+    'plugin:sonarjs/recommended',
     'plugin:prettier/recommended',
   ],
   rules: {
@@ -68,10 +69,6 @@ module.exports = {
         warnOnUnassignedImports: true,
       },
     ],
-    'react/jsx-key': 'error',
-    'react/jsx-props-no-spreading': 'off',
-    'react/jsx-uses-react': 'off',
-    'react/react-in-jsx-scope': 'off',
     'unicorn/filename-case': [
       'error',
       {
@@ -85,10 +82,23 @@ module.exports = {
     'unicorn/no-array-for-each': 'off',
     'unicorn/no-null': 'off',
     'unicorn/prevent-abbreviations': 'off',
-    'unicorn/prefer-module': 'off',
     'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
+    'react/jsx-key': 'error',
+    'react/jsx-props-no-spreading': 'off',
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react/require-default-props': [
+      'error',
+      { forbidDefaultForRequired: true, ignoreFunctionalComponents: true },
+    ],
   },
   overrides: [
+    {
+      files: ['**/*.js'],
+      rules: {
+        'unicorn/prefer-module': 'off',
+      },
+    },
     {
       files: ['**/*.{ts,tsx}'],
       parserOptions: {
