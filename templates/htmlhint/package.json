@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "lint:html": "htmlhint \"**/*.html\""
+    "lint:htmlhint": "htmlhint \"**/*.html\""
   },
   "devDependencies": {
     "htmlhint": ""

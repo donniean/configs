@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "lint:typescript": "tsc --noEmit"
+    "lint:tsc": "tsc --noEmit"
   },
   "devDependencies": {
     "typescript": ""

@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "lint:spell": "cspell --no-must-find-files \"**\""
+    "lint:cspell": "cspell --no-must-find-files \"**\""
   },
   "devDependencies": {
     "cspell": ""

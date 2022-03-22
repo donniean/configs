@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "lint:markdown": "markdownlint --fix \"**/*.md\""
+    "lint:markdownlint": "markdownlint --fix \"**/*.md\""
   },
   "devDependencies": {
     "markdownlint-cli": ""
