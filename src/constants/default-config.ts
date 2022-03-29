@@ -1,4 +1,4 @@
-import { Config } from '@/types/config';
+import type { Config } from '@/types/config';
 
 const CONFIG: Config = {
   modules: {
@@ -7,6 +7,9 @@ const CONFIG: Config = {
 
     editorconfig: true,
     prettier: {
+      extensions: [],
+    },
+    tsc: {
       extensions: [],
     },
     eslint: {

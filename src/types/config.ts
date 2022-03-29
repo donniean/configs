@@ -1,4 +1,4 @@
-export type PrettierExtension =
+type PrettierExtension =
   | 'js'
   | 'jsx'
   | 'ts'
@@ -18,27 +18,22 @@ export type PrettierExtension =
   | 'yaml'
   | 'yml';
 
-export type ESLintExtension = 'js' | 'jsx' | 'ts' | 'tsx' | 'mjs' | 'cjs';
+type TscExtension = 'ts' | 'tsx';
 
-export type StylelintExtension =
-  | 'css'
-  | 'less'
-  | 'scss'
-  | 'js'
-  | 'jsx'
-  | 'ts'
-  | 'tsx';
+type ESLintExtension = 'js' | 'jsx' | 'ts' | 'tsx' | 'mjs' | 'cjs';
 
-export type ESLintAddons = {
+type StylelintExtension = 'css' | 'less' | 'scss' | 'js' | 'jsx' | 'ts' | 'tsx';
+
+type ESLintAddons = {
   node?: boolean;
 };
 
-export type StylelintAddons = {
+type StylelintAddons = {
   scss?: boolean;
   'css-in-js'?: boolean;
 };
 
-export interface Config {
+interface Config {
   modules?: {
     gitignore?: boolean;
     gitattributes?: boolean;
@@ -48,6 +43,11 @@ export interface Config {
       | false
       | {
           extensions?: PrettierExtension[];
+        };
+    tsc?:
+      | false
+      | {
+          extensions?: TscExtension[];
         };
     eslint?:
       | false
@@ -76,11 +76,14 @@ export interface Config {
       | false
       | {
           prettier?: boolean;
-          eslint?: boolean;
           tsc?: boolean;
+          eslint?: boolean;
           stylelint?: boolean;
           markdownlint?: boolean;
           cspell?: boolean;
         };
   };
 }
+
+// eslint-disable-next-line import/prefer-default-export
+export type { Config };
