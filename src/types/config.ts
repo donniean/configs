@@ -85,5 +85,10 @@ interface Config {
   };
 }
 
-// eslint-disable-next-line import/prefer-default-export
-export type { Config };
+export type {
+  PrettierExtension,
+  TscExtension,
+  ESLintExtension,
+  StylelintExtension,
+  Config,
+};

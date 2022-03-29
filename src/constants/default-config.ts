@@ -1,6 +1,6 @@
 import type { Config } from '@/types/config';
 
-const CONFIG: Config = {
+const DEFAULT_CONFIG: Config = {
   modules: {
     gitignore: true,
     gitattributes: true,
@@ -40,4 +40,4 @@ const CONFIG: Config = {
   },
 };
 
-export default CONFIG;
+export default DEFAULT_CONFIG;
