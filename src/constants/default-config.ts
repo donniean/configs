@@ -29,7 +29,9 @@ const CONFIG: Config = {
     'lint-staged': {
       prettier: true,
       eslint: true,
+      tsc: true,
       stylelint: true,
+      markdownlint: true,
       cspell: true,
     },
   },

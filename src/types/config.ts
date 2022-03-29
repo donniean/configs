@@ -79,6 +79,7 @@ export interface Config {
           eslint?: boolean;
           tsc?: boolean;
           stylelint?: boolean;
+          markdownlint?: boolean;
           cspell?: boolean;
         };
   };
