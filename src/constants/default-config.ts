@@ -2,6 +2,9 @@ import { Config } from '@/types/config';
 
 const CONFIG: Config = {
   modules: {
+    gitignore: true,
+    gitattributes: true,
+
     editorconfig: true,
     prettier: {
       extensions: [],
@@ -12,21 +15,23 @@ const CONFIG: Config = {
     },
     stylelint: {
       extensions: [],
+      addons: {},
     },
-    htmlhint: true,
+    htmlhint: false,
+    markdownlint: true,
     cspell: {
       extensions: ['*'],
     },
+
     commitlint: true,
+    commitizen: true,
+    husky: true,
     'lint-staged': {
       prettier: true,
       eslint: true,
       stylelint: true,
       cspell: true,
     },
-    husky: true,
-    gitignore: true,
-    gitattributes: true,
   },
 };
 

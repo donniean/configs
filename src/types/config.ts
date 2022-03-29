@@ -40,23 +40,37 @@ export type StylelintAddons = {
 
 export interface Config {
   modules?: {
-    commitizen?: boolean;
-    commitlint?: boolean;
-    cspell?:
+    gitignore?: boolean;
+    gitattributes?: boolean;
+
+    editorconfig?: boolean;
+    prettier?:
       | false
       | {
-          extensions?: ['*'];
+          extensions?: PrettierExtension[];
         };
-    editorconfig?: boolean;
     eslint?:
       | false
       | {
           extensions?: ESLintExtension[];
           addons?: ESLintAddons;
         };
-    gitattributes?: boolean;
-    gitignore?: boolean;
+    stylelint?:
+      | false
+      | {
+          extensions?: StylelintExtension[];
+          addons?: StylelintAddons;
+        };
     htmlhint?: boolean;
+    markdownlint?: boolean;
+    cspell?:
+      | false
+      | {
+          extensions?: ['*'];
+        };
+
+    commitlint?: boolean;
+    commitizen?: boolean;
     husky?: boolean;
     'lint-staged'?:
       | false
@@ -66,18 +80,6 @@ export interface Config {
           tsc?: boolean;
           stylelint?: boolean;
           cspell?: boolean;
-        };
-    markdownlint?: boolean;
-    prettier?:
-      | false
-      | {
-          extensions?: PrettierExtension[];
-        };
-    stylelint?:
-      | false
-      | {
-          extensions?: StylelintExtension[];
-          addons?: StylelintAddons;
         };
   };
 }
