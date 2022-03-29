@@ -46,7 +46,6 @@ export interface Config {
       | false
       | {
           extensions?: ['*'];
-          ignore?: string[];
         };
     editorconfig?: boolean;
     eslint?:
@@ -54,7 +53,6 @@ export interface Config {
       | {
           extensions?: ESLintExtension[];
           addons?: ESLintAddons;
-          ignore?: string[];
         };
     gitattributes?: boolean;
     gitignore?: boolean;
@@ -74,15 +72,12 @@ export interface Config {
       | false
       | {
           extensions?: PrettierExtension[];
-          ignore?: string[];
         };
     stylelint?:
       | false
       | {
           extensions?: StylelintExtension[];
           addons?: StylelintAddons;
-          ignore?: string[];
         };
   };
-  ignore?: string[];
 }

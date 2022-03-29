@@ -5,21 +5,17 @@ const CONFIG: Config = {
     editorconfig: true,
     prettier: {
       extensions: [],
-      ignore: [],
     },
     eslint: {
       extensions: [],
       addons: {},
-      ignore: [],
     },
     stylelint: {
       extensions: [],
-      ignore: [],
     },
     htmlhint: true,
     cspell: {
       extensions: ['*'],
-      ignore: [],
     },
     commitlint: true,
     'lint-staged': {
@@ -32,7 +28,6 @@ const CONFIG: Config = {
     gitignore: true,
     gitattributes: true,
   },
-  ignore: [],
 };
 
 export default CONFIG;
