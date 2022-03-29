@@ -40,38 +40,49 @@ export type StylelintAddons = {
 
 export interface Config {
   modules?: {
-    editorconfig?: boolean;
-    prettier?: {
-      extensions?: PrettierExtension[];
-      ignore?: string[];
-    };
-    eslint?: {
-      extensions?: ESLintExtension[];
-      addons?: ESLintAddons;
-      ignore?: string[];
-    };
-    stylelint?: {
-      extensions?: StylelintExtension[];
-      addons?: StylelintAddons;
-      ignore?: string[];
-    };
-    htmlhint?: boolean;
-    cspell?: {
-      extensions?: ['*'];
-      ignore?: string[];
-    };
     commitizen?: boolean;
     commitlint?: boolean;
-    'lint-staged'?: {
-      prettier?: boolean;
-      eslint?: boolean;
-      tsc?: boolean;
-      stylelint?: boolean;
-      cspell?: boolean;
-    };
-    husky?: boolean;
-    gitignore?: boolean;
+    cspell?:
+      | false
+      | {
+          extensions?: ['*'];
+          ignore?: string[];
+        };
+    editorconfig?: boolean;
+    eslint?:
+      | false
+      | {
+          extensions?: ESLintExtension[];
+          addons?: ESLintAddons;
+          ignore?: string[];
+        };
     gitattributes?: boolean;
+    gitignore?: boolean;
+    htmlhint?: boolean;
+    husky?: boolean;
+    'lint-staged'?:
+      | false
+      | {
+          prettier?: boolean;
+          eslint?: boolean;
+          tsc?: boolean;
+          stylelint?: boolean;
+          cspell?: boolean;
+        };
+    markdownlint?: boolean;
+    prettier?:
+      | false
+      | {
+          extensions?: PrettierExtension[];
+          ignore?: string[];
+        };
+    stylelint?:
+      | false
+      | {
+          extensions?: StylelintExtension[];
+          addons?: StylelintAddons;
+          ignore?: string[];
+        };
   };
   ignore?: string[];
 }
