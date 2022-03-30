@@ -39,7 +39,7 @@
   ],
   "scripts": {
     "dev": "ts-node ./src/index.ts",
-    "build": "tsc --project tsconfig.build.json",
+    "build": "tsc --project tsconfig.build.json && tsc-alias --project tsconfig.build.json",
     "prettier": "prettier --write \"**/*.{js,ts,json,md}\"",
     "lint:tsc": "tsc --noEmit",
     "lint:eslint:fix": "eslint --fix \"**/*.{js,ts}\"",
@@ -76,11 +76,6 @@
     "@commitlint/cli": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
     "@tsconfig/node16": "^1.0.2",
-    "@types/fs-extra": "^9.0.13",
-    "@types/lodash": "^4.14.180",
-    "@types/prettier": "^2.4.4",
-    "@types/sort-object-keys": "^1.1.0",
-    "@types/yargs": "^17.0.10",
     "@typescript-eslint/eslint-plugin": "^5.17.0",
     "@typescript-eslint/parser": "^5.17.0",
     "commitizen": "^4.2.4",
@@ -102,6 +97,7 @@
     "lint-staged": "^12.3.7",
     "standard-version": "^9.3.2",
     "ts-node": "^10.7.0",
+    "tsc-alias": "^1.6.5",
     "tsconfig-paths": "^3.14.1",
     "typescript": "^4.6.3"
   }

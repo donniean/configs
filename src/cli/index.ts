@@ -1,3 +1,1 @@
-function cli() {}
-
-export default cli;
+export default function cli() {}
