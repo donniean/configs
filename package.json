@@ -40,6 +40,7 @@
   "scripts": {
     "dev": "ts-node ./src/index.ts",
     "build": "tsc --project tsconfig.build.json && tsc-alias --project tsconfig.build.json",
+    "build:watch": "tsc --project tsconfig.build.json --watch & tsc-alias --project tsconfig.build.json --watch",
     "prettier": "prettier --write \"**/*.{js,ts,json,md}\"",
     "lint:tsc": "tsc --noEmit",
     "lint:eslint:fix": "eslint --fix \"**/*.{js,ts}\"",
