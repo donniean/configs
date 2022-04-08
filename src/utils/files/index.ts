@@ -1,20 +1,19 @@
-/*
-import * as prettierConfig from '@templates/prettier/prettier.config';
 import * as fs from 'fs-extra';
 import prettier from 'prettier';
 
-console.log(prettierConfig);
+import * as prettierConfig from '@/templates/prettier/prettier.config';
 
 export function outputFileSync({
   file,
   data,
-  isFormat = true,
+  isFormat = false,
 }: {
   file: string;
   data: string;
   isFormat?: boolean;
 }) {
-  fs.outputFileSync(file, data);
+  const content = isFormat ? prettier.format(data, prettierConfig) : data;
+  fs.outputFileSync(file, content);
 }
 
 export function outputCommonJSFileSync({
@@ -23,9 +22,13 @@ export function outputCommonJSFileSync({
   isFormat = true,
 }: {
   file: string;
-  data: string;
+  data: unknown;
   isFormat?: boolean;
 }) {
-  fs.outputFileSync(file, data);
+  const content = `module.exports = ${JSON.stringify(data, null, 2)};`;
+  outputFileSync({
+    file,
+    data: content,
+    isFormat,
+  });
 }
-*/

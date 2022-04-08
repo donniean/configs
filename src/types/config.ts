@@ -86,9 +86,9 @@ interface Config {
 }
 
 export type {
-  PrettierExtension,
-  TscExtension,
-  ESLintExtension,
-  StylelintExtension,
   Config,
+  ESLintExtension,
+  PrettierExtension,
+  StylelintExtension,
+  TscExtension,
 };

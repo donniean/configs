@@ -2,7 +2,6 @@
 
 const paths = {
   cwd: process.cwd(),
-  dirname: __dirname,
 };
 
 export default paths;

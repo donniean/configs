@@ -22,6 +22,7 @@ module.exports = {
     'plugin:eslint-comments/recommended',
     'plugin:promise/recommended',
     'plugin:unicorn/recommended',
+    'plugin:sonarjs/recommended',
     'plugin:prettier/recommended',
   ],
   rules: {
@@ -35,9 +36,14 @@ module.exports = {
           'internal',
           ['parent', 'sibling', 'index'],
           'object',
+          'type',
           'unknown',
         ],
         'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+        },
+        warnOnUnassignedImports: true,
       },
     ],
     'unicorn/filename-case': [
@@ -45,15 +51,22 @@ module.exports = {
       {
         cases: {
           kebabCase: true,
+          camelCase: true,
+          pascalCase: true,
         },
       },
     ],
     'unicorn/no-array-for-each': 'off',
     'unicorn/no-null': 'off',
-    'unicorn/prefer-export-from': 'off',
     'unicorn/prevent-abbreviations': 'off',
   },
   overrides: [
+    {
+      files: ['**/*.js'],
+      rules: {
+        'unicorn/prefer-module': 'off',
+      },
+    },
     {
       files: ['**/*.ts'],
       parserOptions: {
@@ -67,35 +80,19 @@ module.exports = {
         },
       },
       extends: [
-        'airbnb-typescript/base',
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
+        'airbnb-typescript/base',
         'plugin:prettier/recommended',
       ],
-    },
-    {
-      files: ['./src/**/*.{js,ts}'],
       plugins: ['simple-import-sort'],
       rules: {
         'sort-imports': 'off',
         'import/order': 'off',
-        'simple-import-sort/imports': [
-          'error',
-          {
-            groups: [
-              ['^node:\\w'],
-              ['^@?\\w'],
-              ['^@(/.*|$)'],
-              ['^\\.', '^\\u0000'],
-            ],
-          },
-        ],
-      },
-    },
-    {
-      files: ['!(./src/**/*.{js,ts})'],
-      rules: {
-        'unicorn/prefer-module': 'off',
+        'simple-import-sort/imports': 'error',
+        'simple-import-sort/exports': 'error',
+        '@typescript-eslint/ban-ts-comment': 'off',
+        '@typescript-eslint/no-floating-promises': 'off',
       },
     },
   ],
