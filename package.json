@@ -38,18 +38,18 @@
     "bin"
   ],
   "scripts": {
-    "dev": "ts-node ./src/index.ts",
     "build": "tsc && tsc-alias",
     "build:watch": "tsc --watch & tsc-alias --watch",
-    "prettier": "prettier --write \"**/*.{js,ts,json,md}\"",
-    "lint:tsc": "tsc --noEmit",
-    "lint:eslint:fix": "eslint --fix \"**/*.{js,ts}\"",
-    "lint:cspell": "cspell \"**\"",
-    "prepare": "husky install",
-    "pre-commit": "lint-staged",
     "commit": "git-cz",
-    "release": "standard-version",
-    "pub": "npm run release &&  npm publish --access public"
+    "dev": "ts-node ./src/index.ts",
+    "lint:cspell": "cspell \"**\"",
+    "lint:eslint:fix": "eslint --fix \"**/*.{js,ts}\"",
+    "lint:tsc": "tsc --noEmit",
+    "pre-commit": "lint-staged",
+    "prepare": "husky install",
+    "prettier": "prettier --write \"**/*.{js,ts,json,md}\"",
+    "pub": "npm run release &&  npm publish --access public",
+    "release": "standard-version"
   },
   "config": {
     "commitizen": {
