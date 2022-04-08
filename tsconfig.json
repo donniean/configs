@@ -3,6 +3,7 @@
   "compilerOptions": {
     "sourceMap": true,
     "allowJs": true,
+    "checkJs": true,
     "outDir": "lib",
     "baseUrl": ".",
     "paths": {

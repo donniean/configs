@@ -1,12 +1,12 @@
+import * as configFile from '@/utils/config-file';
 import logger from '@/utils/logger';
-import paths from '@/utils/paths';
 
 import commands from './commands';
 
 export default function cli() {
   const argv = commands();
 
-  logger.log(argv);
+  const configByCurrentFile = configFile.readConfig();
 
-  logger.log(paths);
+  logger.log(argv, configByCurrentFile);
 }

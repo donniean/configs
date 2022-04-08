@@ -1,6 +1,6 @@
 import { cosmiconfigSync } from 'cosmiconfig';
 
-import { Config } from '@/types/config';
+import type { Config } from '@/types/config';
 
 export function readConfig() {
   const explorerSync = cosmiconfigSync('configs');
