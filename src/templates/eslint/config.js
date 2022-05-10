@@ -1,4 +1,5 @@
 // node
+// node:
 
 module.exports = {
   root: true,
@@ -29,7 +30,10 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   rules: {
-    'no-console': process.env.NODE_ENV === 'development' ? 'warn' : 'error',
+    'no-console':
+      process.env.NODE_ENV === 'development'
+        ? 'warn'
+        : ['error', { allow: ['warn', 'error'] }],
     'no-param-reassign': [
       'error',
       {
@@ -71,6 +75,7 @@ module.exports = {
         warnOnUnassignedImports: true,
       },
     ],
+    'import/prefer-default-export': 'off',
     'unicorn/filename-case': [
       'error',
       {
@@ -122,25 +127,7 @@ module.exports = {
       rules: {
         'sort-imports': 'off',
         'import/order': 'off',
-        'simple-import-sort/imports': [
-          'error',
-          {
-            groups: [
-              ['^react', '^prop-types', '^@?\\w'],
-              [
-                '^(@/(types|themes|constants|containers|components|routes|pages|hooks|contexts|utils|apis|services))(/.*|$)',
-              ],
-              ['^\\.', '^\\u0000'],
-              [
-                '^(@/styles)(/.*|$)',
-                '^.+\\.module.s?css$',
-                '^.+\\.s?css$',
-                '^(@/assets)(/.*|$)',
-              ],
-              ['^(@public)(/.*|$)'],
-            ],
-          },
-        ],
+        'simple-import-sort/imports': 'error',
         'simple-import-sort/exports': 'error',
         '@typescript-eslint/ban-ts-comment': 'off',
         '@typescript-eslint/no-floating-promises': 'off',
