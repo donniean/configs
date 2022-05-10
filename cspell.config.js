@@ -35,6 +35,7 @@ module.exports = {
     'webpackbar',
     'webstorm',
     'wechat',
+    'sonarjs',
   ],
   ignorePaths: [
     '**/.idea/**',
