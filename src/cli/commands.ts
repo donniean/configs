@@ -6,7 +6,7 @@ export default function commands() {
     .options({
       prompt: {
         alias: 'p',
-        describe: 'prompt',
+        describe: 'use prompt',
         type: 'boolean',
       },
     })

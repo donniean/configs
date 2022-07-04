@@ -8,5 +8,6 @@ export default function cli() {
 
   const configByCurrentFile = configFile.readConfig();
 
-  logger.log(argv, configByCurrentFile);
+  logger.log(argv);
+  logger.log(configByCurrentFile);
 }
