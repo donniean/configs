@@ -1,6 +1,6 @@
 module.exports = {
   '*.{js,ts,json,md}': 'prettier --write',
   '*.{js,ts}': 'eslint --fix',
-  '*.ts': () => 'tsc --noEmit',
+  '*.ts': 'bash -c tsc --noEmit',
   '**': 'cspell --no-must-find-files',
 };
