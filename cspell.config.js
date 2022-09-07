@@ -36,6 +36,7 @@ module.exports = {
     'webstorm',
     'wechat',
     'sonarjs',
+    'pnpm',
   ],
   ignorePaths: [
     '**/.idea/**',
