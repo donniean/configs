@@ -14,6 +14,7 @@ module.exports = {
     '**/.htmlhintrc',
     '**/package.json',
     '**/package-lock.json',
+    '**/pnpm-lock.yaml',
     '**/Dockerfile',
     '**/.dockerignore',
   ],
