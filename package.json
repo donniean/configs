@@ -45,6 +45,7 @@
     "commit": "git-cz",
     "dev": "ts-node ./src/index.ts",
     "lint:cspell": "cspell \"**\"",
+    "lint:eslint": "eslint \"**/*.{js,ts}\"",
     "lint:eslint:fix": "eslint --fix \"**/*.{js,ts}\"",
     "lint:tsc": "tsc --noEmit",
     "pre-commit": "lint-staged",
