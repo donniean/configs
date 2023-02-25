@@ -1,4 +1,4 @@
 version = 1
 
 [merge]
-method = "merge"
+method = "squash"
