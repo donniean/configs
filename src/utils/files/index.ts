@@ -3,6 +3,8 @@ import prettier from 'prettier';
 
 import * as prettierConfig from '@/templates/prettier/prettier.config';
 
+// test
+
 export function outputFileSync({
   file,
   data,
