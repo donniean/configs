@@ -51,7 +51,7 @@
     "pre-commit": "lint-staged",
     "prepare": "husky install",
     "prettier": "prettier --write \"**/*.{js,ts,json,md}\"",
-    "pub": "npm run release &&  npm publish --access public",
+    "pub": "npm run release && npm publish --access public",
     "release": "standard-version"
   },
   "config": {
@@ -61,7 +61,7 @@
   },
   "dependencies": {
     "chalk": "^4.1.2",
-    "cosmiconfig": "^8.0.0",
+    "cosmiconfig": "^8.1.0",
     "fs-extra": "^11.1.0",
     "inquirer": "^8.2.5",
     "latest-version": "^7.0.0",
@@ -102,6 +102,7 @@
     "eslint-plugin-unicorn": "^45.0.2",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.2",
+    "ncu": "^0.2.1",
     "rimraf": "^4.1.2",
     "standard-version": "^9.5.0",
     "ts-node": "^10.9.1",
