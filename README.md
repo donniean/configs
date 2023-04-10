@@ -1,8 +1,13 @@
 # @donniean/configs
 
+- [@donniean/configs](#donnieanconfigs)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [TODOs](#todos)
+
 ## Install
 
-```shell
+```sh
 npm install -g @donniean/configs
 ```
 
@@ -13,59 +18,54 @@ cd project-folder
 ```
 
 ```shell
-configs
+configs create
 ```
 
-## Config File
+## delete legacy files
 
-`.configsrc.js` full config
+```shell
+rm -rf .husky;
+rm .commitlintrc.js;
+rm .configsrc.js;
+rm .editorconfig;
+rm .eslintignore;
+rm .eslintrc.js;
+rm .gitattributes;
+rm .gitignore;
+rm .htmlhintrc;
+rm .lintstagedrc.js;
+rm .prettierignore
+rm .prettierrc.js;
+rm .stylelintignore;
+rm .stylelintrc.js;
+rm cspell.config.js;
 
-```js
-module.exports = {
-  languages: {
-    js: true,
-    jsx: false,
-    vue: false,
-    css: true,
-    scss: false,
-    less: false,
-    html: true,
-    json: true,
-    yaml: false,
-    md: true,
-  },
-  env: 'es6', // es6, es5, wechat-miniprogram
-  modules: {
-    editorconfig: true,
-    prettier: true,
-    eslint: [
-      true,
-      {
-        'eslint-plugin-simple-import-sort': [
-          false,
-          {
-            files: ['./src/**'],
-          },
-        ],
-        'eslint-plugin-import': {
-          'resolver-webpack-config-file': './webpack/webpack.config.dev.js',
-        },
-      },
-    ],
-    stylelint: [
-      true,
-      {
-        'styled-components': false,
-      },
-    ],
-    htmlhint: true,
-    cspell: true,
-    commitlint: true,
-    'lint-staged': true,
-    gitignore: true,
-    gitattributes: true,
-    'private-package': false,
-    license: true,
-  },
-};
+npm pkg delete scripts.prettier;
+npm pkg delete scripts.eslint;
+npm pkg delete scripts.stylelint;
+npm pkg delete scripts.cspell;
+npm pkg delete scripts.pre-commit;
+npm pkg delete scripts.commit;
+npm pkg delete scripts.prepare;
+npm pkg delete config;
+
+npm uninstall @babel/core @babel/eslint-parser @commitlint/cli @commitlint/config-conventional @stylelint/postcss-css-in-js @typescript-eslint/eslint-plugin @typescript-eslint/parser commitizen cspell cz-conventional-changelog eslint eslint-config-airbnb eslint-config-airbnb-typescript eslint-import-resolver-typescript postcss-syntax eslint-config-prettier eslint-import-resolver-webpack eslint-plugin-html eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-node eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-simple-import-sort htmlhint husky lint-staged prettier stylelint stylelint-config-prettier stylelint-config-rational-order stylelint-config-standard stylelint-config-styled-components stylelint-order stylelint-prettier prettier-plugin-packagejson && rm package-lock.json;
 ```
+
+## TODOs
+
+- [ ] delete `src/utils/logger/winston.ts`
+  - `npm uninstall winston`
+- [ ] delete `scripts.dev` in `package.json`
+  - [ ] `npm uninstall ts-node tsconfig-paths`
+  - [ ] delete `ts-node` in `tsconfig.json`
+- [ ] ignore
+- [ ] improve `README.md`
+- [ ] `cspell:disable`
+- [ ] `eslint-disable`
+- [ ] `ts-ignore`
+- [ ] `prettier` options
+- [ ] `lint-staged --concurrent`
+- [ ] delete `stylelintOptions` and `lintStagedOptions`
+- [ ] `prettier` all
+- [ ] `zod`
