@@ -54,8 +54,6 @@ npm uninstall @babel/core @babel/eslint-parser @commitlint/cli @commitlint/confi
 
 ## TODOs
 
-- [ ] delete `src/utils/logger/winston.ts`
-  - `npm uninstall winston`
 - [ ] delete `scripts.dev` in `package.json`
   - [ ] `npm uninstall ts-node tsconfig-paths`
   - [ ] delete `ts-node` in `tsconfig.json`
@@ -66,6 +64,5 @@ npm uninstall @babel/core @babel/eslint-parser @commitlint/cli @commitlint/confi
 - [ ] `ts-ignore`
 - [ ] `prettier` options
 - [ ] `lint-staged --concurrent`
-- [x] delete `stylelintOptions` and `lintStagedOptions`
 - [ ] `prettier` all
 - [ ] `zod`
