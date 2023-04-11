@@ -55,7 +55,7 @@ npm pkg delete scripts.commit;
 npm pkg delete scripts.prepare;
 npm pkg delete config;
 
-npm uninstall @babel/core @babel/eslint-parser @commitlint/cli @commitlint/config-conventional @stylelint/postcss-css-in-js @typescript-eslint/eslint-plugin @typescript-eslint/parser commitizen cspell cz-conventional-changelog eslint eslint-config-airbnb eslint-config-airbnb-typescript eslint-import-resolver-typescript postcss-syntax eslint-config-prettier eslint-import-resolver-webpack eslint-plugin-html eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-node eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-simple-import-sort htmlhint husky lint-staged prettier stylelint stylelint-config-prettier stylelint-config-rational-order stylelint-config-standard stylelint-config-styled-components stylelint-order stylelint-prettier prettier-plugin-packagejson && rm package-lock.json;
+npm uninstall @babel/core @babel/eslint-parser @commitlint/cli @commitlint/config-conventional @stylelint/postcss-css-in-js @typescript-eslint/eslint-plugin @typescript-eslint/parser commitizen cspell cz-conventional-changelog eslint eslint-config-airbnb eslint-config-airbnb-typescript eslint-import-resolver-typescript postcss-syntax eslint-config-prettier eslint-import-resolver-webpack eslint-plugin-html eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-node eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-simple-import-sort htmlhint husky lint-staged prettier stylelint stylelint-config-prettier stylelint-config-rational-order stylelint-config-standard stylelint-config-styled-components stylelint-order stylelint-prettier && rm package-lock.json;
 ```
 
 ## TODOs

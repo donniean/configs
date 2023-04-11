@@ -107,7 +107,6 @@
     "eslint-plugin-unicorn": "^46.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.1",
-    "prettier-plugin-packagejson": "^2.4.3",
     "rimraf": "^5.0.0",
     "standard-version": "^9.5.0",
     "tsc-alias": "^1.8.5",
