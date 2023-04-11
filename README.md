@@ -61,6 +61,7 @@ npm uninstall @babel/core @babel/eslint-parser @commitlint/cli @commitlint/confi
 
 ## TODOs
 
+- [ ] `cSpell` custom `ignorePaths`
 - [ ] semantic-release
 - [ ] pure ESM
 - [ ] `zod`
