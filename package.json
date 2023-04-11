@@ -44,7 +44,7 @@
     "build:watch": "npm run clean && tsc --watch & tsc-alias --watch",
     "clean": "rimraf ./lib/",
     "commit": "git-cz",
-    "lint:cspell": "cspell \"**\"",
+    "lint:cspell": "cspell --no-must-find-files \"**\"",
     "lint:eslint": "eslint \"**/*.{js,ts}\"",
     "lint:eslint:fix": "eslint --fix \"**/*.{js,ts}\"",
     "lint:tsc": "tsc --noEmit",

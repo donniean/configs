@@ -1,5 +1,7 @@
 commitlint
+cssnano
 htmlhint
 immer
 sonarjs
+stylelint
 svgr
