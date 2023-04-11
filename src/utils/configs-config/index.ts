@@ -48,7 +48,6 @@ export function answersToConfigsConfig(answers: CreateAnswers) {
     stylelintExtensions,
     stylelintOptions,
     cspellExtensions,
-    lintStagedOptions,
   } = answers;
   const configsConfig: ConfigsConfig = {
     features: {},
@@ -100,14 +99,6 @@ export function answersToConfigsConfig(answers: CreateAnswers) {
       return;
     }
 
-    if (feature === 'lint-staged' && lintStagedOptions) {
-      configsConfig.features[feature] = {
-        options: arrayToBooleanValueObject(lintStagedOptions),
-      };
-      return;
-    }
-
-    // @ts-ignore
     configsConfig.features[feature] = true;
   });
 
