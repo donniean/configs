@@ -54,16 +54,7 @@ export const DEFAULT_CONFIGS_CONFIG: ConfigsConfig = {
     commitlint: true,
     commitizen: true,
     'sort-package-json': true,
-    'lint-staged': {
-      options: {
-        prettier: true,
-        eslint: true,
-        tsc: true,
-        stylelint: true,
-        markdownlint: true,
-        cspell: true,
-      },
-    },
+    'lint-staged': true,
     husky: true,
   },
 };

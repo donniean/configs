@@ -11,7 +11,6 @@ import {
   ESLINT_OPTION_OPTIONS,
   FEATURE_KEY_MAP,
   FEATURE_OPTIONS,
-  LINT_STAGED_OPTION_OPTIONS,
   STYLELINT_OPTION_OPTIONS,
 } from '@/constants/features';
 import type { ConfigsConfig } from '@/types/configs-config';
@@ -22,7 +21,6 @@ interface GetQuestionsOptions {
   currentConfigsConfig?: ConfigsConfig;
 }
 
-// eslint-disable-next-line sonarjs/cognitive-complexity
 export function getQuestions(options?: GetQuestionsOptions) {
   const configsConfig = options?.currentConfigsConfig ?? DEFAULT_CONFIGS_CONFIG;
 
@@ -139,31 +137,6 @@ export function getQuestions(options?: GetQuestionsOptions) {
       name: 'cspellExtensions',
       message: 'select CSpell extensions',
       initial: getExtensionsInitial(FEATURE_KEY_MAP.cspell),
-    },
-    {
-      type: (_prev, values: CreateAnswers) => {
-        const { featureKeys } = values;
-        // eslint-disable-next-line sonarjs/no-duplicate-string
-        const hasFeature = featureKeys.includes('lint-staged');
-        const availableOptions = LINT_STAGED_OPTION_OPTIONS.filter(({ key }) =>
-          featureKeys.includes(key)
-        );
-        const hasAvailableOptions = availableOptions.length > 0;
-        const isShowQuestion = hasFeature && hasAvailableOptions;
-        return isShowQuestion ? 'multiselect' : null;
-      },
-      name: 'lintStagedOptions',
-      message: 'select lint-staged options',
-      choices: (_prev, values: CreateAnswers) => {
-        const { featureKeys } = values;
-        return LINT_STAGED_OPTION_OPTIONS.filter(({ key }) =>
-          featureKeys.includes(key)
-        ).map(({ key, displayName }) => ({
-          value: key,
-          title: displayName,
-          selected: getOptionSelected(FEATURE_KEY_MAP['lint-staged'], key),
-        }));
-      },
     },
   ];
 

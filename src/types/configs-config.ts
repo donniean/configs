@@ -47,18 +47,7 @@ export interface ConfigsConfig {
     commitlint?: boolean;
     commitizen?: boolean;
     'sort-package-json'?: boolean;
-    'lint-staged'?:
-      | false
-      | {
-          options: {
-            prettier?: boolean;
-            tsc?: boolean;
-            eslint?: boolean;
-            stylelint?: boolean;
-            markdownlint?: boolean;
-            cspell?: boolean;
-          };
-        };
+    'lint-staged'?: boolean;
     husky?: boolean;
   };
 }
@@ -95,16 +84,7 @@ export interface ValidConfigsConfig {
     commitlint?: true;
     commitizen?: true;
     'sort-package-json'?: true;
-    'lint-staged'?: {
-      options: {
-        prettier?: true;
-        tsc?: true;
-        eslint?: true;
-        stylelint?: true;
-        markdownlint?: true;
-        cspell?: true;
-      };
-    };
+    'lint-staged'?: true;
     husky?: true;
   };
 }

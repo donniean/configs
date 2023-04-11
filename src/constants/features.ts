@@ -1,7 +1,6 @@
 import type {
   ESLintOption,
   FeatureKey,
-  LintStagedOption,
   Option,
   StylelintOption,
 } from '@/types/features';
@@ -19,7 +18,6 @@ export const FEATURE_KEY_MAP = {
   cspell: 'cspell',
   commitlint: 'commitlint',
   commitizen: 'commitizen',
-  // eslint-disable-next-line sonarjs/no-duplicate-string
   'sort-package-json': 'sort-package-json',
   // eslint-disable-next-line sonarjs/no-duplicate-string
   'lint-staged': 'lint-staged',
@@ -55,21 +53,3 @@ export const STYLELINT_OPTION_OPTIONS: Option<StylelintOption>[] = [
   { key: 'scss', displayName: 'SCSS' },
   { key: 'css-in-js', displayName: 'CSS-in-JS' },
 ];
-
-export const LINT_STAGED_OPTION_OPTIONS: Option<LintStagedOption>[] = (
-  [
-    FEATURE_KEY_MAP.prettier,
-    FEATURE_KEY_MAP.tsc,
-    FEATURE_KEY_MAP.eslint,
-    FEATURE_KEY_MAP.stylelint,
-    FEATURE_KEY_MAP.htmlhint,
-    FEATURE_KEY_MAP.markdownlint,
-    FEATURE_KEY_MAP.cspell,
-    FEATURE_KEY_MAP['sort-package-json'],
-  ] as LintStagedOption[]
-).map((value) => ({
-  key: value,
-  displayName:
-    FEATURE_OPTIONS.find((option) => option.key === value)?.displayName ??
-    value,
-}));

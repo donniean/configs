@@ -83,17 +83,14 @@ function getData(validConfigsConfig: GetConfigOptions['validConfigsConfig']) {
 
   let result: Record<string, string> = {};
   const checkerFeatureKeys = Object.keys(checkers);
-  const options = validConfigsConfig.features?.['lint-staged']?.options;
   Object.entries(allCommands).forEach(([featureKey, command]) => {
     const key = featureKey as GlobExtensionsFeatureKey;
-    if (options?.[key]) {
-      if (checkerFeatureKeys.includes(key)) {
-        if (checkers[key]) {
-          result = { ...result, ...command };
-        }
-      } else if (validConfigsConfig.features?.[key]) {
+    if (checkerFeatureKeys.includes(key)) {
+      if (checkers[key]) {
         result = { ...result, ...command };
       }
+    } else if (validConfigsConfig.features?.[key]) {
+      result = { ...result, ...command };
     }
   });
   return result;
