@@ -60,6 +60,7 @@ npm uninstall @babel/core @babel/eslint-parser @commitlint/cli @commitlint/confi
 
 ## TODOs
 
+- [ ] pure ESM
 - [ ] `zod`
 - [ ] ignore
 - [ ] `ts-ignore`
