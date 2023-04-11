@@ -66,6 +66,6 @@ npm uninstall @babel/core @babel/eslint-parser @commitlint/cli @commitlint/confi
 - [ ] `ts-ignore`
 - [ ] `prettier` options
 - [ ] `lint-staged --concurrent`
-- [ ] delete `stylelintOptions` and `lintStagedOptions`
+- [x] delete `stylelintOptions` and `lintStagedOptions`
 - [ ] `prettier` all
 - [ ] `zod`

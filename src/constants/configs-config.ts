@@ -41,10 +41,6 @@ export const DEFAULT_CONFIGS_CONFIG: ConfigsConfig = {
     },
     stylelint: {
       extensions: without(STYLELINT_EXTENSIONS, 'js', 'jsx'),
-      options: {
-        scss: true,
-        'css-in-js': true,
-      },
     },
     htmlhint: false,
     markdownlint: true,

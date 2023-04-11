@@ -17,8 +17,6 @@ export type FeatureKey =
 
 export type ESLintOption = 'node';
 
-export type StylelintOption = 'scss' | 'css-in-js';
-
 export interface Option<T = string> {
   key: T;
   displayName: string;

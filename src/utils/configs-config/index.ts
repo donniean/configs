@@ -46,7 +46,6 @@ export function answersToConfigsConfig(answers: CreateAnswers) {
     eslintExtensions,
     eslintOptions,
     stylelintExtensions,
-    stylelintOptions,
     cspellExtensions,
   } = answers;
   const configsConfig: ConfigsConfig = {
@@ -81,16 +80,8 @@ export function answersToConfigsConfig(answers: CreateAnswers) {
       return;
     }
 
-    if (feature === 'stylelint') {
-      if (stylelintExtensions) {
-        configsConfig.features[feature] = { extensions: stylelintExtensions };
-      }
-      if (stylelintOptions) {
-        configsConfig.features[feature] = {
-          ...configsConfig.features[feature],
-          options: arrayToBooleanValueObject(stylelintOptions),
-        };
-      }
+    if (feature === 'stylelint' && stylelintExtensions) {
+      configsConfig.features[feature] = { extensions: stylelintExtensions };
       return;
     }
 
