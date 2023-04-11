@@ -32,10 +32,6 @@ export interface ConfigsConfig {
       | false
       | {
           extensions?: StylelintExtension[];
-          options?: {
-            scss?: boolean;
-            'css-in-js'?: boolean;
-          };
         };
     htmlhint?: boolean;
     markdownlint?: boolean;
@@ -71,10 +67,6 @@ export interface ValidConfigsConfig {
     };
     stylelint?: {
       extensions?: StylelintExtension[];
-      options?: {
-        scss?: true;
-        'css-in-js'?: true;
-      };
     };
     htmlhint?: true;
     markdownlint?: true;

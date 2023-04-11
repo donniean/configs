@@ -6,7 +6,7 @@ import type {
   StylelintExtension,
   TscExtension,
 } from './extensions';
-import type { ESLintOption, FeatureKey, StylelintOption } from './features';
+import type { ESLintOption, FeatureKey } from './features';
 
 type QuestionName =
   | 'featureKeys'
@@ -15,7 +15,6 @@ type QuestionName =
   | 'eslintExtensions'
   | 'eslintOptions'
   | 'stylelintExtensions'
-  | 'stylelintOptions'
   | 'cspellExtensions';
 
 export type CreateQuestions = PromptObject<QuestionName>[];
@@ -27,6 +26,5 @@ export interface CreateAnswers {
   eslintExtensions?: ESLintExtension[];
   eslintOptions?: ESLintOption[];
   stylelintExtensions?: StylelintExtension[];
-  stylelintOptions?: StylelintOption[];
   cspellExtensions?: string[];
 }

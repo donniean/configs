@@ -11,7 +11,6 @@ import {
   ESLINT_OPTION_OPTIONS,
   FEATURE_KEY_MAP,
   FEATURE_OPTIONS,
-  STYLELINT_OPTION_OPTIONS,
 } from '@/constants/features';
 import type { ConfigsConfig } from '@/types/configs-config';
 import type { FeatureKey } from '@/types/features';
@@ -118,17 +117,6 @@ export function getQuestions(options?: GetQuestionsOptions) {
         value: extension,
         title: extension,
         selected: getExtensionSelected(FEATURE_KEY_MAP.stylelint, extension),
-      })),
-    },
-    {
-      type: (_prev, values: CreateAnswers) =>
-        values.featureKeys.includes('stylelint') ? 'multiselect' : null,
-      name: 'stylelintOptions',
-      message: 'select Stylelint options',
-      choices: STYLELINT_OPTION_OPTIONS.map(({ key, displayName }) => ({
-        value: key,
-        title: displayName,
-        selected: getOptionSelected(FEATURE_KEY_MAP.stylelint, key),
       })),
     },
     {

@@ -1,9 +1,4 @@
-import type {
-  ESLintOption,
-  FeatureKey,
-  Option,
-  StylelintOption,
-} from '@/types/features';
+import type { ESLintOption, FeatureKey, Option } from '@/types/features';
 
 export const FEATURE_KEY_MAP = {
   gitignore: 'gitignore',
@@ -47,9 +42,4 @@ export const FEATURE_OPTIONS: Option<FeatureKey>[] = [
 
 export const ESLINT_OPTION_OPTIONS: Option<ESLintOption>[] = [
   { key: 'node', displayName: 'Node.js' },
-];
-
-export const STYLELINT_OPTION_OPTIONS: Option<StylelintOption>[] = [
-  { key: 'scss', displayName: 'SCSS' },
-  { key: 'css-in-js', displayName: 'CSS-in-JS' },
 ];

@@ -4,6 +4,8 @@ import type {
 } from '@/types/feature-configs';
 import { getFeatureGlobExtensions } from '@/utils/features';
 
+import { hasScss, hasStyled } from './utils';
+
 function getScripts(
   validConfigsConfig: GetPackageJsonOptions['validConfigsConfig']
 ) {
@@ -35,18 +37,16 @@ function getDevDependencies(
   const scssDevDependencies = {
     'stylelint-config-standard-scss': '',
   };
-  const cssInJsDevDependencies = {
+  const styledDevDependencies = {
     'postcss-styled-syntax': '',
   };
 
-  const options = validConfigsConfig.features?.stylelint?.options;
-  const hasScss = options?.scss;
-  const hasCssInJs = options?.['css-in-js'];
+  const extensions = validConfigsConfig.features?.stylelint?.extensions ?? [];
 
   const devDependencies = {
     ...baseDevDependencies,
-    ...(hasScss ? scssDevDependencies : null),
-    ...(hasCssInJs ? cssInJsDevDependencies : null),
+    ...(hasScss(extensions) ? scssDevDependencies : null),
+    ...(hasStyled(extensions) ? styledDevDependencies : null),
   };
 
   return { devDependencies };
