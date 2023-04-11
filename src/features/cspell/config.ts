@@ -21,9 +21,20 @@ export function getConfig(): FeatureConfig<JsonObject> {
         '**/.htmlhintrc',
         '**/Dockerfile',
       ],
-      dictionaries: ['user-apps', 'user-custom', 'user-files', 'user-npm'],
+      dictionaries: [
+        'user-apps',
+        'user-brands',
+        'user-custom',
+        'user-files',
+        'user-npm',
+      ],
       dictionaryDefinitions: [
         { name: 'user-apps', path: './dictionaries/apps.dic', addWords: true },
+        {
+          name: 'user-brands',
+          path: './dictionaries/brands.dic',
+          addWords: true,
+        },
         {
           name: 'user-custom',
           path: './dictionaries/custom.dic',
