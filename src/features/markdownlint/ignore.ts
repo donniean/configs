@@ -3,7 +3,7 @@ import type { FeatureIgnore } from '@/types/feature-configs';
 
 export function getIgnore(): FeatureIgnore {
   return {
-    // cspell:disable-next-line
+    // cspell: disable-next-line
     outputFileName: '.markdownlintignore',
     data: LINT_IGNORE,
   };

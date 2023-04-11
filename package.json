@@ -39,11 +39,10 @@
   ],
   "scripts": {
     "prebuild": "npm run clean",
-    "build": "tsc && tsc-alias",
+    "build": "npm run clean && tsc && tsc-alias",
     "build:watch": "npm run clean && tsc --watch & tsc-alias --watch",
     "clean": "rimraf ./lib/",
     "commit": "git-cz",
-    "dev": "ts-node ./src/index.ts",
     "lint:cspell": "cspell \"**\"",
     "lint:eslint": "eslint \"**/*.{js,ts}\"",
     "lint:eslint:fix": "eslint --fix \"**/*.{js,ts}\"",
@@ -110,9 +109,7 @@
     "prettier-plugin-packagejson": "^2.4.3",
     "rimraf": "^4.4.1",
     "standard-version": "^9.5.0",
-    "ts-node": "^10.9.1",
     "tsc-alias": "^1.8.5",
-    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.0.4"
   }
 }
