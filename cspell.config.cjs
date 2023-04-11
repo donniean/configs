@@ -16,12 +16,25 @@ module.exports = {
     '**/.gitattributes',
     '**/.htmlhintrc',
     '**/Dockerfile',
+    '**/assets/gitattributes',
+    '**/assets/gitignore.ignore',
   ],
-  dictionaries: ['user-apps', 'user-custom', 'user-files', 'user-npm'],
+  dictionaries: [
+    'user-apps',
+    'user-brands',
+    'user-custom',
+    'user-files',
+    'user-npm',
+  ],
   dictionaryDefinitions: [
     {
       name: 'user-apps',
       path: './dictionaries/apps.dic',
+      addWords: true,
+    },
+    {
+      name: 'user-brands',
+      path: './dictionaries/brands.dic',
       addWords: true,
     },
     {

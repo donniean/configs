@@ -30,7 +30,8 @@ configs create
 ## Delete legacy files
 
 ```sh
-rm -rf .husky;
+rm -rf .husky/;
+rm -rf dictionaries/;
 rm .commitlintrc.js;
 rm .configsrc.js;
 rm .editorconfig;
