@@ -40,8 +40,8 @@
   ],
   "scripts": {
     "prebuild": "npm run clean",
-    "build": "npm run clean && tsc && tsc-alias",
-    "build:watch": "tsc --watch & tsc-alias --watch",
+    "build": "tsc && tsc-alias",
+    "build:watch": "npm run clean && tsc --watch & tsc-alias --watch",
     "clean": "rimraf ./lib/",
     "commit": "git-cz",
     "lint:cspell": "cspell \"**\"",
