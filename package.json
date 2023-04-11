@@ -1,7 +1,7 @@
 {
   "name": "@donniean/configs",
   "version": "4.0.0",
-  "description": "",
+  "description": "configs generator",
   "keywords": [
     "cli",
     "commitizen",
@@ -16,6 +16,7 @@
     "lint-staged",
     "markdownlint",
     "prettier",
+    "sort-package-json",
     "stylelint",
     "tsc"
   ],
