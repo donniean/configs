@@ -3,7 +3,13 @@
 - [@donniean/configs](#donnieanconfigs)
   - [Install](#install)
   - [Usage](#usage)
+  - [Delete legacy files](#delete-legacy-files)
   - [TODOs](#todos)
+  - [License](#license)
+
+[![Version](https://img.shields.io/npm/v/@donniean/configs.svg)](https://www.npmjs.com/package/@donniean/configs) [![License: MIT](https://img.shields.io/github/license/donniean/configs)](https://github.com/donniean/configs/blob/master/LICENSE)
+
+> configs generator
 
 ## Install
 
@@ -13,17 +19,17 @@ npm install -g @donniean/configs
 
 ## Usage
 
-```shell
-cd project-folder
+```sh
+cd project-directory
 ```
 
-```shell
+```sh
 configs create
 ```
 
-## delete legacy files
+## Delete legacy files
 
-```shell
+```sh
 rm -rf .husky;
 rm .commitlintrc.js;
 rm .configsrc.js;
@@ -54,7 +60,7 @@ npm uninstall @babel/core @babel/eslint-parser @commitlint/cli @commitlint/confi
 
 ## TODOs
 
-- [ ] improve `README.md`
+- [ ] `zod`
 - [ ] ignore
 - [ ] `ts-ignore`
 - [ ] `eslint-disable`
@@ -62,4 +68,15 @@ npm uninstall @babel/core @babel/eslint-parser @commitlint/cli @commitlint/confi
 - [ ] `prettier` options
 - [ ] `lint-staged --concurrent`
 - [ ] `prettier` all
-- [ ] `zod`
+
+## License
+
+Copyright © 2019 [Donnie An](https://github.com/donniean).
+
+This project is [MIT](https://github.com/donniean/configs/blob/master/LICENSE)
+licensed.
+
+---
+
+_This README was generated with ❤️
+by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
