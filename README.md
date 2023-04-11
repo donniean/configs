@@ -54,14 +54,11 @@ npm uninstall @babel/core @babel/eslint-parser @commitlint/cli @commitlint/confi
 
 ## TODOs
 
-- [ ] delete `scripts.dev` in `package.json`
-  - [ ] `npm uninstall ts-node tsconfig-paths`
-  - [ ] delete `ts-node` in `tsconfig.json`
-- [ ] ignore
 - [ ] improve `README.md`
-- [ ] `cspell:disable`
-- [ ] `eslint-disable`
+- [ ] ignore
 - [ ] `ts-ignore`
+- [ ] `eslint-disable`
+- [ ] `cspell: disable`
 - [ ] `prettier` options
 - [ ] `lint-staged --concurrent`
 - [ ] `prettier` all
