@@ -43,20 +43,17 @@
     "build": "tsc && tsc-alias",
     "build:watch": "npm run clean && tsc --watch & tsc-alias --watch",
     "clean": "rimraf ./lib/",
-    "commit": "git-cz",
+    "commit": "cz",
     "lint:cspell": "cspell --no-must-find-files \"**\"",
     "lint:eslint": "eslint \"**/*.{js,ts}\"",
     "lint:eslint:fix": "eslint --fix \"**/*.{js,ts}\"",
+    "lint:markdownlint": "markdownlint --fix \"**/*.md\"",
     "lint:tsc": "tsc --noEmit",
-    "pre-commit": "lint-staged",
+    "pre-commit": "lint-staged --concurrent false",
     "prepare": "husky install",
-    "prettier": "prettier --write \"**/*.{js,ts,json,md}\"",
-    "semantic-release": "semantic-release"
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
+    "prettier": "prettier --write \"**/*.{js,ts,cjs,json,md,yaml,yml}\"",
+    "semantic-release": "semantic-release",
+    "sort-package-json": "sort-package-json"
   },
   "dependencies": {
     "chalk": "^4.1.2",
@@ -108,8 +105,10 @@
     "eslint-plugin-unicorn": "^46.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.1",
+    "markdownlint-cli": "^0.33.0",
     "rimraf": "^5.0.0",
     "semantic-release": "^21.0.1",
+    "sort-package-json": "^2.4.1",
     "tsc-alias": "^1.8.5",
     "typescript": "^5.0.4"
   }

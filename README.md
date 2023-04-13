@@ -56,43 +56,42 @@ npm pkg delete scripts.commit;
 npm pkg delete scripts.prepare;
 npm pkg delete config;
 
-npm uninstall \
-# @babel/core \
-# @babel/eslint-parser \
-@commitlint/cli \
-@commitlint/config-conventional \
-@stylelint/postcss-css-in-js \
-# @typescript-eslint/eslint-plugin \
-# @typescript-eslint/parser \
-commitizen \
-cspell \
-cz-conventional-changelog \
-# eslint \
-# eslint-config-airbnb \
-# eslint-config-airbnb-typescript \
-# eslint-config-prettier \
-# eslint-import-resolver-typescript \
-# eslint-import-resolver-webpack \
-# eslint-plugin-html \
-# eslint-plugin-import \
-# eslint-plugin-jsx-a11y \
-# eslint-plugin-node \
-# eslint-plugin-prettier \
-# eslint-plugin-react \
-# eslint-plugin-react-hooks \
-# eslint-plugin-simple-import-sort \
-htmlhint \
-husky \
-lint-staged \
-postcss-syntax \
-prettier \
-stylelint \
-stylelint-config-prettier \
-stylelint-config-rational-order \
-stylelint-config-standard \
-stylelint-config-styled-components \
-stylelint-order \
-stylelint-prettier;
+# npm uninstall @babel/core;
+# npm uninstall @babel/eslint-parser;
+npm uninstall @commitlint/cli;
+npm uninstall @commitlint/config-conventional;
+npm uninstall @stylelint/postcss-css-in-js;
+# npm uninstall @typescript-eslint/eslint-plugin;
+# npm uninstall @typescript-eslint/parser;
+npm uninstall commitizen;
+npm uninstall cspell;
+npm uninstall cz-conventional-changelog;
+# npm uninstall eslint;
+# npm uninstall eslint-config-airbnb;
+# npm uninstall eslint-config-airbnb-typescript;
+# npm uninstall eslint-config-prettier;
+# npm uninstall eslint-import-resolver-typescript;
+# npm uninstall eslint-import-resolver-webpack;
+# npm uninstall eslint-plugin-html;
+# npm uninstall eslint-plugin-import;
+# npm uninstall eslint-plugin-jsx-a11y;
+# npm uninstall eslint-plugin-node;
+# npm uninstall eslint-plugin-prettier;
+# npm uninstall eslint-plugin-react;
+# npm uninstall eslint-plugin-react-hooks;
+# npm uninstall eslint-plugin-simple-import-sort;
+npm uninstall htmlhint;
+npm uninstall husky;
+npm uninstall lint-staged;
+npm uninstall postcss-syntax;
+npm uninstall prettier;
+npm uninstall stylelint;
+npm uninstall stylelint-config-prettier;
+npm uninstall stylelint-config-rational-order;
+npm uninstall stylelint-config-standard;
+npm uninstall stylelint-config-styled-components;
+npm uninstall stylelint-order;
+npm uninstall stylelint-prettier;
 
 rm package-lock.json;
 ```
