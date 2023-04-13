@@ -32,7 +32,7 @@ export function getValidConfigsConfig(
 
 function arrayToBooleanValueObject<T extends string>(keys: T[]) {
   const result: { [key in T]?: boolean } = {};
-  keys.forEach((key) => {
+  keys.forEach(key => {
     result[key] = true;
   });
   return result;
@@ -52,7 +52,7 @@ export function answersToConfigsConfig(answers: CreateAnswers) {
     features: {},
   };
   // eslint-disable-next-line sonarjs/cognitive-complexity
-  featureKeys.forEach((feature) => {
+  featureKeys.forEach(feature => {
     if (!configsConfig.features) {
       return;
     }

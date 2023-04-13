@@ -108,6 +108,8 @@ rm package-lock.json;
 - [ ] `prettier` options
 - [ ] `lint-staged --concurrent`
 - [ ] `prettier` all
+- [ ] CHANGELOG.md
+- [ ] prettier add yaml
 
 ## License
 

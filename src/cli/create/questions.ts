@@ -69,7 +69,7 @@ export function getQuestions(options?: GetQuestionsOptions) {
         values.featureKeys.includes('prettier') ? 'multiselect' : null,
       name: 'prettierExtensions',
       message: `select Prettier extensions`,
-      choices: PRETTIER_EXTENSIONS.map((extension) => ({
+      choices: PRETTIER_EXTENSIONS.map(extension => ({
         value: extension,
         title: extension,
         selected: getExtensionSelected(FEATURE_KEY_MAP.prettier, extension),
@@ -80,7 +80,7 @@ export function getQuestions(options?: GetQuestionsOptions) {
         values.featureKeys.includes('tsc') ? 'multiselect' : null,
       name: 'tscExtensions',
       message: 'select tsc extensions',
-      choices: TSC_EXTENSIONS.map((extension) => ({
+      choices: TSC_EXTENSIONS.map(extension => ({
         value: extension,
         title: extension,
         selected: getExtensionSelected(FEATURE_KEY_MAP.tsc, extension),
@@ -91,7 +91,7 @@ export function getQuestions(options?: GetQuestionsOptions) {
         values.featureKeys.includes('eslint') ? 'multiselect' : null,
       name: 'eslintExtensions',
       message: 'select ESLint extensions',
-      choices: ESLINT_EXTENSIONS.map((extension) => ({
+      choices: ESLINT_EXTENSIONS.map(extension => ({
         value: extension,
         title: extension,
         selected: getExtensionSelected(FEATURE_KEY_MAP.eslint, extension),
@@ -113,7 +113,7 @@ export function getQuestions(options?: GetQuestionsOptions) {
         values.featureKeys.includes('stylelint') ? 'multiselect' : null,
       name: 'stylelintExtensions',
       message: 'select Stylelint extensions',
-      choices: STYLELINT_EXTENSIONS.map((extension) => ({
+      choices: STYLELINT_EXTENSIONS.map(extension => ({
         value: extension,
         title: extension,
         selected: getExtensionSelected(FEATURE_KEY_MAP.stylelint, extension),
@@ -128,7 +128,7 @@ export function getQuestions(options?: GetQuestionsOptions) {
     },
   ];
 
-  return questions.map((question) => ({
+  return questions.map(question => ({
     optionsPerPage: Number.POSITIVE_INFINITY,
     ...question,
   }));
