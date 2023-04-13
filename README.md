@@ -34,6 +34,7 @@ rm -rf .husky/;
 rm -rf dictionaries/;
 rm .commitlintrc.js;
 rm .configsrc.js;
+rm .czrc;
 rm .editorconfig;
 # rm .eslintignore;
 # rm .eslintrc.js;
@@ -49,6 +50,8 @@ rm cspell.config.js;
 rm commitlint.config.js;
 rm configs.config.js;
 rm lint-staged.config.js;
+rm prettier.config.js
+rm stylelint.config.js
 
 npm pkg delete scripts.prettier;
 npm pkg delete scripts.eslint;
