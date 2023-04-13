@@ -1,3 +1,10 @@
+# [5.1.0](https://github.com/donniean/configs/compare/v5.0.0...v5.1.0) (2023-04-13)
+
+
+### Features
+
+* cSpell add **/tsconfig.tsbuildinfo in ignorePaths ([#50](https://github.com/donniean/configs/issues/50)) ([d7f0386](https://github.com/donniean/configs/commit/d7f038699ebddc4c52d2de546eda40b606ee777b))
+
 # [5.0.0](https://github.com/donniean/configs/compare/v4.0.0...v5.0.0) (2023-04-13)
 
 
