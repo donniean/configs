@@ -1,6 +1,6 @@
 {
   "name": "@donniean/configs",
-  "version": "4.1.0",
+  "version": "4.0.0",
   "description": "configs generator",
   "keywords": [
     "cli",
@@ -51,8 +51,6 @@
     "pre-commit": "lint-staged",
     "prepare": "husky install",
     "prettier": "prettier --write \"**/*.{js,ts,json,md}\"",
-    "pub": "npm run release && npm publish --access public",
-    "release": "standard-version",
     "semantic-release": "semantic-release"
   },
   "config": {
@@ -112,7 +110,6 @@
     "lint-staged": "^13.2.1",
     "rimraf": "^5.0.0",
     "semantic-release": "^21.0.1",
-    "standard-version": "^9.5.0",
     "tsc-alias": "^1.8.5",
     "typescript": "^5.0.4"
   }

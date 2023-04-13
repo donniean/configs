@@ -99,7 +99,6 @@ rm package-lock.json;
 ## TODOs
 
 - [ ] `cSpell` custom `ignorePaths`
-- [ ] semantic-release
 - [ ] pure ESM
 - [ ] `zod`
 - [ ] ignore
