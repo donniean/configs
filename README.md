@@ -34,6 +34,7 @@ rm -rf .husky/;
 rm -rf dictionaries/;
 rm .commitlintrc.js;
 rm .configsrc.js;
+rm .czrc;
 rm .editorconfig;
 # rm .eslintignore;
 # rm .eslintrc.js;
