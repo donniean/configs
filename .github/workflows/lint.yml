@@ -23,5 +23,7 @@ jobs:
         run: npm run lint:tsc
       - name: ESLint
         run: npm run lint:eslint
+      - name: markdownlint
+        run: npm run lint:markdownlint
       - name: CSpell
         run: npm run lint:cspell
