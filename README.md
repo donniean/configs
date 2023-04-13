@@ -46,6 +46,8 @@ rm .prettierrc.js;
 rm .stylelintignore;
 rm .stylelintrc.js;
 rm cspell.config.js;
+rm commitlint.config.js;
+rm lint-staged.config.js;
 
 npm pkg delete scripts.prettier;
 npm pkg delete scripts.eslint;
