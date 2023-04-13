@@ -1,6 +1,6 @@
 {
   "name": "@donniean/configs",
-  "version": "4.1.0",
+  "version": "5.0.0",
   "description": "configs generator",
   "keywords": [
     "cli",
@@ -88,7 +88,7 @@
     "@types/lodash": "^4.14.192",
     "@types/prettier": "^2.7.2",
     "@types/prompts": "^2.4.4",
-    "@types/shelljs": "^0.8.11",
+    "@types/shelljs": "^0.8.12",
     "@typescript-eslint/eslint-plugin": "^5.58.0",
     "@typescript-eslint/parser": "^5.58.0",
     "commitizen": "^4.3.0",
