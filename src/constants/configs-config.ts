@@ -25,9 +25,7 @@ export const DEFAULT_CONFIGS_CONFIG: ConfigsConfig = {
         'hbs',
         'handlebars',
         'less',
-        'mdx',
-        'yaml',
-        'yml'
+        'mdx'
       ),
     },
     tsc: {
