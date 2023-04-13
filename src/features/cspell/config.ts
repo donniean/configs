@@ -20,6 +20,7 @@ export function getConfig(): FeatureConfig<JsonObject> {
         '**/.gitattributes',
         '**/.htmlhintrc',
         '**/Dockerfile',
+        '**/tsconfig.tsbuildinfo',
       ],
       dictionaries: [
         'user-apps',
