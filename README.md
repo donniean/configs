@@ -34,6 +34,7 @@ rm -rf .husky/;
 rm -rf dictionaries/;
 rm .commitlintrc.js;
 rm .configsrc.js;
+# cspell: disable-next-line
 rm .czrc;
 rm .editorconfig;
 # rm .eslintignore;
