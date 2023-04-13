@@ -81,6 +81,7 @@
     "@babel/eslint-parser": "^7.21.3",
     "@commitlint/cli": "^17.5.1",
     "@commitlint/config-conventional": "^17.4.4",
+    "@semantic-release/git": "^10.0.1",
     "@tsconfig/node-lts": "^18.12.1",
     "@tsconfig/node-lts-strictest": "^18.12.1",
     "@tsconfig/strictest": "^2.0.0",
