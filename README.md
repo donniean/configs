@@ -109,9 +109,10 @@ rm package-lock.json;
 - [ ] pure ESM
 - [ ] `zod`
 - [ ] ignore
-- [ ] `ts-ignore`
-- [ ] `eslint-disable`
-- [ ] `cspell: disable`
+- [ ] disable
+  - [ ] `ts-ignore`
+  - [ ] `eslint-disable`
+  - [ ] `cspell: disable`
 - [ ] `prettier` options
 - [ ] `lint-staged --concurrent`
 - [ ] `prettier` all
