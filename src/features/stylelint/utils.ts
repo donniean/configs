@@ -11,13 +11,11 @@ export function hasScss(extensions: StylelintExtension[]) {
 }
 
 export function hasStyled(extensions: StylelintExtension[]) {
-  return extensions?.some((extension) => STYLED_EXTENSIONS.includes(extension));
+  return extensions?.some(extension => STYLED_EXTENSIONS.includes(extension));
 }
 
 function getStyledExtensions(extensions: StylelintExtension[]) {
-  return extensions?.filter((extension) =>
-    STYLED_EXTENSIONS.includes(extension)
-  );
+  return extensions?.filter(extension => STYLED_EXTENSIONS.includes(extension));
 }
 
 export function getStyledGlobExtensions(extensions: StylelintExtension[]) {

@@ -5,6 +5,6 @@ export function getIgnore(): FeatureIgnore {
   return {
     // cspell: disable-next-line
     outputFileName: '.markdownlintignore',
-    data: LINT_IGNORE,
+    data: [...LINT_IGNORE, 'CHANGELOG.md'],
   };
 }
