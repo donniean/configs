@@ -20,7 +20,7 @@ function getScripts(
 
   return {
     scripts: {
-      'lint:cspell': `cspell --no-must-find-files "${pattern}"`,
+      'lint:cspell': `cspell lint --no-progress --relative --no-must-find-files --dot --gitignore "${pattern}"`,
     },
   };
 }

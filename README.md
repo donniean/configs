@@ -107,7 +107,9 @@ rm package-lock.json;
 
 - [ ] pure ESM
 - [ ] `zod`
-- [ ] ignore
+- ignore
+  - [ ] git ignore
+  - [ ] lint ignore
 - [ ] GitHub Actions
   - [ ] GITHUB_TOKEN
 - disable
@@ -121,7 +123,7 @@ rm package-lock.json;
     - [ ] `prettier --write --ignore-unknown "**/*"`
 - cSpell
   - [ ] `cspell` custom `ignorePaths`
-  - [ ] `cspell lint --no-progress --relative --no-must-find-files --dot --gitignore "**"`
+  - [x] `cspell lint --no-progress --relative --no-must-find-files --dot --gitignore "**"`
 - [ ] `lint-staged --concurrent`
 
 ## License
