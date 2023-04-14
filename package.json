@@ -1,6 +1,6 @@
 {
   "name": "@donniean/configs",
-  "version": "5.1.0",
+  "version": "4.0.0",
   "description": "configs generator",
   "keywords": [
     "cli",
@@ -45,8 +45,8 @@
     "clean": "rimraf ./lib/",
     "commit": "cz",
     "lint:cspell": "cspell lint --no-progress --relative --no-must-find-files --dot --gitignore \"**\"",
-    "lint:eslint": "eslint \"**/*.{js,ts}\"",
-    "lint:eslint:fix": "eslint --fix \"**/*.{js,ts}\"",
+    "lint:eslint": "eslint \"**/*.{js,cjs,ts}\"",
+    "lint:eslint:fix": "eslint --fix \"**/*.{js,cjs,ts}\"",
     "lint:markdownlint": "markdownlint --fix \"**/*.md\"",
     "lint:prettier": "prettier --check --ignore-unknown \"**/*.{js,ts,cjs,json,md,yaml,yml}\"",
     "lint:prettier:fix": "prettier --write --ignore-unknown \"**/*.{js,ts,cjs,json,md,yaml,yml}\"",
