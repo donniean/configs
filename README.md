@@ -108,8 +108,8 @@ rm package-lock.json;
 - [ ] pure ESM
 - [ ] `zod`
 - ignore
-  - [ ] git ignore
-  - [ ] lint ignore
+  - [x] git ignore
+  - [x] lint ignore
 - [ ] GitHub Actions
   - [ ] GITHUB_TOKEN
 - disable
