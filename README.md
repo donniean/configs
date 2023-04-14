@@ -108,6 +108,7 @@ rm package-lock.json;
 - [ ] pure ESM
 - [ ] `zod`
 - [ ] ignore
+- [ ] GitHub Actions
 - disable
   - [ ] `ts-ignore`
   - [ ] `eslint-disable`
