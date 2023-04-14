@@ -7,7 +7,7 @@ module.exports = {
     requireConfigFile: false,
   },
   env: {
-    browser: false,
+    browser: true,
     node: true,
     commonjs: true,
     'shared-node-browser': true,
@@ -19,14 +19,12 @@ module.exports = {
   },
   extends: [
     'airbnb-base',
-    'plugin:eslint-comments/recommended',
-    'plugin:promise/recommended',
-    'plugin:unicorn/recommended',
-    'plugin:sonarjs/recommended',
+    'plugin:node/recommended',
     'plugin:prettier/recommended',
   ],
   rules: {
     'no-useless-call': 'error',
+    'init-declarations': ['error', 'always'],
     'import/order': [
       'error',
       {
@@ -36,64 +34,29 @@ module.exports = {
           'internal',
           ['parent', 'sibling', 'index'],
           'object',
-          'type',
           'unknown',
         ],
         'newlines-between': 'always',
-        alphabetize: {
-          order: 'asc',
-        },
-        warnOnUnassignedImports: true,
       },
     ],
-    'import/prefer-default-export': 'off',
-    'unicorn/filename-case': [
+    'node/no-missing-import': 'off',
+    'node/no-unsupported-features/es-syntax': [
       'error',
-      {
-        cases: {
-          kebabCase: true,
-          camelCase: true,
-          pascalCase: true,
-        },
-      },
+      { version: '>=14.0.0', ignores: ['modules'] },
     ],
-    'unicorn/no-array-for-each': 'off',
-    'unicorn/no-null': 'off',
-    'unicorn/prevent-abbreviations': 'off',
   },
   overrides: [
     {
-      files: ['**/*.js'],
-      rules: {
-        'unicorn/prefer-module': 'off',
-      },
-    },
-    {
-      files: ['**/*.ts'],
-      parserOptions: {
-        project: './tsconfig.json',
-      },
-      settings: {
-        'import/resolver': {
-          typescript: {
-            alwaysTryTypes: true,
-          },
-        },
-      },
-      extends: [
-        'plugin:@typescript-eslint/recommended',
-        'plugin:@typescript-eslint/recommended-requiring-type-checking',
-        'airbnb-typescript/base',
-        'plugin:prettier/recommended',
+      files: [
+        '**/webpack.js',
+        '**/webpack.*.js',
+        '**/webpack.ts',
+        '**/webpack.*.ts',
+        '**/postcss.*.js',
       ],
-      plugins: ['simple-import-sort'],
       rules: {
-        'sort-imports': 'off',
-        'import/order': 'off',
-        'simple-import-sort/imports': 'error',
-        'simple-import-sort/exports': 'error',
-        '@typescript-eslint/ban-ts-comment': 'off',
-        '@typescript-eslint/no-floating-promises': 'off',
+        'node/no-unpublished-import': 'off',
+        'node/no-unpublished-require': 'off',
       },
     },
   ],

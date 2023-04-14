@@ -13,7 +13,7 @@
 ##   Handle line endings automatically for files detected as
 ##   text and leave all files detected as binary untouched.
 ##   This will handle all files NOT defined below.
-*                 text=lf
+*                 text=auto
 
 # Source code
 *.bash            text eol=lf
@@ -42,7 +42,6 @@
 *.scm             text
 *.scss            text diff=css
 *.sh              text eol=lf
-.husky/*          text eol=lf
 *.sql             text
 *.styl            text
 *.tag             text
@@ -52,10 +51,10 @@
 *.xhtml           text diff=html
 
 # Docker
-Dockerfile         text
+Dockerfile        text
 
 # Documentation
-*.ipynb           text eol=lf
+*.ipynb           text
 *.markdown        text diff=markdown
 *.md              text diff=markdown
 *.mdwn            text diff=markdown
@@ -83,7 +82,6 @@ TODO              text
 # Templates
 *.dot             text
 *.ejs             text
-*.erb             text
 *.haml            text
 *.handlebars      text
 *.hbs             text
@@ -102,15 +100,15 @@ TODO              text
 # Configs
 *.cnf             text
 *.conf            text
-*.config           text
-.editorconfig      text
+*.config          text
+.editorconfig     text
 .env              text
 .gitattributes    text
-.gitconfig         text
+.gitconfig        text
 .htaccess         text
 *.lock            text -diff
 package.json      text eol=lf
-package-lock.json text eol=lf -diff
+package-lock.json text -diff
 pnpm-lock.yaml    text eol=lf -diff
 .prettierrc       text
 yarn.lock         text -diff
@@ -118,11 +116,11 @@ yarn.lock         text -diff
 *.yaml            text
 *.yml             text
 browserslist      text
-Makefile           text
-makefile           text
+Makefile          text
+makefile          text
 
 # Heroku
-Procfile           text
+Procfile          text
 
 # Graphics
 *.ai              binary
@@ -168,8 +166,8 @@ Procfile           text
 *.asf             binary
 *.asx             binary
 *.avi             binary
-*.fla              binary
-*.flv              binary
+*.fla             binary
+*.flv             binary
 *.m4v             binary
 *.mng             binary
 *.mov             binary
