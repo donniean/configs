@@ -1,3 +1,10 @@
+## [4.0.1](https://github.com/donniean/configs/compare/v4.0.0...v4.0.1) (2023-04-14)
+
+
+### Bug Fixes
+
+* bugs ([4a5273f](https://github.com/donniean/configs/commit/4a5273f8150fec53925ea1d9a4e2f6f0ffd99f3b))
+
 # [4.0.0](https://github.com/donniean/configs/compare/v3.32.0...v4.0.0) (2023-04-14)
 
 
