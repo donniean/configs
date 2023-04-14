@@ -1,0 +1,21 @@
+{
+  // "extends": [
+  // "@tsconfig/node-lts/tsconfig.json",
+  // "@tsconfig/strictest/tsconfig.json"
+  // ],
+  "extends": "@tsconfig/node-lts-strictest/tsconfig.json",
+  "compilerOptions": {
+    "sourceMap": true,
+    "noPropertyAccessFromIndexSignature": false,
+    // "verbatimModuleSyntax": false,
+    "outDir": "lib",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    // TODO: TEMP
+    "ignoreDeprecations": "5.0"
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "lib"]
+}
