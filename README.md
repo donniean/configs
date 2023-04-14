@@ -115,6 +115,7 @@ rm package-lock.json;
 - [ ] `prettier` options
 - [ ] `lint-staged --concurrent`
 - [ ] `prettier` all
+- [ ] `prettier --check`
 
 ## License
 
