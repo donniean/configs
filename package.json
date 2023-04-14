@@ -48,7 +48,7 @@
     "lint:eslint": "eslint \"**/*.{js,ts}\"",
     "lint:eslint:fix": "eslint --fix \"**/*.{js,ts}\"",
     "lint:markdownlint": "markdownlint --fix \"**/*.md\"",
-    "lint:prettier": "prettier --check \"**/*.{js,ts,cjs,json,md,yaml,yml}\"",
+    "lint:prettier": "prettier --check \"**/*\"",
     "lint:prettier:fix": "prettier --write \"**/*.{js,ts,cjs,json,md,yaml,yml}\"",
     "lint:tsc": "tsc --noEmit",
     "pre-commit": "lint-staged --concurrent false",

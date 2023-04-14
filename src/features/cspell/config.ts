@@ -11,6 +11,7 @@ export function getConfig(): FeatureConfig<JsonObject> {
       language: 'en',
       ignorePaths: [
         ...LINT_IGNORE,
+        '.git/',
         '.idea/',
         '.vscode/',
         '.*ignore',
@@ -21,6 +22,7 @@ export function getConfig(): FeatureConfig<JsonObject> {
         'package.json',
         'package-lock.json',
         'pnpm-lock.yaml',
+        'CHANGELOG.md',
       ],
       dictionaries: [
         'user-apps',
