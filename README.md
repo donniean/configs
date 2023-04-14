@@ -109,6 +109,7 @@ rm package-lock.json;
 - [ ] `zod`
 - [ ] ignore
 - [ ] GitHub Actions
+  - [ ] GITHUB_TOKEN
 - disable
   - [ ] `ts-ignore`
   - [ ] `eslint-disable`
