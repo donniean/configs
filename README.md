@@ -105,16 +105,22 @@ rm package-lock.json;
 
 ## TODOs
 
-- [ ] `cSpell` custom `ignorePaths`
 - [ ] pure ESM
 - [ ] `zod`
 - [ ] ignore
-- [ ] `ts-ignore`
-- [ ] `eslint-disable`
-- [ ] `cspell: disable`
-- [ ] `prettier` options
+- [ ] GitHub Actions
+  - [ ] GITHUB_TOKEN
+- disable
+  - [ ] `ts-ignore`
+  - [ ] `eslint-disable`
+  - [ ] `cspell: disable`
+- Prettier
+  - [ ] `prettier --write "**/*"`
+  - [ ] `prettier --check "**/*"`
+- cSpell
+  - [ ] `cspell` custom `ignorePaths`
+  - [ ] `cspell lint --no-progress --relative --no-must-find-files --dot --gitignore **`
 - [ ] `lint-staged --concurrent`
-- [ ] `prettier` all
 
 ## License
 
