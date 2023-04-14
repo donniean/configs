@@ -1,5 +1,11 @@
-node_modules/
-lib/
-build/
-dist/
+**/.git/
+**/.svn/
+**/.hg/
+**/CVS/
+**/.DS_Store/
+**/.cache/
+**/node_modules/
+**/libs/
+**/build/
+**/dist/
 **/*.min.*
