@@ -11,6 +11,7 @@ export function getConfig(): FeatureConfig<JsonObject> {
       language: 'en',
       ignorePaths: [
         ...LINT_IGNORE,
+        '**/*.svg',
         '.git/',
         '.idea/',
         '.vscode/',
