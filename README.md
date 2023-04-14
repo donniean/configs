@@ -115,11 +115,13 @@ rm package-lock.json;
   - [ ] `eslint-disable`
   - [ ] `cspell: disable`
 - Prettier
-  - [ ] `prettier --write "**/*"`
-  - [ ] `prettier --check "**/*"`
+  - [x] `prettier --check`
+  - [ ] `"**/*"`
+    - [ ] `prettier --check --ignore-unknown "**/*"`
+    - [ ] `prettier --write --ignore-unknown "**/*"`
 - cSpell
   - [ ] `cspell` custom `ignorePaths`
-  - [ ] `cspell lint --no-progress --relative --no-must-find-files --dot --gitignore **`
+  - [ ] `cspell lint --no-progress --relative --no-must-find-files --dot --gitignore "**"`
 - [ ] `lint-staged --concurrent`
 
 ## License

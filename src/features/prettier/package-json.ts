@@ -18,7 +18,8 @@ function getScripts(
 
   return {
     scripts: {
-      prettier: `prettier --write "**/*.${globExtensions}"`,
+      'lint:prettier': `prettier --check "**/*.${globExtensions}"`,
+      'lint:prettier:fix': `prettier --write "**/*.${globExtensions}"`,
     },
   };
 }
