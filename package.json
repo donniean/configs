@@ -57,7 +57,7 @@
     "sort-package-json": "sort-package-json"
   },
   "dependencies": {
-    "chalk": "^4.1.2",
+    "chalk": "^5.2.0",
     "clean-deep": "^3.4.0",
     "commander": "^10.0.1",
     "cosmiconfig": "^8.1.3",
