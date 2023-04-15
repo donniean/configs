@@ -1,6 +1,6 @@
 {
   "name": "@donniean/configs",
-  "version": "0.0.0-development",
+  "version": "5.0.0",
   "description": "configs generator",
   "keywords": [
     "cli",
