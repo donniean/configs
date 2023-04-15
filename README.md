@@ -27,7 +27,9 @@ cd project-directory
 configs create
 ```
 
-[config types](src/constants/configs-config.ts)
+[config types](src/types/configs-config.ts)
+
+[default config](src/constants/configs-config.ts)
 
 ## Delete legacy files
 
