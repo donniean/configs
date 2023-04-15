@@ -7,5 +7,11 @@ module.exports = {
     // '@semantic-release/npm',
     '@semantic-release/github',
     '@semantic-release/git',
+    [
+      '@semantic-release/exec',
+      {
+        prepareCmd: 'npx prettier --write "CHANGELOG.md"',
+      },
+    ],
   ],
 };
