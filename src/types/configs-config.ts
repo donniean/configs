@@ -5,7 +5,7 @@ import type {
   TscExtension,
 } from './extensions';
 
-export type CustomIgnoreType = 'append' | 'override';
+export type CustomIgnoreMethod = 'push' | 'unshift' | 'override';
 
 export interface ConfigsConfig {
   features?: {
@@ -17,7 +17,7 @@ export interface ConfigsConfig {
       | {
           extensions?: PrettierExtension[];
           customIgnore?: string[]; // config only
-          customIgnoreType?: CustomIgnoreType; // config only
+          customIgnoreMethod?: CustomIgnoreMethod; // config only
         };
     tsc?:
       | false
@@ -44,7 +44,7 @@ export interface ConfigsConfig {
       | {
           extensions?: string[];
           customIgnore?: string[]; // config only
-          customIgnoreType?: CustomIgnoreType; // config only
+          customIgnoreMethod?: CustomIgnoreMethod; // config only
         };
     commitlint?: boolean;
     commitizen?: boolean;
@@ -62,7 +62,7 @@ export interface NormalizedConfigsConfig {
     prettier?: {
       extensions?: PrettierExtension[];
       customIgnore?: string[];
-      customIgnoreType?: CustomIgnoreType;
+      customIgnoreMethod?: CustomIgnoreMethod;
     };
     tsc?: {
       extensions?: TscExtension[];
@@ -81,7 +81,7 @@ export interface NormalizedConfigsConfig {
     cspell?: {
       extensions?: string[];
       customIgnore?: string[];
-      customIgnoreType?: CustomIgnoreType;
+      customIgnoreMethod?: CustomIgnoreMethod;
     };
     commitlint?: true;
     commitizen?: true;

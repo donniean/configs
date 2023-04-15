@@ -1,6 +1,6 @@
 import { uniq } from 'lodash';
 
-import { DEFAULT_CUSTOM_IGNORE_TYPE } from '@/constants/configs-config';
+import { DEFAULT_CUSTOM_IGNORE_METHOD } from '@/constants/configs-config';
 import { FEATURE_OPTIONS } from '@/constants/features';
 import type { FeatureKey } from '@/types/features';
 import * as files from '@/utils/files';
@@ -40,12 +40,24 @@ export function getIgnoreWithCustom({
   let finalIgnore = ignore;
 
   if (Array.isArray(customIgnore) && customIgnore.length > 0) {
-    const customIgnoreType =
-      feature?.customIgnoreType ?? DEFAULT_CUSTOM_IGNORE_TYPE;
-    if (customIgnoreType === 'append') {
-      finalIgnore = [...ignore, ...customIgnore];
-    } else if (customIgnoreType === 'override') {
-      finalIgnore = customIgnore;
+    const customIgnoreMethod =
+      feature?.customIgnoreMethod ?? DEFAULT_CUSTOM_IGNORE_METHOD;
+    switch (customIgnoreMethod) {
+      case 'push': {
+        finalIgnore = [...ignore, ...customIgnore];
+        break;
+      }
+      case 'unshift': {
+        finalIgnore = [...customIgnore, ...ignore];
+        break;
+      }
+      case 'override': {
+        finalIgnore = customIgnore;
+        break;
+      }
+      default: {
+        break;
+      }
     }
   }
 
