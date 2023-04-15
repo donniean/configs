@@ -2,7 +2,7 @@ import { FEATURE_OPTIONS } from '@/constants/features';
 import features from '@/features';
 import type { ConfigsConfig } from '@/types/configs-config';
 import type { OnAfterAllSuccess } from '@/types/feature-configs';
-import { getValidConfigsConfig } from '@/utils/configs-config';
+import { normalizeConfigsConfig } from '@/utils/configs-config';
 import { handleFeature } from '@/utils/handlers';
 import logger from '@/utils/logger';
 import { sortCwdPackageJsonSync } from '@/utils/package-json';
@@ -13,16 +13,16 @@ export default async function handler({
 }: {
   configsConfig: ConfigsConfig;
 }) {
-  const validConfigsConfig = getValidConfigsConfig(configsConfig);
-  const { features: validFeatures } = validConfigsConfig;
+  const normalizedConfigsConfig = normalizeConfigsConfig(configsConfig);
+  const { features: normalizedFeatures } = normalizedConfigsConfig;
 
   // eslint-disable-next-line no-restricted-syntax
   for (const { key } of FEATURE_OPTIONS) {
-    if (validFeatures?.[key]) {
+    if (normalizedFeatures?.[key]) {
       // eslint-disable-next-line no-await-in-loop
       const isSuccess = await handleFeature({
         featureKey: key,
-        validConfigsConfig,
+        normalizedConfigsConfig,
         ...features[key],
       });
       if (!isSuccess) {
@@ -42,11 +42,11 @@ export default async function handler({
   });
 
   FEATURE_OPTIONS.forEach(({ key }) => {
-    if (validFeatures?.[key]) {
+    if (normalizedFeatures?.[key]) {
       const onAfterAllSuccess = // @ts-ignore
         features[key]?.onAfterAllSuccess as OnAfterAllSuccess | undefined;
       if (typeof onAfterAllSuccess === 'function') {
-        onAfterAllSuccess({ featureKey: key, validConfigsConfig });
+        onAfterAllSuccess({ featureKey: key, normalizedConfigsConfig });
       }
     }
   });

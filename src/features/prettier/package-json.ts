@@ -5,11 +5,11 @@ import type {
 import { getFeatureGlobExtensions } from '@/utils/features';
 
 function getScripts(
-  validConfigsConfig: GetPackageJsonOptions['validConfigsConfig']
+  normalizedConfigsConfig: GetPackageJsonOptions['normalizedConfigsConfig']
 ) {
   const globExtensions = getFeatureGlobExtensions({
-    validConfigsConfig,
     featureKey: 'prettier',
+    normalizedConfigsConfig,
   });
 
   if (!globExtensions) {
@@ -25,9 +25,9 @@ function getScripts(
 }
 
 export function getPackageJson({
-  validConfigsConfig,
+  normalizedConfigsConfig,
 }: GetPackageJsonOptions): FeaturePackageJson {
-  const scripts = getScripts(validConfigsConfig);
+  const scripts = getScripts(normalizedConfigsConfig);
 
   return {
     ...scripts,

@@ -5,6 +5,8 @@ import type {
   TscExtension,
 } from './extensions';
 
+export type CustomIgnoreMethod = 'push' | 'unshift' | 'override';
+
 export interface ConfigsConfig {
   features?: {
     gitignore?: boolean;
@@ -14,6 +16,8 @@ export interface ConfigsConfig {
       | false
       | {
           extensions?: PrettierExtension[];
+          customIgnore?: string[]; // config only
+          customIgnoreMethod?: CustomIgnoreMethod; // config only
         };
     tsc?:
       | false
@@ -39,6 +43,8 @@ export interface ConfigsConfig {
       | false
       | {
           extensions?: string[];
+          customIgnore?: string[]; // config only
+          customIgnoreMethod?: CustomIgnoreMethod; // config only
         };
     commitlint?: boolean;
     commitizen?: boolean;
@@ -48,13 +54,15 @@ export interface ConfigsConfig {
   };
 }
 
-export interface ValidConfigsConfig {
+export interface NormalizedConfigsConfig {
   features?: {
     gitignore?: true;
     gitattributes?: true;
     editorconfig?: true;
     prettier?: {
       extensions?: PrettierExtension[];
+      customIgnore?: string[];
+      customIgnoreMethod?: CustomIgnoreMethod;
     };
     tsc?: {
       extensions?: TscExtension[];
@@ -72,6 +80,8 @@ export interface ValidConfigsConfig {
     markdownlint?: true;
     cspell?: {
       extensions?: string[];
+      customIgnore?: string[];
+      customIgnoreMethod?: CustomIgnoreMethod;
     };
     commitlint?: true;
     commitizen?: true;

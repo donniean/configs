@@ -2,10 +2,10 @@ import type { OnAfterAllSuccessOptions } from '@/types/feature-configs';
 import logger from '@/utils/logger';
 
 export function onAfterAllSuccess({
-  validConfigsConfig,
+  normalizedConfigsConfig,
 }: OnAfterAllSuccessOptions) {
-  const lintStaged = validConfigsConfig.features?.['lint-staged'];
-  const commitlint = validConfigsConfig.features?.commitlint;
+  const lintStaged = normalizedConfigsConfig.features?.['lint-staged'];
+  const commitlint = normalizedConfigsConfig.features?.commitlint;
 
   let commands = [];
 

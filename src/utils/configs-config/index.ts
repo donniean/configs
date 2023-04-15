@@ -2,7 +2,10 @@ import cleanDeep from 'clean-deep';
 import { cosmiconfigSync } from 'cosmiconfig';
 
 import { CONFIGS_CONFIG_FILE_NAME } from '@/constants/configs-config';
-import type { ConfigsConfig, ValidConfigsConfig } from '@/types/configs-config';
+import type {
+  ConfigsConfig,
+  NormalizedConfigsConfig,
+} from '@/types/configs-config';
 import type { CreateAnswers } from '@/types/prompts';
 import * as files from '@/utils/files';
 import * as paths from '@/utils/paths';
@@ -23,9 +26,9 @@ export function outputConfigsConfigSync({
   return files.outputCjsFileSync({ filePath, data: { ...data } });
 }
 
-export function getValidConfigsConfig(
+export function normalizeConfigsConfig(
   configsConfig: ConfigsConfig
-): ValidConfigsConfig {
+): NormalizedConfigsConfig {
   // @ts-ignore
   return cleanDeep(configsConfig, { cleanValues: [false] });
 }

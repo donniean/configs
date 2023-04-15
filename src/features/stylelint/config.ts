@@ -36,8 +36,11 @@ function getFullConfig({
   };
 }
 
-function getData(validConfigsConfig: GetConfigOptions['validConfigsConfig']) {
-  const extensions = validConfigsConfig.features?.stylelint?.extensions ?? [];
+function getData(
+  normalizedConfigsConfig: GetConfigOptions['normalizedConfigsConfig']
+) {
+  const extensions =
+    normalizedConfigsConfig.features?.stylelint?.extensions ?? [];
   const hasScssResult = hasScss(extensions);
   const styledGlobExtensions = getStyledGlobExtensions(extensions);
   const fullConfig = getFullConfig({ styledGlobExtensions });
@@ -60,9 +63,9 @@ function getData(validConfigsConfig: GetConfigOptions['validConfigsConfig']) {
 }
 
 export function getConfig({
-  validConfigsConfig,
+  normalizedConfigsConfig,
 }: GetConfigOptions): FeatureConfig<JsonObject> {
-  const data = getData(validConfigsConfig);
+  const data = getData(normalizedConfigsConfig);
 
   return {
     outputFileName: 'stylelint.config.cjs',

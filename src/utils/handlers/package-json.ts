@@ -32,17 +32,17 @@ async function fetchDevDependencyVersions(
 
 type HandlePackageJsonOptions = Pick<
   Required<HandleFeatureOptions>,
-  'featureKey' | 'validConfigsConfig' | 'getPackageJson'
+  'featureKey' | 'normalizedConfigsConfig' | 'getPackageJson'
 >;
 
 export async function handlePackageJson({
   featureKey,
-  validConfigsConfig,
+  normalizedConfigsConfig,
   getPackageJson,
 }: HandlePackageJsonOptions) {
   const { devDependencies, ...rest } = getPackageJson({
     featureKey,
-    validConfigsConfig,
+    normalizedConfigsConfig,
   });
   const devDependenciesWithVersion = await fetchDevDependencyVersions(
     devDependencies

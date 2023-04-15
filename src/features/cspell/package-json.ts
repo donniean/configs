@@ -5,9 +5,9 @@ import type {
 import { getGlobExtensions } from '@/utils/misc';
 
 function getScripts(
-  validConfigsConfig: GetPackageJsonOptions['validConfigsConfig']
+  normalizedConfigsConfig: GetPackageJsonOptions['normalizedConfigsConfig']
 ) {
-  const extensions = validConfigsConfig.features?.cspell?.extensions ?? [];
+  const extensions = normalizedConfigsConfig.features?.cspell?.extensions ?? [];
 
   if (extensions.length === 0) {
     return null;
@@ -26,9 +26,9 @@ function getScripts(
 }
 
 export function getPackageJson({
-  validConfigsConfig,
+  normalizedConfigsConfig,
 }: GetPackageJsonOptions): FeaturePackageJson {
-  const scripts = getScripts(validConfigsConfig);
+  const scripts = getScripts(normalizedConfigsConfig);
   return {
     ...scripts,
     devDependencies: {

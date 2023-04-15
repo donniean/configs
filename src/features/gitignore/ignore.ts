@@ -4,6 +4,6 @@ import { readFeatureIgnoreFileSync } from '@/utils/features';
 export function getIgnore({ featureKey }: GetIgnoreOptions): FeatureIgnore {
   return {
     outputFileName: '.gitignore',
-    data: readFeatureIgnoreFileSync({ featureKey }),
+    data: readFeatureIgnoreFileSync({ featureKey }).split('\n'),
   };
 }

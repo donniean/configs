@@ -1,4 +1,4 @@
-import type { ValidConfigsConfig } from '@/types/configs-config';
+import type { NormalizedConfigsConfig } from '@/types/configs-config';
 import type {
   GetConfig,
   GetIgnore,
@@ -9,7 +9,7 @@ import type { FeatureKey } from '@/types/features';
 
 export interface HandleExtrasOptions {
   featureKey: FeatureKey;
-  validConfigsConfig: ValidConfigsConfig;
+  normalizedConfigsConfig: NormalizedConfigsConfig;
   getPackageJson?: GetPackageJson;
   getConfig?: GetConfig;
   getIgnore?: GetIgnore;
@@ -19,7 +19,7 @@ export type HandleExtras = (options: HandleExtrasOptions) => void;
 
 export interface HandleFeatureOptions {
   featureKey: FeatureKey;
-  validConfigsConfig: ValidConfigsConfig;
+  normalizedConfigsConfig: NormalizedConfigsConfig;
   getPackageJson?: GetPackageJson;
   getConfig?: GetConfig;
   getIgnore?: GetIgnore;

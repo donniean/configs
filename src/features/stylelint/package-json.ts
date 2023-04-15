@@ -7,11 +7,11 @@ import { getFeatureGlobExtensions } from '@/utils/features';
 import { hasScss, hasStyled } from './utils';
 
 function getScripts(
-  validConfigsConfig: GetPackageJsonOptions['validConfigsConfig']
+  normalizedConfigsConfig: GetPackageJsonOptions['normalizedConfigsConfig']
 ) {
   const globExtensions = getFeatureGlobExtensions({
-    validConfigsConfig,
     featureKey: 'stylelint',
+    normalizedConfigsConfig,
   });
 
   if (!globExtensions) {
@@ -27,7 +27,7 @@ function getScripts(
 }
 
 function getDevDependencies(
-  validConfigsConfig: GetPackageJsonOptions['validConfigsConfig']
+  normalizedConfigsConfig: GetPackageJsonOptions['normalizedConfigsConfig']
 ) {
   const baseDevDependencies = {
     stylelint: '',
@@ -41,7 +41,8 @@ function getDevDependencies(
     'postcss-styled-syntax': '',
   };
 
-  const extensions = validConfigsConfig.features?.stylelint?.extensions ?? [];
+  const extensions =
+    normalizedConfigsConfig.features?.stylelint?.extensions ?? [];
 
   const devDependencies = {
     ...baseDevDependencies,
@@ -53,10 +54,10 @@ function getDevDependencies(
 }
 
 export function getPackageJson({
-  validConfigsConfig,
+  normalizedConfigsConfig,
 }: GetPackageJsonOptions): FeaturePackageJson {
-  const scripts = getScripts(validConfigsConfig);
-  const devDependencies = getDevDependencies(validConfigsConfig);
+  const scripts = getScripts(normalizedConfigsConfig);
+  const devDependencies = getDevDependencies(normalizedConfigsConfig);
 
   return {
     ...scripts,
