@@ -8,8 +8,8 @@ function getScripts(
   validConfigsConfig: GetPackageJsonOptions['validConfigsConfig']
 ) {
   const globExtensions = getFeatureGlobExtensions({
-    validConfigsConfig,
     featureKey: 'prettier',
+    validConfigsConfig,
   });
 
   if (!globExtensions) {

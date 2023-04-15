@@ -10,8 +10,8 @@ function getScripts(
   validConfigsConfig: GetPackageJsonOptions['validConfigsConfig']
 ) {
   const globExtensions = getFeatureGlobExtensions({
-    validConfigsConfig,
     featureKey: 'stylelint',
+    validConfigsConfig,
   });
 
   if (!globExtensions) {

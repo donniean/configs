@@ -63,8 +63,8 @@ function getCSpellPattern(
 function getData(validConfigsConfig: GetConfigOptions['validConfigsConfig']) {
   const getExtensions = (featureKey: GlobExtensionsFeatureKey) =>
     getFeatureGlobExtensions({
-      validConfigsConfig,
       featureKey,
+      validConfigsConfig,
     });
   const checkers = {
     prettier: getExtensions('prettier'),
