@@ -5,6 +5,8 @@ import type {
   TscExtension,
 } from './extensions';
 
+export type CustomIgnoreType = 'append' | 'override';
+
 export interface ConfigsConfig {
   features?: {
     gitignore?: boolean;
@@ -14,6 +16,8 @@ export interface ConfigsConfig {
       | false
       | {
           extensions?: PrettierExtension[];
+          customIgnore?: string[]; // config only
+          customIgnoreType?: CustomIgnoreType; // config only
         };
     tsc?:
       | false
@@ -39,6 +43,8 @@ export interface ConfigsConfig {
       | false
       | {
           extensions?: string[];
+          customIgnore?: string[]; // config only
+          customIgnoreType?: CustomIgnoreType; // config only
         };
     commitlint?: boolean;
     commitizen?: boolean;
