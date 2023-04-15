@@ -3,7 +3,7 @@ import type {
   PrettierExtension,
   StylelintExtension,
   TscExtension,
-} from '@/types/config';
+} from '@/types/extensions';
 
 export const PRETTIER_EXTENSIONS: PrettierExtension[] = [
   'js',
@@ -39,7 +39,6 @@ export const ESLINT_EXTENSIONS: ESLintExtension[] = [
 
 export const STYLELINT_EXTENSIONS: StylelintExtension[] = [
   'css',
-  'less',
   'scss',
   'js',
   'jsx',

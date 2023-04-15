@@ -1,0 +1,55 @@
+import { chain, merge } from 'lodash';
+
+import type { FeaturePackageJson } from '@/types/feature-configs';
+import type { HandleFeatureOptions } from '@/types/handlers';
+import {
+  fetchPackageLatestVersion,
+  mergeCwdPackageJsonSync,
+} from '@/utils/package-json';
+
+async function fetchDevDependencyVersions(
+  devDependencies: FeaturePackageJson['devDependencies']
+) {
+  if (!devDependencies) {
+    return {};
+  }
+
+  const promises = Object.entries(devDependencies).map(
+    async ([packageName, version]) => {
+      if (version) {
+        return { packageName, version };
+      }
+      const latestVersion = await fetchPackageLatestVersion(packageName);
+      return { packageName, version: `^${latestVersion}` };
+    }
+  );
+  const packageVersions = await Promise.all(promises);
+  return chain(packageVersions)
+    .keyBy('packageName')
+    .mapValues('version')
+    .value();
+}
+
+type HandlePackageJsonOptions = Pick<
+  Required<HandleFeatureOptions>,
+  'featureKey' | 'normalizedConfigsConfig' | 'getPackageJson'
+>;
+
+export async function handlePackageJson({
+  featureKey,
+  normalizedConfigsConfig,
+  getPackageJson,
+}: HandlePackageJsonOptions) {
+  const { devDependencies, ...rest } = getPackageJson({
+    featureKey,
+    normalizedConfigsConfig,
+  });
+  const devDependenciesWithVersion = await fetchDevDependencyVersions(
+    devDependencies
+  );
+  const data = merge({}, rest, {
+    devDependencies: devDependenciesWithVersion,
+  });
+  // @ts-ignore
+  mergeCwdPackageJsonSync({ data });
+}

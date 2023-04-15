@@ -1,12 +1,22 @@
-import * as configFile from '@/utils/config-file';
-import logger from '@/utils/logger';
+import { Command } from 'commander';
 
-import commands from './commands';
+import { readRootPackageJsonSync } from '@/utils/package-json';
+
+import create from './create';
 
 export default function cli() {
-  const argv = commands();
+  const program = new Command();
+  const version = readRootPackageJsonSync()?.version;
 
-  const configByCurrentFile = configFile.readConfig();
+  if (version) {
+    program.version(version, '-v, --version');
+  }
 
-  logger.log(argv, configByCurrentFile);
+  program
+    .command('create')
+    .description('create config files and add packages in package.json')
+    .option('-p, --prompt', 'use prompt')
+    .action((options: { prompt?: boolean }) => create(options));
+
+  program.parse();
 }
