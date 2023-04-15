@@ -4,17 +4,17 @@ import * as paths from '@/utils/paths';
 
 type HandleIgnoreOptions = Pick<
   Required<HandleFeatureOptions>,
-  'featureKey' | 'validConfigsConfig' | 'getIgnore'
+  'featureKey' | 'normalizedConfigsConfig' | 'getIgnore'
 >;
 
 export function handleIgnore({
   featureKey,
-  validConfigsConfig,
+  normalizedConfigsConfig,
   getIgnore,
 }: HandleIgnoreOptions) {
   const { outputFileName, data } = getIgnore({
     featureKey,
-    validConfigsConfig,
+    normalizedConfigsConfig,
   });
   const filePath = paths.resolveCwd(outputFileName);
   const str = data.join('\n');

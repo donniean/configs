@@ -5,17 +5,17 @@ import * as paths from '@/utils/paths';
 
 type HandleConfigOptions = Pick<
   Required<HandleFeatureOptions>,
-  'featureKey' | 'validConfigsConfig' | 'getConfig'
+  'featureKey' | 'normalizedConfigsConfig' | 'getConfig'
 >;
 
 export function handleConfig({
   featureKey,
-  validConfigsConfig,
+  normalizedConfigsConfig,
   getConfig,
 }: HandleConfigOptions) {
   const { outputFileName, format, data } = getConfig({
     featureKey,
-    validConfigsConfig,
+    normalizedConfigsConfig,
   });
   const filePath = paths.resolveCwd(outputFileName);
   if (format === 'json' || format === 'cjs' || format === 'esm') {

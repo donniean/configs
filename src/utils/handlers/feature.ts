@@ -12,7 +12,7 @@ import { handlePackageJson } from './package-json';
 
 export async function handleFeature({
   featureKey,
-  validConfigsConfig,
+  normalizedConfigsConfig,
   getPackageJson,
   getConfig,
   getIgnore,
@@ -29,26 +29,26 @@ export async function handleFeature({
     }
     await handlePackageJson({
       featureKey,
-      validConfigsConfig,
+      normalizedConfigsConfig,
       getPackageJson,
     });
   }
 
   if (getConfig) {
     logger.info('handle config', { isBoldMessage: true });
-    handleConfig({ featureKey, validConfigsConfig, getConfig });
+    handleConfig({ featureKey, normalizedConfigsConfig, getConfig });
   }
 
   if (getIgnore) {
     logger.info('handle ignore', { isBoldMessage: true });
-    handleIgnore({ featureKey, validConfigsConfig, getIgnore });
+    handleIgnore({ featureKey, normalizedConfigsConfig, getIgnore });
   }
 
   if (handleExtras) {
     logger.info('handle extras', { isBoldMessage: true });
     const options: HandleExtrasOptions = {
       featureKey,
-      validConfigsConfig,
+      normalizedConfigsConfig,
     };
     if (getPackageJson) {
       options.getPackageJson = getPackageJson;

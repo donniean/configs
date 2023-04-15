@@ -20,7 +20,7 @@ const IGNORE = [
 ];
 
 export function getConfig({
-  validConfigsConfig,
+  normalizedConfigsConfig,
 }: GetConfigOptions): FeatureConfig<JsonObject> {
   return {
     outputFileName: 'cspell.config.cjs',
@@ -30,7 +30,7 @@ export function getConfig({
       language: 'en',
       ignorePaths: getIgnoreWithCustom({
         featureKey: 'cspell',
-        validConfigsConfig,
+        normalizedConfigsConfig,
         ignore: [...LINT_IGNORE, ...IGNORE],
       }),
       dictionaries: [

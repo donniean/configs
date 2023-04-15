@@ -1,7 +1,7 @@
 import type { PackageJson } from 'type-fest';
 
 import type { JsonObjectOrArray } from './base';
-import type { ValidConfigsConfig } from './configs-config';
+import type { NormalizedConfigsConfig } from './configs-config';
 import type { FeatureKey } from './features';
 
 export type FeaturePackageJson = Pick<
@@ -30,7 +30,7 @@ export interface FeatureIgnore {
 
 export interface GetPackageJsonOptions {
   featureKey: FeatureKey;
-  validConfigsConfig: ValidConfigsConfig;
+  normalizedConfigsConfig: NormalizedConfigsConfig;
 }
 
 export type GetConfigOptions = GetPackageJsonOptions;

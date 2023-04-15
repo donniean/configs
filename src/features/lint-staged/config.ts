@@ -47,9 +47,9 @@ function getAllCommands({
 }
 
 function getCSpellPattern(
-  validConfigsConfig: GetConfigOptions['validConfigsConfig']
+  normalizedConfigsConfig: GetConfigOptions['normalizedConfigsConfig']
 ) {
-  const extensions = validConfigsConfig.features?.cspell?.extensions ?? [];
+  const extensions = normalizedConfigsConfig.features?.cspell?.extensions ?? [];
 
   if (extensions.length === 0) {
     return '';
@@ -60,18 +60,20 @@ function getCSpellPattern(
     : `*.${getGlobExtensions(extensions)}`;
 }
 
-function getData(validConfigsConfig: GetConfigOptions['validConfigsConfig']) {
+function getData(
+  normalizedConfigsConfig: GetConfigOptions['normalizedConfigsConfig']
+) {
   const getExtensions = (featureKey: GlobExtensionsFeatureKey) =>
     getFeatureGlobExtensions({
       featureKey,
-      validConfigsConfig,
+      normalizedConfigsConfig,
     });
   const checkers = {
     prettier: getExtensions('prettier'),
     tsc: getExtensions('tsc'),
     eslint: getExtensions('eslint'),
     stylelint: getExtensions('stylelint'),
-    cspell: getCSpellPattern(validConfigsConfig),
+    cspell: getCSpellPattern(normalizedConfigsConfig),
   };
   const allCommands = getAllCommands({
     prettierGlobExtensions: checkers.prettier,
@@ -89,7 +91,7 @@ function getData(validConfigsConfig: GetConfigOptions['validConfigsConfig']) {
       if (checkers[key]) {
         result = { ...result, ...command };
       }
-    } else if (validConfigsConfig.features?.[key]) {
+    } else if (normalizedConfigsConfig.features?.[key]) {
       result = { ...result, ...command };
     }
   });
@@ -97,9 +99,9 @@ function getData(validConfigsConfig: GetConfigOptions['validConfigsConfig']) {
 }
 
 export function getConfig({
-  validConfigsConfig,
+  normalizedConfigsConfig,
 }: GetConfigOptions): FeatureConfig<Record<string, string>> {
-  const data = getData(validConfigsConfig);
+  const data = getData(normalizedConfigsConfig);
   return {
     outputFileName: 'lint-staged.config.cjs',
     format: 'cjs',

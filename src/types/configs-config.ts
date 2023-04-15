@@ -54,7 +54,7 @@ export interface ConfigsConfig {
   };
 }
 
-export interface ValidConfigsConfig {
+export interface NormalizedConfigsConfig {
   features?: {
     gitignore?: true;
     gitattributes?: true;

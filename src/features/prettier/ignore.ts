@@ -3,11 +3,11 @@ import type { FeatureIgnore, GetIgnoreOptions } from '@/types/feature-configs';
 import { getIgnoreWithCustom } from '@/utils/features';
 
 export function getIgnore({
-  validConfigsConfig,
+  normalizedConfigsConfig,
 }: GetIgnoreOptions): FeatureIgnore {
   const data = getIgnoreWithCustom({
     featureKey: 'prettier',
-    validConfigsConfig,
+    normalizedConfigsConfig,
     ignore: LINT_IGNORE,
   });
 

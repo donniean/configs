@@ -29,10 +29,10 @@ export function readFeatureIgnoreFileSync({
 
 export function getIgnoreWithCustom({
   featureKey,
-  validConfigsConfig,
+  normalizedConfigsConfig,
   ignore,
 }: GetCustomIgnoreOptions) {
-  const feature = validConfigsConfig.features?.[featureKey];
+  const feature = normalizedConfigsConfig.features?.[featureKey];
   const customIgnore = feature?.customIgnore;
 
   if (Array.isArray(customIgnore) && customIgnore.length > 0) {
@@ -55,9 +55,9 @@ export function getIgnoreWithCustom({
 
 export function getFeatureGlobExtensions({
   featureKey,
-  validConfigsConfig,
+  normalizedConfigsConfig,
 }: GetFeatureGlobExtensionsOptions) {
-  const feature = validConfigsConfig.features?.[featureKey];
+  const feature = normalizedConfigsConfig.features?.[featureKey];
 
   if (feature && typeof feature === 'object' && 'extensions' in feature) {
     const extensions = feature.extensions ?? [];
