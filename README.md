@@ -126,7 +126,7 @@ rm package-lock.json;
     - [ ] `prettier --check --ignore-unknown "**/*"`
     - [ ] `prettier --write --ignore-unknown "**/*"`
 - cSpell
-  - [ ] `cspell` custom `ignorePaths`
+  - [x] `cspell` custom `ignorePaths`
   - [x] `cspell lint --no-progress --relative --no-must-find-files --dot --gitignore "**"`
 - [ ] `lint-staged --concurrent`
 
