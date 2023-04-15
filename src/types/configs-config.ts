@@ -61,6 +61,8 @@ export interface ValidConfigsConfig {
     editorconfig?: true;
     prettier?: {
       extensions?: PrettierExtension[];
+      customIgnore?: string[];
+      customIgnoreType?: CustomIgnoreType;
     };
     tsc?: {
       extensions?: TscExtension[];
@@ -78,6 +80,8 @@ export interface ValidConfigsConfig {
     markdownlint?: true;
     cspell?: {
       extensions?: string[];
+      customIgnore?: string[];
+      customIgnoreType?: CustomIgnoreType;
     };
     commitlint?: true;
     commitizen?: true;

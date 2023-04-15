@@ -17,6 +17,6 @@ export function handleIgnore({
     validConfigsConfig,
   });
   const filePath = paths.resolveCwd(outputFileName);
-  const str = Array.isArray(data) ? data.join('\n') : data;
+  const str = data.join('\n');
   outputFileSync({ filePath, data: str });
 }

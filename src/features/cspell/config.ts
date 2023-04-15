@@ -1,30 +1,38 @@
 import { LINT_IGNORE } from '@/constants/ignore';
 import type { JsonObject } from '@/types/base';
-import type { FeatureConfig } from '@/types/feature-configs';
+import type { FeatureConfig, GetConfigOptions } from '@/types/feature-configs';
+import { getIgnoreWithCustom } from '@/utils/features';
 
-export function getConfig(): FeatureConfig<JsonObject> {
+const IGNORE = [
+  '**/*.svg',
+  '.git/',
+  '.idea/',
+  '.vscode/',
+  '.*ignore',
+  '*.tsbuildinfo',
+  '.gitattributes',
+  '.htmlhintrc',
+  'Dockerfile',
+  'package.json',
+  'package-lock.json',
+  'pnpm-lock.yaml',
+  'CHANGELOG.md',
+];
+
+export function getConfig({
+  validConfigsConfig,
+}: GetConfigOptions): FeatureConfig<JsonObject> {
   return {
     outputFileName: 'cspell.config.cjs',
     format: 'cjs',
     data: {
       version: '0.2',
       language: 'en',
-      ignorePaths: [
-        ...LINT_IGNORE,
-        '**/*.svg',
-        '.git/',
-        '.idea/',
-        '.vscode/',
-        '.*ignore',
-        '*.tsbuildinfo',
-        '.gitattributes',
-        '.htmlhintrc',
-        'Dockerfile',
-        'package.json',
-        'package-lock.json',
-        'pnpm-lock.yaml',
-        'CHANGELOG.md',
-      ],
+      ignorePaths: getIgnoreWithCustom({
+        featureKey: 'cspell',
+        validConfigsConfig,
+        ignore: [...LINT_IGNORE, ...IGNORE],
+      }),
       dictionaries: [
         'user-apps',
         'user-brands',

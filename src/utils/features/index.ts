@@ -1,3 +1,4 @@
+import { DEFAULT_CUSTOM_IGNORE_TYPE } from '@/constants/configs-config';
 import { FEATURE_OPTIONS } from '@/constants/features';
 import type { FeatureKey } from '@/types/features';
 import * as files from '@/utils/files';
@@ -5,6 +6,7 @@ import * as paths from '@/utils/paths';
 
 import { getGlobExtensions } from '../misc';
 import type {
+  GetCustomIgnoreOptions,
   GetFeatureGlobExtensionsOptions,
   ReadFeatureIgnoreFileSyncOptions,
 } from './types';
@@ -25,9 +27,35 @@ export function readFeatureIgnoreFileSync({
   });
 }
 
-export function getFeatureGlobExtensions({
-  validConfigsConfig,
+export function getIgnoreWithCustom({
   featureKey,
+  validConfigsConfig,
+  ignore,
+}: GetCustomIgnoreOptions) {
+  const feature = validConfigsConfig.features?.[featureKey];
+  const customIgnore = feature?.customIgnore;
+
+  if (Array.isArray(customIgnore) && customIgnore.length > 0) {
+    const customIgnoreType =
+      feature?.customIgnoreType ?? DEFAULT_CUSTOM_IGNORE_TYPE;
+
+    if (customIgnoreType === 'append') {
+      return [...ignore, ...customIgnore];
+    }
+
+    if (customIgnoreType === 'override') {
+      return customIgnore;
+    }
+
+    return ignore;
+  }
+
+  return ignore;
+}
+
+export function getFeatureGlobExtensions({
+  featureKey,
+  validConfigsConfig,
 }: GetFeatureGlobExtensionsOptions) {
   const feature = validConfigsConfig.features?.[featureKey];
 

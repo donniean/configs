@@ -6,7 +6,13 @@ export interface ReadFeatureIgnoreFileSyncOptions {
   fileName?: string;
 }
 
-export interface GetFeatureGlobExtensionsOptions {
+export interface GetCustomIgnoreOptions {
+  featureKey: Extract<FeatureKey, 'prettier' | 'cspell'>;
   validConfigsConfig: ValidConfigsConfig;
+  ignore: string[];
+}
+
+export interface GetFeatureGlobExtensionsOptions {
   featureKey: Extract<FeatureKey, 'prettier' | 'tsc' | 'eslint' | 'stylelint'>;
+  validConfigsConfig: ValidConfigsConfig;
 }

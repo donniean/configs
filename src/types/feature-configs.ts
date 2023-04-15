@@ -25,7 +25,7 @@ export type FeatureConfig<T extends FeatureConfigData> =
 
 export interface FeatureIgnore {
   outputFileName: string;
-  data: string | string[];
+  data: string[];
 }
 
 export interface GetPackageJsonOptions {
