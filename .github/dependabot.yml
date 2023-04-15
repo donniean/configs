@@ -4,3 +4,10 @@ updates:
     directory: '/'
     schedule:
       interval: daily
+    ignore:
+      - dependency-name: chalk
+        versions: ['> 4']
+      - dependency-name: latest-version
+        versions: ['> 5']
+      - dependency-name: ora
+        versions: ['> 5']
