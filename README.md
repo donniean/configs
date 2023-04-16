@@ -109,25 +109,7 @@ rm package-lock.json;
 
 ## TODOs
 
-- [ ] pure ESM
-- [ ] `zod`
-- [ ] GitHub Actions
-  - [ ] GITHUB_TOKEN
-- disable
-  - [ ] `ts-ignore`
-  - [ ] `eslint-disable`
-  - [ ] `cspell: disable`
-- Prettier
-  - [ ] `"**/*"`
-    - [ ] `prettier --check --ignore-unknown "**/*"`
-    - [ ] `prettier --write --ignore-unknown "**/*"`
-- [ ] `lint-staged --concurrent`
-- commands
-  - [ ] `configs init`
-  - [ ] `configs create` ?
-- config
-  - [ ] pattern
-  - [ ] ignore ?
+- [ ] delete .idea/ in GitHub
 
 ## License
 
