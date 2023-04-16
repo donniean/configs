@@ -1,7 +1,7 @@
 {
   "name": "@donniean/configs",
   "version": "5.0.0",
-  "description": "configs generator",
+  "description": "an opinionated configs generator",
   "keywords": [
     "cli",
     "commitizen",
