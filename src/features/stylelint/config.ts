@@ -1,6 +1,6 @@
 import { omit } from 'lodash';
 
-import { LINT_IGNORE } from '@/constants/ignore';
+// import { LINT_IGNORE } from '@/constants/ignore';
 import type { JsonObject } from '@/types/base';
 import type { FeatureConfig, GetConfigOptions } from '@/types/feature-configs';
 
@@ -17,7 +17,7 @@ function getFullConfig({
       'color-named': ['never', { ignore: ['inside-function'] }],
       'no-unknown-animations': true,
     },
-    ignoreFiles: LINT_IGNORE,
+    // ignoreFiles: LINT_IGNORE,
     overrides: [
       {
         files: ['**/*.scss'],
