@@ -11,11 +11,8 @@ export function resolveRoot(...paths: string[]) {
   return path.resolve(root, ...paths);
 }
 
-export function resolveFeatureAssets(
-  featureKey: FeatureKey,
-  ...paths: string[]
-) {
-  return resolveRoot('src', 'features', featureKey, 'assets', ...paths);
+export function resolveAssets(featureKey: FeatureKey, ...paths: string[]) {
+  return resolveRoot('assets', featureKey, ...paths);
 }
 
 export function resolveCwd(...paths: string[]) {

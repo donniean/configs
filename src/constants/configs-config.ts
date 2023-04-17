@@ -11,7 +11,7 @@ import {
 
 export const CONFIGS_CONFIG_FILE_NAME = 'configs.config.cjs';
 
-export const DEFAULT_CUSTOM_IGNORE_METHOD = 'append';
+export const DEFAULT_CUSTOM_IGNORE_METHOD = 'push';
 
 export const DEFAULT_CONFIGS_CONFIG: ConfigsConfig = {
   features: {

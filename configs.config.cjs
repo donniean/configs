@@ -12,7 +12,10 @@ module.exports = {
     markdownlint: true,
     cspell: {
       extensions: ['**'],
-      customIgnore: ['**/assets/gitattributes', '**/assets/gitignore.ignore'],
+      customIgnore: [
+        '**/assets/**/gitattributes',
+        '**/assets/**/gitignore.ignore',
+      ],
     },
     commitlint: true,
     commitizen: true,

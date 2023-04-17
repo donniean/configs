@@ -20,8 +20,8 @@ module.exports = {
     'package-lock.json',
     'pnpm-lock.yaml',
     'CHANGELOG.md',
-    '**/assets/gitattributes',
-    '**/assets/gitignore.ignore',
+    '**/assets/**/gitattributes',
+    '**/assets/**/gitignore.ignore',
   ],
   dictionaries: [
     'user-apps',

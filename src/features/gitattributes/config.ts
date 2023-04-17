@@ -3,7 +3,7 @@ import * as files from '@/utils/files';
 import * as paths from '@/utils/paths';
 
 const data = files.readFileSync({
-  filePath: paths.resolveFeatureAssets('gitattributes', 'gitattributes'),
+  filePath: paths.resolveAssets('gitattributes', 'gitattributes'),
 });
 
 export function getConfig(): FeatureConfig<string> {
