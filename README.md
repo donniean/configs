@@ -105,6 +105,8 @@ npm uninstall stylelint-order;
 npm uninstall stylelint-prettier;
 
 rm package-lock.json;
+rm -rf node_modules/;
+rm -rf **/node_modules/;
 ```
 
 ## TODOs
