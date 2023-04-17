@@ -1,3 +1,9 @@
+## [5.2.2](https://github.com/donniean/configs/compare/v5.2.1...v5.2.2) (2023-04-17)
+
+### Bug Fixes
+
+- add assets in package.json files ([#100](https://github.com/donniean/configs/issues/100)) ([d9d9c61](https://github.com/donniean/configs/commit/d9d9c61acc5b52da0cb5645122935b281b5137ca))
+
 ## [5.2.1](https://github.com/donniean/configs/compare/v5.2.0...v5.2.1) (2023-04-17)
 
 ### Bug Fixes
