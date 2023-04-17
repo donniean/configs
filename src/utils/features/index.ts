@@ -25,7 +25,7 @@ export function readFeatureIgnoreFileSync({
   fileName = `${featureKey}.ignore`,
 }: ReadFeatureIgnoreFileSyncOptions) {
   return files.readFileSync({
-    filePath: paths.resolveFeatureAssets(featureKey, fileName),
+    filePath: paths.resolveAssets(featureKey, fileName),
   });
 }
 

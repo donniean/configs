@@ -3,7 +3,7 @@ import * as files from '@/utils/files';
 import * as paths from '@/utils/paths';
 
 const data = files.readFileSync({
-  filePath: paths.resolveFeatureAssets('editorconfig', 'config.ini'),
+  filePath: paths.resolveAssets('editorconfig', 'config.ini'),
 });
 
 export function getConfig(): FeatureConfig<string> {

@@ -4,7 +4,7 @@ import * as paths from '@/utils/paths';
 
 export function handleExtras({ featureKey }: HandleExtrasOptions) {
   const directoryName = 'dictionaries';
-  const src = paths.resolveFeatureAssets(featureKey, directoryName);
+  const src = paths.resolveAssets(featureKey, directoryName);
   const dest = paths.resolveCwd(directoryName);
   files.copySync({ src, dest });
 }
