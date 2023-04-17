@@ -1,3 +1,9 @@
+## [5.2.1](https://github.com/donniean/configs/compare/v5.2.0...v5.2.1) (2023-04-17)
+
+### Bug Fixes
+
+- no assets directory error in production env ([#99](https://github.com/donniean/configs/issues/99)) ([de4ac98](https://github.com/donniean/configs/commit/de4ac98aa713444a1a0cb364510353d2d912702d))
+
 # [5.2.0](https://github.com/donniean/configs/compare/v5.1.0...v5.2.0) (2023-04-16)
 
 ### Features
