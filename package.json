@@ -36,7 +36,8 @@
   },
   "files": [
     "lib",
-    "bin"
+    "bin",
+    "assets"
   ],
   "scripts": {
     "prebuild": "npm run clean",
