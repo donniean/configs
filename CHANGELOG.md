@@ -1,3 +1,9 @@
+# [5.3.0](https://github.com/donniean/configs/compare/v5.2.2...v5.3.0) (2023-04-18)
+
+### Features
+
+- split CLI commands into `init` and `create` ([#110](https://github.com/donniean/configs/issues/110)) ([5019241](https://github.com/donniean/configs/commit/5019241da70c5b5c49a8377b07e80f154f533736))
+
 ## [5.2.2](https://github.com/donniean/configs/compare/v5.2.1...v5.2.2) (2023-04-17)
 
 ### Bug Fixes
