@@ -131,3 +131,7 @@ export function messageOnly(message: Message, options?: LeveledLogOptions) {
   const finalOptions = { ...defaultOptions, ...options };
   log({ level: 'info', message, ...finalOptions });
 }
+
+export function command(message: Message) {
+  return chalk.inverse(message);
+}

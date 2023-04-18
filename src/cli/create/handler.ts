@@ -33,12 +33,12 @@ export default async function handler({
   sortCwdPackageJsonSync();
 
   logger.lf(2);
-  logger.messageOnly('Everything is OK, Thanks!', { isColorizeMessage: true });
-  logger.messageOnly('Please run: ', { isLfBefore: true });
-  logger.messageOnly('npm install', {
-    isLfBefore: true,
-    isInverseMessage: true,
+  logger.messageOnly('Everything is OK, Thanks!', {
+    isLfAfter: true,
+    isColorizeMessage: true,
   });
+  logger.messageOnly('Please run: ', { isLfAfter: true });
+  logger.messageOnly('npm install', { isInverseMessage: true });
 
   FEATURE_OPTIONS.forEach(({ key }) => {
     if (normalizedFeatures?.[key]) {

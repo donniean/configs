@@ -8,8 +8,18 @@ export default async function create() {
   const configsConfig = readConfigsConfigSync();
 
   if (!configsConfig) {
-    logger.error(
-      `config not found, please run configs init or manually create ${CONFIGS_CONFIG_FILE_NAME}`
+    logger.messageOnly(`config not found, please run: `, {
+      level: 'warn',
+      isLfAfter: true,
+      isColorizeMessage: true,
+    });
+    logger.messageOnly('configs init', {
+      isLfAfter: true,
+      isInverseMessage: true,
+    });
+    logger.messageOnly(
+      `or create a ${logger.command(CONFIGS_CONFIG_FILE_NAME)} file`,
+      { level: 'warn', isColorizeMessage: true }
     );
     return;
   }
