@@ -7,7 +7,6 @@ import { handleFeature } from '@/utils/handlers';
 import logger from '@/utils/logger';
 import { sortCwdPackageJsonSync } from '@/utils/package-json';
 
-// eslint-disable-next-line sonarjs/cognitive-complexity
 export default async function handler({
   configsConfig,
 }: {

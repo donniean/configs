@@ -1,36 +1,18 @@
-import {
-  answersToConfigsConfig,
-  outputConfigsConfigSync,
-  readConfigsConfigSync,
-} from '@/utils/configs-config';
+import { CONFIGS_CONFIG_FILE_NAME } from '@/constants/configs-config';
+import { readConfigsConfigSync } from '@/utils/configs-config';
+import logger from '@/utils/logger';
 
 import handler from './handler';
-import type { PromptOptions } from './prompt';
-import prompt from './prompt';
 
-async function handlePrompt(options?: PromptOptions) {
-  const answers = await prompt(options);
-  const configsConfig = answersToConfigsConfig(answers);
-  outputConfigsConfigSync({ data: configsConfig });
+export default async function create() {
+  const configsConfig = readConfigsConfigSync();
+
+  if (!configsConfig) {
+    logger.error(
+      `config not found, please run configs init or manually create ${CONFIGS_CONFIG_FILE_NAME}`
+    );
+    return;
+  }
+
   await handler({ configsConfig });
-}
-
-interface Options {
-  prompt?: boolean;
-}
-
-export default async function create({ prompt: isPrompt }: Options) {
-  const currentConfigsConfig = readConfigsConfigSync();
-
-  if (isPrompt) {
-    await handlePrompt({ currentConfigsConfig });
-    return;
-  }
-
-  if (!currentConfigsConfig) {
-    await handlePrompt();
-    return;
-  }
-
-  await handler({ configsConfig: currentConfigsConfig });
 }

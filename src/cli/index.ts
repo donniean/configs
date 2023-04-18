@@ -3,6 +3,7 @@ import { Command } from 'commander';
 import { readRootPackageJsonSync } from '@/utils/package-json';
 
 import create from './create';
+import init from './init';
 
 export default function cli() {
   const program = new Command();
@@ -13,10 +14,14 @@ export default function cli() {
   }
 
   program
+    .command('init')
+    .description('create a configs.config.cjs files')
+    .action(() => init());
+
+  program
     .command('create')
     .description('create config files and add packages in package.json')
-    .option('-p, --prompt', 'use prompt')
-    .action((options: { prompt?: boolean }) => create(options));
+    .action(() => create());
 
   program.parse();
 }
