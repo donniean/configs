@@ -1,3 +1,5 @@
+import { merge } from 'lodash';
+
 import { CONFIGS_CONFIG_FILE_NAME } from '@/constants/configs-config';
 import {
   answersToConfigsConfig,
@@ -13,7 +15,9 @@ export default async function init() {
   const options = currentConfigsConfig ? { currentConfigsConfig } : undefined;
   const answers = await prompt(options);
   const configsConfig = answersToConfigsConfig(answers);
-  outputConfigsConfigSync({ data: configsConfig });
+  const finalConfigsConfig = merge(null, currentConfigsConfig, configsConfig);
+  outputConfigsConfigSync({ data: finalConfigsConfig });
+
   logger.messageOnly(
     `You can modify the ${logger.command(
       CONFIGS_CONFIG_FILE_NAME
