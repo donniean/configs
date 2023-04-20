@@ -1,21 +1,18 @@
 import { LINT_IGNORE } from '@/constants/ignore';
-import type {
-  FeatureIgnore /* , GetIgnoreOptions */,
-} from '@/types/feature-configs';
+import type { FeatureIgnore, GetIgnoreOptions } from '@/types/feature-configs';
+import { getIgnoreWithCustom } from '@/utils/features';
 
-// import { getIgnoreWithCustom } from '@/utils/features';
-
-export function getIgnore(/* {
+export function getIgnore({
   normalizedConfigsConfig,
-}: GetIgnoreOptions */): FeatureIgnore {
-  /* const data = getIgnoreWithCustom({
-    featureKey: 'prettier',
+}: GetIgnoreOptions): FeatureIgnore {
+  const data = getIgnoreWithCustom({
+    featureKey: 'stylelint',
     normalizedConfigsConfig,
-    ignore: LINT_IGNORE,
-  }); */
+    ignorePresets: LINT_IGNORE,
+  });
 
   return {
     outputFileName: '.stylelintignore',
-    data: LINT_IGNORE,
+    data,
   };
 }

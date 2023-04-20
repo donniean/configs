@@ -62,6 +62,7 @@ npm pkg delete scripts.prettier;
 npm pkg delete scripts.eslint;
 npm pkg delete scripts.stylelint;
 npm pkg delete scripts.cspell;
+npm pkg delete scripts.sort-package-json;
 npm pkg delete scripts.pre-commit;
 npm pkg delete scripts.commit;
 npm pkg delete scripts.prepare;

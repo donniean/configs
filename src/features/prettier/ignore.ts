@@ -8,7 +8,7 @@ export function getIgnore({
   const data = getIgnoreWithCustom({
     featureKey: 'prettier',
     normalizedConfigsConfig,
-    ignore: LINT_IGNORE,
+    ignorePresets: LINT_IGNORE,
   });
 
   return {

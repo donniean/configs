@@ -1,55 +1,36 @@
-import { without } from 'lodash';
-
-import type { ConfigsConfig } from '@/types/configs-config';
-
-import {
-  ESLINT_EXTENSIONS,
-  PRETTIER_EXTENSIONS,
-  STYLELINT_EXTENSIONS,
-  TSC_EXTENSIONS,
-} from './extensions';
-
 export const CONFIGS_CONFIG_FILE_NAME = 'configs.config.cjs';
 
-export const DEFAULT_CUSTOM_IGNORE_METHOD = 'push';
-
-export const DEFAULT_CONFIGS_CONFIG: ConfigsConfig = {
+export const DEFAULT_CONFIGS_CONFIG = {
   features: {
     gitignore: true,
     gitattributes: true,
     editorconfig: true,
     prettier: {
-      extensions: without(
-        PRETTIER_EXTENSIONS,
-        'jsx',
-        'mjs',
-        'vue',
-        'hbs',
-        'handlebars',
-        'less',
-        'mdx'
-      ),
+      patterns: ['**'],
     },
     tsc: {
-      extensions: TSC_EXTENSIONS,
+      patterns: ['**/*.{ts,tsx}'],
     },
     eslint: {
-      extensions: without(ESLINT_EXTENSIONS, 'jsx', 'mjs'),
-      options: {
-        node: false,
-      },
+      patterns: ['**/*.{js,mjs,cjs,ts,tsx}'],
     },
     stylelint: {
-      extensions: without(STYLELINT_EXTENSIONS, 'js', 'jsx'),
+      patterns: ['**/*.{css,scss,ts,tsx}'],
+      scssPatterns: ['**/*.scss'],
+      styledPatterns: ['**/*.{ts,tsx}'],
     },
-    htmlhint: false,
-    markdownlint: true,
+    htmlhint: {
+      patterns: ['**/*.html'],
+    },
+    markdownlint: {
+      patterns: ['**/*.md'],
+    },
     cspell: {
-      extensions: ['**'],
+      patterns: ['**'],
     },
+    'sort-package-json': true,
     commitlint: true,
     commitizen: true,
-    'sort-package-json': true,
     'lint-staged': true,
     husky: true,
   },

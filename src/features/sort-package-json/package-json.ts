@@ -1,9 +1,25 @@
-import type { FeaturePackageJson } from '@/types/feature-configs';
+import type {
+  FeaturePackageJson,
+  GetPackageJsonOptions,
+} from '@/types/feature-configs';
+import { getPatternsString } from '@/utils/misc';
 
-export function getPackageJson(): FeaturePackageJson {
+export function getPackageJson({
+  normalizedConfigsConfig,
+}: GetPackageJsonOptions): FeaturePackageJson {
+  const patterns =
+    normalizedConfigsConfig.features?.['sort-package-json']?.patterns ?? [];
+  const patternsString =
+    patterns.length === 1 && patterns[0] === 'package.json'
+      ? ''
+      : getPatternsString(patterns);
+
   return {
     scripts: {
-      'sort-package-json': 'sort-package-json',
+      'lint:sort-package-json':
+        `sort-package-json --check ${patternsString}`.trim(),
+      'lint:sort-package-json:fix':
+        `sort-package-json ${patternsString}`.trim(),
     },
     devDependencies: {
       'sort-package-json': '',

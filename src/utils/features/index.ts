@@ -1,15 +1,12 @@
-import { uniq } from 'lodash';
+import { uniqWith } from 'lodash';
 
-import { DEFAULT_CUSTOM_IGNORE_METHOD } from '@/constants/configs-config';
 import { FEATURE_OPTIONS } from '@/constants/features';
 import type { FeatureKey } from '@/types/features';
 import * as files from '@/utils/files';
 import * as paths from '@/utils/paths';
 
-import { getGlobExtensions } from '../misc';
 import type {
   GetCustomIgnoreOptions,
-  GetFeatureGlobExtensionsOptions,
   ReadFeatureIgnoreFileSyncOptions,
 } from './types';
 
@@ -32,50 +29,19 @@ export function readFeatureIgnoreFileSync({
 export function getIgnoreWithCustom({
   featureKey,
   normalizedConfigsConfig,
-  ignore,
+  ignorePresets,
 }: GetCustomIgnoreOptions) {
   const feature = normalizedConfigsConfig.features?.[featureKey];
-  const customIgnore = feature?.customIgnore;
+  const ignorePatterns = feature?.ignorePatterns;
 
-  let finalIgnore = ignore;
+  let finalIgnore = ignorePresets;
 
-  if (Array.isArray(customIgnore) && customIgnore.length > 0) {
-    const customIgnoreMethod =
-      feature?.customIgnoreMethod ?? DEFAULT_CUSTOM_IGNORE_METHOD;
-    switch (customIgnoreMethod) {
-      case 'push': {
-        finalIgnore = [...ignore, ...customIgnore];
-        break;
-      }
-      case 'unshift': {
-        finalIgnore = [...customIgnore, ...ignore];
-        break;
-      }
-      case 'override': {
-        finalIgnore = customIgnore;
-        break;
-      }
-      default: {
-        break;
-      }
-    }
+  if (Array.isArray(ignorePatterns) && ignorePatterns.length > 0) {
+    const isDisableIgnorePresets = feature?.isDisableIgnorePresets;
+    finalIgnore = isDisableIgnorePresets
+      ? ignorePatterns
+      : [...ignorePresets, ...ignorePatterns];
   }
 
-  return uniq(finalIgnore);
+  return uniqWith(finalIgnore, (a, b) => a.trim() !== '' && a === b);
 }
-
-export function getFeatureGlobExtensions({
-  featureKey,
-  normalizedConfigsConfig,
-}: GetFeatureGlobExtensionsOptions) {
-  const feature = normalizedConfigsConfig.features?.[featureKey];
-
-  if (feature && typeof feature === 'object' && 'extensions' in feature) {
-    const extensions = feature.extensions ?? [];
-    return getGlobExtensions(extensions);
-  }
-
-  return '';
-}
-
-export { type GetFeatureGlobExtensionsOptions } from './types';

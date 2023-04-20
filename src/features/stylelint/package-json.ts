@@ -2,29 +2,7 @@ import type {
   FeaturePackageJson,
   GetPackageJsonOptions,
 } from '@/types/feature-configs';
-import { getFeatureGlobExtensions } from '@/utils/features';
-
-import { hasScss, hasStyled } from './utils';
-
-function getScripts(
-  normalizedConfigsConfig: GetPackageJsonOptions['normalizedConfigsConfig']
-) {
-  const globExtensions = getFeatureGlobExtensions({
-    featureKey: 'stylelint',
-    normalizedConfigsConfig,
-  });
-
-  if (!globExtensions) {
-    return null;
-  }
-
-  return {
-    scripts: {
-      'lint:stylelint': `stylelint "**/*.${globExtensions}"`,
-      'lint:stylelint:fix': `stylelint --fix "**/*.${globExtensions}"`,
-    },
-  };
-}
+import { getPatternsString } from '@/utils/misc';
 
 function getDevDependencies(
   normalizedConfigsConfig: GetPackageJsonOptions['normalizedConfigsConfig']
@@ -41,26 +19,31 @@ function getDevDependencies(
     'postcss-styled-syntax': '',
   };
 
-  const extensions =
-    normalizedConfigsConfig.features?.stylelint?.extensions ?? [];
+  const scssPatterns =
+    normalizedConfigsConfig.features?.stylelint?.scssPatterns ?? [];
+  const styledPatterns =
+    normalizedConfigsConfig.features?.stylelint?.styledPatterns ?? [];
 
-  const devDependencies = {
+  return {
     ...baseDevDependencies,
-    ...(hasScss(extensions) ? scssDevDependencies : null),
-    ...(hasStyled(extensions) ? styledDevDependencies : null),
+    ...(scssPatterns.length > 0 ? scssDevDependencies : null),
+    ...(styledPatterns.length > 0 ? styledDevDependencies : null),
   };
-
-  return { devDependencies };
 }
 
 export function getPackageJson({
   normalizedConfigsConfig,
 }: GetPackageJsonOptions): FeaturePackageJson {
-  const scripts = getScripts(normalizedConfigsConfig);
+  const patterns = normalizedConfigsConfig.features?.stylelint?.patterns ?? [];
+  const patternsString = getPatternsString(patterns);
+
   const devDependencies = getDevDependencies(normalizedConfigsConfig);
 
   return {
-    ...scripts,
-    ...devDependencies,
+    scripts: {
+      'lint:stylelint': `stylelint ${patternsString}`,
+      'lint:stylelint:fix': `stylelint --fix ${patternsString}`,
+    },
+    devDependencies,
   };
 }
