@@ -4,7 +4,7 @@ import type {
   TscExtension,
 } from '@/types/extensions';
 
-export const TSC_EXTENSIONS: TscExtension[] = ['ts', 'tsx'];
+export const TSC_EXTENSIONS: TscExtension[] = ['ts', 'tsx', 'mts', 'cts'];
 
 export const ESLINT_EXTENSIONS: ESLintExtension[] = [
   'js',
