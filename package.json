@@ -31,21 +31,21 @@
   "license": "MIT",
   "author": "Donnie An",
   "type": "module",
-  "exports": "./lib/index.d.ts",
-  "types": "./lib/index.d.ts",
+  "exports": "./dist/index.d.ts",
+  "types": "./dist/index.d.ts",
   "bin": {
-    "configs": "./bin/configs.mjs"
+    "configs": "./bin/configs.js"
   },
   "files": [
     "assets",
     "bin",
-    "lib"
+    "dist"
   ],
   "scripts": {
     "prebuild": "npm run clean",
     "build": "tsc && tsc-alias",
     "build:watch": "npm run clean && tsc --watch & tsc-alias --watch",
-    "clean": "rimraf ./lib/",
+    "clean": "rimraf ./dist/",
     "commit": "cz",
     "lint:cspell": "cspell lint --no-progress --relative --no-must-find-files --dot --gitignore \"**\"",
     "lint:eslint": "eslint \"**/*.{js,mjs,cjs,ts}\"",

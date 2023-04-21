@@ -3,7 +3,6 @@ module.exports = {
   language: 'en',
   ignorePaths: [
     'node_modules/',
-    'lib/',
     'build/',
     'dist/',
     '**/*.min.*',

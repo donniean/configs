@@ -12,6 +12,10 @@ import * as paths from '@/utils/paths';
 
 import type { OutputConfigsConfigSyncOptions } from './types';
 
+export function defineConfig(configsConfig: ConfigsConfig): ConfigsConfig {
+  return configsConfig;
+}
+
 export function readConfigsConfigSync() {
   const explorerSync = cosmiconfigSync('configs', {
     searchPlaces: [CONFIGS_CONFIG_FILE_NAME],
