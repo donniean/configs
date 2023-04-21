@@ -12,6 +12,10 @@ import * as paths from '@/utils/paths';
 
 import type { OutputConfigsConfigSyncOptions } from './types';
 
+export function defineConfig(configsConfig: ConfigsConfig): ConfigsConfig {
+  return configsConfig;
+}
+
 export function readConfigsConfigSync() {
   const explorerSync = cosmiconfigSync('configs', {
     searchPlaces: [CONFIGS_CONFIG_FILE_NAME],
@@ -24,11 +28,8 @@ export function outputConfigsConfigSync({
   filePath = paths.resolveCwd(CONFIGS_CONFIG_FILE_NAME),
   data,
 }: OutputConfigsConfigSyncOptions) {
-  const leadingComments = `/**
- * @type {import('@donniean/configs').ConfigsConfig}
- */`;
   // @ts-ignore
-  return files.outputCjsFileSync({ filePath, data, leadingComments });
+  return files.outputCjsFileSync({ filePath, data });
 }
 
 export function normalizeConfigsConfig(configsConfig: ConfigsConfig) {

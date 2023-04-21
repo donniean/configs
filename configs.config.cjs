@@ -1,6 +1,4 @@
-/**
- * @type {import('@donniean/configs').ConfigsConfig}
- */
+/** @type {import('@donniean/configs').ConfigsConfig} */
 module.exports = {
   features: {
     gitignore: true,
@@ -17,6 +15,7 @@ module.exports = {
       plugins: {
         node: true,
       },
+      ignorePatterns: ['bin/'],
     },
     markdownlint: {
       patterns: ['**/*.md'],

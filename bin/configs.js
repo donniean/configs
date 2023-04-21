@@ -1,5 +1,5 @@
 #!/usr/bin/env node --experimental-specifier-resolution=node
 
-import { cli } from '../lib/index.js';
+import cli from '../dist/cli/index';
 
 cli();
