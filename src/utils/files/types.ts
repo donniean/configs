@@ -28,6 +28,7 @@ export type MergeJsonFileSyncOptions = OutputJsonFileSyncOptions;
 export interface OutputCjsFileSyncOptions {
   filePath: string;
   data: JsonObjectOrArray;
+  leadingComments?: string;
   isFormat?: boolean;
 }
 

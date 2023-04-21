@@ -75,9 +75,11 @@ export function mergeJsonFileSync({
 export function outputCjsFileSync({
   filePath,
   data,
+  leadingComments = '',
   isFormat = true,
 }: OutputCjsFileSyncOptions) {
-  const content = `module.exports = ${JSON.stringify(data, null, 2)};`;
+  const content = `${leadingComments}
+  module.exports = ${JSON.stringify(data, null, 2)};`;
   outputFileSync({
     filePath,
     data: content,
@@ -88,9 +90,11 @@ export function outputCjsFileSync({
 function outputEsmFileSync({
   filePath,
   data,
+  leadingComments = '',
   isFormat = true,
 }: OutputEsmFileSyncOptions) {
-  const content = `export default ${JSON.stringify(data, null, 2)};`;
+  const content = `${leadingComments}
+  export default ${JSON.stringify(data, null, 2)};`;
   outputFileSync({
     filePath,
     data: content,

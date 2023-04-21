@@ -24,8 +24,11 @@ export function outputConfigsConfigSync({
   filePath = paths.resolveCwd(CONFIGS_CONFIG_FILE_NAME),
   data,
 }: OutputConfigsConfigSyncOptions) {
+  const leadingComments = `/**
+ * @type {import('@donniean/configs').ConfigsConfig}
+ */`;
   // @ts-ignore
-  return files.outputCjsFileSync({ filePath, data });
+  return files.outputCjsFileSync({ filePath, data, leadingComments });
 }
 
 export function normalizeConfigsConfig(configsConfig: ConfigsConfig) {
