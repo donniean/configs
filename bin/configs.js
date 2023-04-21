@@ -1,3 +1,5 @@
 #!/usr/bin/env node
 
-require('../lib/index');
+const { cli } = require('../lib/index');
+
+cli();
