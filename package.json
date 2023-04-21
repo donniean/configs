@@ -31,7 +31,13 @@
   "license": "MIT",
   "author": "Donnie An",
   "type": "module",
-  "exports": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.ts"
+    },
+    "./package.json": "./package.json"
+  },
   "types": "./dist/index.d.ts",
   "bin": {
     "configs": "./bin/configs.js"
