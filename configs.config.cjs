@@ -3,7 +3,7 @@
  */
 module.exports = {
   features: {
-    gitignore: {},
+    gitignore: true,
     gitattributes: true,
     editorconfig: true,
     prettier: {
