@@ -1,4 +1,4 @@
-import type { ESLintOption, FeatureKey, Option } from '@/types/features';
+import type { ESLintPlugin, FeatureKey, Option } from '@/types/features';
 
 export const FEATURE_KEY_MAP = {
   gitignore: 'gitignore',
@@ -11,9 +11,9 @@ export const FEATURE_KEY_MAP = {
   htmlhint: 'htmlhint',
   markdownlint: 'markdownlint',
   cspell: 'cspell',
+  'sort-package-json': 'sort-package-json',
   commitlint: 'commitlint',
   commitizen: 'commitizen',
-  'sort-package-json': 'sort-package-json',
   // eslint-disable-next-line sonarjs/no-duplicate-string
   'lint-staged': 'lint-staged',
   husky: 'husky',
@@ -30,16 +30,16 @@ export const FEATURE_OPTIONS: Option<FeatureKey>[] = [
   { key: FEATURE_KEY_MAP.htmlhint, displayName: 'HTMLHint' },
   { key: FEATURE_KEY_MAP.markdownlint, displayName: 'markdownlint' },
   { key: FEATURE_KEY_MAP.cspell, displayName: 'CSpell' },
-  { key: FEATURE_KEY_MAP.commitlint, displayName: 'commitlint' },
-  { key: FEATURE_KEY_MAP.commitizen, displayName: 'Commitizen' },
   {
     key: FEATURE_KEY_MAP['sort-package-json'],
     displayName: 'Sort Package.json',
   },
+  { key: FEATURE_KEY_MAP.commitlint, displayName: 'commitlint' },
+  { key: FEATURE_KEY_MAP.commitizen, displayName: 'Commitizen' },
   { key: FEATURE_KEY_MAP['lint-staged'], displayName: 'lint-staged' },
   { key: FEATURE_KEY_MAP.husky, displayName: 'Husky' },
 ];
 
-export const ESLINT_OPTION_OPTIONS: Option<ESLintOption>[] = [
+export const ESLINT_PLUGIN_OPTIONS: Option<ESLintPlugin>[] = [
   { key: 'node', displayName: 'Node.js' },
 ];

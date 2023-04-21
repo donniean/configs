@@ -1,9 +1,20 @@
-import type { FeaturePackageJson } from '@/types/feature-configs';
+import type {
+  FeaturePackageJson,
+  GetPackageJsonOptions,
+} from '@/types/feature-configs';
+import { getPatternsString } from '@/utils/misc';
 
-export function getPackageJson(): FeaturePackageJson {
+export function getPackageJson({
+  normalizedConfigsConfig,
+}: GetPackageJsonOptions): FeaturePackageJson {
+  const patterns =
+    normalizedConfigsConfig.features?.markdownlint?.patterns ?? [];
+  const patternsString = getPatternsString(patterns);
+
   return {
     scripts: {
-      'lint:markdownlint': 'markdownlint --fix "**/*.md"',
+      'lint:markdownlint': `markdownlint --dot ${patternsString}`,
+      'lint:markdownlint:fix': `markdownlint --dot --fix ${patternsString}`,
     },
     devDependencies: {
       'markdownlint-cli': '',

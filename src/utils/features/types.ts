@@ -1,5 +1,5 @@
 import type { NormalizedConfigsConfig } from '@/types/configs-config';
-import type { FeatureKey } from '@/types/features';
+import type { FeatureKey, HasIgnorePatternsFeatureKey } from '@/types/features';
 
 export interface ReadFeatureIgnoreFileSyncOptions {
   featureKey: FeatureKey;
@@ -7,12 +7,7 @@ export interface ReadFeatureIgnoreFileSyncOptions {
 }
 
 export interface GetCustomIgnoreOptions {
-  featureKey: Extract<FeatureKey, 'prettier' | 'cspell'>;
+  featureKey: HasIgnorePatternsFeatureKey;
   normalizedConfigsConfig: NormalizedConfigsConfig;
-  ignore: string[];
-}
-
-export interface GetFeatureGlobExtensionsOptions {
-  featureKey: Extract<FeatureKey, 'prettier' | 'tsc' | 'eslint' | 'stylelint'>;
-  normalizedConfigsConfig: NormalizedConfigsConfig;
+  ignorePresets: string[];
 }

@@ -3,7 +3,7 @@ import type { JsonObject } from '@/types/base';
 import type { FeatureConfig, GetConfigOptions } from '@/types/feature-configs';
 import { getIgnoreWithCustom } from '@/utils/features';
 
-const IGNORE = [
+const IGNORE_PRESETS = [
   '**/*.svg',
   '.git/',
   '.idea/',
@@ -31,7 +31,7 @@ export function getConfig({
       ignorePaths: getIgnoreWithCustom({
         featureKey: 'cspell',
         normalizedConfigsConfig,
-        ignore: [...LINT_IGNORE, ...IGNORE],
+        ignorePresets: [...LINT_IGNORE, ...IGNORE_PRESETS],
       }),
       dictionaries: [
         'user-apps',

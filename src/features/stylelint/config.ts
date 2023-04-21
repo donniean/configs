@@ -1,15 +1,14 @@
 import { omit } from 'lodash';
 
-// import { LINT_IGNORE } from '@/constants/ignore';
 import type { JsonObject } from '@/types/base';
 import type { FeatureConfig, GetConfigOptions } from '@/types/feature-configs';
 
-import { getStyledGlobExtensions, hasScss } from './utils';
-
 function getFullConfig({
-  styledGlobExtensions,
+  scssPatterns,
+  styledPatterns,
 }: {
-  styledGlobExtensions: string;
+  scssPatterns: string[];
+  styledPatterns: string[];
 }) {
   return {
     extends: ['stylelint-config-standard', 'stylelint-config-recess-order'],
@@ -17,14 +16,13 @@ function getFullConfig({
       'color-named': ['never', { ignore: ['inside-function'] }],
       'no-unknown-animations': true,
     },
-    // ignoreFiles: LINT_IGNORE,
     overrides: [
       {
-        files: ['**/*.scss'],
+        files: scssPatterns,
         extends: ['stylelint-config-standard-scss'],
       },
       {
-        files: [`**/*.${styledGlobExtensions}`],
+        files: styledPatterns,
         customSyntax: 'postcss-styled-syntax',
         rules: {
           'no-empty-source': null,
@@ -39,17 +37,17 @@ function getFullConfig({
 function getData(
   normalizedConfigsConfig: GetConfigOptions['normalizedConfigsConfig']
 ) {
-  const extensions =
-    normalizedConfigsConfig.features?.stylelint?.extensions ?? [];
-  const hasScssResult = hasScss(extensions);
-  const styledGlobExtensions = getStyledGlobExtensions(extensions);
-  const fullConfig = getFullConfig({ styledGlobExtensions });
+  const stylelint = normalizedConfigsConfig.features?.stylelint;
+  const scssPatterns = stylelint?.scssPatterns ?? [];
+  const styledPatterns = stylelint?.styledPatterns ?? [];
+
+  const fullConfig = getFullConfig({ scssPatterns, styledPatterns });
 
   let data = { ...fullConfig };
-  if (!hasScssResult) {
+  if (scssPatterns.length === 0) {
     data = omit(data, 'overrides[0]');
   }
-  if (!styledGlobExtensions) {
+  if (styledPatterns.length === 0) {
     data = omit(data, 'overrides[1]');
   }
   const { overrides, ...rest } = data;

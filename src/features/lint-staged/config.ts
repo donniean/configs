@@ -1,107 +1,86 @@
+import { isEmpty, uniq } from 'lodash';
+import parseGlob from 'parse-glob';
+
 import type { FeatureConfig, GetConfigOptions } from '@/types/feature-configs';
-import type { GetFeatureGlobExtensionsOptions } from '@/utils/features';
-import { getFeatureGlobExtensions } from '@/utils/features';
-import { getGlobExtensions } from '@/utils/misc';
+import type { HasPatternsFeatureKey } from '@/types/features';
 
-type GlobExtensionsFeatureKey = GetFeatureGlobExtensionsOptions['featureKey'];
+const COMMANDS = {
+  'sort-package-json': 'sort-package-json',
+  prettier: 'prettier --check --ignore-unknown',
+  tsc: 'bash -c tsc --noEmit',
+  eslint: 'eslint --fix',
+  stylelint: 'stylelint --fix',
+  htmlhint: 'htmlhint',
+  markdownlint: 'markdownlint  --dot --fix',
+  cspell:
+    'cspell lint --no-progress --relative --no-must-find-files --dot --gitignore',
+} as const;
 
-function getAllCommands({
-  prettierGlobExtensions,
-  tscGlobExtensions,
-  eslintGlobExtensions,
-  stylelintGlobExtensions,
-  cspellPattern,
+function addCommand({
+  data,
+  pattern,
+  command,
 }: {
-  prettierGlobExtensions: string;
-  tscGlobExtensions: string;
-  eslintGlobExtensions: string;
-  stylelintGlobExtensions: string;
-  cspellPattern: string;
+  data: Record<string, string | string[]>;
+  pattern: string;
+  command: string;
 }) {
-  return {
-    'sort-package-json': {
-      'package.json': 'sort-package-json',
-    },
-    prettier: {
-      [`*.${prettierGlobExtensions}`]: 'prettier --write',
-    },
-    tsc: {
-      [`*.${tscGlobExtensions}`]: 'bash -c tsc --noEmit',
-    },
-    eslint: {
-      [`*.${eslintGlobExtensions}`]: 'eslint --fix',
-    },
-    stylelint: {
-      [`*.${stylelintGlobExtensions}`]: 'stylelint --fix',
-    },
-    htmlhint: {
-      '*.html': 'htmlhint',
-    },
-    markdownlint: {
-      '*.md': 'markdownlint --fix',
-    },
-    cspell: {
-      [`${cspellPattern}`]: 'cspell --no-must-find-files',
-    },
-  };
-}
+  const result = { ...data };
+  const currentCommand = result[pattern];
 
-function getCSpellPattern(
-  normalizedConfigsConfig: GetConfigOptions['normalizedConfigsConfig']
-) {
-  const extensions = normalizedConfigsConfig.features?.cspell?.extensions ?? [];
-
-  if (extensions.length === 0) {
-    return '';
+  if (isEmpty(currentCommand)) {
+    result[pattern] = command;
+    return result;
   }
 
-  return extensions.length === 1 && extensions[0] === '**'
-    ? '**'
-    : `*.${getGlobExtensions(extensions)}`;
+  if (Array.isArray(currentCommand)) {
+    currentCommand.push(command);
+    return result;
+  }
+
+  if (typeof currentCommand === 'string') {
+    result[pattern] = [currentCommand, command];
+  }
+
+  return result;
 }
 
 function getData(
   normalizedConfigsConfig: GetConfigOptions['normalizedConfigsConfig']
 ) {
-  const getExtensions = (featureKey: GlobExtensionsFeatureKey) =>
-    getFeatureGlobExtensions({
-      featureKey,
-      normalizedConfigsConfig,
-    });
-  const checkers = {
-    prettier: getExtensions('prettier'),
-    tsc: getExtensions('tsc'),
-    eslint: getExtensions('eslint'),
-    stylelint: getExtensions('stylelint'),
-    cspell: getCSpellPattern(normalizedConfigsConfig),
-  };
-  const allCommands = getAllCommands({
-    prettierGlobExtensions: checkers.prettier,
-    tscGlobExtensions: checkers.tsc,
-    eslintGlobExtensions: checkers.eslint,
-    stylelintGlobExtensions: checkers.stylelint,
-    cspellPattern: checkers.cspell,
-  });
+  const { features } = normalizedConfigsConfig;
+  let data: Record<string, string | string[]> = {};
 
-  let result: Record<string, string> = {};
-  const checkerFeatureKeys = Object.keys(checkers);
-  Object.entries(allCommands).forEach(([featureKey, command]) => {
-    const key = featureKey as GlobExtensionsFeatureKey;
-    if (checkerFeatureKeys.includes(key)) {
-      if (checkers[key]) {
-        result = { ...result, ...command };
+  Object.entries(COMMANDS).forEach(([featureKey, command]) => {
+    const key = featureKey as HasPatternsFeatureKey;
+    const feature = features?.[key];
+    if (feature) {
+      const { patterns } = feature;
+      if (key === 'sort-package-json') {
+        const basenameList = patterns.map(pattern => {
+          const { path } = parseGlob(pattern);
+          return path.basename;
+        });
+        uniq(basenameList).forEach(basename => {
+          data = addCommand({ data, pattern: basename, command });
+        });
+      } else {
+        patterns.forEach(pattern => {
+          const { path } = parseGlob(pattern);
+          data = addCommand({ data, pattern: `*${path.extname}`, command });
+        });
       }
-    } else if (normalizedConfigsConfig.features?.[key]) {
-      result = { ...result, ...command };
     }
   });
-  return result;
+
+  return data;
 }
 
 export function getConfig({
   normalizedConfigsConfig,
-}: GetConfigOptions): FeatureConfig<Record<string, string>> {
+}: GetConfigOptions): FeatureConfig<Record<string, string | string[]>> {
   const data = getData(normalizedConfigsConfig);
+
   return {
     outputFileName: 'lint-staged.config.cjs',
     format: 'cjs',

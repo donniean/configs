@@ -2,35 +2,18 @@ import type {
   FeaturePackageJson,
   GetPackageJsonOptions,
 } from '@/types/feature-configs';
-import { getGlobExtensions } from '@/utils/misc';
-
-function getScripts(
-  normalizedConfigsConfig: GetPackageJsonOptions['normalizedConfigsConfig']
-) {
-  const extensions = normalizedConfigsConfig.features?.cspell?.extensions ?? [];
-
-  if (extensions.length === 0) {
-    return null;
-  }
-
-  const pattern =
-    extensions.length === 1 && extensions[0] === '**'
-      ? '**'
-      : `**/*.${getGlobExtensions(extensions)}`;
-
-  return {
-    scripts: {
-      'lint:cspell': `cspell lint --no-progress --relative --no-must-find-files --dot --gitignore "${pattern}"`,
-    },
-  };
-}
+import { getPatternsString } from '@/utils/misc';
 
 export function getPackageJson({
   normalizedConfigsConfig,
 }: GetPackageJsonOptions): FeaturePackageJson {
-  const scripts = getScripts(normalizedConfigsConfig);
+  const patterns = normalizedConfigsConfig.features?.cspell?.patterns ?? [];
+  const patternsString = getPatternsString(patterns);
+
   return {
-    ...scripts,
+    scripts: {
+      'lint:cspell': `cspell lint --no-progress --relative --no-must-find-files --dot --gitignore ${patternsString}`,
+    },
     devDependencies: {
       cspell: '',
     },

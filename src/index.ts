@@ -1,3 +1,2 @@
-import cli from '@/cli';
-
-cli();
+export { default as cli } from '@/cli';
+export { type ConfigsConfig } from '@/types/configs-config';
