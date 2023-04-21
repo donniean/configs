@@ -1,7 +1,10 @@
 export default {
   'package.json': 'sort-package-json',
-  '*.{js,ts,cjs,json,md,yaml,yml}': 'prettier --write',
+  '*': [
+    'prettier --check --ignore-unknown',
+    'cspell lint --no-progress --relative --no-must-find-files --dot --gitignore',
+  ],
   '*.ts': 'bash -c tsc --noEmit',
-  '*.md': 'markdownlint --fix',
-  '**': 'cspell --no-must-find-files',
+  '*.{js,mjs,cjs,ts}': 'eslint --fix',
+  '*.md': 'markdownlint  --dot --fix',
 };

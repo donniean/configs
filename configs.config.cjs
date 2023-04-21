@@ -7,22 +7,30 @@ module.exports = {
     gitattributes: true,
     editorconfig: true,
     prettier: {
-      extensions: ['js', 'ts', 'cjs', 'json', 'md', 'yaml', 'yml'],
+      patterns: ['**'],
     },
     tsc: {
-      extensions: ['ts'],
+      patterns: ['**/*.ts'],
     },
-    markdownlint: true,
+    eslint: {
+      patterns: ['**/*.{js,mjs,cjs,ts}'],
+      plugins: {
+        node: true,
+      },
+    },
+    markdownlint: {
+      patterns: ['**/*.md'],
+    },
     cspell: {
-      extensions: ['**'],
-      customIgnore: [
+      patterns: ['**'],
+      ignorePatterns: [
         '**/assets/**/gitattributes',
         '**/assets/**/gitignore.ignore',
       ],
     },
+    'sort-package-json': true,
     commitlint: true,
     commitizen: true,
-    'sort-package-json': true,
     'lint-staged': true,
     husky: true,
   },
