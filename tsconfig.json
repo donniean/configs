@@ -5,6 +5,8 @@
   // ],
   "extends": "@tsconfig/node-lts-strictest/tsconfig.json",
   "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "node",
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
