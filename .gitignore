@@ -60,5 +60,4 @@ out/
 .vercel/
 
 # Production
-build/
 dist/

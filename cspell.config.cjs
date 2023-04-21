@@ -3,7 +3,6 @@ module.exports = {
   language: 'en',
   ignorePaths: [
     'node_modules/',
-    'build/',
     'dist/',
     '**/*.min.*',
     '**/*.svg',
