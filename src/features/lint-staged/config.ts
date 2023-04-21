@@ -6,7 +6,7 @@ import type { HasPatternsFeatureKey } from '@/types/features';
 
 const COMMANDS = {
   'sort-package-json': 'sort-package-json',
-  prettier: 'prettier --check --ignore-unknown',
+  prettier: 'prettier --write --ignore-unknown',
   tsc: 'bash -c tsc --noEmit',
   eslint: 'eslint --fix',
   stylelint: 'stylelint --fix',

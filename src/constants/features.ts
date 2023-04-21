@@ -37,7 +37,7 @@ export const FEATURE_OPTIONS: Option<FeatureKey>[] = [
   { key: FEATURE_KEY_MAP.commitlint, displayName: 'commitlint' },
   { key: FEATURE_KEY_MAP.commitizen, displayName: 'Commitizen' },
   { key: FEATURE_KEY_MAP['lint-staged'], displayName: 'lint-staged' },
-  { key: FEATURE_KEY_MAP.husky, displayName: 'Husky' },
+  { key: FEATURE_KEY_MAP.husky, displayName: 'husky' },
 ];
 
 export const ESLINT_PLUGIN_OPTIONS: Option<ESLintPlugin>[] = [
