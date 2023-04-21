@@ -34,7 +34,7 @@
   "exports": "./lib/index.d.ts",
   "types": "./lib/index.d.ts",
   "bin": {
-    "configs": "./bin/configs.js"
+    "configs": "./bin/configs.mjs"
   },
   "files": [
     "assets",
@@ -49,7 +49,7 @@
     "commit": "cz",
     "lint:cspell": "cspell lint --no-progress --relative --no-must-find-files --dot --gitignore \"**\"",
     "lint:eslint": "eslint \"**/*.{js,cjs,ts}\"",
-    "lint:eslint:fix": "eslint --fix \"**/*.{js,cjs,ts}\"",
+    "lint:eslint:fix": "eslint --fix \"**/*.{js,mjs,cjs,ts}\"",
     "lint:markdownlint": "markdownlint --fix \"**/*.md\"",
     "lint:prettier": "prettier --check --ignore-unknown \"**\"",
     "lint:prettier:fix": "prettier --write --ignore-unknown \"**\"",

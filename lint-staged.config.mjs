@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   'package.json': 'sort-package-json',
   '*.{js,ts,cjs,json,md,yaml,yml}': 'prettier --write',
   '*.ts': 'bash -c tsc --noEmit',

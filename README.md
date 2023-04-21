@@ -55,6 +55,7 @@ rm cspell.config.js;
 rm commitlint.config.js;
 rm configs.config.js;
 rm lint-staged.config.js;
+rm lint-staged.config.cjs;
 rm prettier.config.js;
 rm stylelint.config.js;
 

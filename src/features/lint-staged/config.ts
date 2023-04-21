@@ -82,8 +82,8 @@ export function getConfig({
   const data = getData(normalizedConfigsConfig);
 
   return {
-    outputFileName: 'lint-staged.config.cjs',
-    format: 'cjs',
+    outputFileName: 'lint-staged.config.mjs',
+    format: 'esm',
     data,
   };
 }
