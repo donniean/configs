@@ -1,6 +1,6 @@
 import cleanDeep from 'clean-deep';
 import { cosmiconfigSync } from 'cosmiconfig';
-import { merge } from 'lodash';
+import { merge } from 'lodash-es';
 
 import { CONFIGS_CONFIG_FILE_NAME } from '@/constants/configs-config';
 import type {

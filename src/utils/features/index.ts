@@ -1,4 +1,4 @@
-import { uniqWith } from 'lodash';
+import { uniqWith } from 'lodash-es';
 
 import { FEATURE_OPTIONS } from '@/constants/features';
 import type { FeatureKey } from '@/types/features';

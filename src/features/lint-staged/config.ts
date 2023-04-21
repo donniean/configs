@@ -1,4 +1,4 @@
-import { isEmpty, uniq } from 'lodash';
+import { isEmpty, uniq } from 'lodash-es';
 import parseGlob from 'parse-glob';
 
 import type { FeatureConfig, GetConfigOptions } from '@/types/feature-configs';

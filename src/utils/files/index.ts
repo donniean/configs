@@ -1,5 +1,5 @@
-import * as fs from 'fs-extra';
-import { merge } from 'lodash';
+import fs from 'fs-extra';
+import { merge } from 'lodash-es';
 import prettier from 'prettier';
 
 import type { JsonObjectOrArray } from '@/types/base';

@@ -1,7 +1,7 @@
-import * as fs from 'fs-extra';
+import fs from 'fs-extra';
 import latestVersion from 'latest-version';
 import ora from 'ora';
-import { exec } from 'shelljs';
+import shell from 'shelljs';
 import type { PackageJson } from 'type-fest';
 
 import * as files from '@/utils/files';
@@ -51,7 +51,7 @@ export function mergeCwdPackageJsonSync({ data }: MergePackageJsonSyncOptions) {
 }
 
 export function sortCwdPackageJsonSync() {
-  exec(`sort-package-json --quiet "${paths.cwdPackageJson}"`);
+  shell.exec(`sort-package-json --quiet "${paths.cwdPackageJson}"`);
   logger.info(`sort ${paths.cwdPackageJson}`);
 }
 
