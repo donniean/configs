@@ -1,3 +1,9 @@
+## [6.1.1](https://github.com/donniean/configs/compare/v6.1.0...v6.1.1) (2023-04-21)
+
+### Bug Fixes
+
+- prettier command is not write in lint-staged ([#120](https://github.com/donniean/configs/issues/120)) ([db946b1](https://github.com/donniean/configs/commit/db946b1657b62a657b787552db5c46bc2271021c))
+
 # [6.1.0](https://github.com/donniean/configs/compare/v6.0.0...v6.1.0) (2023-04-21)
 
 ### Features
