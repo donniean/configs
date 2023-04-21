@@ -1,3 +1,13 @@
+# [6.0.0](https://github.com/donniean/configs/compare/v5.3.0...v6.0.0) (2023-04-21)
+
+### Code Refactoring
+
+- new config ([#115](https://github.com/donniean/configs/issues/115)) ([7a97d40](https://github.com/donniean/configs/commit/7a97d4011af70b75df75fc8a6aac97eab286f506))
+
+### BREAKING CHANGES
+
+- new config
+
 # [5.3.0](https://github.com/donniean/configs/compare/v5.2.2...v5.3.0) (2023-04-18)
 
 ### Features
