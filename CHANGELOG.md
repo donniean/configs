@@ -1,3 +1,9 @@
+# [6.1.0](https://github.com/donniean/configs/compare/v6.0.0...v6.1.0) (2023-04-21)
+
+### Features
+
+- ESM package ([#117](https://github.com/donniean/configs/issues/117)) ([1b0e6ee](https://github.com/donniean/configs/commit/1b0e6ee10d04f0a1349ec9f489319d5de47cf7db))
+
 # [6.0.0](https://github.com/donniean/configs/compare/v5.3.0...v6.0.0) (2023-04-21)
 
 ### Code Refactoring
