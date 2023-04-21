@@ -1,4 +1,4 @@
-import { chain, merge } from 'lodash';
+import { chain, merge } from 'lodash-es';
 
 import type { FeaturePackageJson } from '@/types/feature-configs';
 import type { HandleFeatureOptions } from '@/types/handlers';

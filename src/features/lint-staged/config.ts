@@ -1,4 +1,4 @@
-import { isEmpty, uniq } from 'lodash';
+import { isEmpty, uniq } from 'lodash-es';
 import parseGlob from 'parse-glob';
 
 import type { FeatureConfig, GetConfigOptions } from '@/types/feature-configs';
@@ -82,8 +82,8 @@ export function getConfig({
   const data = getData(normalizedConfigsConfig);
 
   return {
-    outputFileName: 'lint-staged.config.cjs',
-    format: 'cjs',
+    outputFileName: 'lint-staged.config.mjs',
+    format: 'esm',
     data,
   };
 }

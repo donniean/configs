@@ -1,4 +1,4 @@
-import { omit } from 'lodash';
+import { omit } from 'lodash-es';
 
 import type { JsonObject } from '@/types/base';
 import type { FeatureConfig, GetConfigOptions } from '@/types/feature-configs';

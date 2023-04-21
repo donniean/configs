@@ -1,6 +1,6 @@
 import * as process from 'node:process';
 
-import { get } from 'lodash';
+import { get } from 'lodash-es';
 import prompts from 'prompts';
 
 import { DEFAULT_CONFIGS_CONFIG } from '@/constants/configs-config';

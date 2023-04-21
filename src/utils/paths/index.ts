@@ -1,9 +1,11 @@
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import type { FeatureKey } from '@/types/features';
 
-// eslint-disable-next-line unicorn/prefer-module
-export const root = path.resolve(__dirname, '..', '..', '..');
+const dirname = path.dirname(fileURLToPath(import.meta.url));
+
+export const root = path.resolve(dirname, '..', '..', '..');
 
 export const cwd = process.cwd();
 
