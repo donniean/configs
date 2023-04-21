@@ -1,4 +1,4 @@
-import { LINT_IGNORE } from '@/constants/ignore';
+import { ESLINT_IGNORE } from '@/constants/ignores';
 import type { FeatureIgnore, GetIgnoreOptions } from '@/types/feature-configs';
 import { getIgnoreWithCustom } from '@/utils/features';
 
@@ -8,7 +8,7 @@ export function getIgnore({
   const data = getIgnoreWithCustom({
     featureKey: 'eslint',
     normalizedConfigsConfig,
-    ignorePresets: LINT_IGNORE,
+    ignorePresets: ESLINT_IGNORE,
   });
 
   return {

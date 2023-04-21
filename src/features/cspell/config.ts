@@ -1,23 +1,7 @@
-import { LINT_IGNORE } from '@/constants/ignore';
+import { CSPELL_IGNORE } from '@/constants/ignores';
 import type { JsonObject } from '@/types/base';
 import type { FeatureConfig, GetConfigOptions } from '@/types/feature-configs';
 import { getIgnoreWithCustom } from '@/utils/features';
-
-const IGNORE_PRESETS = [
-  '**/*.svg',
-  '.git/',
-  '.idea/',
-  '.vscode/',
-  '.*ignore',
-  '*.tsbuildinfo',
-  '.gitattributes',
-  '.htmlhintrc',
-  'Dockerfile',
-  'package.json',
-  'package-lock.json',
-  'pnpm-lock.yaml',
-  'CHANGELOG.md',
-];
 
 export function getConfig({
   normalizedConfigsConfig,
@@ -31,7 +15,7 @@ export function getConfig({
       ignorePaths: getIgnoreWithCustom({
         featureKey: 'cspell',
         normalizedConfigsConfig,
-        ignorePresets: [...LINT_IGNORE, ...IGNORE_PRESETS],
+        ignorePresets: CSPELL_IGNORE,
       }),
       dictionaries: [
         'user-apps',

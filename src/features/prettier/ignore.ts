@@ -1,4 +1,4 @@
-import { LINT_IGNORE } from '@/constants/ignore';
+import { PRETTIER_IGNORE } from '@/constants/ignores';
 import type { FeatureIgnore, GetIgnoreOptions } from '@/types/feature-configs';
 import { getIgnoreWithCustom } from '@/utils/features';
 
@@ -8,7 +8,7 @@ export function getIgnore({
   const data = getIgnoreWithCustom({
     featureKey: 'prettier',
     normalizedConfigsConfig,
-    ignorePresets: LINT_IGNORE,
+    ignorePresets: PRETTIER_IGNORE,
   });
 
   return {
