@@ -1,3 +1,0 @@
-<component name="DependencyValidationManager">
-  <scope name="no package-lock.json" pattern="file[configs]:*/&amp;&amp;!file:package-lock.json" />
-</component>
