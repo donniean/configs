@@ -1,3 +1,9 @@
+## [6.1.2](https://github.com/donniean/configs/compare/v6.1.1...v6.1.2) (2023-04-22)
+
+### Bug Fixes
+
+- add `coverage/` to ignore ([#124](https://github.com/donniean/configs/issues/124)) ([7a3fb28](https://github.com/donniean/configs/commit/7a3fb280378b909e99c5015a1f8c2e7239cfab8e))
+
 ## [6.1.1](https://github.com/donniean/configs/compare/v6.1.0...v6.1.1) (2023-04-21)
 
 ### Bug Fixes
