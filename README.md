@@ -111,12 +111,6 @@ rm -rf node_modules/;
 rm -rf **/node_modules/;
 ```
 
-## Notices
-
-- [ ] delete .idea/ in GitHub
-- [ ] `npm run lint:prettier`
-- [ ] GitHub Actions
-
 ## License
 
 Copyright © 2019 [Donnie An](https://github.com/donniean).
