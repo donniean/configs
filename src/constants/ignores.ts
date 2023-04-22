@@ -1,4 +1,10 @@
-const LINTER_IGNORE = ['.git/', '.history/', 'node_modules/', 'dist/'];
+const LINTER_IGNORE = [
+  '.git/',
+  '.history/',
+  'node_modules/',
+  'coverage/',
+  'dist/',
+];
 
 export const CSPELL_IGNORE = [
   ...LINTER_IGNORE,
