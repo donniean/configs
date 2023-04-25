@@ -1,4 +1,5 @@
 import cleanDeep from 'clean-deep';
+import { merge, pick } from 'lodash-es';
 
 import {
   CONFIGS_CONFIG_FILE_NAME,
@@ -8,6 +9,7 @@ import type { ConfigsConfig } from '@/types/configs-config';
 import {
   outputConfigsConfigSync,
   readConfigsConfigSync,
+  sortConfigsConfig,
 } from '@/utils/configs-config';
 import logger from '@/utils/logger';
 
@@ -22,9 +24,20 @@ function arrayToBooleanValueObject<T extends string>(keys: T[]) {
   return result;
 }
 
-function answersToConfigsConfig(answers: InitAnswers) {
+function answersToConfigsConfig({
+  currentConfigsConfig,
+  answers,
+}: {
+  currentConfigsConfig: ConfigsConfig | undefined;
+  answers: InitAnswers;
+}) {
   const { featureKeys, eslintPlugins } = answers;
   let features: ConfigsConfig['features'] = {};
+
+  const pickedCurrentConfigsConfig = pick(
+    currentConfigsConfig,
+    featureKeys.map(featureKey => `features.${featureKey}`)
+  );
 
   featureKeys.forEach(featureKey => {
     if (featureKey === 'eslint' && eslintPlugins) {
@@ -45,16 +58,19 @@ function answersToConfigsConfig(answers: InitAnswers) {
     };
   });
 
-  const configsConfig = { features };
+  const configsConfig = merge(null, pickedCurrentConfigsConfig, { features });
 
-  return cleanDeep(configsConfig);
+  return sortConfigsConfig(cleanDeep(configsConfig));
 }
 
-export default async function init() {
+async function init() {
   const currentConfigsConfig = readConfigsConfigSync();
   const options = currentConfigsConfig ? { currentConfigsConfig } : undefined;
   const answers = await prompt(options);
-  const configsConfig = answersToConfigsConfig(answers);
+  const configsConfig = answersToConfigsConfig({
+    currentConfigsConfig,
+    answers,
+  });
   outputConfigsConfigSync({ data: configsConfig });
 
   logger.messageOnly(
@@ -68,3 +84,5 @@ export default async function init() {
     isInverseMessage: true,
   });
 }
+
+export default init;

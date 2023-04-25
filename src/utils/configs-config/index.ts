@@ -1,8 +1,10 @@
 import cleanDeep from 'clean-deep';
 import { cosmiconfigSync } from 'cosmiconfig';
 import { merge } from 'lodash-es';
+import sortObjectKeys from 'sort-object-keys';
 
 import { CONFIGS_CONFIG_FILE_NAME } from '@/constants/configs-config';
+import { FEATURE_KEYS } from '@/constants/features';
 import type {
   ConfigsConfig,
   NormalizedConfigsConfig,
@@ -12,11 +14,11 @@ import * as paths from '@/utils/paths';
 
 import type { OutputConfigsConfigSyncOptions } from './types';
 
-export function defineConfig(configsConfig: ConfigsConfig): ConfigsConfig {
+function defineConfig(configsConfig: ConfigsConfig): ConfigsConfig {
   return configsConfig;
 }
 
-export function readConfigsConfigSync() {
+function readConfigsConfigSync() {
   const explorerSync = cosmiconfigSync('configs', {
     searchPlaces: [CONFIGS_CONFIG_FILE_NAME],
   });
@@ -24,7 +26,7 @@ export function readConfigsConfigSync() {
   return result?.config as ConfigsConfig | undefined;
 }
 
-export function outputConfigsConfigSync({
+function outputConfigsConfigSync({
   filePath = paths.resolveCwd(CONFIGS_CONFIG_FILE_NAME),
   data,
 }: OutputConfigsConfigSyncOptions) {
@@ -32,7 +34,7 @@ export function outputConfigsConfigSync({
   return files.outputCjsFileSync({ filePath, data });
 }
 
-export function normalizeConfigsConfig(configsConfig: ConfigsConfig) {
+function normalizeConfigsConfig(configsConfig: ConfigsConfig) {
   let finalConfigsConfig = { ...configsConfig };
 
   if (configsConfig.features?.['sort-package-json'] === true) {
@@ -56,3 +58,23 @@ export function normalizeConfigsConfig(configsConfig: ConfigsConfig) {
 
   return finalConfigsConfig as NormalizedConfigsConfig;
 }
+
+function sortConfigsConfig(configsConfig: ConfigsConfig) {
+  const { features, ...rest } = configsConfig;
+
+  if (!features) {
+    return configsConfig;
+  }
+
+  const sortedFeatures = sortObjectKeys(features, FEATURE_KEYS);
+
+  return { ...rest, features: sortedFeatures };
+}
+
+export {
+  defineConfig,
+  normalizeConfigsConfig,
+  outputConfigsConfigSync,
+  readConfigsConfigSync,
+  sortConfigsConfig,
+};
