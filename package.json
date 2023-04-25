@@ -97,6 +97,7 @@
     "@tsconfig/node-lts": "^18.12.1",
     "@tsconfig/node-lts-strictest": "^18.12.1",
     "@tsconfig/strictest": "^2.0.1",
+    "@types/eslint": "^8.37.0",
     "@types/fs-extra": "^11.0.1",
     "@types/lodash-es": "^4.17.7",
     "@types/micromatch": "^4.0.2",

@@ -3,11 +3,11 @@
  */
 module.exports = {
   root: true,
-  parser: '@babel/eslint-parser',
+  // parser: '@babel/eslint-parser',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    requireConfigFile: false,
+    // requireConfigFile: false,
   },
   env: {
     browser: false,
