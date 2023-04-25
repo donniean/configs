@@ -1,16 +1,28 @@
-import type { Linter } from 'eslint';
+import type { ESLintConfig } from '../types';
+import { airbnbBase } from '../utils';
 
 const devDependencies = {
   'eslint-config-airbnb-base': '',
   'eslint-plugin-import': '',
 };
 
-const config: Linter.Config = {
+// @ts-ignore
+const noExtraneousDependenciesOptions = airbnbBase.imports.rules?.[
+  'import/no-extraneous-dependencies'
+]?.[1] as { devDependencies: string[] };
+
+const config: ESLintConfig = {
   extends: ['airbnb-base'],
   rules: {
     'import/no-extraneous-dependencies': [
       'error',
-      { devDependencies: ['**/*.{mjs,cjs}'] },
+      {
+        ...noExtraneousDependenciesOptions,
+        devDependencies: [
+          ...noExtraneousDependenciesOptions.devDependencies,
+          '**/*.{mjs,cjs}',
+        ],
+      },
     ],
     'import/order': [
       'error',

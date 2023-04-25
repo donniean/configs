@@ -1,11 +1,11 @@
-import type { Linter } from 'eslint';
+import type { ESLintConfig } from '../types';
 
 const devDependencies = {
   '@types/eslint': '',
   eslint: '',
 };
 
-const config: Linter.Config = {
+const config: ESLintConfig = {
   root: true,
   parserOptions: {
     ecmaVersion: 'latest',
