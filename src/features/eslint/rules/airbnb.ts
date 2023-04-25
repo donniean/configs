@@ -1,0 +1,3 @@
+const devDependencies = {};
+
+export { devDependencies };
