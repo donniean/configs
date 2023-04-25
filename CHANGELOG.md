@@ -1,3 +1,9 @@
+## [6.1.3](https://github.com/donniean/configs/compare/v6.1.2...v6.1.3) (2023-04-25)
+
+### Bug Fixes
+
+- configs init override bug ([#132](https://github.com/donniean/configs/issues/132)) ([87a0263](https://github.com/donniean/configs/commit/87a0263c973b4a723f3511afdea40be1bc222ad6))
+
 ## [6.1.2](https://github.com/donniean/configs/compare/v6.1.1...v6.1.2) (2023-04-22)
 
 ### Bug Fixes
