@@ -24,11 +24,11 @@ function format(source: string) {
   });
 }
 
-export function readFileSync({ filePath }: ReadFileSyncOptions) {
+function readFileSync({ filePath }: ReadFileSyncOptions) {
   return fs.readFileSync(filePath, { encoding: 'utf8' });
 }
 
-export function outputFileSync({
+function outputFileSync({
   filePath,
   data,
   isTrim = true,
@@ -42,7 +42,7 @@ export function outputFileSync({
   logger.info(`output ${filePath}`);
 }
 
-export function readJsonFileSync<T extends JsonObjectOrArray>({
+function readJsonFileSync<T extends JsonObjectOrArray>({
   filePath,
 }: ReadJsonFileSyncOptions): T | null {
   return fs.readJsonSync(filePath, {
@@ -51,10 +51,7 @@ export function readJsonFileSync<T extends JsonObjectOrArray>({
   }) as T | null;
 }
 
-export function outputJsonFileSync({
-  filePath,
-  data,
-}: OutputJsonFileSyncOptions) {
+function outputJsonFileSync({ filePath, data }: OutputJsonFileSyncOptions) {
   fs.outputJsonSync(filePath, data, {
     encoding: 'utf8',
     spaces: 2,
@@ -63,16 +60,13 @@ export function outputJsonFileSync({
   logger.info(`output ${filePath}`);
 }
 
-export function mergeJsonFileSync({
-  filePath,
-  data,
-}: MergeJsonFileSyncOptions) {
+function mergeJsonFileSync({ filePath, data }: MergeJsonFileSyncOptions) {
   const prevData = readJsonFileSync({ filePath });
   const finalData = merge({}, prevData, data);
   outputJsonFileSync({ filePath, data: finalData });
 }
 
-export function outputCjsFileSync({
+function outputCjsFileSync({
   filePath,
   data,
   leadingComments = '',
@@ -102,7 +96,7 @@ function outputEsmFileSync({
   });
 }
 
-export function outputFormatFileSync({
+function outputFormatFileSync({
   filePath,
   data,
   format: formatType,
@@ -131,7 +125,18 @@ export function outputFormatFileSync({
   }
 }
 
-export function copySync({ src, dest, ...rest }: CopySyncOptions) {
+function copySync({ src, dest, ...rest }: CopySyncOptions) {
   fs.copySync(src, dest, rest);
   logger.info(`copy ${src} to ${dest}`);
 }
+
+export {
+  copySync,
+  mergeJsonFileSync,
+  outputCjsFileSync,
+  outputFileSync,
+  outputFormatFileSync,
+  outputJsonFileSync,
+  readFileSync,
+  readJsonFileSync,
+};
