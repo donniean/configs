@@ -4,9 +4,11 @@ import type { ESLintPlugin, FeatureKey } from '@/types/features';
 
 type QuestionName = 'featureKeys' | 'eslintPlugins';
 
-export type InitQuestions = PromptObject<QuestionName>[];
+type InitQuestions = PromptObject<QuestionName>[];
 
-export interface InitAnswers {
+interface InitAnswers {
   featureKeys: FeatureKey[];
   eslintPlugins?: ESLintPlugin[];
 }
+
+export type { InitAnswers, InitQuestions };
