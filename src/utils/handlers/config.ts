@@ -13,14 +13,29 @@ export function handleConfig({
   normalizedConfigsConfig,
   getConfig,
 }: HandleConfigOptions) {
-  const { outputFileName, format, data } = getConfig({
+  const { outputFileName, format, data, ...rest } = getConfig({
     featureKey,
     normalizedConfigsConfig,
   });
   const filePath = paths.resolveCwd(outputFileName);
   if (format === 'json' || format === 'cjs' || format === 'esm') {
     const shadow = data as JsonObjectOrArray;
-    outputFormatFileSync({ filePath, data: shadow, format });
+    if (format === 'json') {
+      outputFormatFileSync({
+        filePath,
+        data: shadow,
+        format,
+      });
+    } else {
+      const obj: { leadingComments?: string } = rest;
+      const leadingComments = obj.leadingComments ?? '';
+      outputFormatFileSync({
+        filePath,
+        data: shadow,
+        format,
+        leadingComments,
+      });
+    }
   } else if (format === 'text') {
     outputFormatFileSync({ filePath, data, format });
   }

@@ -6,5 +6,6 @@ export function getConfig(): FeatureConfig<JsonArray> {
     outputFileName: 'eslint.config.js',
     format: 'esm',
     data: [],
+    leadingComments: '/** @type {import("eslint").Linter.Config} */',
   };
 }

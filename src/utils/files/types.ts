@@ -37,13 +37,19 @@ export type OutputEsmFileSyncOptions = OutputCjsFileSyncOptions;
 export type OutputFormatFileSyncOptions =
   | {
       filePath: string;
+      format: 'esm' | 'cjs';
       data: JsonObjectOrArray;
-      format: 'json' | 'cjs' | 'esm';
+      leadingComments?: string;
     }
   | {
       filePath: string;
+      format: 'json';
+      data: JsonObjectOrArray;
+    }
+  | {
+      filePath: string;
+      format: 'text';
       data: string;
-      format?: 'text';
     };
 
 export interface CopySyncOptions extends FsCopySyncOptions {
