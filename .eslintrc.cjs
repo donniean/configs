@@ -24,6 +24,7 @@ module.exports = {
     'plugin:promise/recommended',
     'plugin:unicorn/recommended',
     'plugin:sonarjs/recommended',
+    'plugin:n/recommended',
     'plugin:prettier/recommended',
   ],
   rules: {
@@ -62,6 +63,7 @@ module.exports = {
     'unicorn/no-array-for-each': 'off',
     'unicorn/no-null': 'off',
     'unicorn/prevent-abbreviations': 'off',
+    'n/no-missing-import': 'off',
   },
   overrides: [
     {

@@ -69,7 +69,7 @@ interface PromptOptions {
 export default async function prompt(options?: PromptOptions) {
   const questions = getQuestions(options);
   return prompts(questions, {
-    // eslint-disable-next-line unicorn/no-process-exit
+    // eslint-disable-next-line unicorn/no-process-exit, n/no-process-exit
     onCancel: () => process.exit(0),
   });
 }
