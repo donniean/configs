@@ -13,7 +13,12 @@ export function handleConfig({
   normalizedConfigsConfig,
   getConfig,
 }: HandleConfigOptions) {
-  const { outputFileName, format, data, ...rest } = getConfig({
+  const {
+    outputFileName,
+    format,
+    data,
+    leadingComments = '',
+  } = getConfig({
     featureKey,
     normalizedConfigsConfig,
   });
@@ -27,8 +32,6 @@ export function handleConfig({
         format,
       });
     } else {
-      const obj: { leadingComments?: string } = rest;
-      const leadingComments = obj.leadingComments ?? '';
       outputFormatFileSync({
         filePath,
         data: shadow,

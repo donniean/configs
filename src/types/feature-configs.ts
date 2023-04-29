@@ -22,11 +22,13 @@ export type FeatureConfig<T extends FeatureConfigData> =
       outputFileName: string;
       format: 'json';
       data: T;
+      leadingComments?: undefined;
     }
   | {
       outputFileName: string;
       format: 'text';
       data: string;
+      leadingComments?: undefined;
     };
 
 export interface FeatureIgnore {

@@ -1,11 +1,11 @@
-import type { JsonArray } from '@/types/base';
+import type { JsonObject } from '@/types/base';
 import type { FeatureConfig } from '@/types/feature-configs';
 
-export function getConfig(): FeatureConfig<JsonArray> {
+export function getConfig(): FeatureConfig<JsonObject> {
   return {
-    outputFileName: 'eslint.config.js',
-    format: 'esm',
-    data: [],
+    outputFileName: '.eslintrc.cjs',
+    format: 'cjs',
+    data: {},
     leadingComments: '/** @type {import("eslint").Linter.Config} */',
   };
 }

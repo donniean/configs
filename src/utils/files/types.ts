@@ -45,11 +45,13 @@ export type OutputFormatFileSyncOptions =
       filePath: string;
       format: 'json';
       data: JsonObjectOrArray;
+      leadingComments?: undefined;
     }
   | {
       filePath: string;
       format: 'text';
       data: string;
+      leadingComments?: undefined;
     };
 
 export interface CopySyncOptions extends FsCopySyncOptions {
