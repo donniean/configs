@@ -1,18 +1,21 @@
 import type { ESLintConfig } from '../types';
 import { airbnbBase } from '../utils';
-import { config as airbnbBaseConfig } from './airbnb-base';
-
-const devDependencies = {};
 
 // @ts-ignore
 const noParamReassignOptions = airbnbBase.bestPractices.rules?.[
   'no-param-reassign'
 ]?.[1] as { ignorePropertyModificationsFor: string[] };
 
+const devDependencies = {
+  'eslint-config-airbnb/hooks': '',
+  'eslint-plugin-jsx-a11y': '',
+  'eslint-plugin-react': '',
+  'eslint-plugin-react-hooks': '',
+};
+
 const config: ESLintConfig = {
-  extends: ['airbnb'],
+  extends: ['airbnb/hooks'],
   rules: {
-    ...airbnbBaseConfig.rules,
     'no-console':
       process.env.NODE_ENV === 'development'
         ? 'warn'
@@ -26,6 +29,15 @@ const config: ESLintConfig = {
           'draft',
         ],
       },
+    ],
+    'import/no-duplicates': ['error', { considerQueryString: true }],
+    'react/jsx-key': 'error',
+    'react/jsx-props-no-spreading': 'off',
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react/require-default-props': [
+      'error',
+      { forbidDefaultForRequired: true, ignoreFunctionalComponents: true },
     ],
   },
 };

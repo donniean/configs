@@ -27,6 +27,7 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   rules: {
+    'no-restricted-imports': ['error', { patterns: ['../..'] }],
     'no-useless-call': 'error',
     'import/order': [
       'error',
