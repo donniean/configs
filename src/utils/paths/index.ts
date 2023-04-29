@@ -1,3 +1,4 @@
+import { createRequire } from 'node:module';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -5,20 +6,34 @@ import type { FeatureKey } from '@/types/features';
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
-export const root = path.resolve(dirname, '..', '..', '..');
+const root = path.resolve(dirname, '..', '..', '..');
 
-export const cwd = process.cwd();
+const cwd = process.cwd();
 
-export function resolveRoot(...paths: string[]) {
+function resolveRoot(...paths: string[]) {
   return path.resolve(root, ...paths);
 }
 
-export function resolveAssets(featureKey: FeatureKey, ...paths: string[]) {
+function resolveAssets(featureKey: FeatureKey, ...paths: string[]) {
   return resolveRoot('assets', featureKey, ...paths);
 }
 
-export function resolveCwd(...paths: string[]) {
+function resolveCwd(...paths: string[]) {
   return path.resolve(cwd, ...paths);
 }
 
-export const cwdPackageJson = resolveCwd('package.json');
+const cwdPackageJson = resolveCwd('package.json');
+
+function requireRoot<T>(relativePath: string) {
+  return createRequire(import.meta.url)(resolveRoot(relativePath)) as T;
+}
+
+export {
+  cwd,
+  cwdPackageJson,
+  requireRoot,
+  resolveAssets,
+  resolveCwd,
+  resolveRoot,
+  root,
+};
