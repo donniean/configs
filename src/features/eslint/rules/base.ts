@@ -54,6 +54,7 @@ function getConfig({ hasReact }: Options): ESLintConfig {
       'plugin:sonarjs/recommended',
     ],
     rules: {
+      'arrow-body-style': ['error', 'as-needed'],
       'no-restricted-imports': ['error', { patterns: ['../..'] }],
       'no-useless-call': 'error',
       'import/no-extraneous-dependencies': [
@@ -102,6 +103,16 @@ function getConfig({ hasReact }: Options): ESLintConfig {
       'unicorn/prevent-abbreviations': 'off',
     },
     overrides: [
+      {
+        files: ['**/*.cjs'],
+        plugins: ['simple-import-sort'],
+        rules: {
+          'sort-imports': 'off',
+          'import/order': 'off',
+          'simple-import-sort/imports': 'error',
+          'simple-import-sort/exports': 'error',
+        },
+      },
       {
         files: ['**/*.{mjs,ts,tsx}'],
         plugins: ['simple-import-sort'],

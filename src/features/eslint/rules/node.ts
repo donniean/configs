@@ -2,13 +2,13 @@ import type { ESLintConfig } from '../types';
 
 function getDevDependencies() {
   return {
-    'eslint-config-prettier': '',
+    'eslint-plugin-n': '',
   };
 }
 
 function getConfig(): ESLintConfig {
   return {
-    extends: ['prettier'],
+    extends: ['plugin:n/recommended'],
   };
 }
 

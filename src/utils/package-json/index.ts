@@ -65,7 +65,7 @@ export async function fetchPackageLatestVersion(packageName: string) {
     spinner.succeed(`${packageName}@${version}`);
     return version;
   } catch (error) {
-    spinner.fail(`${(error as Error).message}`);
+    spinner.fail(`${packageName}: ${(error as Error).message}`);
     return '';
   }
 }
