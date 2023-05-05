@@ -37,7 +37,7 @@ function getData(
     ? {
         overrides: [
           {
-            files: ['**/*.{ts,tsx}'],
+            files: ['./src/**/*.{ts,tsx}'],
             ...deepMerge(reactConfig, finalPrettierConfig),
           },
         ],
