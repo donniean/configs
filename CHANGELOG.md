@@ -1,3 +1,9 @@
+# [6.2.0](https://github.com/donniean/configs/compare/v6.1.3...v6.2.0) (2023-05-05)
+
+### Features
+
+- ESLint ([#144](https://github.com/donniean/configs/issues/144)) ([cbe9917](https://github.com/donniean/configs/commit/cbe99178883769538ff5458d012effa27c7e7c94))
+
 ## [6.1.3](https://github.com/donniean/configs/compare/v6.1.2...v6.1.3) (2023-04-25)
 
 ### Bug Fixes
