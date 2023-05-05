@@ -1,6 +1,4 @@
-/**
- * @type {import("eslint").Linter.Config}
- */
+/** @type {import("eslint").Linter.Config} */
 module.exports = {
   root: true,
   // parser: '@babel/eslint-parser',
@@ -26,9 +24,11 @@ module.exports = {
     'plugin:promise/recommended',
     'plugin:unicorn/recommended',
     'plugin:sonarjs/recommended',
+    'plugin:n/recommended',
     'plugin:prettier/recommended',
   ],
   rules: {
+    'no-restricted-imports': ['error', { patterns: ['../..'] }],
     'no-useless-call': 'error',
     'import/order': [
       'error',
@@ -63,6 +63,7 @@ module.exports = {
     'unicorn/no-array-for-each': 'off',
     'unicorn/no-null': 'off',
     'unicorn/prevent-abbreviations': 'off',
+    'n/no-missing-import': 'off',
   },
   overrides: [
     {

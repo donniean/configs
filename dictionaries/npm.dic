@@ -2,6 +2,7 @@ tanstack
 commitlint
 corepack
 cssnano
+deepmerge
 depcheck
 htmlhint
 immer

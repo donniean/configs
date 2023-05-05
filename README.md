@@ -1,6 +1,7 @@
 # @donniean/configs
 
 - [@donniean/configs](#donnieanconfigs)
+  - [Prerequisites](#prerequisites)
   - [Install](#install)
   - [Usage](#usage)
   - [Delete legacy files](#delete-legacy-files)
@@ -9,6 +10,10 @@
 [![Version](https://img.shields.io/npm/v/@donniean/configs.svg)](https://www.npmjs.com/package/@donniean/configs) [![License: MIT](https://img.shields.io/github/license/donniean/configs)](https://github.com/donniean/configs/blob/master/LICENSE) [![CI](https://github.com/donniean/configs/actions/workflows/ci.yml/badge.svg)](https://github.com/donniean/configs/actions/workflows/ci.yml) [![Release](https://github.com/donniean/configs/actions/workflows/release.yml/badge.svg)](https://github.com/donniean/configs/actions/workflows/release.yml)
 
 > configs generator
+
+## Prerequisites
+
+- node >=18.0.0
 
 ## Install
 
@@ -80,18 +85,23 @@ npm pkg delete devDependencies.cspell;
 npm pkg delete devDependencies.cz-conventional-changelog;
 # npm pkg delete devDependencies.eslint;
 # npm pkg delete devDependencies.eslint-config-airbnb;
+# npm pkg delete devDependencies.eslint-config-airbnb-base
 # npm pkg delete devDependencies.eslint-config-airbnb-typescript;
 # npm pkg delete devDependencies.eslint-config-prettier;
 # npm pkg delete devDependencies.eslint-import-resolver-typescript;
 # npm pkg delete devDependencies.eslint-import-resolver-webpack;
+# npm pkg delete devDependencies.eslint-plugin-eslint-comments
 # npm pkg delete devDependencies.eslint-plugin-html;
 # npm pkg delete devDependencies.eslint-plugin-import;
 # npm pkg delete devDependencies.eslint-plugin-jsx-a11y;
 # npm pkg delete devDependencies.eslint-plugin-node;
 # npm pkg delete devDependencies.eslint-plugin-prettier;
+# npm pkg delete devDependencies.eslint-plugin-promise
 # npm pkg delete devDependencies.eslint-plugin-react;
 # npm pkg delete devDependencies.eslint-plugin-react-hooks;
 # npm pkg delete devDependencies.eslint-plugin-simple-import-sort;
+# npm pkg delete devDependencies.eslint-plugin-sonarjs
+# npm pkg delete devDependencies.eslint-plugin-unicorn
 npm pkg delete devDependencies.htmlhint;
 npm pkg delete devDependencies.husky;
 npm pkg delete devDependencies.lint-staged;

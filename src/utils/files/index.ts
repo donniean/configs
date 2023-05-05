@@ -98,20 +98,25 @@ function outputEsmFileSync({
 
 function outputFormatFileSync({
   filePath,
-  data,
   format: formatType,
+  data,
+  leadingComments = '',
 }: OutputFormatFileSyncOptions) {
   switch (formatType) {
     case 'json': {
       outputJsonFileSync({ filePath, data });
       break;
     }
-    case 'cjs': {
-      outputCjsFileSync({ filePath, data });
+    case 'esm': {
+      outputEsmFileSync({ filePath, data, leadingComments });
       break;
     }
-    case 'esm': {
-      outputEsmFileSync({ filePath, data });
+    case 'cjs': {
+      outputCjsFileSync({
+        filePath,
+        data,
+        leadingComments,
+      });
       break;
     }
     case 'text': {

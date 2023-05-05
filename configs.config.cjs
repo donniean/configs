@@ -15,7 +15,6 @@ module.exports = {
       plugins: {
         node: true,
       },
-      ignorePatterns: ['bin/'],
     },
     markdownlint: {
       patterns: ['**/*.md'],
