@@ -4,6 +4,7 @@ import prettier from 'prettier';
 
 import type { JsonObjectOrArray } from '@/types/base';
 import logger from '@/utils/logger';
+import { stringifyJavaScript } from '@/utils/misc';
 
 import type {
   CopySyncOptions,
@@ -66,21 +67,6 @@ function mergeJsonFileSync({ filePath, data }: MergeJsonFileSyncOptions) {
   outputJsonFileSync({ filePath, data: finalData });
 }
 
-function outputCjsFileSync({
-  filePath,
-  data,
-  leadingComments = '',
-  isFormat = true,
-}: OutputCjsFileSyncOptions) {
-  const content = `${leadingComments}
-  module.exports = ${JSON.stringify(data, null, 2)};`;
-  outputFileSync({
-    filePath,
-    data: content,
-    isFormat,
-  });
-}
-
 function outputEsmFileSync({
   filePath,
   data,
@@ -88,7 +74,22 @@ function outputEsmFileSync({
   isFormat = true,
 }: OutputEsmFileSyncOptions) {
   const content = `${leadingComments}
-  export default ${JSON.stringify(data, null, 2)};`;
+  export default ${stringifyJavaScript(data) ?? ''};`;
+  outputFileSync({
+    filePath,
+    data: content,
+    isFormat,
+  });
+}
+
+function outputCjsFileSync({
+  filePath,
+  data,
+  leadingComments = '',
+  isFormat = true,
+}: OutputCjsFileSyncOptions) {
+  const content = `${leadingComments}
+  module.exports = ${stringifyJavaScript(data) ?? ''};`;
   outputFileSync({
     filePath,
     data: content,

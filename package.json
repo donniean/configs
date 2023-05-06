@@ -78,6 +78,7 @@
     "eslint": "^8.40.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "fs-extra": "^11.1.1",
+    "javascript-stringify": "^2.1.0",
     "latest-version": "^7.0.0",
     "lodash-es": "^4.17.21",
     "micromatch": "^4.0.5",
