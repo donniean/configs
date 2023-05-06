@@ -8,12 +8,11 @@ function getPatternsString(patterns: string[]) {
   return patterns.map(pattern => addQuote(pattern)).join(' ');
 }
 
-// const symbol = Symbol('expression');
-const symbol = 'aaa';
+const symbol = Symbol('expression');
 
 function makeJavaScriptOnlyValue(str: string) {
   const obj = {};
-  Object.defineProperty(obj, symbol, { value: str });
+  Object.defineProperty(obj, symbol, { enumerable: true, value: str });
   return obj;
 }
 
