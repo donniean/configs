@@ -1,8 +1,10 @@
 import micromatch from 'micromatch';
+import sortObjectKeys from 'sort-object-keys';
 
 import type { NormalizedConfigsConfig } from '@/types/configs-config';
 import { requireRoot } from '@/utils/paths';
 
+import { SORT_ESLINT_CONFIG_KEYS } from './constants';
 import type { ESLintConfig } from './types';
 
 function requireConfig(path: string) {
@@ -20,10 +22,7 @@ const airbnbBase = {
 
 function hasTypeScriptFn(normalizedConfigsConfig: NormalizedConfigsConfig) {
   const patterns = normalizedConfigsConfig.features?.eslint?.patterns ?? [];
-  return micromatch.some(
-    ['index.ts', 'index.tsx', 'index.mts', 'index.cts'],
-    patterns
-  );
+  return micromatch.some(['index.ts', 'index.tsx'], patterns);
 }
 
 function hasReactFn(normalizedConfigsConfig: NormalizedConfigsConfig) {
@@ -36,4 +35,36 @@ function hasPrettierFn(normalizedConfigsConfig: NormalizedConfigsConfig) {
   return patterns.length > 0;
 }
 
-export { airbnbBase, hasPrettierFn, hasReactFn, hasTypeScriptFn };
+function sortExtends(data: ESLintConfig['extends']) {
+  return data;
+}
+
+function sortPlugins(data: ESLintConfig['plugins']) {
+  return data;
+}
+
+function sortRules(data: ESLintConfig['rules']) {
+  return data;
+}
+
+function sortESLintConfig(config: ESLintConfig) {
+  const { extends: extendsShadow, plugins, rules, ...rest } = config;
+  const sortedExtends = sortExtends(extendsShadow);
+  const sortedPlugins = sortPlugins(plugins);
+  const sortedRules = sortRules(rules);
+  const newConfig = {
+    extends: sortedExtends,
+    plugins: sortedPlugins,
+    rules: sortedRules,
+    ...rest,
+  };
+  return sortObjectKeys(newConfig, SORT_ESLINT_CONFIG_KEYS);
+}
+
+export {
+  airbnbBase,
+  hasPrettierFn,
+  hasReactFn,
+  hasTypeScriptFn,
+  sortESLintConfig,
+};
