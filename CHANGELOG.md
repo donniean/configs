@@ -1,3 +1,9 @@
+## [6.2.1](https://github.com/donniean/configs/compare/v6.2.0...v6.2.1) (2023-05-08)
+
+### Bug Fixes
+
+- eslint config error ([#156](https://github.com/donniean/configs/issues/156)) ([cc7a42c](https://github.com/donniean/configs/commit/cc7a42c98de6da03f3d0f82fc15cc4aa1e80628e))
+
 # [6.2.0](https://github.com/donniean/configs/compare/v6.1.3...v6.2.0) (2023-05-05)
 
 ### Features
