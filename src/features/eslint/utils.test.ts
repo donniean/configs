@@ -1,5 +1,6 @@
 import { describe, expect, test } from 'vitest';
 
+import type { ESLintConfig } from './types';
 import {
   hasPrettierFn,
   hasReactFn,
@@ -124,22 +125,45 @@ describe('test hasPrettierFn', () => {
 
 describe('test sortESLintConfig', () => {
   test('sortESLintConfig', () => {
-    const config = {
+    const config: ESLintConfig = {
+      rules: {
+        'sort-imports': 'off',
+      },
       root: true,
-      rules: {},
-      extends: [],
-      overrides: [],
-      parserOptions: {},
-      plugins: [],
+      extends: ['prettier'],
+      overrides: [
+        {
+          files: ['**/*.{mjs,ts}'],
+          plugins: [],
+          rules: {
+            'sort-imports': 'off',
+          },
+        },
+      ],
+      parserOptions: {
+        sourceType: 'module',
+      },
+      plugins: ['simple-import-sort'],
     };
     expect(JSON.stringify(sortESLintConfig(config))).toBe(
       JSON.stringify({
         root: true,
-        parserOptions: {},
-        extends: [],
-        plugins: [],
-        rules: {},
-        overrides: [],
+        parserOptions: {
+          sourceType: 'module',
+        },
+        extends: ['prettier'],
+        plugins: ['simple-import-sort'],
+        rules: {
+          'sort-imports': 'off',
+        },
+        overrides: [
+          {
+            files: ['**/*.{mjs,ts}'],
+            rules: {
+              'sort-imports': 'off',
+            },
+          },
+        ],
       })
     );
   });

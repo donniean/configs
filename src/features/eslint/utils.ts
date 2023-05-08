@@ -1,3 +1,4 @@
+import cleanDeep from 'clean-deep';
 import micromatch from 'micromatch';
 import sortObjectKeys from 'sort-object-keys';
 
@@ -52,12 +53,12 @@ function sortESLintConfig(config: ESLintConfig) {
   const sortedExtends = sortExtends(extendsShadow);
   const sortedPlugins = sortPlugins(plugins);
   const sortedRules = sortRules(rules);
-  const newConfig = {
+  const newConfig = cleanDeep({
     extends: sortedExtends,
     plugins: sortedPlugins,
     rules: sortedRules,
     ...rest,
-  };
+  });
   return sortObjectKeys(newConfig, SORT_ESLINT_CONFIG_KEYS);
 }
 

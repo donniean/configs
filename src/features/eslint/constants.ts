@@ -2,6 +2,7 @@ const SORT_ESLINT_CONFIG_KEYS = [
   'root',
   'parserOptions',
   'env',
+  'settings',
   'extends',
   'plugins',
   'ignorePatterns',

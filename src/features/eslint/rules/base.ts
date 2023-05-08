@@ -91,8 +91,6 @@ function getConfig({ hasReact }: Options): ESLintConfig {
         },
       ],
       'import/prefer-default-export': 'off',
-      // TODO: TypeError: Cannot read properties of undefined (reading 'getAllComments')
-      'unicorn/expiring-todo-comments': 'off',
       'unicorn/filename-case': [
         'error',
         {
