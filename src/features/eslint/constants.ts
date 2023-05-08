@@ -5,6 +5,7 @@ const SORT_ESLINT_CONFIG_KEYS = [
   'extends',
   'plugins',
   'ignorePatterns',
+  'rules',
   'overrides',
 ] as const;
 
