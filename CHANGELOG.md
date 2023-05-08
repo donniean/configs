@@ -1,3 +1,9 @@
+## [6.2.2](https://github.com/donniean/configs/compare/v6.2.1...v6.2.2) (2023-05-08)
+
+### Bug Fixes
+
+- sortESLintConfig error ([#159](https://github.com/donniean/configs/issues/159)) ([d03070e](https://github.com/donniean/configs/commit/d03070e6eca0fbf9e0604248d0278e52309b275a))
+
 ## [6.2.1](https://github.com/donniean/configs/compare/v6.2.0...v6.2.1) (2023-05-08)
 
 ### Bug Fixes
