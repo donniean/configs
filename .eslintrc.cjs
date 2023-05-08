@@ -43,13 +43,13 @@ module.exports = {
       {
         devDependencies: [
           'test/**',
-          'tests/!**',
-          'spec/!**',
-          '**!/__tests__/!**',
-          '**!/__mocks__/!**',
+          'tests/**',
+          'spec/**',
+          '**/__tests__/**',
+          '**/__mocks__/**',
           'test.{js,jsx}',
           'test-*.{js,jsx}',
-          '**!/!*{.,_}{test,spec}.{js,jsx}',
+          '**/*{.,_}{test,spec}.{js,jsx}',
           '**/*.{mjs,cjs}',
           '**/.*.{mjs,cjs}',
         ],
