@@ -1,22 +1,24 @@
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
   root: true,
-  // parser: '@babel/eslint-parser',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    // requireConfigFile: false,
   },
   env: {
     browser: false,
     node: true,
     commonjs: true,
     'shared-node-browser': true,
-    amd: true,
     es6: true,
+    es2016: true,
     es2017: true,
+    es2018: true,
+    es2019: true,
     es2020: true,
     es2021: true,
+    es2022: true,
+    worker: false,
   },
   extends: [
     'airbnb-base',
@@ -25,11 +27,35 @@ module.exports = {
     'plugin:unicorn/recommended',
     'plugin:sonarjs/recommended',
     'plugin:n/recommended',
-    'plugin:prettier/recommended',
+    'prettier',
   ],
   rules: {
-    'no-restricted-imports': ['error', { patterns: ['../..'] }],
+    'arrow-body-style': ['error', 'as-needed'],
+    'no-restricted-imports': [
+      'error',
+      {
+        patterns: ['../..'],
+      },
+    ],
     'no-useless-call': 'error',
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: [
+          'test/**',
+          'tests/!**',
+          'spec/!**',
+          '**!/__tests__/!**',
+          '**!/__mocks__/!**',
+          'test.{js,jsx}',
+          'test-*.{js,jsx}',
+          '**!/!*{.,_}{test,spec}.{js,jsx}',
+          '**/*.{mjs,cjs}',
+          '**/.*.{mjs,cjs}',
+        ],
+        optionalDependencies: false,
+      },
+    ],
     'import/order': [
       'error',
       {
@@ -45,12 +71,12 @@ module.exports = {
         'newlines-between': 'always',
         alphabetize: {
           order: 'asc',
+          orderImportKind: 'asc',
         },
         warnOnUnassignedImports: true,
       },
     ],
     'import/prefer-default-export': 'off',
-    // TODO: TypeError: Cannot read properties of undefined (reading 'getAllComments')
     'unicorn/expiring-todo-comments': 'off',
     'unicorn/filename-case': [
       'error',
@@ -69,9 +95,13 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/*.js'],
+      files: ['**/*.{mjs,ts}'],
+      plugins: ['simple-import-sort'],
       rules: {
-        'unicorn/prefer-module': 'off',
+        'sort-imports': 'off',
+        'import/order': 'off',
+        'simple-import-sort/imports': 'error',
+        'simple-import-sort/exports': 'error',
       },
     },
     {
@@ -90,16 +120,17 @@ module.exports = {
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
         'airbnb-typescript/base',
-        'plugin:prettier/recommended',
+        'prettier',
       ],
-      plugins: ['simple-import-sort'],
       rules: {
-        'sort-imports': 'off',
-        'import/order': 'off',
-        'simple-import-sort/imports': 'error',
-        'simple-import-sort/exports': 'error',
         '@typescript-eslint/ban-ts-comment': 'off',
-        '@typescript-eslint/no-floating-promises': 'off',
+        '@typescript-eslint/consistent-type-exports': 'error',
+        '@typescript-eslint/consistent-type-imports': [
+          'error',
+          {
+            prefer: 'type-imports',
+          },
+        ],
       },
     },
   ],
