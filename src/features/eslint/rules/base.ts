@@ -66,6 +66,7 @@ function getConfig({ hasReact }: Options): ESLintConfig {
               pattern => !/.+\.js}?$/.test(pattern)
             ),
             '**/*.{mjs,cjs}',
+            '**/.*.{mjs,cjs}',
           ],
         },
       ],
