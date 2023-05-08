@@ -1,3 +1,5 @@
+import { makeJavaScriptOnlyValue } from '@/utils/misc';
+
 import type { ESLintConfig } from '../types';
 import { airbnbBase } from '../utils';
 
@@ -18,10 +20,10 @@ function getConfig(): ESLintConfig {
   return {
     extends: ['airbnb/hooks'],
     rules: {
-      'no-console':
-        process.env.NODE_ENV === 'development'
-          ? 'warn'
-          : ['error', { allow: ['warn', 'error'] }],
+      // @ts-ignore
+      'no-console': makeJavaScriptOnlyValue(
+        `process.env.NODE_ENV === 'development' ? 'warn' : ['error', { allow: ['warn', 'error'] }]`
+      ),
       'no-param-reassign': [
         'error',
         {

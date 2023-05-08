@@ -62,7 +62,9 @@ function getConfig({ hasReact }: Options): ESLintConfig {
         {
           ...noExtraneousDependenciesOptions,
           devDependencies: [
-            ...noExtraneousDependenciesOptions.devDependencies,
+            ...noExtraneousDependenciesOptions.devDependencies.filter(
+              pattern => !/.+\.js}?$/.test(pattern)
+            ),
             '**/*.{mjs,cjs}',
           ],
         },
@@ -105,16 +107,6 @@ function getConfig({ hasReact }: Options): ESLintConfig {
       'unicorn/prevent-abbreviations': 'off',
     },
     overrides: [
-      {
-        files: ['**/*.cjs'],
-        plugins: ['simple-import-sort'],
-        rules: {
-          'sort-imports': 'off',
-          'import/order': 'off',
-          'simple-import-sort/imports': 'error',
-          'simple-import-sort/exports': 'error',
-        },
-      },
       {
         files: ['**/*.{mjs,ts,tsx}'],
         plugins: ['simple-import-sort'],
