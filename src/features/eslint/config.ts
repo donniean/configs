@@ -8,7 +8,12 @@ import * as base from './rules/base';
 import * as prettier from './rules/prettier';
 import * as react from './rules/react';
 import * as typescript from './rules/typescript';
-import { hasPrettierFn, hasReactFn, hasTypeScriptFn } from './utils';
+import {
+  hasPrettierFn,
+  hasReactFn,
+  hasTypeScriptFn,
+  sortESLintConfig,
+} from './utils';
 
 function getData(
   normalizedConfigsConfig: GetConfigOptions['normalizedConfigsConfig']
@@ -44,12 +49,14 @@ function getData(
       }
     : {};
 
-  return deepMerge.all([
+  const finalConfig = deepMerge.all([
     baseConfig,
     finalTypesScriptConfig,
     finalReactConfig,
     finalPrettierConfig,
   ]);
+
+  return sortESLintConfig(finalConfig);
 }
 
 export function getConfig({
