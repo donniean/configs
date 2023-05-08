@@ -77,7 +77,6 @@ module.exports = {
       },
     ],
     'import/prefer-default-export': 'off',
-    'unicorn/expiring-todo-comments': 'off',
     'unicorn/filename-case': [
       'error',
       {
