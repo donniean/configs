@@ -55,16 +55,6 @@ function getData(
         ],
       }
     : {};
-  /* const finalNodeConfig = hasNode
-    ? {
-        overrides: [
-          {
-            files: nodePatterns,
-            ...deepMerge(nodeConfig, finalPrettierConfig),
-          },
-        ],
-      }
-    : {}; */
 
   const finalNodeConfig = (() => {
     if (!hasNode) {

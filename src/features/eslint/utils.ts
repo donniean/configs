@@ -6,7 +6,11 @@ import sortObjectKeys from 'sort-object-keys';
 import type { NormalizedConfigsConfig } from '@/types/configs-config';
 import { requireRoot } from '@/utils/paths';
 
-import { SORT_ESLINT_CONFIG_KEYS } from './constants';
+import {
+  SORT_ESLINT_CONFIG_KEYS,
+  SORT_ESLINT_EXTENDS,
+  SORT_ESLINT_PLUGINS,
+} from './constants';
 import type { ESLintConfig } from './types';
 
 function requireConfig(path: string) {
@@ -49,25 +53,8 @@ function sortExtends(data: ESLintConfig['extends']) {
         return 1;
       }
 
-      const orders = [
-        'airbnb-base',
-        'airbnb',
-        'airbnb/hooks',
-        'plugin:react/jsx-runtime',
-        'plugin:eslint-comments/recommended',
-        'plugin:promise/recommended',
-        'plugin:unicorn/recommended',
-        'plugin:sonarjs/recommended',
-        'plugin:n/recommended',
-        'plugin:@typescript-eslint/recommended',
-        'plugin:@typescript-eslint/recommended-requiring-type-checking',
-        'airbnb-typescript/base',
-        'airbnb-typescript',
-        'prettier',
-      ];
-
-      const aIndex = orders.indexOf(a);
-      const bIndex = orders.indexOf(b);
+      const aIndex = SORT_ESLINT_EXTENDS.indexOf(a);
+      const bIndex = SORT_ESLINT_EXTENDS.indexOf(b);
       return aIndex - bIndex;
     });
     return uniq(data);
@@ -77,6 +64,11 @@ function sortExtends(data: ESLintConfig['extends']) {
 }
 
 function sortPlugins(data: ESLintConfig['plugins']) {
+  data?.sort((a, b) => {
+    const aIndex = SORT_ESLINT_PLUGINS.indexOf(a);
+    const bIndex = SORT_ESLINT_PLUGINS.indexOf(b);
+    return aIndex - bIndex;
+  });
   return uniq(data);
 }
 
