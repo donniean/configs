@@ -1,4 +1,5 @@
 import cleanDeep from 'clean-deep';
+import { uniq } from 'lodash-es';
 import micromatch from 'micromatch';
 import sortObjectKeys from 'sort-object-keys';
 
@@ -42,11 +43,15 @@ function hasPrettierFn(normalizedConfigsConfig: NormalizedConfigsConfig) {
 }
 
 function sortExtends(data: ESLintConfig['extends']) {
+  if (Array.isArray(data)) {
+    return uniq(data);
+  }
+
   return data;
 }
 
 function sortPlugins(data: ESLintConfig['plugins']) {
-  return data;
+  return uniq(data);
 }
 
 function sortRules(data: ESLintConfig['rules']) {

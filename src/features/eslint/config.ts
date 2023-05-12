@@ -55,7 +55,7 @@ function getData(
         ],
       }
     : {};
-  const finalNodeConfig = hasNode
+  /* const finalNodeConfig = hasNode
     ? {
         overrides: [
           {
@@ -64,7 +64,26 @@ function getData(
           },
         ],
       }
-    : {};
+    : {}; */
+
+  const finalNodeConfig = (() => {
+    if (!hasNode) {
+      return {};
+    }
+
+    const config = {
+      files: nodePatterns,
+      ...deepMerge(nodeConfig, finalPrettierConfig),
+    };
+
+    if (nodePatterns.includes('**')) {
+      return config;
+    }
+
+    return {
+      overrides: [config],
+    };
+  })();
 
   const finalConfig = deepMerge.all([
     baseConfig,
