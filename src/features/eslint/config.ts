@@ -71,17 +71,14 @@ function getData(
       return {};
     }
 
-    const config = {
-      files: nodePatterns,
-      ...deepMerge(nodeConfig, finalPrettierConfig),
-    };
+    const config = deepMerge(nodeConfig, finalPrettierConfig);
 
     if (nodePatterns.includes('**')) {
       return config;
     }
 
     return {
-      overrides: [config],
+      overrides: [{ files: nodePatterns, config }],
     };
   })();
 
