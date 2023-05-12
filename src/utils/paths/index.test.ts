@@ -8,7 +8,7 @@ import { resolveAssets } from './index';
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 describe('test resolveAssets', () => {
-  test('test resolveAssets', () => {
+  test('resolveAssets', () => {
     expect(resolveAssets('prettier', 'a', 'b')).toBe(
       path.resolve(dirname, '..', '..', '..', 'assets', 'prettier', 'a', 'b')
     );
