@@ -25,7 +25,7 @@ function getData(
   const hasReact = hasReactFn(normalizedConfigsConfig);
   const hasNode = hasNodeFn(normalizedConfigsConfig);
 
-  const baseConfig = base.getConfig({ hasReact });
+  const baseConfig = base.getConfig({ hasTypeScript, hasReact });
   const prettierConfig = prettier.getConfig();
   const typescriptConfig = typescript.getConfig({ hasReact });
   const reactConfig = react.getConfig();

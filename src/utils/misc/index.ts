@@ -8,7 +8,20 @@ function getPatternsString(patterns: string[]) {
   return patterns.map(pattern => addQuote(pattern)).join(' ');
 }
 
-const symbol = Symbol('expression');
+function getExtensionsPattern(extensions: string[]) {
+  if (extensions.length === 0) {
+    return '';
+  }
+
+  if (extensions.length === 1) {
+    return extensions.join('');
+  }
+
+  return `{${extensions.join(',')}}`;
+}
+
+// const symbol = Symbol('expression');
+const symbol = 'expression';
 
 function makeJavaScriptOnlyValue(str: string) {
   const obj = {};
@@ -34,4 +47,9 @@ function stringifyJavaScript(input: unknown) {
   );
 }
 
-export { getPatternsString, makeJavaScriptOnlyValue, stringifyJavaScript };
+export {
+  getExtensionsPattern,
+  getPatternsString,
+  makeJavaScriptOnlyValue,
+  stringifyJavaScript,
+};

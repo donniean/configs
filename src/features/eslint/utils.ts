@@ -77,8 +77,8 @@ function sortRules(data: ESLintConfig['rules']) {
 }
 
 function sortESLintConfig(config: ESLintConfig) {
-  const { extends: extendsShadow, plugins, rules, ...rest } = config;
-  const sortedExtends = sortExtends(extendsShadow);
+  const { extends: extendsAlias, plugins, rules, ...rest } = config;
+  const sortedExtends = sortExtends(extendsAlias);
   const sortedPlugins = sortPlugins(plugins);
   const sortedRules = sortRules(rules);
   const newConfig = cleanDeep({
