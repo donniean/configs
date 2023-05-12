@@ -1,4 +1,5 @@
 import { stringify } from 'javascript-stringify';
+import { nanoid } from 'nanoid';
 
 function addQuote(value: string) {
   return `"${value}"`;
@@ -20,12 +21,11 @@ function getExtensionsPattern(extensions: string[]) {
   return `{${extensions.join(',')}}`;
 }
 
-// const symbol = Symbol('expression');
-const symbol = 'expression';
+const id = nanoid();
 
 function makeJavaScriptOnlyValue(str: string) {
   const obj = {};
-  Object.defineProperty(obj, symbol, { enumerable: true, value: str });
+  Object.defineProperty(obj, id, { enumerable: true, value: str });
   return obj;
 }
 
@@ -36,10 +36,10 @@ function stringifyJavaScript(input: unknown) {
       if (
         value &&
         typeof value === 'object' &&
-        Object.prototype.hasOwnProperty.call(value, symbol)
+        Object.prototype.hasOwnProperty.call(value, id)
       ) {
-        const v = value as { [symbol]: string };
-        return v[symbol];
+        const v = value as { [id: string]: string };
+        return v[id];
       }
       return next(value);
     },
