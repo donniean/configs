@@ -32,7 +32,7 @@ function getData(
     ? {
         overrides: [
           {
-            files: ['**/*.{ts,tsx}'],
+            files: [`**/*.${hasReact ? '{ts,tsx}' : 'ts'}`],
             ...deepMerge(typescriptConfig, finalPrettierConfig),
           },
         ],
@@ -42,7 +42,7 @@ function getData(
     ? {
         overrides: [
           {
-            files: ['./src/**/*.{ts,tsx}'],
+            files: [`./src/**/*.${hasTypeScript ? '{ts,tsx}' : '{js,jsx}'}`],
             ...deepMerge(reactConfig, finalPrettierConfig),
           },
         ],

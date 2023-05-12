@@ -18,7 +18,7 @@ function getDevDependencies() {
 
 function getConfig(): ESLintConfig {
   return {
-    extends: ['airbnb/hooks'],
+    extends: ['plugin:react/jsx-runtime', 'airbnb/hooks'],
     rules: {
       // @ts-ignore
       'no-console': makeJavaScriptOnlyValue(
@@ -37,11 +37,14 @@ function getConfig(): ESLintConfig {
       'import/no-duplicates': ['error', { considerQueryString: true }],
       'react/jsx-key': 'error',
       'react/jsx-props-no-spreading': 'off',
-      'react/jsx-uses-react': 'off',
-      'react/react-in-jsx-scope': 'off',
+      // 'react/jsx-uses-react': 'off',
+      // 'react/react-in-jsx-scope': 'off',
       'react/require-default-props': [
         'error',
-        { forbidDefaultForRequired: true, ignoreFunctionalComponents: true },
+        {
+          forbidDefaultForRequired: true,
+          functions: 'defaultArguments',
+        },
       ],
     },
   };

@@ -15,9 +15,8 @@ export const DEFAULT_CONFIGS_CONFIG = {
       patterns: ['**/*.{js,mjs,cjs,ts,tsx}'],
     },
     stylelint: {
-      patterns: ['**/*.{css,scss,ts,tsx}'],
+      patterns: ['**/*.{css,scss}'],
       scssPatterns: ['**/*.scss'],
-      styledPatterns: ['**/*.{ts,tsx}'],
     },
     htmlhint: {
       patterns: ['**/*.html'],
