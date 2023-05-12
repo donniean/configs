@@ -38,8 +38,6 @@ export type HasIgnorePatternsFeatureKey = Extract<
   | 'cspell'
 >;
 
-export type ESLintPlugin = 'node';
-
 export interface Option<T = string> {
   key: T;
   displayName: string;

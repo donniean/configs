@@ -1,4 +1,4 @@
-import type { ESLintPlugin, FeatureKey, Option } from '@/types/features';
+import type { FeatureKey, Option } from '@/types/features';
 
 const FEATURE_KEY_MAP = {
   gitignore: 'gitignore',
@@ -59,13 +59,4 @@ const FEATURE_OPTIONS: Option<FeatureKey>[] = [
   { key: FEATURE_KEY_MAP.husky, displayName: 'husky' },
 ];
 
-const ESLINT_PLUGIN_OPTIONS: Option<ESLintPlugin>[] = [
-  { key: 'node', displayName: 'Node.js' },
-];
-
-export {
-  ESLINT_PLUGIN_OPTIONS,
-  FEATURE_KEY_MAP,
-  FEATURE_KEYS,
-  FEATURE_OPTIONS,
-};
+export { FEATURE_KEY_MAP, FEATURE_KEYS, FEATURE_OPTIONS };
