@@ -44,6 +44,32 @@ function hasPrettierFn(normalizedConfigsConfig: NormalizedConfigsConfig) {
 
 function sortExtends(data: ESLintConfig['extends']) {
   if (Array.isArray(data)) {
+    data.sort((a, b) => {
+      if (a === 'prettier') {
+        return 1;
+      }
+
+      const allExtends = [
+        'airbnb-base',
+        'airbnb',
+        'airbnb/hooks',
+        'plugin:react/jsx-runtime',
+        'plugin:eslint-comments/recommended',
+        'plugin:promise/recommended',
+        'plugin:unicorn/recommended',
+        'plugin:sonarjs/recommended',
+        'plugin:n/recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
+        'airbnb-typescript/base',
+        'airbnb-typescript',
+        'prettier',
+      ];
+
+      const aIndex = allExtends.indexOf(a);
+      const bIndex = allExtends.indexOf(b);
+      return aIndex - bIndex;
+    });
     return uniq(data);
   }
 

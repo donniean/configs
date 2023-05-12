@@ -18,7 +18,7 @@ function getDevDependencies() {
 
 function getConfig(): ESLintConfig {
   return {
-    extends: ['plugin:react/jsx-runtime', 'airbnb/hooks'],
+    extends: ['airbnb/hooks', 'plugin:react/jsx-runtime'],
     rules: {
       // @ts-ignore
       'no-console': makeJavaScriptOnlyValue(
