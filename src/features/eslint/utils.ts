@@ -49,7 +49,7 @@ function sortExtends(data: ESLintConfig['extends']) {
         return 1;
       }
 
-      const allExtends = [
+      const orders = [
         'airbnb-base',
         'airbnb',
         'airbnb/hooks',
@@ -66,8 +66,8 @@ function sortExtends(data: ESLintConfig['extends']) {
         'prettier',
       ];
 
-      const aIndex = allExtends.indexOf(a);
-      const bIndex = allExtends.indexOf(b);
+      const aIndex = orders.indexOf(a);
+      const bIndex = orders.indexOf(b);
       return aIndex - bIndex;
     });
     return uniq(data);
