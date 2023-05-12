@@ -16,13 +16,13 @@ import logger from '@/utils/logger';
 import prompt from './prompt';
 import type { InitAnswers } from './types';
 
-function arrayToBooleanValueObject<T extends string>(keys: T[]) {
+/* function arrayToBooleanValueObject<T extends string>(keys: T[]) {
   const result: { [key in T]?: boolean } = {};
   keys.forEach(key => {
     result[key] = true;
   });
   return result;
-}
+} */
 
 function answersToConfigsConfig({
   currentConfigsConfig,
@@ -31,7 +31,7 @@ function answersToConfigsConfig({
   currentConfigsConfig: ConfigsConfig | undefined;
   answers: InitAnswers;
 }) {
-  const { featureKeys, eslintPlugins } = answers;
+  const { featureKeys } = answers;
   let features: ConfigsConfig['features'] = {};
 
   const pickedCurrentConfigsConfig = pick(
@@ -40,18 +40,6 @@ function answersToConfigsConfig({
   );
 
   featureKeys.forEach(featureKey => {
-    if (featureKey === 'eslint' && eslintPlugins) {
-      const plugins = arrayToBooleanValueObject(eslintPlugins);
-      features = {
-        ...features,
-        [featureKey]: {
-          ...DEFAULT_CONFIGS_CONFIG.features[featureKey],
-          plugins,
-        },
-      };
-      return;
-    }
-
     features = {
       ...features,
       [featureKey]: DEFAULT_CONFIGS_CONFIG.features[featureKey],

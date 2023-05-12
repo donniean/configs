@@ -1,11 +1,16 @@
 import cleanDeep from 'clean-deep';
+import { uniq } from 'lodash-es';
 import micromatch from 'micromatch';
 import sortObjectKeys from 'sort-object-keys';
 
 import type { NormalizedConfigsConfig } from '@/types/configs-config';
 import { requireRoot } from '@/utils/paths';
 
-import { SORT_ESLINT_CONFIG_KEYS } from './constants';
+import {
+  SORT_ESLINT_CONFIG_KEYS,
+  SORT_ESLINT_EXTENDS,
+  SORT_ESLINT_PLUGINS,
+} from './constants';
 import type { ESLintConfig } from './types';
 
 function requireConfig(path: string) {
@@ -31,17 +36,40 @@ function hasReactFn(normalizedConfigsConfig: NormalizedConfigsConfig) {
   return micromatch.some(['index.jsx', 'index.tsx'], patterns);
 }
 
+function hasNodeFn(normalizedConfigsConfig: NormalizedConfigsConfig) {
+  const patterns = normalizedConfigsConfig.features?.eslint?.nodePatterns ?? [];
+  return patterns.length > 0;
+}
+
 function hasPrettierFn(normalizedConfigsConfig: NormalizedConfigsConfig) {
   const patterns = normalizedConfigsConfig.features?.prettier?.patterns ?? [];
   return patterns.length > 0;
 }
 
 function sortExtends(data: ESLintConfig['extends']) {
+  if (Array.isArray(data)) {
+    data.sort((a, b) => {
+      if (a === 'prettier') {
+        return 1;
+      }
+
+      const aIndex = SORT_ESLINT_EXTENDS.indexOf(a);
+      const bIndex = SORT_ESLINT_EXTENDS.indexOf(b);
+      return aIndex - bIndex;
+    });
+    return uniq(data);
+  }
+
   return data;
 }
 
 function sortPlugins(data: ESLintConfig['plugins']) {
-  return data;
+  data?.sort((a, b) => {
+    const aIndex = SORT_ESLINT_PLUGINS.indexOf(a);
+    const bIndex = SORT_ESLINT_PLUGINS.indexOf(b);
+    return aIndex - bIndex;
+  });
+  return uniq(data);
 }
 
 function sortRules(data: ESLintConfig['rules']) {
@@ -49,8 +77,8 @@ function sortRules(data: ESLintConfig['rules']) {
 }
 
 function sortESLintConfig(config: ESLintConfig) {
-  const { extends: extendsShadow, plugins, rules, ...rest } = config;
-  const sortedExtends = sortExtends(extendsShadow);
+  const { extends: extendsAlias, plugins, rules, ...rest } = config;
+  const sortedExtends = sortExtends(extendsAlias);
   const sortedPlugins = sortPlugins(plugins);
   const sortedRules = sortRules(rules);
   const newConfig = cleanDeep({
@@ -64,6 +92,7 @@ function sortESLintConfig(config: ESLintConfig) {
 
 export {
   airbnbBase,
+  hasNodeFn,
   hasPrettierFn,
   hasReactFn,
   hasTypeScriptFn,

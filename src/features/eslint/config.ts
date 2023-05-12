@@ -5,10 +5,12 @@ import type { JsonObject } from '@/types/base';
 import type { FeatureConfig, GetConfigOptions } from '@/types/feature-configs';
 
 import * as base from './rules/base';
+import * as node from './rules/node';
 import * as prettier from './rules/prettier';
 import * as react from './rules/react';
 import * as typescript from './rules/typescript';
 import {
+  hasNodeFn,
   hasPrettierFn,
   hasReactFn,
   hasTypeScriptFn,
@@ -18,21 +20,26 @@ import {
 function getData(
   normalizedConfigsConfig: GetConfigOptions['normalizedConfigsConfig']
 ): ESLintConfig {
+  const hasPrettier = hasPrettierFn(normalizedConfigsConfig);
   const hasTypeScript = hasTypeScriptFn(normalizedConfigsConfig);
   const hasReact = hasReactFn(normalizedConfigsConfig);
-  const hasPrettier = hasPrettierFn(normalizedConfigsConfig);
+  const hasNode = hasNodeFn(normalizedConfigsConfig);
 
-  const baseConfig = base.getConfig({ hasReact });
+  const baseConfig = base.getConfig({ hasTypeScript, hasReact });
+  const prettierConfig = prettier.getConfig();
   const typescriptConfig = typescript.getConfig({ hasReact });
   const reactConfig = react.getConfig();
-  const prettierConfig = prettier.getConfig();
+  const nodeConfig = node.getConfig();
+
+  const nodePatterns =
+    normalizedConfigsConfig.features?.eslint?.nodePatterns ?? [];
 
   const finalPrettierConfig = hasPrettier ? prettierConfig : {};
   const finalTypesScriptConfig = hasTypeScript
     ? {
         overrides: [
           {
-            files: ['**/*.{ts,tsx}'],
+            files: [`**/*.${hasReact ? '{ts,tsx}' : 'ts'}`],
             ...deepMerge(typescriptConfig, finalPrettierConfig),
           },
         ],
@@ -42,18 +49,35 @@ function getData(
     ? {
         overrides: [
           {
-            files: ['./src/**/*.{ts,tsx}'],
+            files: [`./src/**/*.${hasTypeScript ? '{ts,tsx}' : '{js,jsx}'}`],
             ...deepMerge(reactConfig, finalPrettierConfig),
           },
         ],
       }
     : {};
 
+  const finalNodeConfig = (() => {
+    if (!hasNode) {
+      return {};
+    }
+
+    const config = deepMerge(nodeConfig, finalPrettierConfig);
+
+    if (nodePatterns.includes('**')) {
+      return config;
+    }
+
+    return {
+      overrides: [{ files: nodePatterns, config }],
+    };
+  })();
+
   const finalConfig = deepMerge.all([
     baseConfig,
+    finalPrettierConfig,
     finalTypesScriptConfig,
     finalReactConfig,
-    finalPrettierConfig,
+    finalNodeConfig,
   ]);
 
   return sortESLintConfig(finalConfig);

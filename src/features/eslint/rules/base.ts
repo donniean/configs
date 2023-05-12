@@ -1,3 +1,5 @@
+import { getExtensionsPattern } from '@/utils/misc';
+
 import type { ESLintConfig } from '../types';
 import { airbnbBase } from '../utils';
 
@@ -6,11 +8,11 @@ const noExtraneousDependenciesOptions = airbnbBase.imports.rules?.[
   'import/no-extraneous-dependencies'
 ]?.[1] as { devDependencies: string[] };
 
-interface Options {
+interface GetDevDependenciesOptions {
   hasReact: boolean;
 }
 
-function getDevDependencies({ hasReact }: Options) {
+function getDevDependencies({ hasReact }: GetDevDependenciesOptions) {
   return {
     '@types/eslint': '',
     eslint: '',
@@ -24,7 +26,39 @@ function getDevDependencies({ hasReact }: Options) {
   };
 }
 
-function getConfig({ hasReact }: Options): ESLintConfig {
+interface GetConfigOptions {
+  hasTypeScript: boolean;
+  hasReact: boolean;
+}
+
+function getSimpleImportSortFileExtensionsPattern({
+  hasTypeScript,
+  hasReact,
+}: GetConfigOptions) {
+  const extensions = ['mjs'];
+
+  if (hasTypeScript) {
+    extensions.push('ts');
+    if (hasReact) {
+      extensions.push('tsx');
+    }
+  } else if (hasReact) {
+    extensions.push('js', 'jsx');
+  }
+
+  return getExtensionsPattern(extensions);
+}
+
+function getConfig({
+  hasTypeScript,
+  hasReact,
+}: GetConfigOptions): ESLintConfig {
+  const simpleImportSortFileExtensionsPattern =
+    getSimpleImportSortFileExtensionsPattern({
+      hasTypeScript,
+      hasReact,
+    });
+
   return {
     root: true,
     parserOptions: {
@@ -107,7 +141,7 @@ function getConfig({ hasReact }: Options): ESLintConfig {
     },
     overrides: [
       {
-        files: ['**/*.{mjs,ts,tsx}'],
+        files: [`**/*.${simpleImportSortFileExtensionsPattern}`],
         plugins: ['simple-import-sort'],
         rules: {
           'sort-imports': 'off',

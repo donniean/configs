@@ -15,9 +15,7 @@ interface StylelintOptions extends LinterOptions {
 }
 
 interface ESLintOptions extends LinterOptions {
-  plugins?: {
-    node?: boolean;
-  };
+  nodePatterns?: string[];
 }
 
 export interface ConfigsConfig {
