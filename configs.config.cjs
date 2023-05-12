@@ -1,4 +1,3 @@
-/** @type {import('@donniean/configs').ConfigsConfig} */
 module.exports = {
   features: {
     gitignore: true,
