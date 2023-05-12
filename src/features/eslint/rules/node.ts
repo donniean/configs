@@ -9,6 +9,9 @@ function getDevDependencies() {
 function getConfig(): ESLintConfig {
   return {
     extends: ['plugin:n/recommended'],
+    rules: {
+      'n/no-missing-import': 'off',
+    },
   };
 }
 

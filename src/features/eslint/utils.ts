@@ -31,6 +31,11 @@ function hasReactFn(normalizedConfigsConfig: NormalizedConfigsConfig) {
   return micromatch.some(['index.jsx', 'index.tsx'], patterns);
 }
 
+function hasNodeFn(normalizedConfigsConfig: NormalizedConfigsConfig) {
+  const patterns = normalizedConfigsConfig.features?.eslint?.nodePatterns ?? [];
+  return patterns.length > 0;
+}
+
 function hasPrettierFn(normalizedConfigsConfig: NormalizedConfigsConfig) {
   const patterns = normalizedConfigsConfig.features?.prettier?.patterns ?? [];
   return patterns.length > 0;
@@ -64,6 +69,7 @@ function sortESLintConfig(config: ESLintConfig) {
 
 export {
   airbnbBase,
+  hasNodeFn,
   hasPrettierFn,
   hasReactFn,
   hasTypeScriptFn,
