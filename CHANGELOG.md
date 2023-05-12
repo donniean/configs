@@ -1,3 +1,9 @@
+# [6.3.0](https://github.com/donniean/configs/compare/v6.2.2...v6.3.0) (2023-05-12)
+
+### Features
+
+- update ESLint rules ([#163](https://github.com/donniean/configs/issues/163)) ([00bcf7f](https://github.com/donniean/configs/commit/00bcf7f6701e4bc6d3cfc0d2001e676ae6a76a7c))
+
 ## [6.2.2](https://github.com/donniean/configs/compare/v6.2.1...v6.2.2) (2023-05-08)
 
 ### Bug Fixes
