@@ -13,7 +13,7 @@
     "noPropertyAccessFromIndexSignature": false,
     // "verbatimModuleSyntax": false,
     "outDir": "dist",
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"]
     },
