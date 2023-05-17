@@ -1,25 +1,39 @@
 {
-  // "extends": [
-  // "@tsconfig/node-lts/tsconfig.json",
-  // "@tsconfig/strictest/tsconfig.json"
-  // ],
-  "extends": "@tsconfig/node-lts-strictest/tsconfig.json",
+  "extends": "@tsconfig/node-lts/tsconfig.json",
   "compilerOptions": {
+    // @tsconfig/strictest
+    // https://github.com/tsconfig/bases/blob/main/bases/strictest.json
+    // "strict": true,
+    "allowUnusedLabels": false,
+    "allowUnreachableCode": false,
+    "exactOptionalPropertyTypes": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    // "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "checkJs": true,
+    // "esModuleInterop": true,
+    // "skipLibCheck": true,
+    // "forceConsistentCasingInFileNames": true,
+
+    // @tsconfig/esm
+    // https://github.com/tsconfig/bases/blob/main/bases/esm.json
+    // "module": "es2022",
+    "verbatimModuleSyntax": true,
+    // adapt @tsconfig/strictest
+    "allowJs": true,
     "module": "esnext",
-    "moduleResolution": "node",
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "noPropertyAccessFromIndexSignature": false,
-    // "verbatimModuleSyntax": false,
     "outDir": "dist/",
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"]
-    },
-    // TODO: TEMP
-    "ignoreDeprecations": "5.0"
+    }
   },
-  "include": ["src/"],
-  "exclude": ["node_modules/", "dist/"]
+  "include": ["src/"]
 }
