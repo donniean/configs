@@ -1,25 +1,16 @@
 {
-  // "extends": [
-  // "@tsconfig/node-lts/tsconfig.json",
-  // "@tsconfig/strictest/tsconfig.json"
-  // ],
-  "extends": "@tsconfig/node-lts-strictest/tsconfig.json",
+  "extends": "@tsconfig/node-lts/tsconfig.json",
   "compilerOptions": {
     "module": "esnext",
-    "moduleResolution": "node",
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "noPropertyAccessFromIndexSignature": false,
-    // "verbatimModuleSyntax": false,
+    "verbatimModuleSyntax": true,
     "outDir": "dist/",
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"]
-    },
-    // TODO: TEMP
-    "ignoreDeprecations": "5.0"
+    }
   },
-  "include": ["src/"],
-  "exclude": ["node_modules/", "dist/"]
+  "include": ["src/"]
 }

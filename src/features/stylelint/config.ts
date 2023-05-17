@@ -1,4 +1,5 @@
 import { omit } from 'lodash-es';
+import type { Config } from 'stylelint';
 
 import type { JsonObject } from '@/types/base';
 import type { FeatureConfig, GetConfigOptions } from '@/types/feature-configs';
@@ -9,7 +10,7 @@ function getFullConfig({
 }: {
   scssPatterns: string[];
   styledPatterns: string[];
-}) {
+}): Config {
   return {
     extends: ['stylelint-config-standard', 'stylelint-config-recess-order'],
     rules: {
@@ -51,9 +52,9 @@ function getData(
     data = omit(data, 'overrides[1]');
   }
   const { overrides, ...rest } = data;
-  const filteredOverrides = overrides.filter(Boolean);
+  const filteredOverrides = overrides?.filter(Boolean);
 
-  if (filteredOverrides.length === 0) {
+  if (filteredOverrides?.length === 0) {
     return rest;
   }
 
@@ -68,6 +69,6 @@ export function getConfig({
   return {
     outputFileName: 'stylelint.config.cjs',
     format: 'cjs',
-    data,
+    data: data as JsonObject,
   };
 }
