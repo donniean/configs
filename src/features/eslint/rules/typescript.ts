@@ -16,7 +16,7 @@ interface Options {
 function getConfig({ hasReact }: Options): ESLintConfig {
   return {
     parserOptions: {
-      project: './tsconfig.json',
+      project: true,
     },
     settings: {
       'import/resolver': {
