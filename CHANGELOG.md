@@ -1,3 +1,9 @@
+## [6.3.1](https://github.com/donniean/configs/compare/v6.3.0...v6.3.1) (2023-05-26)
+
+### Bug Fixes
+
+- remove only-allow ([#182](https://github.com/donniean/configs/issues/182)) ([a576c04](https://github.com/donniean/configs/commit/a576c04a0f77abc8b8dcec3098fbe6168c112611))
+
 # [6.3.0](https://github.com/donniean/configs/compare/v6.2.2...v6.3.0) (2023-05-12)
 
 ### Features
