@@ -53,7 +53,6 @@
     "build:watch": "npm run clean && tsc --watch & tsc-alias --watch",
     "clean": "rimraf ./dist/",
     "commit": "cz",
-    "preinstall": "npx only-allow npm",
     "lint:cspell": "cspell lint --no-progress --relative --no-must-find-files --dot --gitignore \"**\"",
     "lint:eslint": "eslint \"**/*.{js,mjs,cjs,ts}\"",
     "lint:eslint:fix": "eslint --fix \"**/*.{js,mjs,cjs,ts}\"",
