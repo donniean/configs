@@ -10,6 +10,7 @@ const noParamReassignOptions = airbnbBase.bestPractices.rules?.[
 
 function getDevDependencies() {
   return {
+    // '@next/eslint-plugin-next': '',
     'eslint-plugin-jsx-a11y': '',
     'eslint-plugin-react': '',
     'eslint-plugin-react-hooks': '',
@@ -18,7 +19,16 @@ function getDevDependencies() {
 
 function getConfig(): ESLintConfig {
   return {
-    extends: ['airbnb/hooks', 'plugin:react/jsx-runtime'],
+    extends: [
+      'airbnb/hooks',
+      'plugin:react/jsx-runtime',
+      /* https://nextjs.org/docs/app/building-your-application/configuring/eslint#migrating-existing-config */
+      /* https://github.com/vercel/next.js/blob/canary/packages/eslint-config-next/index.js */
+      // 'plugin:@next/next/recommended',
+      // 'plugin:@next/next/core-web-vitals',
+      // 'next',
+      // 'next/core-web-vitals',
+    ],
     rules: {
       // @ts-ignore
       'no-console': makeJavaScriptOnlyValue(

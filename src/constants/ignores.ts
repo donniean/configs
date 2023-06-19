@@ -4,6 +4,7 @@ const LINTER_IGNORE = [
   'node_modules/',
   'coverage/',
   'dist/',
+  '.next/',
 ];
 
 export const CSPELL_IGNORE = [
