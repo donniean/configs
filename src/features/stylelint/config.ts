@@ -14,6 +14,7 @@ function getFullConfig({
   return {
     extends: ['stylelint-config-standard', 'stylelint-config-recess-order'],
     rules: {
+      'at-rule-no-unknown': [true, { ignoreAtRules: ['tailwind'] }],
       'color-named': ['never', { ignore: ['inside-function'] }],
       'no-unknown-animations': true,
     },
@@ -21,6 +22,9 @@ function getFullConfig({
       {
         files: scssPatterns,
         extends: ['stylelint-config-standard-scss'],
+        rules: {
+          'scss/at-rule-no-unknown': [true, { ignoreAtRules: ['tailwind'] }],
+        },
       },
       {
         files: styledPatterns,
