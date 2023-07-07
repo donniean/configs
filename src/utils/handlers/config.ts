@@ -8,7 +8,7 @@ type HandleConfigOptions = Pick<
   'featureKey' | 'normalizedConfigsConfig' | 'getConfig'
 >;
 
-export function handleConfig({
+export async function handleConfig({
   featureKey,
   normalizedConfigsConfig,
   getConfig,
@@ -25,21 +25,19 @@ export function handleConfig({
   const filePath = paths.resolveCwd(outputFileName);
   if (format === 'json' || format === 'cjs' || format === 'esm') {
     const shadow = data as JsonObjectOrArray;
-    if (format === 'json') {
-      outputFormatFileSync({
-        filePath,
-        data: shadow,
-        format,
-      });
-    } else {
-      outputFormatFileSync({
-        filePath,
-        data: shadow,
-        format,
-        leadingComments,
-      });
-    }
+    await (format === 'json'
+      ? outputFormatFileSync({
+          filePath,
+          data: shadow,
+          format,
+        })
+      : outputFormatFileSync({
+          filePath,
+          data: shadow,
+          format,
+          leadingComments,
+        }));
   } else if (format === 'text') {
-    outputFormatFileSync({ filePath, data, format });
+    await outputFormatFileSync({ filePath, data, format });
   }
 }

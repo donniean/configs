@@ -7,7 +7,7 @@ type HandleIgnoreOptions = Pick<
   'featureKey' | 'normalizedConfigsConfig' | 'getIgnore'
 >;
 
-export function handleIgnore({
+export async function handleIgnore({
   featureKey,
   normalizedConfigsConfig,
   getIgnore,
@@ -18,5 +18,5 @@ export function handleIgnore({
   });
   const filePath = paths.resolveCwd(outputFileName);
   const str = data.join('\n');
-  outputFileSync({ filePath, data: str });
+  await outputFileSync({ filePath, data: str });
 }
