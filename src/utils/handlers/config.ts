@@ -1,6 +1,6 @@
 import type { JsonObjectOrArray } from '@/types/base';
 import type { HandleFeatureOptions } from '@/types/handlers';
-import { outputFormatFileSync } from '@/utils/files';
+import { outputFormatFile } from '@/utils/files';
 import * as paths from '@/utils/paths';
 
 type HandleConfigOptions = Pick<
@@ -26,18 +26,18 @@ export async function handleConfig({
   if (format === 'json' || format === 'cjs' || format === 'esm') {
     const shadow = data as JsonObjectOrArray;
     await (format === 'json'
-      ? outputFormatFileSync({
+      ? outputFormatFile({
           filePath,
           data: shadow,
           format,
         })
-      : outputFormatFileSync({
+      : outputFormatFile({
           filePath,
           data: shadow,
           format,
           leadingComments,
         }));
   } else if (format === 'text') {
-    await outputFormatFileSync({ filePath, data, format });
+    await outputFormatFile({ filePath, data, format });
   }
 }

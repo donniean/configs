@@ -1,5 +1,5 @@
 import type { HandleFeatureOptions } from '@/types/handlers';
-import { outputFileSync } from '@/utils/files';
+import { outputFile } from '@/utils/files';
 import * as paths from '@/utils/paths';
 
 type HandleIgnoreOptions = Pick<
@@ -18,5 +18,5 @@ export async function handleIgnore({
   });
   const filePath = paths.resolveCwd(outputFileName);
   const str = data.join('\n');
-  await outputFileSync({ filePath, data: str });
+  await outputFile({ filePath, data: str });
 }

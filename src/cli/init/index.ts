@@ -7,7 +7,7 @@ import {
 } from '@/constants/configs-config';
 import type { ConfigsConfig } from '@/types/configs-config';
 import {
-  outputConfigsConfigSync,
+  outputConfigsConfig,
   readConfigsConfigSync,
   sortConfigsConfig,
 } from '@/utils/configs-config';
@@ -59,7 +59,7 @@ async function init() {
     currentConfigsConfig,
     answers,
   });
-  await outputConfigsConfigSync({ data: configsConfig });
+  await outputConfigsConfig({ data: configsConfig });
 
   logger.messageOnly(
     `You can modify the ${logger.command(

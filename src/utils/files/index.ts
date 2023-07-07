@@ -29,7 +29,7 @@ function readFileSync({ filePath }: ReadFileSyncOptions) {
   return fs.readFileSync(filePath, { encoding: 'utf8' });
 }
 
-async function outputFileSync({
+async function outputFile({
   filePath,
   data,
   isTrim = true,
@@ -67,7 +67,7 @@ function mergeJsonFileSync({ filePath, data }: MergeJsonFileSyncOptions) {
   outputJsonFileSync({ filePath, data: finalData });
 }
 
-async function outputEsmFileSync({
+async function outputEsmFile({
   filePath,
   data,
   leadingComments = '',
@@ -75,14 +75,14 @@ async function outputEsmFileSync({
 }: OutputEsmFileSyncOptions) {
   const content = `${leadingComments}
   export default ${stringifyJavaScript(data) ?? ''};`;
-  await outputFileSync({
+  await outputFile({
     filePath,
     data: content,
     isFormat,
   });
 }
 
-async function outputCjsFileSync({
+async function outputCjsFile({
   filePath,
   data,
   leadingComments = '',
@@ -90,14 +90,14 @@ async function outputCjsFileSync({
 }: OutputCjsFileSyncOptions) {
   const content = `${leadingComments}
   module.exports = ${stringifyJavaScript(data) ?? ''};`;
-  await outputFileSync({
+  await outputFile({
     filePath,
     data: content,
     isFormat,
   });
 }
 
-async function outputFormatFileSync({
+async function outputFormatFile({
   filePath,
   format: formatType,
   data,
@@ -109,11 +109,11 @@ async function outputFormatFileSync({
       break;
     }
     case 'esm': {
-      await outputEsmFileSync({ filePath, data, leadingComments });
+      await outputEsmFile({ filePath, data, leadingComments });
       break;
     }
     case 'cjs': {
-      await outputCjsFileSync({
+      await outputCjsFile({
         filePath,
         data,
         leadingComments,
@@ -121,11 +121,11 @@ async function outputFormatFileSync({
       break;
     }
     case 'text': {
-      await outputFileSync({ filePath, data });
+      await outputFile({ filePath, data });
       break;
     }
     default: {
-      await outputFileSync({ filePath, data });
+      await outputFile({ filePath, data });
       break;
     }
   }
@@ -139,9 +139,9 @@ function copySync({ src, dest, ...rest }: CopySyncOptions) {
 export {
   copySync,
   mergeJsonFileSync,
-  outputCjsFileSync,
-  outputFileSync,
-  outputFormatFileSync,
+  outputCjsFile,
+  outputFile,
+  outputFormatFile,
   outputJsonFileSync,
   readFileSync,
   readJsonFileSync,
