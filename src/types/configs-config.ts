@@ -15,6 +15,7 @@ interface StylelintOptions extends LinterOptions {
 }
 
 interface ESLintOptions extends LinterOptions {
+  next?: boolean;
   nodePatterns?: string[];
 }
 

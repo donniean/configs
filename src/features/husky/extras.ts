@@ -17,7 +17,7 @@ export function onAfterAllSuccess({
 
   if (commitlint) {
     commands.push(
-      `npx husky set .husky/commit-msg 'npx --no -- commitlint --edit "$1"'`
+      `npx husky set .husky/commit-msg 'npx --no -- commitlint --edit "$1"'`,
     );
   }
 
@@ -25,11 +25,11 @@ export function onAfterAllSuccess({
     commands = ['npm install', ...commands];
     logger.messageOnly(
       `If you haven't init ${getFeatureDisplayNameByKey(
-        featureKey
+        featureKey,
       )}, you need to run: `,
       {
         isLfBefore: true,
-      }
+      },
     );
     logger.messageOnly(commands.join(' && '), {
       isLfBefore: true,

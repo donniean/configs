@@ -19,6 +19,7 @@
     "checkJs": true,
     // custom
     "module": "esnext",
+    "moduleResolution": "node",
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,

@@ -2,6 +2,7 @@ import { describe, expect, test } from 'vitest';
 
 import type { ESLintConfig } from './types';
 import {
+  hasNextFn,
   hasPrettierFn,
   hasReactFn,
   hasTypeScriptFn,
@@ -103,6 +104,27 @@ describe('test hasReactFn', () => {
   });
 });
 
+describe('test hasNextFn', () => {
+  test('no next', () => {
+    const normalizedConfigsConfig = {
+      features: {},
+    };
+    expect(hasNextFn(normalizedConfigsConfig)).toBe(false);
+  });
+
+  test('next is true', () => {
+    const normalizedConfigsConfig = {
+      features: {
+        eslint: {
+          patterns: ['**/*.jsx'],
+          next: true,
+        },
+      },
+    };
+    expect(hasNextFn(normalizedConfigsConfig)).toBe(true);
+  });
+});
+
 describe('test hasPrettierFn', () => {
   test('no Prettier patterns', () => {
     const normalizedConfigsConfig = {
@@ -164,7 +186,7 @@ describe('test sortESLintConfig', () => {
             },
           },
         ],
-      })
+      }),
     );
   });
 });

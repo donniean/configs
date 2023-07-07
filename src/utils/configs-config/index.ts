@@ -26,12 +26,12 @@ function readConfigsConfigSync() {
   return result?.config as ConfigsConfig | undefined;
 }
 
-function outputConfigsConfigSync({
+async function outputConfigsConfig({
   filePath = paths.resolveCwd(CONFIGS_CONFIG_FILE_NAME),
   data,
 }: OutputConfigsConfigSyncOptions) {
   // @ts-ignore
-  return files.outputCjsFileSync({ filePath, data });
+  await files.outputCjsFile({ filePath, data });
 }
 
 function normalizeConfigsConfig(configsConfig: ConfigsConfig) {
@@ -74,7 +74,7 @@ function sortConfigsConfig(configsConfig: ConfigsConfig) {
 export {
   defineConfig,
   normalizeConfigsConfig,
-  outputConfigsConfigSync,
+  outputConfigsConfig,
   readConfigsConfigSync,
   sortConfigsConfig,
 };

@@ -5,24 +5,33 @@ import type {
 import { getPatternsString } from '@/utils/misc';
 
 import * as base from './rules/base';
+import * as next from './rules/next';
 import * as node from './rules/node';
 import * as prettier from './rules/prettier';
 import * as react from './rules/react';
 import * as typescript from './rules/typescript';
-import { hasNodeFn, hasPrettierFn, hasReactFn, hasTypeScriptFn } from './utils';
+import {
+  hasNextFn,
+  hasNodeFn,
+  hasPrettierFn,
+  hasReactFn,
+  hasTypeScriptFn,
+} from './utils';
 
 function getDevDependencies(
-  normalizedConfigsConfig: GetPackageJsonOptions['normalizedConfigsConfig']
+  normalizedConfigsConfig: GetPackageJsonOptions['normalizedConfigsConfig'],
 ) {
   const hasPrettier = hasPrettierFn(normalizedConfigsConfig);
   const hasTypeScript = hasTypeScriptFn(normalizedConfigsConfig);
   const hasReact = hasReactFn(normalizedConfigsConfig);
+  const hasNext = hasNextFn(normalizedConfigsConfig);
   const hasNode = hasNodeFn(normalizedConfigsConfig);
 
   const baseDevDependencies = base.getDevDependencies({ hasReact });
   const prettierDevDependencies = prettier.getDevDependencies();
   const typescriptDevDependencies = typescript.getDevDependencies();
   const reactDevDependencies = react.getDevDependencies();
+  const nextDevDependencies = next.getDevDependencies();
   const nodeDevDependencies = node.getDevDependencies();
 
   const finalPrettierDevDependencies = hasPrettier
@@ -32,6 +41,7 @@ function getDevDependencies(
     ? typescriptDevDependencies
     : null;
   const finalReactDevDependencies = hasReact ? reactDevDependencies : null;
+  const finalNextDevDependencies = hasNext ? nextDevDependencies : null;
   const finalNodeDevDependencies = hasNode ? nodeDevDependencies : null;
 
   return {
@@ -39,6 +49,7 @@ function getDevDependencies(
     ...finalPrettierDevDependencies,
     ...finalTypeScriptDevDependencies,
     ...finalReactDevDependencies,
+    ...finalNextDevDependencies,
     ...finalNodeDevDependencies,
   };
 }

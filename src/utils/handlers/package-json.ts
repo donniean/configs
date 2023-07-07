@@ -8,7 +8,7 @@ import {
 } from '@/utils/package-json';
 
 async function fetchDevDependencyVersions(
-  devDependencies: FeaturePackageJson['devDependencies']
+  devDependencies: FeaturePackageJson['devDependencies'],
 ) {
   if (!devDependencies) {
     return {};
@@ -21,7 +21,7 @@ async function fetchDevDependencyVersions(
       }
       const latestVersion = await fetchPackageLatestVersion(packageName);
       return { packageName, version: `^${latestVersion}` };
-    }
+    },
   );
   const packageVersions = await Promise.all(promises);
   return chain(packageVersions)
@@ -45,7 +45,7 @@ export async function handlePackageJson({
     normalizedConfigsConfig,
   });
   const devDependenciesWithVersion = await fetchDevDependencyVersions(
-    devDependencies
+    devDependencies,
   );
   const data = merge({}, rest, {
     devDependencies: devDependenciesWithVersion,

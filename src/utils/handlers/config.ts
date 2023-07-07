@@ -1,6 +1,6 @@
 import type { JsonObjectOrArray } from '@/types/base';
 import type { HandleFeatureOptions } from '@/types/handlers';
-import { outputFormatFileSync } from '@/utils/files';
+import { outputFormatFile } from '@/utils/files';
 import * as paths from '@/utils/paths';
 
 type HandleConfigOptions = Pick<
@@ -8,7 +8,7 @@ type HandleConfigOptions = Pick<
   'featureKey' | 'normalizedConfigsConfig' | 'getConfig'
 >;
 
-export function handleConfig({
+export async function handleConfig({
   featureKey,
   normalizedConfigsConfig,
   getConfig,
@@ -25,21 +25,19 @@ export function handleConfig({
   const filePath = paths.resolveCwd(outputFileName);
   if (format === 'json' || format === 'cjs' || format === 'esm') {
     const shadow = data as JsonObjectOrArray;
-    if (format === 'json') {
-      outputFormatFileSync({
-        filePath,
-        data: shadow,
-        format,
-      });
-    } else {
-      outputFormatFileSync({
-        filePath,
-        data: shadow,
-        format,
-        leadingComments,
-      });
-    }
+    await (format === 'json'
+      ? outputFormatFile({
+          filePath,
+          data: shadow,
+          format,
+        })
+      : outputFormatFile({
+          filePath,
+          data: shadow,
+          format,
+          leadingComments,
+        }));
   } else if (format === 'text') {
-    outputFormatFileSync({ filePath, data, format });
+    await outputFormatFile({ filePath, data, format });
   }
 }

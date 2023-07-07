@@ -29,7 +29,7 @@ function readFileSync({ filePath }: ReadFileSyncOptions) {
   return fs.readFileSync(filePath, { encoding: 'utf8' });
 }
 
-function outputFileSync({
+async function outputFile({
   filePath,
   data,
   isTrim = true,
@@ -38,7 +38,7 @@ function outputFileSync({
 }: OutputFileSyncOptions) {
   let content = isTrim ? data.trim() : data;
   content = isInsertNewLine ? `${content}\n` : content;
-  content = isFormat ? format(content) : content;
+  content = isFormat ? await format(content) : content;
   fs.outputFileSync(filePath, content, { encoding: 'utf8' });
   logger.info(`output ${filePath}`);
 }
@@ -67,7 +67,7 @@ function mergeJsonFileSync({ filePath, data }: MergeJsonFileSyncOptions) {
   outputJsonFileSync({ filePath, data: finalData });
 }
 
-function outputEsmFileSync({
+async function outputEsmFile({
   filePath,
   data,
   leadingComments = '',
@@ -75,14 +75,14 @@ function outputEsmFileSync({
 }: OutputEsmFileSyncOptions) {
   const content = `${leadingComments}
   export default ${stringifyJavaScript(data) ?? ''};`;
-  outputFileSync({
+  await outputFile({
     filePath,
     data: content,
     isFormat,
   });
 }
 
-function outputCjsFileSync({
+async function outputCjsFile({
   filePath,
   data,
   leadingComments = '',
@@ -90,14 +90,14 @@ function outputCjsFileSync({
 }: OutputCjsFileSyncOptions) {
   const content = `${leadingComments}
   module.exports = ${stringifyJavaScript(data) ?? ''};`;
-  outputFileSync({
+  await outputFile({
     filePath,
     data: content,
     isFormat,
   });
 }
 
-function outputFormatFileSync({
+async function outputFormatFile({
   filePath,
   format: formatType,
   data,
@@ -109,11 +109,11 @@ function outputFormatFileSync({
       break;
     }
     case 'esm': {
-      outputEsmFileSync({ filePath, data, leadingComments });
+      await outputEsmFile({ filePath, data, leadingComments });
       break;
     }
     case 'cjs': {
-      outputCjsFileSync({
+      await outputCjsFile({
         filePath,
         data,
         leadingComments,
@@ -121,11 +121,11 @@ function outputFormatFileSync({
       break;
     }
     case 'text': {
-      outputFileSync({ filePath, data });
+      await outputFile({ filePath, data });
       break;
     }
     default: {
-      outputFileSync({ filePath, data });
+      await outputFile({ filePath, data });
       break;
     }
   }
@@ -139,9 +139,9 @@ function copySync({ src, dest, ...rest }: CopySyncOptions) {
 export {
   copySync,
   mergeJsonFileSync,
-  outputCjsFileSync,
-  outputFileSync,
-  outputFormatFileSync,
+  outputCjsFile,
+  outputFile,
+  outputFormatFile,
   outputJsonFileSync,
   readFileSync,
   readJsonFileSync,

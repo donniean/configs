@@ -5,7 +5,7 @@ import type {
 import { getPatternsString } from '@/utils/misc';
 
 function getDevDependencies(
-  normalizedConfigsConfig: GetPackageJsonOptions['normalizedConfigsConfig']
+  normalizedConfigsConfig: GetPackageJsonOptions['normalizedConfigsConfig'],
 ) {
   const baseDevDependencies = {
     stylelint: '',

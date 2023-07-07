@@ -33,18 +33,6 @@ export function checkCwdPackageJsonSync() {
   return false;
 }
 
-/* export function readCwdPackageJsonSync() {
-  const filePath = paths.cwdPackageJson;
-  return files.readJsonFileSync<PackageJson>({ filePath });
-} */
-
-/* export function outputCwdPackageJsonSync({
-  data,
-}: OutputPackageJsonSyncOptions) {
-  const filePath = paths.cwdPackageJson;
-  return files.outputJsonFileSync({ filePath, data });
-} */
-
 export function mergeCwdPackageJsonSync({ data }: MergePackageJsonSyncOptions) {
   const filePath = paths.cwdPackageJson;
   return files.mergeJsonFileSync({ filePath, data });

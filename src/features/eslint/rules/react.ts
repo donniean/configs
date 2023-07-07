@@ -22,7 +22,7 @@ function getConfig(): ESLintConfig {
     rules: {
       // @ts-ignore
       'no-console': makeJavaScriptOnlyValue(
-        `process.env.NODE_ENV === 'development' ? 'warn' : ['error', { allow: ['warn', 'error'] }]`
+        `process.env.NODE_ENV === 'development' ? 'warn' : ['error', { allow: ['warn', 'error'] }]`,
       ),
       'no-param-reassign': [
         'error',
@@ -37,8 +37,10 @@ function getConfig(): ESLintConfig {
       'import/no-duplicates': ['error', { considerQueryString: true }],
       'react/jsx-key': 'error',
       'react/jsx-props-no-spreading': 'off',
-      // 'react/jsx-uses-react': 'off',
-      // 'react/react-in-jsx-scope': 'off',
+      'react/jsx-sort-props': [
+        'error',
+        { callbacksLast: true, multiline: 'last', reservedFirst: true },
+      ],
       'react/require-default-props': [
         'error',
         {
