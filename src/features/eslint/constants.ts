@@ -16,25 +16,24 @@ const SORT_ESLINT_CONFIG_KEYS = [
 ] as const;
 
 const SORT_ESLINT_EXTENDS = [
-  // javascript
+  'airbnb-base',
+  'airbnb',
   'plugin:eslint-comments/recommended',
   'plugin:promise/recommended',
   'plugin:unicorn/recommended',
   'plugin:sonarjs/recommended',
-  'airbnb-base',
   'plugin:n/recommended',
-  // typescript
+
   'plugin:@typescript-eslint/recommended',
   'plugin:@typescript-eslint/recommended-requiring-type-checking',
   'airbnb-typescript/base',
-  // react
-  'airbnb',
-  'airbnb/hooks',
   'airbnb-typescript',
+
+  'airbnb/hooks',
   'plugin:react/jsx-runtime',
   'plugin:@next/next/recommended',
   'plugin:@next/next/core-web-vitals',
-  // prettier
+
   'prettier',
 ];
 
