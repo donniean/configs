@@ -1,3 +1,9 @@
+# [6.4.0](https://github.com/donniean/configs/compare/v6.3.1...v6.4.0) (2023-07-07)
+
+### Features
+
+- add next.js rules in ESLint ([#240](https://github.com/donniean/configs/issues/240)) ([b9c0048](https://github.com/donniean/configs/commit/b9c004849a1772e7bffd28f04ae4dc691151b789))
+
 ## [6.3.1](https://github.com/donniean/configs/compare/v6.3.0...v6.3.1) (2023-05-26)
 
 ### Bug Fixes
