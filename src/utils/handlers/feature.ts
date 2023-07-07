@@ -36,12 +36,12 @@ export async function handleFeature({
 
   if (getConfig) {
     logger.info('handle config', { isBoldMessage: true });
-    handleConfig({ featureKey, normalizedConfigsConfig, getConfig });
+    await handleConfig({ featureKey, normalizedConfigsConfig, getConfig });
   }
 
   if (getIgnore) {
     logger.info('handle ignore', { isBoldMessage: true });
-    handleIgnore({ featureKey, normalizedConfigsConfig, getIgnore });
+    await handleIgnore({ featureKey, normalizedConfigsConfig, getIgnore });
   }
 
   if (handleExtras) {

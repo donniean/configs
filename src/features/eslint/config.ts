@@ -18,7 +18,7 @@ import {
 } from './utils';
 
 function getData(
-  normalizedConfigsConfig: GetConfigOptions['normalizedConfigsConfig']
+  normalizedConfigsConfig: GetConfigOptions['normalizedConfigsConfig'],
 ): ESLintConfig {
   const hasPrettier = hasPrettierFn(normalizedConfigsConfig);
   const hasTypeScript = hasTypeScriptFn(normalizedConfigsConfig);

@@ -164,7 +164,7 @@ describe('test sortESLintConfig', () => {
             },
           },
         ],
-      })
+      }),
     );
   });
 });

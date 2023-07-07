@@ -12,7 +12,7 @@ import * as typescript from './rules/typescript';
 import { hasNodeFn, hasPrettierFn, hasReactFn, hasTypeScriptFn } from './utils';
 
 function getDevDependencies(
-  normalizedConfigsConfig: GetPackageJsonOptions['normalizedConfigsConfig']
+  normalizedConfigsConfig: GetPackageJsonOptions['normalizedConfigsConfig'],
 ) {
   const hasPrettier = hasPrettierFn(normalizedConfigsConfig);
   const hasTypeScript = hasTypeScriptFn(normalizedConfigsConfig);

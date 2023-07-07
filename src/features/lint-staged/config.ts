@@ -46,7 +46,7 @@ function addCommand({
 }
 
 function getData(
-  normalizedConfigsConfig: GetConfigOptions['normalizedConfigsConfig']
+  normalizedConfigsConfig: GetConfigOptions['normalizedConfigsConfig'],
 ) {
   const { features } = normalizedConfigsConfig;
   let data: Record<string, string | string[]> = {};

@@ -40,7 +40,7 @@ function getFullConfig({
 }
 
 function getData(
-  normalizedConfigsConfig: GetConfigOptions['normalizedConfigsConfig']
+  normalizedConfigsConfig: GetConfigOptions['normalizedConfigsConfig'],
 ) {
   const stylelint = normalizedConfigsConfig.features?.stylelint;
   const scssPatterns = stylelint?.scssPatterns ?? [];

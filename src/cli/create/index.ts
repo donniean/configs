@@ -19,7 +19,7 @@ export default async function create() {
     });
     logger.messageOnly(
       `or create a ${logger.command(CONFIGS_CONFIG_FILE_NAME)} file`,
-      { level: 'warn', isColorizeMessage: true }
+      { level: 'warn', isColorizeMessage: true },
     );
     return;
   }

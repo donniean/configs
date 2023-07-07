@@ -6,7 +6,7 @@ export function getConfig(): FeatureConfig<JsonObject> {
     outputFileName: 'prettier.config.cjs',
     format: 'cjs',
     data: {
-      printWidth: 80,
+      // printWidth: 80,
       singleQuote: true,
       arrowParens: 'avoid',
     },
