@@ -48,11 +48,11 @@ export type GetIgnoreOptions = GetPackageJsonOptions;
 export type OnAfterAllSuccessOptions = GetPackageJsonOptions;
 
 export type GetPackageJson = (
-  options: GetPackageJsonOptions
+  options: GetPackageJsonOptions,
 ) => FeaturePackageJson;
 
 export type GetConfig = (
-  options: GetConfigOptions
+  options: GetConfigOptions,
 ) => FeatureConfig<FeatureConfigData>;
 
 export type GetIgnore = (options: GetIgnoreOptions) => FeatureIgnore;

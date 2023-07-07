@@ -36,7 +36,7 @@ function answersToConfigsConfig({
 
   const pickedCurrentConfigsConfig = pick(
     currentConfigsConfig,
-    featureKeys.map(featureKey => `features.${featureKey}`)
+    featureKeys.map(featureKey => `features.${featureKey}`),
   );
 
   featureKeys.forEach(featureKey => {
@@ -59,13 +59,13 @@ async function init() {
     currentConfigsConfig,
     answers,
   });
-  outputConfigsConfigSync({ data: configsConfig });
+  await outputConfigsConfigSync({ data: configsConfig });
 
   logger.messageOnly(
     `You can modify the ${logger.command(
-      CONFIGS_CONFIG_FILE_NAME
+      CONFIGS_CONFIG_FILE_NAME,
     )} file, and run: `,
-    { isLfBefore: true }
+    { isLfBefore: true },
   );
   logger.messageOnly('configs create', {
     isLfBefore: true,

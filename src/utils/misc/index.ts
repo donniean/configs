@@ -43,7 +43,7 @@ function stringifyJavaScript(input: unknown) {
       }
       return next(value);
     },
-    2
+    2,
   );
 }
 

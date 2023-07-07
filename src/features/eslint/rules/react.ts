@@ -22,7 +22,7 @@ function getConfig(): ESLintConfig {
     rules: {
       // @ts-ignore
       'no-console': makeJavaScriptOnlyValue(
-        `process.env.NODE_ENV === 'development' ? 'warn' : ['error', { allow: ['warn', 'error'] }]`
+        `process.env.NODE_ENV === 'development' ? 'warn' : ['error', { allow: ['warn', 'error'] }]`,
       ),
       'no-param-reassign': [
         'error',

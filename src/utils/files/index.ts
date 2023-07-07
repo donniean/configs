@@ -29,7 +29,7 @@ function readFileSync({ filePath }: ReadFileSyncOptions) {
   return fs.readFileSync(filePath, { encoding: 'utf8' });
 }
 
-function outputFileSync({
+async function outputFileSync({
   filePath,
   data,
   isTrim = true,
@@ -38,7 +38,7 @@ function outputFileSync({
 }: OutputFileSyncOptions) {
   let content = isTrim ? data.trim() : data;
   content = isInsertNewLine ? `${content}\n` : content;
-  content = isFormat ? format(content) : content;
+  content = isFormat ? await format(content) : content;
   fs.outputFileSync(filePath, content, { encoding: 'utf8' });
   logger.info(`output ${filePath}`);
 }
@@ -67,7 +67,7 @@ function mergeJsonFileSync({ filePath, data }: MergeJsonFileSyncOptions) {
   outputJsonFileSync({ filePath, data: finalData });
 }
 
-function outputEsmFileSync({
+async function outputEsmFileSync({
   filePath,
   data,
   leadingComments = '',
@@ -75,14 +75,14 @@ function outputEsmFileSync({
 }: OutputEsmFileSyncOptions) {
   const content = `${leadingComments}
   export default ${stringifyJavaScript(data) ?? ''};`;
-  outputFileSync({
+  await outputFileSync({
     filePath,
     data: content,
     isFormat,
   });
 }
 
-function outputCjsFileSync({
+async function outputCjsFileSync({
   filePath,
   data,
   leadingComments = '',
@@ -90,14 +90,14 @@ function outputCjsFileSync({
 }: OutputCjsFileSyncOptions) {
   const content = `${leadingComments}
   module.exports = ${stringifyJavaScript(data) ?? ''};`;
-  outputFileSync({
+  await outputFileSync({
     filePath,
     data: content,
     isFormat,
   });
 }
 
-function outputFormatFileSync({
+async function outputFormatFileSync({
   filePath,
   format: formatType,
   data,
@@ -109,11 +109,11 @@ function outputFormatFileSync({
       break;
     }
     case 'esm': {
-      outputEsmFileSync({ filePath, data, leadingComments });
+      await outputEsmFileSync({ filePath, data, leadingComments });
       break;
     }
     case 'cjs': {
-      outputCjsFileSync({
+      await outputCjsFileSync({
         filePath,
         data,
         leadingComments,
@@ -121,11 +121,11 @@ function outputFormatFileSync({
       break;
     }
     case 'text': {
-      outputFileSync({ filePath, data });
+      await outputFileSync({ filePath, data });
       break;
     }
     default: {
-      outputFileSync({ filePath, data });
+      await outputFileSync({ filePath, data });
       break;
     }
   }
