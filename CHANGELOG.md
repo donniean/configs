@@ -1,3 +1,9 @@
+## [6.5.1](https://github.com/donniean/configs/compare/v6.5.0...v6.5.1) (2023-07-08)
+
+### Bug Fixes
+
+- remove useless space ([#243](https://github.com/donniean/configs/issues/243)) ([e1e3a9d](https://github.com/donniean/configs/commit/e1e3a9ddd1a4b1c70281f73d661536ed31a5a1e5))
+
 # [6.5.0](https://github.com/donniean/configs/compare/v6.4.0...v6.5.0) (2023-07-08)
 
 ### Features
