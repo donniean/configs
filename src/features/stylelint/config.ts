@@ -22,9 +22,9 @@ function getFullConfig({
       {
         files: scssPatterns,
         extends: ['stylelint-config-standard-scss'],
-        rules: {
+        /* rules: {
           'scss/at-rule-no-unknown': [true, { ignoreAtRules: ['tailwind'] }],
-        },
+        }, */
       },
       {
         files: styledPatterns,
