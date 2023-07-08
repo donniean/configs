@@ -11,7 +11,7 @@ const COMMANDS = {
   eslint: 'eslint --fix',
   stylelint: 'stylelint --fix',
   htmlhint: 'htmlhint',
-  markdownlint: 'markdownlint  --dot --fix',
+  markdownlint: 'markdownlint --dot --fix',
   cspell:
     'cspell lint --no-progress --relative --no-must-find-files --dot --gitignore',
 } as const;
