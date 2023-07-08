@@ -1,3 +1,9 @@
+# [6.5.0](https://github.com/donniean/configs/compare/v6.4.0...v6.5.0) (2023-07-08)
+
+### Features
+
+- add Vitest in ESLint ([#241](https://github.com/donniean/configs/issues/241)) ([50da8c8](https://github.com/donniean/configs/commit/50da8c89159d7048abcb24c65cc2783d01f72d5b))
+
 # [6.4.0](https://github.com/donniean/configs/compare/v6.3.1...v6.4.0) (2023-07-07)
 
 ### Features
