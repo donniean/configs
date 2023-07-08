@@ -34,6 +34,8 @@ const SORT_ESLINT_EXTENDS = [
   'plugin:@next/next/recommended',
   'plugin:@next/next/core-web-vitals',
 
+  'plugin:vitest/recommended',
+
   'prettier',
 ];
 

@@ -9,14 +9,19 @@ interface PatternsOptions {
 
 type LinterOptions = Partial<GitIgnoreOptions> & PatternsOptions;
 
-interface StylelintOptions extends LinterOptions {
-  scssPatterns?: string[];
-  styledPatterns?: string[];
+interface PrettierOptions extends LinterOptions {
+  tailwindcss?: boolean;
 }
 
 interface ESLintOptions extends LinterOptions {
   next?: boolean;
   nodePatterns?: string[];
+  vitestPatterns?: string[];
+}
+
+interface StylelintOptions extends LinterOptions {
+  scssPatterns?: string[];
+  styledPatterns?: string[];
 }
 
 export interface ConfigsConfig {
@@ -24,7 +29,7 @@ export interface ConfigsConfig {
     gitignore?: boolean | GitIgnoreOptions;
     gitattributes?: boolean;
     editorconfig?: boolean;
-    prettier?: false | LinterOptions;
+    prettier?: false | PrettierOptions;
     tsc?: false | PatternsOptions;
     eslint?: false | ESLintOptions;
     stylelint?: false | StylelintOptions;
@@ -44,7 +49,7 @@ export interface NormalizedConfigsConfig {
     gitignore?: Partial<GitIgnoreOptions>;
     gitattributes?: true;
     editorconfig?: true;
-    prettier?: LinterOptions;
+    prettier?: PrettierOptions;
     tsc?: PatternsOptions;
     eslint?: ESLintOptions;
     stylelint?: StylelintOptions;

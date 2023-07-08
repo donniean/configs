@@ -45,6 +45,12 @@ function hasNodeFn(normalizedConfigsConfig: NormalizedConfigsConfig) {
   return patterns.length > 0;
 }
 
+function hasVitestFn(normalizedConfigsConfig: NormalizedConfigsConfig) {
+  const patterns =
+    normalizedConfigsConfig.features?.eslint?.vitestPatterns ?? [];
+  return patterns.length > 0;
+}
+
 function hasPrettierFn(normalizedConfigsConfig: NormalizedConfigsConfig) {
   const patterns = normalizedConfigsConfig.features?.prettier?.patterns ?? [];
   return patterns.length > 0;
@@ -101,5 +107,6 @@ export {
   hasPrettierFn,
   hasReactFn,
   hasTypeScriptFn,
+  hasVitestFn,
   sortESLintConfig,
 };
