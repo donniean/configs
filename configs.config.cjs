@@ -12,6 +12,7 @@ module.exports = {
     eslint: {
       patterns: ['**/*.{js,mjs,cjs,ts}'],
       nodePatterns: ['**'],
+      vitestPatterns: ['**/*.test.ts'],
     },
     markdownlint: {
       patterns: ['**/*.md'],
