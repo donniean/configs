@@ -10,12 +10,14 @@ import * as node from './rules/node';
 import * as prettier from './rules/prettier';
 import * as react from './rules/react';
 import * as typescript from './rules/typescript';
+import * as vitest from './rules/vitest';
 import {
   hasNextFn,
   hasNodeFn,
   hasPrettierFn,
   hasReactFn,
   hasTypeScriptFn,
+  hasVitestFn,
 } from './utils';
 
 function getDevDependencies(
@@ -26,6 +28,7 @@ function getDevDependencies(
   const hasReact = hasReactFn(normalizedConfigsConfig);
   const hasNext = hasNextFn(normalizedConfigsConfig);
   const hasNode = hasNodeFn(normalizedConfigsConfig);
+  const hasVitest = hasVitestFn(normalizedConfigsConfig);
 
   const baseDevDependencies = base.getDevDependencies({ hasReact });
   const prettierDevDependencies = prettier.getDevDependencies();
@@ -33,6 +36,7 @@ function getDevDependencies(
   const reactDevDependencies = react.getDevDependencies();
   const nextDevDependencies = next.getDevDependencies();
   const nodeDevDependencies = node.getDevDependencies();
+  const vitestDevDependencies = vitest.getDevDependencies();
 
   const finalPrettierDevDependencies = hasPrettier
     ? prettierDevDependencies
@@ -43,6 +47,7 @@ function getDevDependencies(
   const finalReactDevDependencies = hasReact ? reactDevDependencies : null;
   const finalNextDevDependencies = hasNext ? nextDevDependencies : null;
   const finalNodeDevDependencies = hasNode ? nodeDevDependencies : null;
+  const finalVitestDevDependencies = hasVitest ? vitestDevDependencies : null;
 
   return {
     ...baseDevDependencies,
@@ -51,6 +56,7 @@ function getDevDependencies(
     ...finalReactDevDependencies,
     ...finalNextDevDependencies,
     ...finalNodeDevDependencies,
+    ...finalVitestDevDependencies,
   };
 }
 

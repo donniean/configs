@@ -1,3 +1,5 @@
+import cleanDeep from 'clean-deep';
+
 import type { JsonObjectOrArray } from '@/types/base';
 import type { HandleFeatureOptions } from '@/types/handlers';
 import { outputFormatFile } from '@/utils/files';
@@ -24,7 +26,7 @@ export async function handleConfig({
   });
   const filePath = paths.resolveCwd(outputFileName);
   if (format === 'json' || format === 'cjs' || format === 'esm') {
-    const shadow = data as JsonObjectOrArray;
+    const shadow = cleanDeep(data) as JsonObjectOrArray;
     await (format === 'json'
       ? outputFormatFile({
           filePath,

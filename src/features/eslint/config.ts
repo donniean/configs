@@ -10,12 +10,14 @@ import * as node from './rules/node';
 import * as prettier from './rules/prettier';
 import * as react from './rules/react';
 import * as typescript from './rules/typescript';
+import * as vitest from './rules/vitest';
 import {
   hasNextFn,
   hasNodeFn,
   hasPrettierFn,
   hasReactFn,
   hasTypeScriptFn,
+  hasVitestFn,
   sortESLintConfig,
 } from './utils';
 
@@ -28,6 +30,7 @@ function getData(
   const hasReact = hasReactFn(normalizedConfigsConfig);
   const hasNext = hasNextFn(normalizedConfigsConfig);
   const hasNode = hasNodeFn(normalizedConfigsConfig);
+  const hasVitest = hasVitestFn(normalizedConfigsConfig);
 
   const baseConfig = base.getConfig({ hasTypeScript, hasReact });
   const prettierConfig = prettier.getConfig();
@@ -35,9 +38,12 @@ function getData(
   const reactConfig = react.getConfig();
   const nextConfig = next.getConfig();
   const nodeConfig = node.getConfig();
+  const vitestConfig = vitest.getConfig();
 
   const nodePatterns =
     normalizedConfigsConfig.features?.eslint?.nodePatterns ?? [];
+  const vitestPatterns =
+    normalizedConfigsConfig.features?.eslint?.vitestPatterns ?? [];
 
   const finalPrettierConfig = hasPrettier ? prettierConfig : {};
   const finalTypesScriptConfig = hasTypeScript
@@ -76,7 +82,7 @@ function getData(
       return {};
     }
 
-    const config = deepMerge(nodeConfig, finalPrettierConfig);
+    const config = nodeConfig;
 
     if (nodePatterns.includes('**')) {
       return config;
@@ -86,6 +92,21 @@ function getData(
       overrides: [{ files: nodePatterns, config }],
     };
   })();
+  const finalVitestConfig = (() => {
+    if (!hasVitest) {
+      return {};
+    }
+
+    const config = vitestConfig;
+
+    if (vitestPatterns.includes('**')) {
+      return config;
+    }
+
+    return {
+      overrides: [{ files: vitestPatterns, ...config }],
+    };
+  })();
 
   const finalConfig = deepMerge.all([
     baseConfig,
@@ -93,6 +114,7 @@ function getData(
     finalTypesScriptConfig,
     hasNext ? finalNextConfig : finalReactConfig,
     finalNodeConfig,
+    finalVitestConfig,
   ]);
 
   return sortESLintConfig(finalConfig);
