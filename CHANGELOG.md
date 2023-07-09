@@ -1,3 +1,9 @@
+# [6.6.0](https://github.com/donniean/configs/compare/v6.5.1...v6.6.0) (2023-07-09)
+
+### Features
+
+- add Vitest ([#244](https://github.com/donniean/configs/issues/244)) ([8331919](https://github.com/donniean/configs/commit/8331919ab67f1b3cc6fae3281636f981ad888c2f))
+
 ## [6.5.1](https://github.com/donniean/configs/compare/v6.5.0...v6.5.1) (2023-07-08)
 
 ### Bug Fixes
