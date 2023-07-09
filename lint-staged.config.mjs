@@ -6,5 +6,5 @@ export default {
   ],
   '*.ts': ['bash -c tsc --noEmit', 'vitest related --run'],
   '*.{js,mjs,cjs,ts}': 'eslint --fix',
-  '*.md': 'markdownlint  --dot --fix',
+  '*.md': 'markdownlint --dot --fix',
 };
