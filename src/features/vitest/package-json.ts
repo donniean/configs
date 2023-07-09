@@ -8,7 +8,7 @@ export function getPackageJson(): FeaturePackageJson {
       'test:watch': 'vitest watch',
     },
     devDependencies: {
-      '@vitest/coverage-c8': '',
+      '@vitest/coverage-v8': '',
       vitest: '',
     },
   };
