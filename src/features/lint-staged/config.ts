@@ -2,9 +2,9 @@ import { isEmpty, uniq } from 'lodash-es';
 import parseGlob from 'parse-glob';
 
 import type { FeatureConfig, GetConfigOptions } from '@/types/feature-configs';
-import type { HasPatternsFeatureKey } from '@/types/features';
+import type { HasLintStagedFeatureKey } from '@/types/features';
 
-const COMMANDS = {
+const COMMANDS: Readonly<Record<HasLintStagedFeatureKey, string>> = {
   'sort-package-json': 'sort-package-json',
   prettier: 'prettier --write --ignore-unknown',
   tsc: 'bash -c tsc --noEmit',
@@ -14,7 +14,8 @@ const COMMANDS = {
   markdownlint: 'markdownlint --dot --fix',
   cspell:
     'cspell lint --no-progress --relative --no-must-find-files --dot --gitignore',
-} as const;
+  vitest: 'vitest related --run',
+};
 
 function addCommand({
   data,
@@ -52,23 +53,28 @@ function getData(
   let data: Record<string, string | string[]> = {};
 
   Object.entries(COMMANDS).forEach(([featureKey, command]) => {
-    const key = featureKey as HasPatternsFeatureKey;
-    const feature = features?.[key];
-    if (feature) {
-      const { patterns } = feature;
-      if (key === 'sort-package-json') {
-        const basenameList = patterns.map(pattern => {
-          const { path } = parseGlob(pattern);
-          return path.basename;
-        });
-        uniq(basenameList).forEach(basename => {
-          data = addCommand({ data, pattern: basename, command });
-        });
+    const key = featureKey as HasLintStagedFeatureKey;
+    if (features?.[key]) {
+      if (key === 'vitest') {
+        const hasTypeScript = (features.tsc?.patterns ?? []).length > 0;
+        const pattern = `*.${hasTypeScript ? 'ts' : 'js'}`;
+        data = addCommand({ data, pattern, command });
       } else {
-        patterns.forEach(pattern => {
-          const { path } = parseGlob(pattern);
-          data = addCommand({ data, pattern: `*${path.extname}`, command });
-        });
+        const patterns = features[key]?.patterns ?? [];
+        if (key === 'sort-package-json') {
+          const basenameList = patterns.map(pattern => {
+            const { path } = parseGlob(pattern);
+            return path.basename;
+          });
+          uniq(basenameList).forEach(basename => {
+            data = addCommand({ data, pattern: basename, command });
+          });
+        } else {
+          patterns.forEach(pattern => {
+            const { path } = parseGlob(pattern);
+            data = addCommand({ data, pattern: `*${path.extname}`, command });
+          });
+        }
       }
     }
   });

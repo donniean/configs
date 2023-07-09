@@ -12,6 +12,7 @@ export type FeatureKey =
   | 'commitlint'
   | 'commitizen'
   | 'sort-package-json'
+  | 'vitest'
   | 'lint-staged'
   | 'husky';
 
@@ -36,6 +37,19 @@ export type HasIgnorePatternsFeatureKey = Extract<
   | 'htmlhint'
   | 'markdownlint'
   | 'cspell'
+>;
+
+export type HasLintStagedFeatureKey = Extract<
+  FeatureKey,
+  | 'sort-package-json'
+  | 'prettier'
+  | 'tsc'
+  | 'eslint'
+  | 'stylelint'
+  | 'htmlhint'
+  | 'markdownlint'
+  | 'cspell'
+  | 'vitest'
 >;
 
 export interface Option<T = string> {
