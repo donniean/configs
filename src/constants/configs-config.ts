@@ -13,6 +13,7 @@ export const DEFAULT_CONFIGS_CONFIG = {
     },
     eslint: {
       patterns: ['**/*.{js,mjs,cjs,ts,tsx}'],
+      vitestPatterns: ['**/*.test.ts'],
     },
     stylelint: {
       patterns: ['**/*.css'],
