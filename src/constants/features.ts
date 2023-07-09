@@ -13,6 +13,7 @@ const FEATURE_KEY_MAP = {
   cspell: 'cspell',
   // eslint-disable-next-line sonarjs/no-duplicate-string
   'sort-package-json': 'sort-package-json',
+  vitest: 'vitest',
   commitlint: 'commitlint',
   commitizen: 'commitizen',
   // eslint-disable-next-line sonarjs/no-duplicate-string
@@ -32,6 +33,7 @@ const FEATURE_KEYS = [
   FEATURE_KEY_MAP.markdownlint,
   FEATURE_KEY_MAP.cspell,
   FEATURE_KEY_MAP['sort-package-json'],
+  FEATURE_KEY_MAP.vitest,
   FEATURE_KEY_MAP.commitlint,
   FEATURE_KEY_MAP.commitizen,
   FEATURE_KEY_MAP['lint-staged'],
@@ -53,6 +55,7 @@ const FEATURE_OPTIONS: Option<FeatureKey>[] = [
     key: FEATURE_KEY_MAP['sort-package-json'],
     displayName: 'Sort Package.json',
   },
+  { key: FEATURE_KEY_MAP.vitest, displayName: 'Vitest' },
   { key: FEATURE_KEY_MAP.commitlint, displayName: 'commitlint' },
   { key: FEATURE_KEY_MAP.commitizen, displayName: 'Commitizen' },
   { key: FEATURE_KEY_MAP['lint-staged'], displayName: 'lint-staged' },

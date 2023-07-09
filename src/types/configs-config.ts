@@ -37,6 +37,7 @@ export interface ConfigsConfig {
     markdownlint?: false | LinterOptions;
     cspell?: false | LinterOptions;
     'sort-package-json'?: boolean | PatternsOptions;
+    vitest?: boolean;
     commitlint?: boolean;
     commitizen?: boolean;
     'lint-staged'?: boolean;
@@ -57,6 +58,7 @@ export interface NormalizedConfigsConfig {
     markdownlint?: LinterOptions;
     cspell?: LinterOptions;
     'sort-package-json'?: PatternsOptions;
+    vitest?: boolean;
     commitlint?: true;
     commitizen?: true;
     'lint-staged'?: true;

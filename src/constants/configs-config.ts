@@ -27,6 +27,7 @@ export const DEFAULT_CONFIGS_CONFIG = {
       patterns: ['**'],
     },
     'sort-package-json': true,
+    vitest: true,
     commitlint: true,
     commitizen: true,
     'lint-staged': true,

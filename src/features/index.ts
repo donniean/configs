@@ -13,6 +13,7 @@ import * as prettier from './prettier';
 import * as sortPackageJson from './sort-package-json';
 import * as stylelint from './stylelint';
 import * as tsc from './tsc';
+import * as vitest from './vitest';
 
 export default {
   commitizen,
@@ -30,4 +31,5 @@ export default {
   'sort-package-json': sortPackageJson,
   stylelint,
   tsc,
+  vitest,
 };

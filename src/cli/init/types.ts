@@ -2,7 +2,7 @@ import type { PromptObject } from 'prompts';
 
 import type { FeatureKey } from '@/types/features';
 
-type QuestionName = 'featureKeys' | 'eslintPlugins';
+type QuestionName = 'featureKeys';
 
 type InitQuestions = PromptObject<QuestionName>[];
 
