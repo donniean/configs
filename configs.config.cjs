@@ -25,6 +25,7 @@ module.exports = {
       ],
     },
     'sort-package-json': true,
+    vitest: true,
     commitlint: true,
     commitizen: true,
     'lint-staged': true,
