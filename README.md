@@ -1,15 +1,8 @@
 # @donniean/configs
 
-- [@donniean/configs](#donnieanconfigs)
-  - [Prerequisites](#prerequisites)
-  - [Install](#install)
-  - [Usage](#usage)
-  - [Delete legacy files](#delete-legacy-files)
-  - [License](#license)
+a configs generator
 
 [![Version](https://img.shields.io/npm/v/@donniean/configs.svg)](https://www.npmjs.com/package/@donniean/configs) [![License: MIT](https://img.shields.io/github/license/donniean/configs)](https://github.com/donniean/configs/blob/master/LICENSE) [![CI](https://github.com/donniean/configs/actions/workflows/ci.yml/badge.svg)](https://github.com/donniean/configs/actions/workflows/ci.yml) [![Release](https://github.com/donniean/configs/actions/workflows/release.yml/badge.svg)](https://github.com/donniean/configs/actions/workflows/release.yml)
-
-> configs generator
 
 ## Prerequisites
 
@@ -27,6 +20,14 @@ npm install -g @donniean/configs
 cd project-directory
 ```
 
+create `configs.config.cjs`
+
+```sh
+configs init
+```
+
+create configs
+
 ```sh
 configs create
 ```
@@ -34,6 +35,12 @@ configs create
 [config types](src/types/configs-config.ts)
 
 [default config](src/constants/configs-config.ts)
+
+## Uninstall
+
+```sh
+npm uninstall -g @donniean/configs
+```
 
 ## Delete legacy files
 
@@ -119,15 +126,3 @@ rm package-lock.json;
 rm -rf node_modules/;
 rm -rf **/node_modules/;
 ```
-
-## License
-
-Copyright © 2019 [Donnie An](https://github.com/donniean).
-
-This project is [MIT](https://github.com/donniean/configs/blob/master/LICENSE)
-licensed.
-
----
-
-_This README was generated with ❤️
-by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
