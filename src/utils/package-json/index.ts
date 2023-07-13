@@ -35,7 +35,7 @@ export function checkCwdPackageJsonSync() {
 
 export function mergeCwdPackageJsonSync({ data }: MergePackageJsonSyncOptions) {
   const filePath = paths.cwdPackageJson;
-  return files.mergeJsonFileSync({ filePath, data });
+  files.mergeJsonFileSync({ filePath, data });
 }
 
 export function sortCwdPackageJsonSync() {
