@@ -3,7 +3,7 @@ import { getExtensionsPattern } from '@/utils/misc';
 import type { ESLintConfig } from '../types';
 import { airbnbBase } from '../utils';
 
-// @ts-ignore
+// @ts-expect-error
 const noExtraneousDependenciesOptions = airbnbBase.imports.rules?.[
   'import/no-extraneous-dependencies'
 ]?.[1] as { devDependencies: string[] };

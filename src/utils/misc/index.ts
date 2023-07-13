@@ -38,7 +38,7 @@ function stringifyJavaScript(input: unknown) {
         typeof value === 'object' &&
         Object.prototype.hasOwnProperty.call(value, id)
       ) {
-        const v = value as { [id: string]: string };
+        const v = value as Record<string, string>;
         return v[id];
       }
       return next(value);
