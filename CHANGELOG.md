@@ -1,3 +1,9 @@
+# [6.7.0](https://github.com/donniean/configs/compare/v6.6.0...v6.7.0) (2023-07-13)
+
+### Features
+
+- update typescript-eslint to 6.0.0 ([#255](https://github.com/donniean/configs/issues/255)) ([febbafa](https://github.com/donniean/configs/commit/febbafa8372184d341876cf365a3945484e63790))
+
 # [6.6.0](https://github.com/donniean/configs/compare/v6.5.1...v6.6.0) (2023-07-09)
 
 ### Features
