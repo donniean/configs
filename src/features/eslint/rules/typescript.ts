@@ -31,7 +31,7 @@ function getConfig({ hasReact }: Options): ESLintConfig {
       hasReact ? 'airbnb-typescript' : 'airbnb-typescript/base',
     ],
     rules: {
-      '@typescript-eslint/ban-ts-comment': 'off',
+      // '@typescript-eslint/ban-ts-comment': 'off',
       '@typescript-eslint/consistent-type-exports': 'error',
       '@typescript-eslint/consistent-type-imports': [
         'error',

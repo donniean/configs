@@ -30,7 +30,7 @@ async function outputConfigsConfig({
   filePath = paths.resolveCwd(CONFIGS_CONFIG_FILE_NAME),
   data,
 }: OutputConfigsConfigSyncOptions) {
-  // @ts-expect-error
+  // @ts-expect-error no error
   await files.outputCjsFile({ filePath, data });
 }
 
@@ -47,7 +47,7 @@ function normalizeConfigsConfig(configsConfig: ConfigsConfig) {
     });
   }
 
-  // @ts-expect-error
+  // @ts-expect-error no error
   finalConfigsConfig = cleanDeep(finalConfigsConfig, { cleanValues: [false] });
 
   if (configsConfig.features?.gitignore === true) {

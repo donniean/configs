@@ -50,6 +50,6 @@ export async function handlePackageJson({
   const data = merge({}, rest, {
     devDependencies: devDependenciesWithVersion,
   });
-  // @ts-expect-error
+  // @ts-expect-error no error
   mergeCwdPackageJsonSync({ data });
 }
