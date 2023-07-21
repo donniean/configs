@@ -20,6 +20,7 @@ interface ESLintOptions extends LinterOptions {
 }
 
 interface StylelintOptions extends LinterOptions {
+  cssModules?: boolean;
   scssPatterns?: string[];
   styledPatterns?: string[];
 }
