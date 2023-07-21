@@ -42,18 +42,7 @@ function getConfig(): ESLintConfig {
         {
           callbacksLast: true,
           noSortAlphabetically: true,
-          reservedFirst: [
-            'key',
-            'ref',
-            'className',
-            'classNames',
-            'classes',
-            'sx',
-            'style',
-            'styles',
-            'children',
-            'dangerouslySetInnerHTML',
-          ],
+          reservedFirst: true,
         },
       ],
       'react/require-default-props': [
