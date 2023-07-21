@@ -1,3 +1,9 @@
+# [6.8.0](https://github.com/donniean/configs/compare/v6.7.0...v6.8.0) (2023-07-21)
+
+### Features
+
+- add css modules rules in stylelint ([#266](https://github.com/donniean/configs/issues/266)) ([0cb7ef3](https://github.com/donniean/configs/commit/0cb7ef34e6988814ca6b4f14984bf52c32d9bce1))
+
 # [6.7.0](https://github.com/donniean/configs/compare/v6.6.0...v6.7.0) (2023-07-13)
 
 ### Features
