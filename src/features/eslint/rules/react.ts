@@ -41,9 +41,19 @@ function getConfig(): ESLintConfig {
         'error',
         {
           callbacksLast: true,
-          shorthandFirst: true,
-          multiline: 'last',
-          reservedFirst: true,
+          noSortAlphabetically: true,
+          reservedFirst: [
+            'key',
+            'ref',
+            'className',
+            'classNames',
+            'classes',
+            'sx',
+            'style',
+            'styles',
+            'children',
+            'dangerouslySetInnerHTML',
+          ],
         },
       ],
       'react/require-default-props': [
@@ -58,6 +68,7 @@ function getConfig(): ESLintConfig {
         {
           callbacksLast: true,
           requiredFirst: true,
+          noSortAlphabetically: true,
         },
       ],
     },
