@@ -41,13 +41,13 @@ function getConfig(): ESLintConfig {
         'error',
         {
           callbacksLast: true,
-          shorthandFirst: true,
-          multiline: 'last',
+          noSortAlphabetically: true,
           reservedFirst: [
             'key',
             'ref',
             'className',
             'classNames',
+            'classes',
             'sx',
             'style',
             'styles',
@@ -68,6 +68,7 @@ function getConfig(): ESLintConfig {
         {
           callbacksLast: true,
           requiredFirst: true,
+          noSortAlphabetically: true,
         },
       ],
     },
