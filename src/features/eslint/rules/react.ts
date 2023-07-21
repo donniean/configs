@@ -39,13 +39,25 @@ function getConfig(): ESLintConfig {
       'react/jsx-props-no-spreading': 'off',
       'react/jsx-sort-props': [
         'error',
-        { callbacksLast: true, multiline: 'last', reservedFirst: true },
+        {
+          callbacksLast: true,
+          shorthandFirst: true,
+          multiline: 'last',
+          reservedFirst: true,
+        },
       ],
       'react/require-default-props': [
         'error',
         {
           forbidDefaultForRequired: true,
           functions: 'defaultArguments',
+        },
+      ],
+      'react/sort-prop-types': [
+        'error',
+        {
+          callbacksLast: true,
+          requiredFirst: true,
         },
       ],
     },
