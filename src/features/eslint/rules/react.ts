@@ -43,7 +43,17 @@ function getConfig(): ESLintConfig {
           callbacksLast: true,
           shorthandFirst: true,
           multiline: 'last',
-          reservedFirst: true,
+          reservedFirst: [
+            'key',
+            'ref',
+            'className',
+            'classNames',
+            'sx',
+            'style',
+            'styles',
+            'children',
+            'dangerouslySetInnerHTML',
+          ],
         },
       ],
       'react/require-default-props': [
