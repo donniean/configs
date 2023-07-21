@@ -1,3 +1,9 @@
+# [6.10.0](https://github.com/donniean/configs/compare/v6.9.0...v6.10.0) (2023-07-21)
+
+### Features
+
+- update ESLint React rules ([#268](https://github.com/donniean/configs/issues/268)) ([bab6fcb](https://github.com/donniean/configs/commit/bab6fcbd9c3c450e42e23c5d552f5d61f8ea98d0))
+
 # [6.9.0](https://github.com/donniean/configs/compare/v6.8.0...v6.9.0) (2023-07-21)
 
 ### Features
