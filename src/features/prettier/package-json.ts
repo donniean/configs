@@ -8,7 +8,7 @@ import { getPatternsString } from '@/utils/misc';
 
 const FULL_DEV_DEPENDENCIES = {
   prettier: '',
-  // 'prettier-plugin-tailwindcss': '',
+  'prettier-plugin-tailwindcss': '',
 };
 
 function getDevDependencies(

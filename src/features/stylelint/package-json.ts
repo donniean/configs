@@ -12,6 +12,9 @@ function getDevDependencies(
     'stylelint-config-recess-order': '',
     'stylelint-config-standard': '',
   };
+  const cssModulesDevDependencies = {
+    'stylelint-config-css-modules': '',
+  };
   const scssDevDependencies = {
     'stylelint-config-standard-scss': '',
   };
@@ -19,6 +22,7 @@ function getDevDependencies(
     'postcss-styled-syntax': '',
   };
 
+  const hasCssModules = normalizedConfigsConfig.features?.stylelint?.cssModules;
   const scssPatterns =
     normalizedConfigsConfig.features?.stylelint?.scssPatterns ?? [];
   const styledPatterns =
@@ -26,6 +30,7 @@ function getDevDependencies(
 
   return {
     ...baseDevDependencies,
+    ...(hasCssModules ? cssModulesDevDependencies : null),
     ...(scssPatterns.length > 0 ? scssDevDependencies : null),
     ...(styledPatterns.length > 0 ? styledDevDependencies : null),
   };

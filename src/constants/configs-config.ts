@@ -17,6 +17,7 @@ export const DEFAULT_CONFIGS_CONFIG = {
     },
     stylelint: {
       patterns: ['**/*.css'],
+      cssModules: true,
     },
     htmlhint: {
       patterns: ['**/*.html'],
