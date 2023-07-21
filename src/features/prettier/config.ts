@@ -1,13 +1,15 @@
-import { omit } from 'lodash-es';
-
 import type { JsonObject } from '@/types/base';
 import type { FeatureConfig, GetConfigOptions } from '@/types/feature-configs';
 
-const FULL_CONFIG = {
+const BASE_CONFIG = {
   // printWidth: 80,
   singleQuote: true,
   arrowParens: 'avoid',
-  // plugins: ['prettier-plugin-tailwindcss'],
+};
+
+const TAILWINDCSS_CONFIG = {
+  plugins: ['prettier-plugin-tailwindcss'],
+  tailwindFunctions: ['clsx'],
 };
 
 export function getConfig({
@@ -15,7 +17,9 @@ export function getConfig({
 }: GetConfigOptions): FeatureConfig<JsonObject> {
   const hasTailwindcss =
     normalizedConfigsConfig.features?.prettier?.tailwindcss;
-  const data = hasTailwindcss ? FULL_CONFIG : omit(FULL_CONFIG, 'plugins[0]');
+  const data = hasTailwindcss
+    ? { ...BASE_CONFIG, ...TAILWINDCSS_CONFIG }
+    : BASE_CONFIG;
 
   return {
     outputFileName: 'prettier.config.cjs',
