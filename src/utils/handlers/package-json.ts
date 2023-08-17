@@ -44,9 +44,8 @@ export async function handlePackageJson({
     featureKey,
     normalizedConfigsConfig,
   });
-  const devDependenciesWithVersion = await fetchDevDependencyVersions(
-    devDependencies,
-  );
+  const devDependenciesWithVersion =
+    await fetchDevDependencyVersions(devDependencies);
   const data = merge({}, rest, {
     devDependencies: devDependenciesWithVersion,
   });
