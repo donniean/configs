@@ -1,3 +1,9 @@
+## [6.11.1](https://github.com/donniean/configs/compare/v6.11.0...v6.11.1) (2023-12-29)
+
+### Bug Fixes
+
+- add js extension for js files in dist ([a1cc416](https://github.com/donniean/configs/commit/a1cc4165e3d0fbea0bbe78962e473d721e91ccb0))
+
 # [6.11.0](https://github.com/donniean/configs/compare/v6.10.1...v6.11.0) (2023-10-27)
 
 ### Features
