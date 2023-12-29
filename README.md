@@ -127,4 +127,4 @@ rm -rf node_modules/;
 rm -rf **/node_modules/;
 ```
 
-test signing 2
+test signing 3
