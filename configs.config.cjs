@@ -20,7 +20,7 @@ module.exports = {
     cspell: {
       patterns: ['**'],
       ignorePatterns: [
-        '**/assets/**/gitattributes',
+        '**/assets/**/gitattributes.gitattributes',
         '**/assets/**/gitignore.ignore',
       ],
     },

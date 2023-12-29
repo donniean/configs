@@ -1,6 +1,6 @@
-#!/usr/bin/env node --experimental-specifier-resolution=node
+#!/usr/bin/env node
 
 // eslint-disable-next-line import/no-unresolved, import/extensions
-import cli from '../dist/cli/index';
+import cli from '../dist/cli/index.js';
 
 cli();

@@ -21,7 +21,7 @@ module.exports = {
     'pnpm-lock.yaml',
     'CHANGELOG.md',
     'Dockerfile',
-    '**/assets/**/gitattributes',
+    '**/assets/**/gitattributes.gitattributes',
     '**/assets/**/gitignore.ignore',
   ],
   dictionaries: [
