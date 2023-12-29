@@ -1,5 +1,4 @@
 {
   "watch": ["dist/"],
-  "ignore": ["**/*.test.ts"],
   "delay": 5000
 }
