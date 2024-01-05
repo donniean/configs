@@ -6,7 +6,7 @@ a configs generator
 
 ## Prerequisites
 
-- node >=18.0.0
+- node >=20.0.0
 
 ## Install
 
@@ -40,6 +40,36 @@ configs create
 
 ```sh
 npm uninstall -g @donniean/configs
+```
+
+```shell
+rm -rf .husky/;
+rm -rf dictionaries/;
+
+configs.config.cjs;
+
+rm .cz.json;
+rm .editorconfig;
+rm .eslintignore;
+rm .eslintrc.cjs;
+rm .gitattributes;
+rm .gitignore;
+rm .htmlhintrc;
+rm .markdownlint.json;
+# cspell: disable-next-line
+rm .markdownlintignore;
+rm .prettierignore;
+rm .stylelintignore;
+rm commitlint.config.cjs;
+rm cspell.config.cjs;
+rm lint-staged.config.mjs;
+rm prettier.config.cjs;
+rm stylelint.config.cjs;
+
+npm pkg delete scripts.commit
+
+npm pkg delete commitizen;
+npm pkg delete cz-conventional-changelog;
 ```
 
 ## Delete legacy files
