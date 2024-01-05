@@ -1,3 +1,9 @@
+# [6.12.0](https://github.com/donniean/configs/compare/v6.11.2...v6.12.0) (2024-01-05)
+
+### Features
+
+- Prettier and Stylelint use ESM config files ([#525](https://github.com/donniean/configs/issues/525)) ([e34be0e](https://github.com/donniean/configs/commit/e34be0e32e9f6d67f3027a69a66f1a04caac93fa))
+
 ## [6.11.2](https://github.com/donniean/configs/compare/v6.11.1...v6.11.2) (2024-01-05)
 
 ### Bug Fixes
