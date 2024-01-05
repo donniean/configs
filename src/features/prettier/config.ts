@@ -22,8 +22,8 @@ export function getConfig({
     : BASE_CONFIG;
 
   return {
-    outputFileName: 'prettier.config.cjs',
-    format: 'cjs',
+    outputFileName: 'prettier.config.mjs',
+    format: 'esm',
     data,
   };
 }

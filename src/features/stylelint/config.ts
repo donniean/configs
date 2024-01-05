@@ -98,8 +98,8 @@ export function getConfig({
   const data = getData(normalizedConfigsConfig);
 
   return {
-    outputFileName: 'stylelint.config.cjs',
-    format: 'cjs',
+    outputFileName: 'stylelint.config.mjs',
+    format: 'esm',
     data: data as JsonObject,
   };
 }
