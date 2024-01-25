@@ -3,7 +3,7 @@ import type { FeaturePackageJson } from '@/types/feature-configs';
 export function getPackageJson(): FeaturePackageJson {
   return {
     scripts: {
-      prepare: 'husky install',
+      prepare: 'husky',
     },
     devDependencies: {
       husky: '',

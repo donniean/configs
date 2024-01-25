@@ -12,12 +12,12 @@ export function onAfterAllSuccess({
   let commands = [];
 
   if (lintStaged) {
-    commands.push("npx husky set .husky/pre-commit 'npm run pre-commit'");
+    commands.push('echo "npm run pre-commit" > .husky/pre-commit');
   }
 
   if (commitlint) {
     commands.push(
-      `npx husky set .husky/commit-msg 'npx --no -- commitlint --edit "$1"'`,
+      `echo 'npx --no -- commitlint --edit "$1"' > .husky/commit-msg`,
     );
   }
 
@@ -31,9 +31,11 @@ export function onAfterAllSuccess({
         isLfBefore: true,
       },
     );
-    logger.messageOnly(commands.join(' && '), {
+    logger.messageOnly(commands.join('; '), {
       isLfBefore: true,
       isInverseMessage: true,
     });
   }
 }
+
+// echo "npm run pre-commit" > .husky/pre-commit
