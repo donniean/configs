@@ -1,3 +1,9 @@
+# [6.13.0](https://github.com/donniean/configs/compare/v6.12.0...v6.13.0) (2024-01-25)
+
+### Features
+
+- update husky to 9 ([#560](https://github.com/donniean/configs/issues/560)) ([60489d5](https://github.com/donniean/configs/commit/60489d54d3e7617b496cfe56b01faec5cde5a4ce))
+
 # [6.12.0](https://github.com/donniean/configs/compare/v6.11.2...v6.12.0) (2024-01-05)
 
 ### Features
