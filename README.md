@@ -10,25 +10,25 @@ a configs generator
 
 ## Install
 
-```sh
+```shell
 npm install -g @donniean/configs
 ```
 
 ## Usage
 
-```sh
+```shell
 cd project-directory
 ```
 
 create `configs.config.cjs`
 
-```sh
+```shell
 configs init
 ```
 
 create configs
 
-```sh
+```shell
 configs create
 ```
 
@@ -38,7 +38,7 @@ configs create
 
 ## Uninstall
 
-```sh
+```shell
 npm uninstall -g @donniean/configs
 ```
 
@@ -74,7 +74,7 @@ npm pkg delete cz-conventional-changelog;
 
 ## Delete legacy files
 
-```sh
+```shell
 rm -rf .husky/;
 rm -rf dictionaries/;
 rm .commitlintrc.js;
