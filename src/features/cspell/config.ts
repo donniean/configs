@@ -22,6 +22,7 @@ export function getConfig({
         'user-brands',
         'user-custom',
         'user-files',
+        'user-git',
         'user-npm',
       ],
       dictionaryDefinitions: [
@@ -41,7 +42,16 @@ export function getConfig({
           path: './dictionaries/files.dic',
           addWords: true,
         },
-        { name: 'user-npm', path: './dictionaries/npm.dic', addWords: true },
+        {
+          name: 'user-git',
+          path: './dictionaries/git.dic',
+          addWords: true,
+        },
+        {
+          name: 'user-npm',
+          path: './dictionaries/npm.dic',
+          addWords: true,
+        },
       ],
     },
   };
