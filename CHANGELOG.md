@@ -1,3 +1,9 @@
+# [6.14.0](https://github.com/donniean/configs/compare/v6.13.0...v6.14.0) (2024-03-07)
+
+### Features
+
+- update configs ([#612](https://github.com/donniean/configs/issues/612)) ([50568c4](https://github.com/donniean/configs/commit/50568c4caf3de2c80fffada5e3302cde6818fa1f))
+
 # [6.13.0](https://github.com/donniean/configs/compare/v6.12.0...v6.13.0) (2024-01-25)
 
 ### Features
