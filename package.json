@@ -137,7 +137,7 @@
     "nodemon": "^3.1.0",
     "prettier": "^3.2.5",
     "rimraf": "^5.0.5",
-    "semantic-release": "^23.0.3",
+    "semantic-release": "^23.0.4",
     "sort-package-json": "^2.8.0",
     "tsc-alias": "^1.8.8",
     "tsc-esm-fix": "^2.20.26",
