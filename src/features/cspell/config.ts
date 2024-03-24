@@ -23,6 +23,7 @@ export function getConfig({
         'user-custom',
         'user-files',
         'user-git',
+        'user-nginx',
         'user-npm',
       ],
       dictionaryDefinitions: [
@@ -45,6 +46,11 @@ export function getConfig({
         {
           name: 'user-git',
           path: './dictionaries/git.dic',
+          addWords: true,
+        },
+        {
+          name: 'user-nginx',
+          path: './dictionaries/nginx.dic',
           addWords: true,
         },
         {
