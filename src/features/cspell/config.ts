@@ -21,6 +21,7 @@ export function getConfig({
         'user-apps',
         'user-brands',
         'user-custom',
+        'user-docker',
         'user-files',
         'user-git',
         'user-npm',
@@ -35,6 +36,11 @@ export function getConfig({
         {
           name: 'user-custom',
           path: './dictionaries/custom.dic',
+          addWords: true,
+        },
+        {
+          name: 'user-docker',
+          path: './dictionaries/docker.dic',
           addWords: true,
         },
         {
