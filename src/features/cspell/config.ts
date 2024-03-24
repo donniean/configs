@@ -20,22 +20,21 @@ export function getConfig({
       dictionaries: [
         'user-apps',
         'user-brands',
-        'user-custom',
         'user-docker',
         'user-files',
         'user-git',
         'user-npm',
+        'user-typescript',
       ],
       dictionaryDefinitions: [
-        { name: 'user-apps', path: './dictionaries/apps.dic', addWords: true },
         {
-          name: 'user-brands',
-          path: './dictionaries/brands.dic',
+          name: 'user-apps',
+          path: './dictionaries/apps.dic',
           addWords: true,
         },
         {
-          name: 'user-custom',
-          path: './dictionaries/custom.dic',
+          name: 'user-brands',
+          path: './dictionaries/brands.dic',
           addWords: true,
         },
         {
@@ -56,6 +55,11 @@ export function getConfig({
         {
           name: 'user-npm',
           path: './dictionaries/npm.dic',
+          addWords: true,
+        },
+        {
+          name: 'user-typescript',
+          path: './dictionaries/typescript.dic',
           addWords: true,
         },
       ],
