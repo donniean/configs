@@ -1,3 +1,9 @@
+# [6.15.0](https://github.com/donniean/configs/compare/v6.14.0...v6.15.0) (2024-03-24)
+
+### Features
+
+- add new words in cSpell ([#647](https://github.com/donniean/configs/issues/647)) ([1b8f54b](https://github.com/donniean/configs/commit/1b8f54b523b4a4473063963475e333dc2fc55d27))
+
 # [6.14.0](https://github.com/donniean/configs/compare/v6.13.0...v6.14.0) (2024-03-07)
 
 ### Features
