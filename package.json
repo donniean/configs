@@ -1,6 +1,6 @@
 {
   "name": "@donniean/configs",
-  "version": "6.17.0",
+  "version": "6.18.0",
   "description": "an opinionated configs generator",
   "keywords": [
     "cli",

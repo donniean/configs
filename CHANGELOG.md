@@ -1,3 +1,9 @@
+# [6.18.0](https://github.com/donniean/configs/compare/v6.17.0...v6.18.0) (2024-03-24)
+
+### Features
+
+- update words ([#650](https://github.com/donniean/configs/issues/650)) ([1078a0c](https://github.com/donniean/configs/commit/1078a0ca2ffbca44b696c560646826fc6e906934))
+
 # [6.17.0](https://github.com/donniean/configs/compare/v6.16.0...v6.17.0) (2024-03-24)
 
 ### Features
