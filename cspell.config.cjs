@@ -27,10 +27,11 @@ module.exports = {
   dictionaries: [
     'user-apps',
     'user-brands',
-    'user-custom',
+    'user-docker',
     'user-files',
     'user-git',
     'user-npm',
+    'user-typescript',
   ],
   dictionaryDefinitions: [
     {
@@ -44,8 +45,8 @@ module.exports = {
       addWords: true,
     },
     {
-      name: 'user-custom',
-      path: './dictionaries/custom.dic',
+      name: 'user-docker',
+      path: './dictionaries/docker.dic',
       addWords: true,
     },
     {
@@ -63,5 +64,11 @@ module.exports = {
       path: './dictionaries/npm.dic',
       addWords: true,
     },
+    {
+      name: 'user-typescript',
+      path: './dictionaries/typescript.dic',
+      addWords: true,
+    },
   ],
+  words: ['czrc'],
 };
