@@ -1,3 +1,9 @@
+# [6.16.0](https://github.com/donniean/configs/compare/v6.15.0...v6.16.0) (2024-03-24)
+
+### Features
+
+- add words of docker ([#648](https://github.com/donniean/configs/issues/648)) ([ab6f626](https://github.com/donniean/configs/commit/ab6f626ecf39b29867aaf331e9b02fb870851e2e))
+
 # [6.15.0](https://github.com/donniean/configs/compare/v6.14.0...v6.15.0) (2024-03-24)
 
 ### Features
