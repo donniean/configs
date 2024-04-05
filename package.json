@@ -141,7 +141,7 @@
     "sort-package-json": "^2.10.0",
     "tsc-alias": "^1.8.8",
     "tsc-esm-fix": "^2.20.26",
-    "typescript": "^5.4.3",
+    "typescript": "^5.4.4",
     "vitest": "^1.4.0"
   },
   "engines": {
