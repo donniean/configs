@@ -1,3 +1,9 @@
+# [6.19.0](https://github.com/donniean/configs/compare/v6.18.0...v6.19.0) (2024-04-06)
+
+### Features
+
+- cSpell replaces dictionaries with words ([#672](https://github.com/donniean/configs/issues/672)) ([e56d8cb](https://github.com/donniean/configs/commit/e56d8cbe1a699f1f86444a746bca7a78f4ebe788))
+
 # [6.18.0](https://github.com/donniean/configs/compare/v6.17.0...v6.18.0) (2024-03-24)
 
 ### Features
