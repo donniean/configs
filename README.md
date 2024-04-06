@@ -197,6 +197,7 @@ rm \
 
 rm \
   cspell.config.js \
+  dictionaries/ \
   .commitlintrc.js \
   commitlint.config.js \
   .czrc \
