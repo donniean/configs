@@ -1,3 +1,9 @@
+# [6.20.0](https://github.com/donniean/configs/compare/v6.19.0...v6.20.0) (2024-04-17)
+
+### Features
+
+- update Prettier config ([#695](https://github.com/donniean/configs/issues/695)) ([3d15804](https://github.com/donniean/configs/commit/3d15804610205d26771b86d02494371681f1a76b))
+
 # [6.19.0](https://github.com/donniean/configs/compare/v6.18.0...v6.19.0) (2024-04-06)
 
 ### Features
