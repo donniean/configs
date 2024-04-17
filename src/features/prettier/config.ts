@@ -4,7 +4,6 @@ import type { FeatureConfig, GetConfigOptions } from '@/types/feature-configs';
 const BASE_CONFIG = {
   // printWidth: 80,
   singleQuote: true,
-  arrowParens: 'avoid',
 };
 
 const TAILWINDCSS_CONFIG = {
