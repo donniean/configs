@@ -139,7 +139,7 @@ function copySync({ src, dest, ...rest }: CopySyncOptions) {
 export {
   copySync,
   mergeJsonFileSync,
-  outputCjsFile,
+  outputEsmFile,
   outputFile,
   outputFormatFile,
   outputJsonFileSync,

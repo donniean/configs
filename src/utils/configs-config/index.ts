@@ -19,9 +19,7 @@ function defineConfig(configsConfig: ConfigsConfig): ConfigsConfig {
 }
 
 function readConfigsConfigSync() {
-  const explorerSync = cosmiconfigSync('configs', {
-    searchPlaces: [CONFIGS_CONFIG_FILE_NAME],
-  });
+  const explorerSync = cosmiconfigSync('configs');
   const result = explorerSync.search();
   return result?.config as ConfigsConfig | undefined;
 }
@@ -30,8 +28,8 @@ async function outputConfigsConfig({
   filePath = paths.resolveCwd(CONFIGS_CONFIG_FILE_NAME),
   data,
 }: OutputConfigsConfigSyncOptions) {
-  // @ts-expect-error no error
-  await files.outputCjsFile({ filePath, data });
+  // @ts-expect-error: no error
+  await files.outputEsmFile({ filePath, data });
 }
 
 function normalizeConfigsConfig(configsConfig: ConfigsConfig) {
