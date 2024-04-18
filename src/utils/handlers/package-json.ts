@@ -51,6 +51,6 @@ export async function handlePackageJson({
     devDependencies: devDependenciesWithVersion,
   });
   const final = deepTrim(data);
-  // @ts-expect-error no error
+  // @ts-expect-error: no error
   mergeCwdPackageJsonSync({ data: final });
 }

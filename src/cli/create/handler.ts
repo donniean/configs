@@ -42,7 +42,7 @@ export default async function handler({
 
   FEATURE_OPTIONS.forEach(({ key }) => {
     if (normalizedFeatures?.[key]) {
-      // @ts-expect-error has onAfterAllSuccess
+      // @ts-expect-error: has onAfterAllSuccess
       const onAfterAllSuccess = features[key]?.onAfterAllSuccess as
         | OnAfterAllSuccess
         | undefined;

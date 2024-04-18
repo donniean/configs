@@ -45,7 +45,7 @@ function normalizeConfigsConfig(configsConfig: ConfigsConfig) {
     });
   }
 
-  // @ts-expect-error no error
+  // @ts-expect-error: no error
   finalConfigsConfig = cleanDeep(finalConfigsConfig, { cleanValues: [false] });
 
   if (configsConfig.features?.gitignore === true) {
