@@ -28,7 +28,7 @@ function getQuestions(options?: GetQuestionsOptions) {
     },
   ];
 
-  return questions.map(question => ({
+  return questions.map((question) => ({
     optionsPerPage: Number.POSITIVE_INFINITY,
     ...question,
   }));
