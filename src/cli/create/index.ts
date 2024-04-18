@@ -1,11 +1,11 @@
 import { CONFIGS_CONFIG_FILE_NAME } from '@/constants/configs-config';
-import { readConfigsConfigSync } from '@/utils/configs-config';
+import { readConfigsConfig } from '@/utils/configs-config';
 import logger from '@/utils/logger';
 
 import handler from './handler';
 
 export default async function create() {
-  const configsConfig = readConfigsConfigSync();
+  const configsConfig = await readConfigsConfig();
 
   if (!configsConfig) {
     logger.messageOnly(`config not found, please run: `, {

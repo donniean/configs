@@ -1,5 +1,5 @@
 import cleanDeep from 'clean-deep';
-import { cosmiconfigSync } from 'cosmiconfig';
+import { cosmiconfig } from 'cosmiconfig';
 import { merge } from 'lodash-es';
 import sortObjectKeys from 'sort-object-keys';
 
@@ -18,9 +18,10 @@ function defineConfig(configsConfig: ConfigsConfig): ConfigsConfig {
   return configsConfig;
 }
 
-function readConfigsConfigSync() {
-  const explorerSync = cosmiconfigSync('configs');
-  const result = explorerSync.search();
+async function readConfigsConfig() {
+  const explorerSync = cosmiconfig('configs');
+  const result = await explorerSync.search();
+
   return result?.config as ConfigsConfig | undefined;
 }
 
@@ -73,6 +74,6 @@ export {
   defineConfig,
   normalizeConfigsConfig,
   outputConfigsConfig,
-  readConfigsConfigSync,
+  readConfigsConfig,
   sortConfigsConfig,
 };
