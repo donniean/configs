@@ -26,6 +26,8 @@ export function getConfig({
         // Docker
         'Buildx',
         // files
+        'autocorrectignore',
+        'autocorrectrc',
         'browserslistrc',
         'commitlintrc',
         'configsrc',
@@ -40,6 +42,7 @@ export function getConfig({
         // nginx
         'proxied',
         // npm
+        'autocorrect',
         'clsx',
         'commitlint',
         'corepack',

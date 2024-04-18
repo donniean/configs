@@ -5,6 +5,7 @@ const FEATURE_KEY_MAP = {
   gitattributes: 'gitattributes',
   editorconfig: 'editorconfig',
   prettier: 'prettier',
+  autocorrect: 'autocorrect',
   tsc: 'tsc',
   eslint: 'eslint',
   stylelint: 'stylelint',
@@ -26,6 +27,7 @@ const FEATURE_KEYS = [
   FEATURE_KEY_MAP.gitattributes,
   FEATURE_KEY_MAP.editorconfig,
   FEATURE_KEY_MAP.prettier,
+  FEATURE_KEY_MAP.autocorrect,
   FEATURE_KEY_MAP.tsc,
   FEATURE_KEY_MAP.eslint,
   FEATURE_KEY_MAP.stylelint,
@@ -38,13 +40,14 @@ const FEATURE_KEYS = [
   FEATURE_KEY_MAP.commitizen,
   FEATURE_KEY_MAP['lint-staged'],
   FEATURE_KEY_MAP.husky,
-] as const;
+] as const satisfies FeatureKey[];
 
 const FEATURE_OPTIONS: Option<FeatureKey>[] = [
   { key: FEATURE_KEY_MAP.gitignore, displayName: 'gitignore' },
   { key: FEATURE_KEY_MAP.gitattributes, displayName: 'gitattributes' },
   { key: FEATURE_KEY_MAP.editorconfig, displayName: 'EditorConfig' },
   { key: FEATURE_KEY_MAP.prettier, displayName: 'Prettier' },
+  { key: FEATURE_KEY_MAP.autocorrect, displayName: 'AutoCorrect' },
   { key: FEATURE_KEY_MAP.tsc, displayName: 'tsc' },
   { key: FEATURE_KEY_MAP.eslint, displayName: 'ESLint' },
   { key: FEATURE_KEY_MAP.stylelint, displayName: 'Stylelint' },

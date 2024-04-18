@@ -2,6 +2,7 @@ import { chain, merge } from 'lodash-es';
 
 import type { FeaturePackageJson } from '@/types/feature-configs';
 import type { HandleFeatureOptions } from '@/types/handlers';
+import { deepTrim } from '@/utils/common';
 import {
   fetchPackageLatestVersion,
   mergeCwdPackageJsonSync,
@@ -49,6 +50,7 @@ export async function handlePackageJson({
   const data = merge({}, rest, {
     devDependencies: devDependenciesWithVersion,
   });
+  const final = deepTrim(data);
   // @ts-expect-error no error
-  mergeCwdPackageJsonSync({ data });
+  mergeCwdPackageJsonSync({ data: final });
 }

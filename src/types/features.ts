@@ -3,6 +3,7 @@ export type FeatureKey =
   | 'gitattributes'
   | 'editorconfig'
   | 'prettier'
+  | 'autocorrect'
   | 'tsc'
   | 'eslint'
   | 'stylelint'
@@ -19,6 +20,7 @@ export type FeatureKey =
 export type HasPatternsFeatureKey = Extract<
   FeatureKey,
   | 'prettier'
+  | 'autocorrect'
   | 'tsc'
   | 'eslint'
   | 'stylelint'
@@ -32,6 +34,7 @@ export type HasIgnorePatternsFeatureKey = Extract<
   FeatureKey,
   | 'gitignore'
   | 'prettier'
+  | 'autocorrect'
   | 'eslint'
   | 'stylelint'
   | 'htmlhint'
@@ -43,6 +46,7 @@ export type HasLintStagedFeatureKey = Extract<
   FeatureKey,
   | 'sort-package-json'
   | 'prettier'
+  | 'autocorrect'
   | 'tsc'
   | 'eslint'
   | 'stylelint'

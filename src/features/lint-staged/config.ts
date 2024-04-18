@@ -7,6 +7,7 @@ import type { HasLintStagedFeatureKey } from '@/types/features';
 const COMMANDS: Readonly<Record<HasLintStagedFeatureKey, string>> = {
   'sort-package-json': 'sort-package-json',
   prettier: 'prettier --write --ignore-unknown',
+  autocorrect: 'autocorrect --fix',
   tsc: 'bash -c tsc --noEmit',
   eslint: 'eslint --fix',
   stylelint: 'stylelint --fix',
@@ -52,6 +53,7 @@ function getData(
   const { features } = normalizedConfigsConfig;
   let data: Record<string, string | string[]> = {};
 
+  // eslint-disable-next-line sonarjs/cognitive-complexity
   Object.entries(COMMANDS).forEach(([featureKey, command]) => {
     const key = featureKey as HasLintStagedFeatureKey;
     if (features?.[key]) {
@@ -62,15 +64,18 @@ function getData(
       } else {
         const patterns = features[key]?.patterns ?? [];
         if (key === 'sort-package-json') {
-          const basenameList = patterns.map(pattern => {
+          const basenameList = patterns.map((pattern) => {
             const { path } = parseGlob(pattern);
             return path.basename;
           });
-          uniq(basenameList).forEach(basename => {
+          uniq(basenameList).forEach((basename) => {
             data = addCommand({ data, pattern: basename, command });
           });
         } else {
-          patterns.forEach(pattern => {
+          const finalPatterns: string[] =
+            key === 'autocorrect' && patterns.length === 0 ? ['**'] : patterns;
+
+          finalPatterns.forEach((pattern) => {
             const { path } = parseGlob(pattern);
             data = addCommand({ data, pattern: `*${path.extname}`, command });
           });

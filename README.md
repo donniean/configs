@@ -49,6 +49,15 @@ Delete files
 ```shell
 rm configs.config.cjs
 
+# AutoCorrect
+npm pkg delete \
+  scripts.lint:autocorrect \
+  scripts.lint:autocorrect:fix \
+  devDependencies.autocorrect-node
+rm \
+  .autocorrectrc \
+  .autocorrectignore
+
 # Commitizen
 npm pkg delete \
   scripts.commit \

@@ -97,7 +97,7 @@ function getConfig({
           ...noExtraneousDependenciesOptions,
           devDependencies: [
             ...noExtraneousDependenciesOptions.devDependencies.filter(
-              pattern => !/.+\.js}?$/.test(pattern),
+              (pattern) => !/.+\.js}?$/.test(pattern),
             ),
             '**/*.{mjs,cjs}',
             '**/.*.{mjs,cjs}',

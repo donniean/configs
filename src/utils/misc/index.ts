@@ -6,7 +6,10 @@ function addQuote(value: string) {
 }
 
 function getPatternsString(patterns: string[]) {
-  return patterns.map(pattern => addQuote(pattern)).join(' ');
+  return patterns
+    .map((pattern) => addQuote(pattern))
+    .join(' ')
+    .trim();
 }
 
 function getExtensionsPattern(extensions: string[]) {

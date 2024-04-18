@@ -1,3 +1,4 @@
+import * as autocorrect from './autocorrect';
 import * as commitizen from './commitizen';
 import * as commitlint from './commitlint';
 import * as cspell from './cspell';
@@ -20,6 +21,7 @@ export default {
   commitlint,
   cspell,
   editorconfig,
+  autocorrect,
   eslint,
   gitattributes,
   gitignore,

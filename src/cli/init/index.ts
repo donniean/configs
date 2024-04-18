@@ -36,10 +36,10 @@ function answersToConfigsConfig({
 
   const pickedCurrentConfigsConfig = pick(
     currentConfigsConfig,
-    featureKeys.map(featureKey => `features.${featureKey}`),
+    featureKeys.map((featureKey) => `features.${featureKey}`),
   );
 
-  featureKeys.forEach(featureKey => {
+  featureKeys.forEach((featureKey) => {
     features = {
       ...features,
       [featureKey]: DEFAULT_CONFIGS_CONFIG.features[featureKey],
