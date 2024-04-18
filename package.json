@@ -3,6 +3,7 @@
   "version": "6.21.0",
   "description": "an opinionated configs generator",
   "keywords": [
+    "autocorrect",
     "cli",
     "commitizen",
     "commitlint",
@@ -18,7 +19,8 @@
     "prettier",
     "sort-package-json",
     "stylelint",
-    "tsc"
+    "tsc",
+    "vitest"
   ],
   "homepage": "https://github.com/donniean/configs#readme",
   "bugs": {
