@@ -7,6 +7,8 @@ const LINTER_IGNORE = [
   '.next/',
 ];
 
+const CHANGELOG_IGNORE = ['CHANGELOG.md'];
+
 export const CSPELL_IGNORE = [
   ...LINTER_IGNORE,
   '.idea/',
@@ -20,14 +22,16 @@ export const CSPELL_IGNORE = [
   'package-lock.json',
   'yarn.lock',
   'pnpm-lock.yaml',
-  'CHANGELOG.md',
   'Dockerfile',
+  ...CHANGELOG_IGNORE,
 ];
 
 export const ESLINT_IGNORE = [...LINTER_IGNORE];
 
-export const MARKDOWNLINT_IGNORE = [...LINTER_IGNORE, 'CHANGELOG.md'];
+export const MARKDOWNLINT_IGNORE = [...LINTER_IGNORE, ...CHANGELOG_IGNORE];
 
 export const PRETTIER_IGNORE = [...LINTER_IGNORE, '*.tsbuildinfo'];
+
+export const AUTOCORRECT_IGNORE = [...LINTER_IGNORE, ...CHANGELOG_IGNORE];
 
 export const STYLELINT_IGNORE = [...LINTER_IGNORE];

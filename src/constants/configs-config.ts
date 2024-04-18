@@ -8,6 +8,7 @@ export const DEFAULT_CONFIGS_CONFIG = {
     prettier: {
       patterns: ['**'],
     },
+    autocorrect: true,
     tsc: {
       patterns: ['**/*.{ts,tsx}'],
     },

@@ -6,6 +6,7 @@ module.exports = {
     prettier: {
       patterns: ['**'],
     },
+    autocorrect: true,
     tsc: {
       patterns: ['**/*.ts'],
     },

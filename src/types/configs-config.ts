@@ -31,6 +31,7 @@ export interface ConfigsConfig {
     gitattributes?: boolean;
     editorconfig?: boolean;
     prettier?: false | PrettierOptions;
+    autocorrect?: boolean | Partial<LinterOptions>;
     tsc?: false | PatternsOptions;
     eslint?: false | ESLintOptions;
     stylelint?: false | StylelintOptions;
@@ -52,6 +53,7 @@ export interface NormalizedConfigsConfig {
     gitattributes?: true;
     editorconfig?: true;
     prettier?: PrettierOptions;
+    autocorrect?: LinterOptions;
     tsc?: PatternsOptions;
     eslint?: ESLintOptions;
     stylelint?: StylelintOptions;
