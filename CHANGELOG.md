@@ -1,3 +1,9 @@
+# [6.21.0](https://github.com/donniean/configs/compare/v6.20.0...v6.21.0) (2024-04-18)
+
+### Features
+
+- add AutoCorrect ([#696](https://github.com/donniean/configs/issues/696)) ([294beee](https://github.com/donniean/configs/commit/294beee53d1aaa4acaa5d55a3b58784a542b31a8))
+
 # [6.20.0](https://github.com/donniean/configs/compare/v6.19.0...v6.20.0) (2024-04-17)
 
 ### Features
