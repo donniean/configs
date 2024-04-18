@@ -53,6 +53,7 @@ function getData(
   const { features } = normalizedConfigsConfig;
   let data: Record<string, string | string[]> = {};
 
+  // eslint-disable-next-line sonarjs/cognitive-complexity
   Object.entries(COMMANDS).forEach(([featureKey, command]) => {
     const key = featureKey as HasLintStagedFeatureKey;
     if (features?.[key]) {
@@ -71,7 +72,10 @@ function getData(
             data = addCommand({ data, pattern: basename, command });
           });
         } else {
-          patterns.forEach((pattern) => {
+          const finalPatterns: string[] =
+            key === 'autocorrect' && patterns.length === 0 ? ['**'] : patterns;
+
+          finalPatterns.forEach((pattern) => {
             const { path } = parseGlob(pattern);
             data = addCommand({ data, pattern: `*${path.extname}`, command });
           });
