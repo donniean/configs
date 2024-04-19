@@ -19,12 +19,14 @@ export async function addLintAllToNpmScripts({
   if (hasLints) {
     logger.info('add lint-all to npm scripts');
 
-    const packageName = 'npm-run-all';
+    const packageName = 'concurrently';
     const version = await fetchPackageLatestVersion(packageName);
     const data = {
       scripts: {
-        'lint-all': 'npm-run-all lint:*',
-        'lint-all:fix': 'npm-run-all lint:*:fix',
+        'lint-all':
+          'concurrently --group --timings --prefix-colors=auto "npm:lint:*(!:fix)"',
+        'lint-all:fix':
+          'concurrently --max-processes=1 --group --timings --prefix-colors=auto "npm:lint:*:fix"',
       },
       devDependencies: {
         [packageName]: `^${version}`,
