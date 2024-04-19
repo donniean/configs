@@ -6,9 +6,10 @@ export default defineConfig(({ watch }) => ({
     cli: 'src/cli/index.ts',
   },
   minify: !watch,
-  format: ['esm'],
+  format: ['esm', 'cjs'],
   dts: true,
   sourcemap: true,
   replaceNodeEnv: true,
   clean: true,
+  shims: true,
 }));
