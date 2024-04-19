@@ -1,4 +1,4 @@
-import type { FeatureKey, Option } from '@/types/features';
+import type { FeatureKey, HasLintFeatureKey, Option } from '@/types/features';
 
 const FEATURE_KEY_MAP = {
   gitignore: 'gitignore',
@@ -42,6 +42,18 @@ const FEATURE_KEYS = [
   FEATURE_KEY_MAP.husky,
 ] as const satisfies FeatureKey[];
 
+const HAS_LINTS_FEATURE_KEYS = [
+  'prettier',
+  'autocorrect',
+  'tsc',
+  'eslint',
+  'stylelint',
+  'htmlhint',
+  'markdownlint',
+  'cspell',
+  'sort-package-json',
+] as const satisfies HasLintFeatureKey[];
+
 const FEATURE_OPTIONS: Option<FeatureKey>[] = [
   { key: FEATURE_KEY_MAP.gitignore, displayName: 'gitignore' },
   { key: FEATURE_KEY_MAP.gitattributes, displayName: 'gitattributes' },
@@ -65,4 +77,9 @@ const FEATURE_OPTIONS: Option<FeatureKey>[] = [
   { key: FEATURE_KEY_MAP.husky, displayName: 'husky' },
 ];
 
-export { FEATURE_KEY_MAP, FEATURE_KEYS, FEATURE_OPTIONS };
+export {
+  FEATURE_KEY_MAP,
+  FEATURE_KEYS,
+  FEATURE_OPTIONS,
+  HAS_LINTS_FEATURE_KEYS,
+};

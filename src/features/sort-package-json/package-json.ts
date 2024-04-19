@@ -16,8 +16,7 @@ export function getPackageJson({
 
   return {
     scripts: {
-      'lint:sort-package-json':
-        `sort-package-json --check ${patternsString}`.trim(),
+      'lint:sort-package-json': `npm run lint:sort-package-json:fix -- --fix`,
       'lint:sort-package-json:fix':
         `sort-package-json ${patternsString}`.trim(),
     },

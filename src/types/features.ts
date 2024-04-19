@@ -56,6 +56,36 @@ export type HasLintStagedFeatureKey = Extract<
   | 'vitest'
 >;
 
+type HasNpmScriptsFeatureKey = Extract<
+  FeatureKey,
+  | 'prettier'
+  | 'autocorrect'
+  | 'tsc'
+  | 'eslint'
+  | 'stylelint'
+  | 'htmlhint'
+  | 'markdownlint'
+  | 'cspell'
+  | 'commitizen'
+  | 'sort-package-json'
+  | 'vitest'
+  | 'lint-staged'
+  | 'husky'
+>;
+
+export type HasLintFeatureKey = Extract<
+  HasNpmScriptsFeatureKey,
+  | 'prettier'
+  | 'autocorrect'
+  | 'tsc'
+  | 'eslint'
+  | 'stylelint'
+  | 'htmlhint'
+  | 'markdownlint'
+  | 'cspell'
+  | 'sort-package-json'
+>;
+
 export interface Option<T = string> {
   key: T;
   displayName: string;
