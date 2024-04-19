@@ -70,10 +70,10 @@ function mergeJsonFileSync({ filePath, data }: MergeJsonFileSyncOptions) {
 async function outputEsmFile({
   filePath,
   data,
-  leadingComments = '',
+  banner = '',
   isFormat = true,
 }: OutputEsmFileSyncOptions) {
-  const content = `${leadingComments}
+  const content = `${banner}
   export default ${stringifyJavaScript(data) ?? ''};`;
   await outputFile({
     filePath,
@@ -85,10 +85,10 @@ async function outputEsmFile({
 async function outputCjsFile({
   filePath,
   data,
-  leadingComments = '',
+  banner = '',
   isFormat = true,
 }: OutputCjsFileSyncOptions) {
-  const content = `${leadingComments}
+  const content = `${banner}
   module.exports = ${stringifyJavaScript(data) ?? ''};`;
   await outputFile({
     filePath,
@@ -101,7 +101,7 @@ async function outputFormatFile({
   filePath,
   format: formatType,
   data,
-  leadingComments = '',
+  banner = '',
 }: OutputFormatFileSyncOptions) {
   switch (formatType) {
     case 'json': {
@@ -109,14 +109,14 @@ async function outputFormatFile({
       break;
     }
     case 'esm': {
-      await outputEsmFile({ filePath, data, leadingComments });
+      await outputEsmFile({ filePath, data, banner });
       break;
     }
     case 'cjs': {
       await outputCjsFile({
         filePath,
         data,
-        leadingComments,
+        banner,
       });
       break;
     }

@@ -25,8 +25,10 @@ async function outputConfigsConfig({
   filePath = paths.resolveCwd(CONFIGS_CONFIG_FILE_NAME),
   data,
 }: OutputConfigsConfigSyncOptions) {
-  // @ts-expect-error: no error
-  await files.outputEsmFile({ filePath, data });
+  const content = `import { defineConfig } from '@donniean/configs';
+export default defineConfig(${JSON.stringify(data)});
+  `;
+  await files.outputFile({ filePath, data: content, isFormat: true });
 }
 
 function normalizeConfigsConfig(configsConfig: ConfigsConfig) {

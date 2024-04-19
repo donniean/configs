@@ -19,7 +19,7 @@ export async function handleConfig({
     outputFileName,
     format,
     data,
-    leadingComments = '',
+    banner = '',
   } = getConfig({
     featureKey,
     normalizedConfigsConfig,
@@ -37,7 +37,7 @@ export async function handleConfig({
           filePath,
           data: shadow,
           format,
-          leadingComments,
+          banner,
         }));
   } else if (format === 'text') {
     await outputFormatFile({ filePath, data, format });

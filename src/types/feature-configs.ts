@@ -16,19 +16,19 @@ export type FeatureConfig<T extends FeatureConfigData> =
       outputFileName: string;
       format: 'esm' | 'cjs';
       data: T;
-      leadingComments?: string;
+      banner?: string;
     }
   | {
       outputFileName: string;
       format: 'json';
       data: T;
-      leadingComments?: undefined;
+      banner?: undefined;
     }
   | {
       outputFileName: string;
       format: 'text';
       data: string;
-      leadingComments?: undefined;
+      banner?: undefined;
     };
 
 export interface FeatureIgnore {
