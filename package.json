@@ -55,7 +55,7 @@
     "build:watch": "npm run build -- --watch",
     "clean": "rimraf dist/",
     "commit": "cz",
-    "lint-all": "npm-run-all --parallel lint:*",
+    "lint-all": "npm-run-all lint:*",
     "lint-all:fix": "npm-run-all lint:*:fix",
     "lint:cspell": "cspell lint --no-progress --relative --no-must-find-files --dot --gitignore \"**\"",
     "lint:eslint": "eslint \"**/*.{js,mjs,cjs,ts}\"",
