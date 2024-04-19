@@ -70,7 +70,7 @@ export function getPackageJson({
   return {
     scripts: {
       'lint:eslint': `eslint ${patternsString}`,
-      'lint:eslint:fix': `eslint --fix ${patternsString}`,
+      'lint:eslint:fix': `npm run lint:eslint -- --fix`,
     },
     devDependencies,
   };

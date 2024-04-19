@@ -14,7 +14,7 @@ export function getPackageJson({
   return {
     scripts: {
       'lint:markdownlint': `markdownlint --dot ${patternsString}`,
-      'lint:markdownlint:fix': `markdownlint --dot --fix ${patternsString}`,
+      'lint:markdownlint:fix': `npm run lint:markdownlint -- --fix`,
     },
     devDependencies: {
       'markdownlint-cli': '',
