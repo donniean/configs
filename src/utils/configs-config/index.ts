@@ -14,10 +14,6 @@ import * as paths from '@/utils/paths';
 
 import type { OutputConfigsConfigSyncOptions } from './types';
 
-function defineConfig(configsConfig: ConfigsConfig): ConfigsConfig {
-  return configsConfig;
-}
-
 async function readConfigsConfig() {
   const explorerSync = cosmiconfig('configs');
   const result = await explorerSync.search();
@@ -71,7 +67,6 @@ function sortConfigsConfig(configsConfig: ConfigsConfig) {
 }
 
 export {
-  defineConfig,
   normalizeConfigsConfig,
   outputConfigsConfig,
   readConfigsConfig,
