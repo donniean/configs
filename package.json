@@ -51,7 +51,7 @@
     "prebuild": "npm run clean",
     "build": "tsup",
     "build:watch": "npm run build -- --watch",
-    "clean": "rimraf ./dist/",
+    "clean": "rimraf dist/",
     "commit": "cz",
     "lint:cspell": "cspell lint --no-progress --relative --no-must-find-files --dot --gitignore \"**\"",
     "lint:eslint": "eslint \"**/*.{js,mjs,cjs,ts}\"",
