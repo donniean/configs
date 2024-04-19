@@ -15,7 +15,7 @@ interface GetDevDependenciesOptions {
 function getDevDependencies({ hasReact }: GetDevDependenciesOptions) {
   return {
     '@types/eslint': '',
-    eslint: '',
+    eslint: '^8.57.0',
     [hasReact ? 'eslint-config-airbnb' : 'eslint-config-airbnb-base']: '',
     'eslint-plugin-eslint-comments': '',
     'eslint-plugin-import': '',

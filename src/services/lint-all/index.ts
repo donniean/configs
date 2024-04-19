@@ -23,7 +23,7 @@ export async function addLintAllToNpmScripts({
     const version = await fetchPackageLatestVersion(packageName);
     const data = {
       scripts: {
-        'lint-all': 'npm-run-all --parallel lint:*',
+        'lint-all': 'npm-run-all lint:*',
         'lint-all:fix': 'npm-run-all lint:*:fix',
       },
       devDependencies: {

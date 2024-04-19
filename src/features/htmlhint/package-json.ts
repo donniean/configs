@@ -12,7 +12,7 @@ export function getPackageJson({
 
   return {
     scripts: {
-      'lint:htmlhint': `htmlhint ${patternsString}`,
+      'lint:htmlhint': `htmlhint --ignore="**/coverage/**" ${patternsString}`,
     },
     devDependencies: {
       htmlhint: '',

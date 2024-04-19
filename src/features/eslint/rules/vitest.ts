@@ -2,7 +2,7 @@ import type { ESLintConfig } from '../types';
 
 function getDevDependencies() {
   return {
-    'eslint-plugin-vitest': '',
+    'eslint-plugin-vitest': '^0.4.1',
   };
 }
 
