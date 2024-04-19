@@ -7,11 +7,7 @@ export default defineConfig(({ watch }) => ({
   },
   minify: !watch,
   format: ['esm'],
-  dts: {
-    entry: {
-      index: 'src/index.ts',
-    },
-  },
+  dts: true,
   sourcemap: true,
   replaceNodeEnv: true,
   clean: true,

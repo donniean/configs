@@ -9,8 +9,6 @@ export default function cli() {
   const program = new Command();
   const version = readRootPackageJsonSync()?.version;
 
-  console.log(1, process.env.NODE_ENV);
-
   if (version) {
     program.version(version, '-v, --version');
   }
