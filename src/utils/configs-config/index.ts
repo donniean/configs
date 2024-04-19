@@ -1,5 +1,5 @@
 import cleanDeep from 'clean-deep';
-import { cosmiconfigSync } from 'cosmiconfig';
+import { cosmiconfig } from 'cosmiconfig';
 import { merge } from 'lodash-es';
 import sortObjectKeys from 'sort-object-keys';
 
@@ -14,15 +14,10 @@ import * as paths from '@/utils/paths';
 
 import type { OutputConfigsConfigSyncOptions } from './types';
 
-function defineConfig(configsConfig: ConfigsConfig): ConfigsConfig {
-  return configsConfig;
-}
+async function readConfigsConfig() {
+  const explorerSync = cosmiconfig('configs');
+  const result = await explorerSync.search();
 
-function readConfigsConfigSync() {
-  const explorerSync = cosmiconfigSync('configs', {
-    searchPlaces: [CONFIGS_CONFIG_FILE_NAME],
-  });
-  const result = explorerSync.search();
   return result?.config as ConfigsConfig | undefined;
 }
 
@@ -30,8 +25,8 @@ async function outputConfigsConfig({
   filePath = paths.resolveCwd(CONFIGS_CONFIG_FILE_NAME),
   data,
 }: OutputConfigsConfigSyncOptions) {
-  // @ts-expect-error no error
-  await files.outputCjsFile({ filePath, data });
+  // @ts-expect-error: no error
+  await files.outputEsmFile({ filePath, data });
 }
 
 function normalizeConfigsConfig(configsConfig: ConfigsConfig) {
@@ -47,7 +42,7 @@ function normalizeConfigsConfig(configsConfig: ConfigsConfig) {
     });
   }
 
-  // @ts-expect-error no error
+  // @ts-expect-error: no error
   finalConfigsConfig = cleanDeep(finalConfigsConfig, { cleanValues: [false] });
 
   if (configsConfig.features?.gitignore === true) {
@@ -72,9 +67,8 @@ function sortConfigsConfig(configsConfig: ConfigsConfig) {
 }
 
 export {
-  defineConfig,
   normalizeConfigsConfig,
   outputConfigsConfig,
-  readConfigsConfigSync,
+  readConfigsConfig,
   sortConfigsConfig,
 };

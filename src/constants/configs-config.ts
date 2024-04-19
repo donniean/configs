@@ -1,4 +1,4 @@
-export const CONFIGS_CONFIG_FILE_NAME = 'configs.config.cjs';
+export const CONFIGS_CONFIG_FILE_NAME = 'configs.config.mjs';
 
 export const DEFAULT_CONFIGS_CONFIG = {
   features: {

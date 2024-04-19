@@ -47,7 +47,8 @@ npm uninstall -g @donniean/configs
 Delete files
 
 ```shell
-rm configs.config.cjs
+rm configs.config.mjs
+npm pkg delete devDependencies.@donniean/configs
 
 # AutoCorrect
 npm pkg delete \
@@ -188,55 +189,4 @@ npm pkg delete \
 
 rm package-lock.json
 rm -rf **/node_modules/
-```
-
-Delete legacy files
-
-```shell
-# legacy
-rm \
-  commitlint.config.cjs \
-  prettier.config.cjs \
-  stylelint.config.cjs
-
-# previous versions
-rm \
-  .configsrc.js \
-  configs.config.js
-
-rm \
-  cspell.config.js \
-  dictionaries/ \
-  .commitlintrc.js \
-  commitlint.config.js \
-  .czrc \
-  .eslintrc.js \
-  .lintstagedrc.js \
-  lint-staged.config.js \
-  lint-staged.config.cjs \
-  .prettierrc.js \
-  prettier.config.js \
-  .stylelintrc.js \
-  stylelint.config.js
-
-npm pkg delete \
-  scripts.prettier \
-  scripts.eslint \
-  scripts.stylelint \
-  scripts.cspell \
-  scripts.sort-package-json \
-  config \
-  devDependencies.@babel/core \
-  devDependencies.@babel/eslint-parser \
-  devDependencies.@stylelint/postcss-css-in-js \
-  devDependencies.eslint-import-resolver-webpack \
-  devDependencies.eslint-plugin-html \
-  devDependencies.eslint-plugin-node \
-  devDependencies.eslint-plugin-prettier \
-  devDependencies.postcss-syntax \
-  devDependencies.stylelint-config-prettier \
-  devDependencies.stylelint-config-rational-order \
-  devDependencies.stylelint-config-styled-components \
-  devDependencies.stylelint-order \
-  devDependencies.stylelint-prettier
 ```

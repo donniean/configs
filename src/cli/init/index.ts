@@ -8,7 +8,7 @@ import {
 import type { ConfigsConfig } from '@/types/configs-config';
 import {
   outputConfigsConfig,
-  readConfigsConfigSync,
+  readConfigsConfig,
   sortConfigsConfig,
 } from '@/utils/configs-config';
 import logger from '@/utils/logger';
@@ -52,7 +52,7 @@ function answersToConfigsConfig({
 }
 
 async function init() {
-  const currentConfigsConfig = readConfigsConfigSync();
+  const currentConfigsConfig = await readConfigsConfig();
   const options = currentConfigsConfig ? { currentConfigsConfig } : undefined;
   const answers = await prompt(options);
   const configsConfig = answersToConfigsConfig({

@@ -3,7 +3,7 @@ import { makeJavaScriptOnlyValue } from '@/utils/misc';
 import type { ESLintConfig } from '../types';
 import { airbnbBase } from '../utils';
 
-// @ts-expect-error no error
+// @ts-expect-error: no error
 const noParamReassignOptions = airbnbBase.bestPractices.rules?.[
   'no-param-reassign'
 ]?.[1] as { ignorePropertyModificationsFor: string[] };
@@ -20,7 +20,7 @@ function getConfig(): ESLintConfig {
   return {
     extends: ['airbnb/hooks', 'plugin:react/jsx-runtime'],
     rules: {
-      // @ts-expect-error no error
+      // @ts-expect-error: no error
       'no-console': makeJavaScriptOnlyValue(
         `process.env.NODE_ENV === 'development' ? 'off' : ['error', { allow: ['warn', 'error'] }]`,
       ),
