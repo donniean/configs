@@ -28,7 +28,7 @@ export type MergeJsonFileSyncOptions = OutputJsonFileSyncOptions;
 export interface OutputCjsFileSyncOptions {
   filePath: string;
   data: JsonObjectOrArray;
-  leadingComments?: string;
+  banner?: string;
   isFormat?: boolean;
 }
 
@@ -39,19 +39,19 @@ export type OutputFormatFileSyncOptions =
       filePath: string;
       format: 'esm' | 'cjs';
       data: JsonObjectOrArray;
-      leadingComments?: string;
+      banner?: string;
     }
   | {
       filePath: string;
       format: 'json';
       data: JsonObjectOrArray;
-      leadingComments?: undefined;
+      banner?: undefined;
     }
   | {
       filePath: string;
       format: 'text';
       data: string;
-      leadingComments?: undefined;
+      banner?: undefined;
     };
 
 export interface CopySyncOptions extends FsCopySyncOptions {

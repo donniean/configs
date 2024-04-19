@@ -11,4 +11,5 @@ export default defineConfig(({ watch }) => ({
   sourcemap: true,
   replaceNodeEnv: true,
   clean: true,
+  shims: true,
 }));

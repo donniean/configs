@@ -10,7 +10,7 @@ const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const root = path.resolve(
   dirname,
-  ...(env.isProduction ? ['..'] : ['..', '..', '..']),
+  ...(env.isTest ? ['..', '..', '..'] : ['..']),
 );
 
 const cwd = process.cwd();

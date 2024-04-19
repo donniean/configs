@@ -129,6 +129,6 @@ export function getConfig({
     outputFileName: '.eslintrc.cjs',
     format: 'cjs',
     data: data as JsonObject,
-    leadingComments: '/** @type {import("eslint").Linter.Config} */',
+    banner: '/** @type {import("eslint").Linter.Config} */',
   };
 }

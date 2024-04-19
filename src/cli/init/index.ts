@@ -12,17 +12,15 @@ import {
   sortConfigsConfig,
 } from '@/utils/configs-config';
 import logger from '@/utils/logger';
+import {
+  fetchPackageLatestVersion,
+  mergeCwdPackageJsonSync,
+  readRootPackageJsonSync,
+  sortCwdPackageJsonSync,
+} from '@/utils/package-json';
 
 import prompt from './prompt';
 import type { InitAnswers } from './types';
-
-/* function arrayToBooleanValueObject<T extends string>(keys: T[]) {
-  const result: { [key in T]?: boolean } = {};
-  keys.forEach(key => {
-    result[key] = true;
-  });
-  return result;
-} */
 
 function answersToConfigsConfig({
   currentConfigsConfig,
@@ -51,6 +49,22 @@ function answersToConfigsConfig({
   return sortConfigsConfig(cleanDeep(configsConfig));
 }
 
+async function addDependencies() {
+  const packageName = readRootPackageJsonSync()?.name;
+
+  if (!packageName) {
+    return;
+  }
+
+  const version = await fetchPackageLatestVersion(packageName);
+
+  mergeCwdPackageJsonSync({
+    data: { devDependencies: { [packageName]: `^${version}` } },
+  });
+
+  sortCwdPackageJsonSync();
+}
+
 async function init() {
   const currentConfigsConfig = await readConfigsConfig();
   const options = currentConfigsConfig ? { currentConfigsConfig } : undefined;
@@ -61,13 +75,18 @@ async function init() {
   });
   await outputConfigsConfig({ data: configsConfig });
 
+  await addDependencies();
+
+  logger.messageOnly('Please run: ', { isLfBefore: true, isLfAfter: true });
+  logger.messageOnly('npm install', { isInverseMessage: true });
+
   logger.messageOnly(
     `You can modify the ${logger.command(
       CONFIGS_CONFIG_FILE_NAME,
     )} file, and run: `,
     { isLfBefore: true },
   );
-  logger.messageOnly('configs create', {
+  logger.messageOnly('npm install && configs create', {
     isLfBefore: true,
     isInverseMessage: true,
   });
