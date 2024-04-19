@@ -1,12 +1,16 @@
 import { createRequire } from 'node:module';
 import path from 'node:path';
+import * as process from 'node:process';
 import { fileURLToPath } from 'node:url';
 
 import type { FeatureKey } from '@/types/features';
+import * as env from '@/utils/env';
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const root = path.resolve(dirname, '..', '..', '..');
+const root = env.isProduction
+  ? path.resolve(dirname, '..')
+  : path.resolve(dirname, '..', '..', '..');
 
 const cwd = process.cwd();
 

@@ -36,8 +36,7 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "import": "./dist/index.js"
     }
   },
   "bin": {
@@ -50,10 +49,8 @@
   ],
   "scripts": {
     "prebuild": "npm run clean",
-    "build": "tsc && tsc-alias",
-    "postbuild": "npm run build-fix",
-    "build-fix": "tsc-esm-fix --target='dist/'",
-    "build:watch": "npm run clean && tsc --watch & tsc-alias --watch & nodemon --exec 'npm run build-fix'",
+    "build": "tsup",
+    "build:watch": "npm run build -- --watch",
     "clean": "rimraf ./dist/",
     "commit": "cz",
     "lint:cspell": "cspell lint --no-progress --relative --no-must-find-files --dot --gitignore \"**\"",
@@ -145,8 +142,7 @@
     "rimraf": "^5.0.5",
     "semantic-release": "^23.0.8",
     "sort-package-json": "^2.10.0",
-    "tsc-alias": "^1.8.8",
-    "tsc-esm-fix": "^2.20.26",
+    "tsup": "^8.0.2",
     "typescript": "^5.4.5",
     "vitest": "^1.5.0"
   },

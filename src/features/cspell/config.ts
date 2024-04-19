@@ -58,6 +58,7 @@ export function getConfig({
         'svgr',
         'tailwindcss',
         'tanstack',
+        'tsup',
         'vitest',
         'zustand',
         // TypeScript
