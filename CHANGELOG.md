@@ -1,3 +1,9 @@
+# [6.22.0](https://github.com/donniean/configs/compare/v6.21.0...v6.22.0) (2024-04-19)
+
+### Features
+
+- supports configs.config.mjs ([#699](https://github.com/donniean/configs/issues/699)) ([c168283](https://github.com/donniean/configs/commit/c1682836ed0d3cdd591c31a0f30533ced99c9866))
+
 # [6.21.0](https://github.com/donniean/configs/compare/v6.20.0...v6.21.0) (2024-04-18)
 
 ### Features
