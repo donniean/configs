@@ -8,9 +8,10 @@ import * as env from '@/utils/env';
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const root = env.isProduction
-  ? path.resolve(dirname, '..')
-  : path.resolve(dirname, '..', '..', '..');
+const root = path.resolve(
+  dirname,
+  ...(env.isProduction ? ['..'] : ['..', '..', '..']),
+);
 
 const cwd = process.cwd();
 
