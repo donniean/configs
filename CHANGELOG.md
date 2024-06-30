@@ -1,3 +1,9 @@
+## [6.23.1](https://github.com/donniean/configs/compare/v6.23.0...v6.23.1) (2024-06-30)
+
+### Bug Fixes
+
+- format configs.config file ([#795](https://github.com/donniean/configs/issues/795)) ([5fc47e1](https://github.com/donniean/configs/commit/5fc47e1800b7c516f72a082888ae32b67d86fe8f))
+
 # [6.23.0](https://github.com/donniean/configs/compare/v6.22.0...v6.23.0) (2024-04-19)
 
 ### Features

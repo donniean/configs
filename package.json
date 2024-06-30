@@ -1,6 +1,6 @@
 {
   "name": "@donniean/configs",
-  "version": "6.23.0",
+  "version": "6.23.1",
   "description": "an opinionated configs generator",
   "keywords": [
     "autocorrect",
