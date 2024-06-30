@@ -26,6 +26,7 @@ async function outputConfigsConfig({
   data,
 }: OutputConfigsConfigSyncOptions) {
   const content = `import { defineConfig } from '@donniean/configs';
+
 export default defineConfig(${JSON.stringify(data)});
   `;
   await files.outputFile({ filePath, data: content, isFormat: true });
