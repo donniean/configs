@@ -53,6 +53,7 @@ export function getConfig({
         'htmlhint',
         'immer',
         'markdownlint',
+        'npmjs',
         'sonarjs',
         'stylelint',
         'svgr',
