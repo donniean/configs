@@ -1,5 +1,11 @@
 ## [6.23.1](https://github.com/donniean/configs/compare/v6.23.0...v6.23.1) (2024-06-30)
 
+## 6.23.2
+
+### Patch Changes
+
+- [#857](https://github.com/donniean/configs/pull/857) [`f8bc639`](https://github.com/donniean/configs/commit/f8bc639610cba2a6a7c65a18fe344608e712b2a3) Thanks [@donniean](https://github.com/donniean)! - chore: bump dependencies
+
 ### Bug Fixes
 
 - format configs.config file ([#795](https://github.com/donniean/configs/issues/795)) ([5fc47e1](https://github.com/donniean/configs/commit/5fc47e1800b7c516f72a082888ae32b67d86fe8f))
