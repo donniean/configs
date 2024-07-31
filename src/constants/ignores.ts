@@ -28,7 +28,11 @@ export const CSPELL_IGNORE = [
 
 export const ESLINT_IGNORE = [...LINTER_IGNORE];
 
-export const MARKDOWNLINT_IGNORE = [...LINTER_IGNORE, ...CHANGELOG_IGNORE];
+export const MARKDOWNLINT_IGNORE = [
+  ...LINTER_IGNORE,
+  '.changeset/',
+  ...CHANGELOG_IGNORE,
+];
 
 export const PRETTIER_IGNORE = [...LINTER_IGNORE, '*.tsbuildinfo'];
 
