@@ -30,7 +30,7 @@ export const ESLINT_IGNORE = [...LINTER_IGNORE];
 
 export const MARKDOWNLINT_IGNORE = [
   ...LINTER_IGNORE,
-  '.changeset/*',
+  '.changeset/',
   ...CHANGELOG_IGNORE,
 ];
 
