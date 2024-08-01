@@ -4,9 +4,6 @@ on:
 
 jobs:
   auto-update:
-    runs-on: ubuntu-latest
-    steps:
-      # cspell:disable-next-line
-      - uses: docker://chinthakagodawita/autoupdate-action:v1
-        env:
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+    uses: donniean/collections/.github/workflows/pull-requests.auto-update.yml@main
+    secrets:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
