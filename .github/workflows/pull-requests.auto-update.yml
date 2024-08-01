@@ -1,4 +1,4 @@
-name: Pull Requests Auto-Updates
+name: Pull Requests Auto-Update
 on:
   push:
 

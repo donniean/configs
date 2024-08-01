@@ -1,7 +1,7 @@
-name: Pull Requests Auto-Updates
+name: Pull Requests Auto-Merge
 on:
   push:
 
 jobs:
-  auto-update:
+  auto-merge:
     uses: donniean/collections/.github/workflows/pull-requests.auto-merge.yml@main
