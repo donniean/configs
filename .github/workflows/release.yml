@@ -26,12 +26,16 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Generate a Token
-        id: generate-token
-        uses: actions/create-github-app-token@v1
+      - name: Import GPG Key
+        # cspell: disable-next-line
+        uses: crazy-max/ghaction-import-gpg@v6
         with:
-          app-id: ${{ secrets.APP_ID }}
-          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.GPG_PASSPHRASE }}
+          # cspell: disable-next-line
+          git_user_signingkey: true
+          # cspell: disable-next-line
+          git_commit_gpgsign: true
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
@@ -40,6 +44,7 @@ jobs:
           publish: npm run changeset:publish
           commit: 'chore(changesets): version packages'
           title: 'chore(changesets): version packages'
+          setupGitUser: false
         env:
-          GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
