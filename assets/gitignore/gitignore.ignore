@@ -40,7 +40,7 @@ atlassian-ide-plugin.xml
 .history/
 
 # Node.js
-node_modules/
+**/node_modules/
 
 # Yarn
 .yarn/*
@@ -74,7 +74,7 @@ config/local-*.*
 coverage/
 
 # Production
-dist/
+**/dist/
 
 # Next.js
 .next/
