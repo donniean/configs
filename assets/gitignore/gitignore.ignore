@@ -7,7 +7,7 @@
 .idea/**/tasks.xml
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
-.idea/**/shelf/
+.idea/**/shelf
 ## AWS User-specific
 .idea/**/aws.xml
 ## Generated files
@@ -43,11 +43,10 @@ atlassian-ide-plugin.xml
 node_modules/
 
 # Yarn
-.pnp.*
 .yarn/*
+!.yarn/releases
 !.yarn/patches
 !.yarn/plugins
-!.yarn/releases
 !.yarn/sdks
 !.yarn/versions
 
