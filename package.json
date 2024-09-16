@@ -81,7 +81,7 @@
     "clean-deep": "^3.4.0",
     "commander": "^12.1.0",
     "cosmiconfig": "^9.0.0",
-    "date-fns": "^3.6.0",
+    "date-fns": "^4.0.0",
     "deepmerge": "^4.3.1",
     "eslint": "^8.57.0",
     "eslint-config-airbnb-base": "^15.0.0",
