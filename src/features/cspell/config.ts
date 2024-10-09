@@ -54,6 +54,7 @@ export function getConfig({
         'immer',
         'markdownlint',
         'npmjs',
+        'numbro',
         'rimraf',
         'sonarjs',
         'stylelint',

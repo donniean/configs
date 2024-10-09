@@ -54,6 +54,7 @@ module.exports = {
     'immer',
     'markdownlint',
     'npmjs',
+    'numbro',
     'rimraf',
     'sonarjs',
     'stylelint',
