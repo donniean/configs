@@ -1,5 +1,11 @@
 # @donniean/configs
 
+## 6.23.5
+
+### Patch Changes
+
+- [#959](https://github.com/donniean/configs/pull/959) [`c51f2c1`](https://github.com/donniean/configs/commit/c51f2c12dfce059043a57554fa4307aef67b607e) Thanks [@donniean](https://github.com/donniean)! - chore: add numbro to cSpell words
+
 ## 6.23.4
 
 ### Patch Changes
