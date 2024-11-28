@@ -1,5 +1,11 @@
 # @donniean/configs
 
+## 6.23.6
+
+### Patch Changes
+
+- [#1015](https://github.com/donniean/configs/pull/1015) [`ca86f84`](https://github.com/donniean/configs/commit/ca86f849c96a67bf22b8213397e7febee59f528b) Thanks [@donniean](https://github.com/donniean)! - chore: update configs
+
 ## 6.23.5
 
 ### Patch Changes
