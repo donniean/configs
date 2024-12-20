@@ -5,6 +5,7 @@ const LINTER_IGNORE = [
   'coverage/',
   'dist/',
   '.next/',
+  '**/*.min.*',
 ];
 
 const CHANGELOG_IGNORE = ['CHANGELOG.md'];
