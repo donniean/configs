@@ -79,7 +79,7 @@
   "dependencies": {
     "chalk": "^5.4.1",
     "clean-deep": "^3.4.0",
-    "commander": "^12.1.0",
+    "commander": "^13.0.0",
     "cosmiconfig": "^9.0.0",
     "date-fns": "^4.1.0",
     "deepmerge": "^4.3.1",
