@@ -90,7 +90,7 @@
     "latest-version": "^9.0.0",
     "lodash-es": "^4.17.21",
     "micromatch": "^4.0.8",
-    "nanoid": "^5.0.9",
+    "nanoid": "^5.1.0",
     "ora": "^8.2.0",
     "parse-glob": "^3.0.4",
     "prettier": "^3.5.1",
