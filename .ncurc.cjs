@@ -5,6 +5,7 @@ module.exports = {
     '@typescript-eslint/parser',
     'eslint',
     'eslint-plugin-sonarjs',
+    'eslint-plugin-unicorn',
     'eslint-plugin-vitest',
   ],
 };
