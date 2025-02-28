@@ -1,5 +1,11 @@
 # @donniean/configs
 
+## 6.23.8
+
+### Patch Changes
+
+- [#1124](https://github.com/donniean/configs/pull/1124) [`aff8879`](https://github.com/donniean/configs/commit/aff88798d86321b12d82b273887e0aad9158a8df) Thanks [@donniean](https://github.com/donniean)! - chore: update configs
+
 ## 6.23.7
 
 ### Patch Changes
