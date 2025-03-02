@@ -48,7 +48,6 @@ module.exports = {
     'corepack',
     'cssnano',
     'deepmerge',
-    'depcheck',
     'donniean',
     'htmlhint',
     'immer',
