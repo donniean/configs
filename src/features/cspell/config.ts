@@ -48,7 +48,6 @@ export function getConfig({
         'corepack',
         'cssnano',
         'deepmerge',
-        'depcheck',
         'donniean',
         'htmlhint',
         'immer',
