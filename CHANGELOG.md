@@ -1,5 +1,11 @@
 # @donniean/configs
 
+## 6.23.9
+
+### Patch Changes
+
+- [#1129](https://github.com/donniean/configs/pull/1129) [`e1a5287`](https://github.com/donniean/configs/commit/e1a52874f1460a16968bfee1562d240d40f673d5) Thanks [@donniean](https://github.com/donniean)! - chore(cspell): remove 'depcheck' from configuration
+
 ## 6.23.8
 
 ### Patch Changes
