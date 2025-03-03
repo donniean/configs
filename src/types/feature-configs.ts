@@ -9,7 +9,7 @@ export type FeaturePackageJson = Pick<
   'scripts' | 'devDependencies'
 >;
 
-export type FeatureConfigData = JsonObjectOrArray | string;
+type FeatureConfigData = JsonObjectOrArray | string;
 
 export type FeatureConfig<T extends FeatureConfigData> =
   | {

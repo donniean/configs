@@ -30,7 +30,7 @@ const LEVEL_MAP = {
 };
 
 export function lf(lineNumber?: number) {
-  const length = lineNumber ? (lineNumber > 0 ? lineNumber : 1) : 1;
+  const length = lineNumber && lineNumber > 0 ? lineNumber : 1;
   const lines = Array.from({ length }).join('\n');
   consoleLog(lines);
 }

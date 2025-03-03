@@ -1,8 +1,6 @@
 import type { MergeJsonFileSyncOptions } from '@/utils/files/types';
 
-export type OutputPackageJsonSyncOptions = Pick<
+export type MergePackageJsonSyncOptions = Pick<
   MergeJsonFileSyncOptions,
   'data'
 >;
-
-export type MergePackageJsonSyncOptions = OutputPackageJsonSyncOptions;

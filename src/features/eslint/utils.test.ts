@@ -1,13 +1,6 @@
 import { describe, expect, test } from 'vitest';
 
-import type { ESLintConfig } from './types';
-import {
-  hasNextFn,
-  hasPrettierFn,
-  hasReactFn,
-  hasTypeScriptFn,
-  sortESLintConfig,
-} from './utils';
+import { hasNextFn, hasPrettierFn, hasReactFn, hasTypeScriptFn } from './utils';
 
 describe('test hasTypeScriptFn', () => {
   test('no ESLint patterns', () => {
@@ -142,51 +135,5 @@ describe('test hasPrettierFn', () => {
       },
     };
     expect(hasPrettierFn(normalizedConfigsConfig)).toBe(true);
-  });
-});
-
-describe('test sortESLintConfig', () => {
-  test('sortESLintConfig', () => {
-    const config: ESLintConfig = {
-      rules: {
-        'sort-imports': 'off',
-      },
-      root: true,
-      extends: ['prettier'],
-      overrides: [
-        {
-          files: ['**/*.{mjs,ts}'],
-          plugins: [],
-          rules: {
-            'sort-imports': 'off',
-          },
-        },
-      ],
-      parserOptions: {
-        sourceType: 'module',
-      },
-      plugins: ['simple-import-sort'],
-    };
-    expect(JSON.stringify(sortESLintConfig(config))).toBe(
-      JSON.stringify({
-        root: true,
-        parserOptions: {
-          sourceType: 'module',
-        },
-        extends: ['prettier'],
-        plugins: ['simple-import-sort'],
-        rules: {
-          'sort-imports': 'off',
-        },
-        overrides: [
-          {
-            files: ['**/*.{mjs,ts}'],
-            rules: {
-              'sort-imports': 'off',
-            },
-          },
-        ],
-      }),
-    );
   });
 });

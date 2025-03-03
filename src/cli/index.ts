@@ -7,7 +7,7 @@ import init from './init';
 
 export default function cli() {
   const program = new Command();
-  const version = readRootPackageJsonSync()?.version;
+  const version = readRootPackageJsonSync().version;
 
   if (version) {
     program.version(version, '-v, --version');

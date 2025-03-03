@@ -16,10 +16,8 @@ export default async function handler({
   const normalizedConfigsConfig = normalizeConfigsConfig(configsConfig);
   const { features: normalizedFeatures } = normalizedConfigsConfig;
 
-  // eslint-disable-next-line no-restricted-syntax
   for (const { key } of FEATURE_OPTIONS) {
     if (normalizedFeatures?.[key]) {
-      // eslint-disable-next-line no-await-in-loop
       const isSuccess = await handleFeature({
         featureKey: key,
         normalizedConfigsConfig,
@@ -48,7 +46,7 @@ export default async function handler({
   FEATURE_OPTIONS.forEach(({ key }) => {
     if (normalizedFeatures?.[key]) {
       // @ts-expect-error: has onAfterAllSuccess
-      const onAfterAllSuccess = features[key]?.onAfterAllSuccess as
+      const onAfterAllSuccess = features[key].onAfterAllSuccess as
         | OnAfterAllSuccess
         | undefined;
       if (typeof onAfterAllSuccess === 'function') {

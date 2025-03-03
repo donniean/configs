@@ -62,7 +62,7 @@ function getData(
         const pattern = `*.${hasTypeScript ? 'ts' : 'js'}`;
         data = addCommand({ data, pattern, command });
       } else {
-        const patterns = features[key]?.patterns ?? [];
+        const patterns = features[key].patterns ?? [];
         if (key === 'sort-package-json') {
           const basenameList = patterns.map((pattern) => {
             const { path } = parseGlob(pattern);

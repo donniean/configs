@@ -12,12 +12,12 @@ const FEATURE_KEY_MAP = {
   htmlhint: 'htmlhint',
   markdownlint: 'markdownlint',
   cspell: 'cspell',
-  // eslint-disable-next-line sonarjs/no-duplicate-string
+
   'sort-package-json': 'sort-package-json',
   vitest: 'vitest',
   commitlint: 'commitlint',
   commitizen: 'commitizen',
-  // eslint-disable-next-line sonarjs/no-duplicate-string
+
   'lint-staged': 'lint-staged',
   husky: 'husky',
 } as const;
@@ -77,9 +77,4 @@ const FEATURE_OPTIONS: Option<FeatureKey>[] = [
   { key: FEATURE_KEY_MAP.husky, displayName: 'husky' },
 ];
 
-export {
-  FEATURE_KEY_MAP,
-  FEATURE_KEYS,
-  FEATURE_OPTIONS,
-  HAS_LINTS_FEATURE_KEYS,
-};
+export { FEATURE_KEYS, FEATURE_OPTIONS, HAS_LINTS_FEATURE_KEYS };

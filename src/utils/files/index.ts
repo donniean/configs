@@ -1,8 +1,8 @@
 import fs from 'fs-extra';
 import { merge } from 'lodash-es';
+// eslint-disable-next-line import/default
 import prettier from 'prettier';
 
-import type { JsonObjectOrArray } from '@/types/base';
 import logger from '@/utils/logger';
 import { stringifyJavaScript } from '@/utils/misc';
 
@@ -43,13 +43,11 @@ async function outputFile({
   logger.info(`output ${filePath}`);
 }
 
-function readJsonFileSync<T extends JsonObjectOrArray>({
-  filePath,
-}: ReadJsonFileSyncOptions): T | null {
+function readJsonFileSync({ filePath }: ReadJsonFileSyncOptions): unknown {
   return fs.readJsonSync(filePath, {
     encoding: 'utf8',
     throws: false,
-  }) as T | null;
+  });
 }
 
 function outputJsonFileSync({ filePath, data }: OutputJsonFileSyncOptions) {
@@ -139,10 +137,8 @@ function copySync({ src, dest, ...rest }: CopySyncOptions) {
 export {
   copySync,
   mergeJsonFileSync,
-  outputEsmFile,
   outputFile,
   outputFormatFile,
-  outputJsonFileSync,
   readFileSync,
   readJsonFileSync,
 };

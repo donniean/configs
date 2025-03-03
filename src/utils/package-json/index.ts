@@ -8,17 +8,14 @@ import * as files from '@/utils/files';
 import logger from '@/utils/logger';
 import * as paths from '@/utils/paths';
 
-import type {
-  MergePackageJsonSyncOptions,
-  // OutputPackageJsonSyncOptions,
-} from './types';
+import type { MergePackageJsonSyncOptions } from './types';
 
 export function readRootPackageJsonSync() {
   const filePath = paths.resolveRoot('package.json');
-  return files.readJsonFileSync<PackageJson>({ filePath });
+  return files.readJsonFileSync({ filePath }) as PackageJson;
 }
 
-export function existsCwdPackageJsonSync() {
+function existsCwdPackageJsonSync() {
   return fs.existsSync(paths.cwdPackageJson);
 }
 

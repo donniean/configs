@@ -1,4 +1,3 @@
-import { createRequire } from 'node:module';
 import path from 'node:path';
 import * as process from 'node:process';
 import { fileURLToPath } from 'node:url';
@@ -29,16 +28,4 @@ function resolveCwd(...paths: string[]) {
 
 const cwdPackageJson = resolveCwd('package.json');
 
-function requireRoot<T>(relativePath: string) {
-  return createRequire(import.meta.url)(resolveRoot(relativePath)) as T;
-}
-
-export {
-  cwd,
-  cwdPackageJson,
-  requireRoot,
-  resolveAssets,
-  resolveCwd,
-  resolveRoot,
-  root,
-};
+export { cwdPackageJson, resolveAssets, resolveCwd, resolveRoot };

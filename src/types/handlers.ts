@@ -15,7 +15,7 @@ export interface HandleExtrasOptions {
   getIgnore?: GetIgnore;
 }
 
-export type HandleExtras = (options: HandleExtrasOptions) => void;
+type HandleExtras = (options: HandleExtrasOptions) => void;
 
 export interface HandleFeatureOptions {
   featureKey: FeatureKey;

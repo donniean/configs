@@ -4,7 +4,7 @@ import type {
 } from '@/types/feature-configs';
 import { getPatternsString } from '@/utils/misc';
 
-import * as base from './rules/base';
+/* import * as base from './rules/base';
 import * as next from './rules/next';
 import * as node from './rules/node';
 import * as prettier from './rules/prettier';
@@ -18,9 +18,9 @@ import {
   hasReactFn,
   hasTypeScriptFn,
   hasVitestFn,
-} from './utils';
+} from './utils'; */
 
-function getDevDependencies(
+/* function getDevDependencies(
   normalizedConfigsConfig: GetPackageJsonOptions['normalizedConfigsConfig'],
 ) {
   const hasPrettier = hasPrettierFn(normalizedConfigsConfig);
@@ -30,7 +30,7 @@ function getDevDependencies(
   const hasNode = hasNodeFn(normalizedConfigsConfig);
   const hasVitest = hasVitestFn(normalizedConfigsConfig);
 
-  const baseDevDependencies = base.getDevDependencies({ hasReact });
+  const baseDevDependencies = base.getDevDependencies();
   const prettierDevDependencies = prettier.getDevDependencies();
   const typescriptDevDependencies = typescript.getDevDependencies();
   const reactDevDependencies = react.getDevDependencies();
@@ -58,20 +58,20 @@ function getDevDependencies(
     ...finalNodeDevDependencies,
     ...finalVitestDevDependencies,
   };
-}
+} */
 
 export function getPackageJson({
   normalizedConfigsConfig,
 }: GetPackageJsonOptions): FeaturePackageJson {
   const patterns = normalizedConfigsConfig.features?.eslint?.patterns ?? [];
   const patternsString = getPatternsString(patterns);
-  const devDependencies = getDevDependencies(normalizedConfigsConfig);
+  // const devDependencies = getDevDependencies(normalizedConfigsConfig);
 
   return {
     scripts: {
       'lint:eslint': `eslint ${patternsString}`,
       'lint:eslint:fix': `npm run lint:eslint -- --fix`,
     },
-    devDependencies,
+    // devDependencies,
   };
 }
