@@ -1,6 +1,5 @@
 import fs from 'fs-extra';
 import { merge } from 'lodash-es';
-// eslint-disable-next-line import/default
 import prettier from 'prettier';
 
 import logger from '@/utils/logger';
