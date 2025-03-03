@@ -1,24 +1,31 @@
 {
-  "extends": "@tsconfig/node-lts/tsconfig.json",
+  "extends": ["@tsconfig/node-lts/tsconfig.json"],
   "compilerOptions": {
-    // strict
-    "strict": true,
+    // https://github.com/withastro/astro/blob/main/packages/astro/tsconfigs/base.json
+    "resolveJsonModule": true,
     "verbatimModuleSyntax": true,
-    // strictest
-    "allowUnusedLabels": false,
-    "allowUnreachableCode": false,
-    "exactOptionalPropertyTypes": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // https://github.com/withastro/astro/blob/main/packages/astro/tsconfigs/strict.json
+    "strict": true,
+
+    // https://github.com/withastro/astro/blob/main/packages/astro/tsconfigs/strictest.json
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
-    "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+
     // checkJs
     "allowJs": true,
     "checkJs": true,
+
     // custom
-    "module": "esnext",
+    "module": "ESNext",
     "moduleResolution": "node",
     "declaration": true,
     "declarationMap": true,
