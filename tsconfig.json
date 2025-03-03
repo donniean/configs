@@ -1,5 +1,5 @@
 {
-  "extends": "@tsconfig/node-lts/tsconfig.json",
+  "extends": ["@tsconfig/node-lts/tsconfig.json"],
   "compilerOptions": {
     // https://github.com/withastro/astro/blob/main/packages/astro/tsconfigs/base.json
     "resolveJsonModule": true,
