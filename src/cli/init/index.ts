@@ -50,7 +50,7 @@ function answersToConfigsConfig({
 }
 
 async function addDependencies() {
-  const packageName = readRootPackageJsonSync()?.name;
+  const packageName = readRootPackageJsonSync().name;
 
   if (!packageName) {
     return;

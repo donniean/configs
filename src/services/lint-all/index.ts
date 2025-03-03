@@ -11,7 +11,7 @@ export async function addLintAllToNpmScripts({
 }: {
   normalizedConfigsConfig: NormalizedConfigsConfig;
 }) {
-  const featureKeys = Object.keys(normalizedConfigsConfig?.features ?? {});
+  const featureKeys = Object.keys(normalizedConfigsConfig.features ?? {});
   const hasLints = HAS_LINTS_FEATURE_KEYS.some((key) =>
     featureKeys.includes(key),
   );

@@ -82,6 +82,8 @@ rm -rf dictionaries/
 # EditorConfig
 rm .editorconfig
 
+<!-- TODO: ESLint uninstallation -->
+
 # ESLint
 npm pkg delete \
   scripts.lint:eslint \
