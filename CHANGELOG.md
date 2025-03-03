@@ -1,5 +1,11 @@
 # @donniean/configs
 
+## 6.23.10
+
+### Patch Changes
+
+- [#1131](https://github.com/donniean/configs/pull/1131) [`e11e9fb`](https://github.com/donniean/configs/commit/e11e9fb54e2310307289c336b31d96d55fd2c54b) Thanks [@donniean](https://github.com/donniean)! - feat: support ESLint flat config
+
 ## 6.23.9
 
 ### Patch Changes
