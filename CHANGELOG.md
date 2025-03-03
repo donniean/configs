@@ -1,5 +1,11 @@
 # @donniean/configs
 
+## 6.23.11
+
+### Patch Changes
+
+- [#1134](https://github.com/donniean/configs/pull/1134) [`57f48b3`](https://github.com/donniean/configs/commit/57f48b3f800e56ad5e21426c14a2b4a68beeda76) Thanks [@donniean](https://github.com/donniean)! - chore: bump
+
 ## 6.23.10
 
 ### Patch Changes
