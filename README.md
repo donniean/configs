@@ -243,6 +243,7 @@ npm pkg delete \
   devDependencies.eslint-config-airbnb-typescript
 rm \
   .eslintrc.cjs \
+  eslint.legacy.mjs \
   .eslintignore
 
 # HTMLHint

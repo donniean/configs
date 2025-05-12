@@ -5,7 +5,7 @@ import eslintPluginEslintCommentsConfigs from '@eslint-community/eslint-plugin-e
 import eslintPluginVitest from '@vitest/eslint-plugin';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
-import eslintPluginImportX from 'eslint-plugin-import-x';
+import * as eslintPluginImportX from 'eslint-plugin-import-x';
 import eslintPluginN from 'eslint-plugin-n';
 import eslintPluginPromise from 'eslint-plugin-promise';
 import eslintPluginSimpleImportSort from 'eslint-plugin-simple-import-sort';
@@ -25,10 +25,6 @@ import typescriptEslint from 'typescript-eslint';
  * https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb/index.js
  *
  */
-
-// eslint-plugin-import-x
-// https://github.com/francoismassart/eslint-plugin-tailwindcss
-// https://github.com/Kenneth-Sills/eslint-config-airbnb-typescript
 
 export default typescriptEslint.config([
   {
