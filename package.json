@@ -1,6 +1,6 @@
 {
   "name": "@donniean/configs",
-  "version": "6.23.11",
+  "version": "6.24.0",
   "description": "an opinionated configs generator",
   "keywords": [
     "autocorrect",
@@ -106,7 +106,6 @@
     "@changesets/cli": "^2.29.3",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
-    "@donniean/configs": "^6.23.11",
     "@eslint-community/eslint-plugin-eslint-comments": "^4.5.0",
     "@eslint/js": "^9.26.0",
     "@tsconfig/node-lts": "^22.0.1",

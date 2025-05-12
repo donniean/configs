@@ -1,5 +1,11 @@
 # @donniean/configs
 
+## 6.24.0
+
+### Minor Changes
+
+- [#1241](https://github.com/donniean/configs/pull/1241) [`190e9a8`](https://github.com/donniean/configs/commit/190e9a892c4bea7e6ce374eefc91d13fa044bd18) Thanks [@donniean](https://github.com/donniean)! - feat: supports npm-check-updates and knip
+
 ## 6.23.11
 
 ### Patch Changes
