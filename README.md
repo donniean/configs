@@ -81,9 +81,8 @@ rm cspell.config.cjs
 # EditorConfig
 rm .editorconfig
 
-# TODO: ESLint uninstallation
-
 # ESLint
+# TODO: ESLint uninstallation
 npm pkg delete \
   scripts.lint:eslint \
   scripts.lint:eslint:fix \
@@ -207,5 +206,87 @@ rm **/package-lock.json
 ### Legacy
 
 ```shell
+# AutoCorrect
+npm pkg delete \
+  scripts.lint:autocorrect \
+  scripts.lint:autocorrect:fix
 
+# CSpell
+npm pkg delete \
+  scripts.lint:cspell
+
+# ESLint
+# TODO: ESLint uninstallation
+npm pkg delete \
+  scripts.lint:eslint \
+  scripts.lint:eslint:fix \
+  devDependencies.@types/eslint \
+  devDependencies.eslint \
+  devDependencies.eslint-plugin-eslint-comments \
+  devDependencies.eslint-plugin-import \
+  devDependencies.eslint-plugin-promise \
+  devDependencies.eslint-plugin-simple-import-sort \
+  devDependencies.eslint-plugin-sonarjs \
+  devDependencies.eslint-plugin-unicorn \
+  devDependencies.@next/eslint-plugin-next \
+  devDependencies.eslint-plugin-n \
+  devDependencies.eslint-config-prettier \
+  devDependencies.eslint-plugin-jsx-a11y \
+  devDependencies.eslint-plugin-react \
+  devDependencies.eslint-plugin-react-hooks \
+  devDependencies.@typescript-eslint/eslint-plugin \
+  devDependencies.@typescript-eslint/parser \
+  devDependencies.eslint-import-resolver-typescript \
+  devDependencies.eslint-plugin-vitest \
+  devDependencies.eslint-config-airbnb \
+  devDependencies.eslint-config-airbnb-base \
+  devDependencies.eslint-config-airbnb-typescript
+rm \
+  .eslintrc.cjs \
+  .eslintignore
+
+# HTMLHint
+npm pkg delete \
+  scripts.lint:htmlhint
+
+# Knip
+npm pkg delete \
+  scripts.knip
+
+# markdownlint
+npm pkg delete \
+  scripts.lint:markdownlint \
+  scripts.lint:markdownlint:fix
+
+# npm-check-updates
+
+npm pkg delete \
+  scripts.ncu \
+  scripts.ncu:upgrade
+
+# Prettier
+npm pkg delete \
+  scripts.lint:prettier \
+  scripts.lint:prettier:fix
+
+# Sort Package.json
+npm pkg delete \
+  scripts.lint:sort-package-json \
+  scripts.lint:sort-package-json:fix
+
+# Stylelint
+npm pkg delete \
+  scripts.lint:stylelint \
+  scripts.lint:stylelint:fix
+
+# tsc
+npm pkg delete \
+  scripts.lint:tsc
+
+npm pkg delete \
+  scripts.lint:fix \
+  scripts.lint-all:fix
+
+rm -rf **/node_modules/
+rm **/package-lock.json
 ```
