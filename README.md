@@ -6,7 +6,7 @@ a configs generator
 
 ## Prerequisites
 
-- node >=20.0.0
+- node >=22.0.0
 
 ## Install
 
@@ -106,7 +106,7 @@ npm pkg delete \
   devDependencies.eslint-plugin-react-hooks \
   devDependencies.@typescript-eslint/eslint-plugin \
   devDependencies.@typescript-eslint/parser \
-  devDependencies.eslint-config-airbnb-typescript \
+  devDependencies.eslint-config-**airbnb**-typescript \
   devDependencies.eslint-import-resolver-typescript \
   devDependencies.eslint-plugin-vitest
 rm \
