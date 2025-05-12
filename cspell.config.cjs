@@ -65,7 +65,5 @@ module.exports = {
     'vitest',
     'zustand',
     'classname',
-    // custom
-    'czrc',
   ],
 };

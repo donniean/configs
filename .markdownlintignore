@@ -5,5 +5,5 @@
 **/dist/
 **/.next/
 **/*.min.*
-.changeset/
 **/CHANGELOG.md
+.changeset/

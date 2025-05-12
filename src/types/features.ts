@@ -15,7 +15,9 @@ export type FeatureKey =
   | 'sort-package-json'
   | 'vitest'
   | 'lint-staged'
-  | 'husky';
+  | 'husky'
+  | 'npm-check-updates'
+  | 'knip';
 
 export type HasPatternsFeatureKey = Extract<
   FeatureKey,
@@ -71,6 +73,8 @@ type HasNpmScriptsFeatureKey = Extract<
   | 'vitest'
   | 'lint-staged'
   | 'husky'
+  | 'npm-check-updates'
+  | 'knip'
 >;
 
 export type HasLintFeatureKey = Extract<

@@ -1,4 +1,6 @@
-export default {
+import { defineConfig } from '@donniean/configs';
+
+export default defineConfig({
   features: {
     gitignore: true,
     gitattributes: true,
@@ -30,5 +32,7 @@ export default {
     commitizen: true,
     'lint-staged': true,
     husky: true,
+    'npm-check-updates': true,
+    knip: true,
   },
-};
+});

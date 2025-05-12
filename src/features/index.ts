@@ -8,8 +8,10 @@ import * as gitattributes from './gitattributes';
 import * as gitignore from './gitignore';
 import * as htmlhint from './htmlhint';
 import * as husky from './husky';
+import * as knip from './knip';
 import * as lintStaged from './lint-staged';
 import * as markdownlint from './markdownlint';
+import * as npmCheckUpdates from './npm-check-updates';
 import * as prettier from './prettier';
 import * as sortPackageJson from './sort-package-json';
 import * as stylelint from './stylelint';
@@ -20,6 +22,8 @@ export default {
   commitizen,
   commitlint,
   cspell,
+  knip,
+  'npm-check-updates': npmCheckUpdates,
   editorconfig,
   autocorrect,
   eslint,

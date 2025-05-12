@@ -20,6 +20,9 @@ const FEATURE_KEY_MAP = {
 
   'lint-staged': 'lint-staged',
   husky: 'husky',
+
+  'npm-check-updates': 'npm-check-updates',
+  knip: 'knip',
 } as const;
 
 const FEATURE_KEYS = [
@@ -40,6 +43,8 @@ const FEATURE_KEYS = [
   FEATURE_KEY_MAP.commitizen,
   FEATURE_KEY_MAP['lint-staged'],
   FEATURE_KEY_MAP.husky,
+  FEATURE_KEY_MAP['npm-check-updates'],
+  FEATURE_KEY_MAP.knip,
 ] as const satisfies FeatureKey[];
 
 const HAS_LINTS_FEATURE_KEYS = [
@@ -75,6 +80,12 @@ const FEATURE_OPTIONS: Option<FeatureKey>[] = [
   { key: FEATURE_KEY_MAP.commitizen, displayName: 'Commitizen' },
   { key: FEATURE_KEY_MAP['lint-staged'], displayName: 'lint-staged' },
   { key: FEATURE_KEY_MAP.husky, displayName: 'husky' },
+
+  {
+    key: FEATURE_KEY_MAP['npm-check-updates'],
+    displayName: 'npm-check-updates',
+  },
+  { key: FEATURE_KEY_MAP.knip, displayName: 'Knip' },
 ];
 
 export { FEATURE_KEYS, FEATURE_OPTIONS, HAS_LINTS_FEATURE_KEYS };
