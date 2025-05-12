@@ -1,3 +1,5 @@
+import type { ConfigsConfig } from '@/types/configs-config';
+
 export const CONFIGS_CONFIG_FILE_NAME = 'configs.config.mjs';
 
 export const DEFAULT_CONFIGS_CONFIG = {
@@ -35,5 +37,7 @@ export const DEFAULT_CONFIGS_CONFIG = {
     commitizen: true,
     'lint-staged': true,
     husky: true,
+    'npm-check-updates': true,
+    knip: true,
   },
-};
+} as const satisfies ConfigsConfig;

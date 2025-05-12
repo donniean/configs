@@ -44,6 +44,8 @@ export interface ConfigsConfig {
     commitizen?: boolean;
     'lint-staged'?: boolean;
     husky?: boolean;
+    'npm-check-updates'?: boolean;
+    knip?: boolean;
   };
 }
 
@@ -66,5 +68,7 @@ export interface NormalizedConfigsConfig {
     commitizen?: true;
     'lint-staged'?: true;
     husky?: true;
+    'npm-check-updates'?: true;
+    knip?: true;
   };
 }
