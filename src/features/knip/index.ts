@@ -1,1 +1,1 @@
-export * from './knip';
+export * from './package-json';

@@ -77,12 +77,11 @@ npm pkg delete \
   scripts.lint:cspell \
   devDependencies.cspell
 rm cspell.config.cjs
-rm -rf dictionaries/
 
 # EditorConfig
 rm .editorconfig
 
-<!-- TODO: ESLint uninstallation -->
+# TODO: ESLint uninstallation
 
 # ESLint
 npm pkg delete \
@@ -90,8 +89,6 @@ npm pkg delete \
   scripts.lint:eslint:fix \
   devDependencies.@types/eslint \
   devDependencies.eslint \
-  devDependencies.eslint-config-airbnb \
-  devDependencies.eslint-config-airbnb-base \
   devDependencies.eslint-plugin-eslint-comments \
   devDependencies.eslint-plugin-import \
   devDependencies.eslint-plugin-promise \
@@ -106,9 +103,11 @@ npm pkg delete \
   devDependencies.eslint-plugin-react-hooks \
   devDependencies.@typescript-eslint/eslint-plugin \
   devDependencies.@typescript-eslint/parser \
-  devDependencies.eslint-config-**airbnb**-typescript \
   devDependencies.eslint-import-resolver-typescript \
-  devDependencies.eslint-plugin-vitest
+  devDependencies.eslint-plugin-vitest \
+  devDependencies.eslint-config-airbnb \
+  devDependencies.eslint-config-airbnb-base \
+  devDependencies.eslint-config-airbnb-typescript
 rm \
   .eslintrc.cjs \
   .eslintignore
@@ -131,6 +130,11 @@ npm pkg delete \
   devDependencies.husky
 rm -rf .husky/
 
+# Knip
+npm pkg delete \
+  scripts.knip \
+  devDependencies.knip
+
 # lint-staged
 npm pkg delete \
   scripts.pre-commit \
@@ -145,6 +149,13 @@ npm pkg delete \
 rm \
   .markdownlint.json \
   .markdownlintignore
+
+# npm-check-updates
+
+npm pkg delete \
+  scripts.ncu \
+  scripts.ncu:upgrade \
+  devDependencies.npm-check-updates
 
 # Prettier
 npm pkg delete \
@@ -189,6 +200,12 @@ npm pkg delete \
   devDependencies.@vitest/coverage-v8 \
   devDependencies.vitest
 
-rm package-lock.json
 rm -rf **/node_modules/
+rm **/package-lock.json
+```
+
+### Legacy
+
+```shell
+
 ```
