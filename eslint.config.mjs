@@ -96,7 +96,7 @@ export default typescriptEslint.config([
     name: 'custom/typescript',
     files: ['**/*.{ts,tsx}'],
     extends: [
-      typescriptEslint.configs.recommendedTypeChecked,
+      typescriptEslint.configs.strictTypeChecked,
       typescriptEslint.configs.stylisticTypeChecked,
       eslintPluginImportX.flatConfigs.typescript,
     ],

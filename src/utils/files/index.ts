@@ -1,6 +1,6 @@
 import fs from 'fs-extra';
 import { merge } from 'lodash-es';
-import prettier from 'prettier';
+import * as prettier from 'prettier';
 
 import logger from '@/utils/logger';
 import { stringifyJavaScript } from '@/utils/misc';
