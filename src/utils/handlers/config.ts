@@ -39,7 +39,11 @@ export async function handleConfig({
           format,
           banner,
         }));
-  } else if (format === 'text') {
-    await outputFormatFile({ filePath, data, format });
+  } else {
+    await outputFormatFile({
+      filePath,
+      data: typeof data === 'string' ? data : JSON.stringify(data, null, 2),
+      format,
+    });
   }
 }

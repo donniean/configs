@@ -37,12 +37,12 @@ function answersToConfigsConfig({
     featureKeys.map((featureKey) => `features.${featureKey}`),
   );
 
-  featureKeys.forEach((featureKey) => {
+  for (const featureKey of featureKeys) {
     features = {
       ...features,
       [featureKey]: DEFAULT_CONFIGS_CONFIG.features[featureKey],
     };
-  });
+  }
 
   const configsConfig = merge(null, pickedCurrentConfigsConfig, { features });
 
