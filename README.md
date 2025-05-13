@@ -291,3 +291,7 @@ npm pkg delete \
 rm -rf **/node_modules/
 rm **/package-lock.json
 ```
+
+## License
+
+[MIT](./LICENSE)
