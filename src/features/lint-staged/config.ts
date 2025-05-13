@@ -47,14 +47,14 @@ function addCommand({
   return result;
 }
 
+// eslint-disable-next-line sonarjs/cognitive-complexity
 function getData(
   normalizedConfigsConfig: GetConfigOptions['normalizedConfigsConfig'],
 ) {
   const { features } = normalizedConfigsConfig;
   let data: Record<string, string | string[]> = {};
 
-  // eslint-disable-next-line sonarjs/cognitive-complexity
-  Object.entries(COMMANDS).forEach(([featureKey, command]) => {
+  for (const [featureKey, command] of Object.entries(COMMANDS)) {
     const key = featureKey as HasLintStagedFeatureKey;
     if (features?.[key]) {
       if (key === 'vitest') {
@@ -68,21 +68,21 @@ function getData(
             const { path } = parseGlob(pattern);
             return path.basename;
           });
-          uniq(basenameList).forEach((basename) => {
+          for (const basename of uniq(basenameList)) {
             data = addCommand({ data, pattern: basename, command });
-          });
+          }
         } else {
           const finalPatterns: string[] =
             key === 'autocorrect' && patterns.length === 0 ? ['**'] : patterns;
 
-          finalPatterns.forEach((pattern) => {
+          for (const pattern of finalPatterns) {
             const { path } = parseGlob(pattern);
             data = addCommand({ data, pattern: `*${path.extname}`, command });
-          });
+          }
         }
       }
     }
-  });
+  }
 
   return data;
 }

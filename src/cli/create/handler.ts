@@ -43,7 +43,7 @@ export default async function handler({
   logger.messageOnly('Please run: ', { isLfAfter: true });
   logger.messageOnly('npm install', { isInverseMessage: true });
 
-  FEATURE_OPTIONS.forEach(({ key }) => {
+  for (const { key } of FEATURE_OPTIONS) {
     if (normalizedFeatures?.[key]) {
       // @ts-expect-error: has onAfterAllSuccess
       const onAfterAllSuccess = features[key].onAfterAllSuccess as
@@ -53,5 +53,5 @@ export default async function handler({
         onAfterAllSuccess({ featureKey: key, normalizedConfigsConfig });
       }
     }
-  });
+  }
 }
