@@ -61,6 +61,7 @@
     "clean": "rimraf dist/",
     "commit": "cz",
     "knip": "knip",
+    "link": "npm run build && npm link",
     "lint": "concurrently --group --timings --prefix-colors=auto \"npm:lint:*(!:fix)\"",
     "lint:cspell": "cspell lint --no-progress --relative --no-must-find-files --dot --gitignore \"**\"",
     "lint:eslint": "eslint \"**/*.{js,mjs,cjs,ts}\"",
