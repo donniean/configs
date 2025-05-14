@@ -4,7 +4,7 @@ import parseGlob from 'parse-glob';
 import type { FeatureConfig, GetConfigOptions } from '@/types/feature-configs';
 import type { HasLintStagedFeatureKey } from '@/types/features';
 
-const COMMANDS: Readonly<Record<HasLintStagedFeatureKey, string>> = {
+const COMMANDS = {
   'sort-package-json': 'sort-package-json',
   prettier: 'prettier --write --ignore-unknown',
   autocorrect: 'autocorrect --fix',
@@ -16,7 +16,7 @@ const COMMANDS: Readonly<Record<HasLintStagedFeatureKey, string>> = {
   cspell:
     'cspell lint --no-progress --relative --no-must-find-files --dot --gitignore',
   vitest: 'vitest related --run',
-};
+} as const satisfies Readonly<Record<HasLintStagedFeatureKey, string>>;
 
 function addCommand({
   data,
@@ -62,7 +62,8 @@ function getData(
         const pattern = `*.${hasTypeScript ? 'ts' : 'js'}`;
         data = addCommand({ data, pattern, command });
       } else {
-        const patterns = features[key].patterns;
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+        const patterns = features[key].patterns ?? [];
         if (key === 'sort-package-json') {
           const basenameList = patterns.map((pattern) => {
             const { path } = parseGlob(pattern);
