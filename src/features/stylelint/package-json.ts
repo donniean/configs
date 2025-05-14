@@ -47,7 +47,7 @@ export function getPackageJson({
   return {
     scripts: {
       'lint:css': `stylelint ${patternsString}`,
-      'lint:css:fix': `npm run lint:stylelint -- --fix`,
+      'lint:css:fix': `npm run lint:css -- --fix`,
     },
     devDependencies,
   };

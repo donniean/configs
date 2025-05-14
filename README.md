@@ -82,31 +82,9 @@ rm cspell.config.cjs
 rm .editorconfig
 
 # ESLint
-# TODO: ESLint uninstallation
 npm pkg delete \
   scripts.lint:js \
-  scripts.lint:js:fix \
-  devDependencies.@types/eslint \
-  devDependencies.eslint \
-  devDependencies.eslint-plugin-eslint-comments \
-  devDependencies.eslint-plugin-import \
-  devDependencies.eslint-plugin-promise \
-  devDependencies.eslint-plugin-simple-import-sort \
-  devDependencies.eslint-plugin-sonarjs \
-  devDependencies.eslint-plugin-unicorn \
-  devDependencies.@next/eslint-plugin-next \
-  devDependencies.eslint-plugin-n \
-  devDependencies.eslint-config-prettier \
-  devDependencies.eslint-plugin-jsx-a11y \
-  devDependencies.eslint-plugin-react \
-  devDependencies.eslint-plugin-react-hooks \
-  devDependencies.@typescript-eslint/eslint-plugin \
-  devDependencies.@typescript-eslint/parser \
-  devDependencies.eslint-import-resolver-typescript \
-  devDependencies.eslint-plugin-vitest \
-  devDependencies.eslint-config-airbnb \
-  devDependencies.eslint-config-airbnb-base \
-  devDependencies.eslint-config-airbnb-typescript
+  scripts.lint:js:fix
 rm \
   .eslintrc.cjs \
   .eslintignore
