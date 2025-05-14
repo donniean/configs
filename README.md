@@ -153,8 +153,8 @@ rm \
 # npm-check-updates
 
 npm pkg delete \
-  scripts.deps:check \
-  scripts.deps:upgrade \
+  scripts.ncu \
+  scripts.ncu:upgrade \
   devDependencies.npm-check-updates
 
 # Prettier
