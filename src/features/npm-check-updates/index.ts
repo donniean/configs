@@ -1,1 +1,1 @@
-export * from './npm-check-updates';
+export * from './package-json';

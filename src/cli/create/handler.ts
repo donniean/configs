@@ -1,6 +1,6 @@
 import { FEATURE_OPTIONS } from '@/constants/features';
 import features from '@/features';
-import { addLintAllToNpmScripts } from '@/services/lint-all';
+import { addAggregateLintToNpmScripts } from '@/services/aggregate-lint';
 import type { ConfigsConfig } from '@/types/configs-config';
 import type { OnAfterAllSuccess } from '@/types/feature-configs';
 import { normalizeConfigsConfig } from '@/utils/configs-config';
@@ -29,7 +29,7 @@ export default async function handler({
     }
   }
 
-  await addLintAllToNpmScripts({ normalizedConfigsConfig });
+  await addAggregateLintToNpmScripts({ normalizedConfigsConfig });
 
   logger.lf();
 

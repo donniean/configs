@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-// eslint-disable-next-line import-x/no-unresolved
+/* eslint import-x/no-unresolved: ['error', { ignore: ['^../dist/'] }] */
+
 import cli from '../dist/cli.js';
 
 cli();

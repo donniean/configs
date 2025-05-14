@@ -52,8 +52,8 @@ npm pkg delete devDependencies.@donniean/configs
 
 # AutoCorrect
 npm pkg delete \
-  scripts.lint:autocorrect \
-  scripts.lint:autocorrect:fix \
+  scripts.lint:text \
+  scripts.lint:text:fix \
   devDependencies.autocorrect-node
 rm \
   .autocorrectrc \
@@ -74,7 +74,7 @@ rm commitlint.config.mjs
 
 # CSpell
 npm pkg delete \
-  scripts.lint:cspell \
+  scripts.lint:spell \
   devDependencies.cspell
 rm cspell.config.cjs
 
@@ -82,31 +82,9 @@ rm cspell.config.cjs
 rm .editorconfig
 
 # ESLint
-# TODO: ESLint uninstallation
 npm pkg delete \
-  scripts.lint:eslint \
-  scripts.lint:eslint:fix \
-  devDependencies.@types/eslint \
-  devDependencies.eslint \
-  devDependencies.eslint-plugin-eslint-comments \
-  devDependencies.eslint-plugin-import \
-  devDependencies.eslint-plugin-promise \
-  devDependencies.eslint-plugin-simple-import-sort \
-  devDependencies.eslint-plugin-sonarjs \
-  devDependencies.eslint-plugin-unicorn \
-  devDependencies.@next/eslint-plugin-next \
-  devDependencies.eslint-plugin-n \
-  devDependencies.eslint-config-prettier \
-  devDependencies.eslint-plugin-jsx-a11y \
-  devDependencies.eslint-plugin-react \
-  devDependencies.eslint-plugin-react-hooks \
-  devDependencies.@typescript-eslint/eslint-plugin \
-  devDependencies.@typescript-eslint/parser \
-  devDependencies.eslint-import-resolver-typescript \
-  devDependencies.eslint-plugin-vitest \
-  devDependencies.eslint-config-airbnb \
-  devDependencies.eslint-config-airbnb-base \
-  devDependencies.eslint-config-airbnb-typescript
+  scripts.lint:js \
+  scripts.lint:js:fix
 rm \
   .eslintrc.cjs \
   .eslintignore
@@ -119,7 +97,7 @@ rm .gitignore
 
 # HTMLHint
 npm pkg delete \
-  scripts.lint:htmlhint \
+  scripts.lint:html \
   devDependencies.htmlhint
 rm .htmlhintrc
 
@@ -132,6 +110,7 @@ rm -rf .husky/
 # Knip
 npm pkg delete \
   scripts.knip \
+  scripts.knip:fix \
   devDependencies.knip
 
 # lint-staged
@@ -142,8 +121,8 @@ rm lint-staged.config.mjs
 
 # markdownlint
 npm pkg delete \
-  scripts.lint:markdownlint \
-  scripts.lint:markdownlint:fix \
+  scripts.lint:md \
+  scripts.lint:md:fix \
   devDependencies.markdownlint-cli
 rm \
   .markdownlint.json \
@@ -158,8 +137,8 @@ npm pkg delete \
 
 # Prettier
 npm pkg delete \
-  scripts.lint:prettier \
-  scripts.lint:prettier:fix \
+  scripts.lint:format \
+  scripts.lint:format:fix \
   devDependencies.prettier \
   devDependencies.prettier-plugin-tailwindcss
 rm \
@@ -168,14 +147,14 @@ rm \
 
 # Sort Package.json
 npm pkg delete \
-  scripts.lint:sort-package-json \
-  scripts.lint:sort-package-json:fix \
+  scripts.lint:package-json \
+  scripts.lint:package-json:fix \
   devDependencies.sort-package-json
 
 # Stylelint
 npm pkg delete \
-  scripts.lint:stylelint \
-  scripts.lint:stylelint:fix \
+  scripts.lint:css \
+  scripts.lint:css:fix \
   devDependencies.stylelint \
   devDependencies.stylelint-config-recess-order \
   devDependencies.stylelint-config-standard \
@@ -188,7 +167,7 @@ rm \
 
 # tsc
 npm pkg delete \
-  scripts.lint:tsc \
+  scripts.lint:types \
   devDependencies.typescript
 
 # Vitest
@@ -198,6 +177,11 @@ npm pkg delete \
   scripts.test:watch \
   devDependencies.@vitest/coverage-v8 \
   devDependencies.vitest
+
+# all
+npm pkg delete \
+  scripts.lint \
+  scripts.lint:fix
 
 rm -rf **/node_modules/
 rm **/package-lock.json
@@ -284,8 +268,9 @@ npm pkg delete \
 npm pkg delete \
   scripts.lint:tsc
 
+# all
 npm pkg delete \
-  scripts.lint:fix \
+  scripts.lint-all \
   scripts.lint-all:fix
 
 rm -rf **/node_modules/
