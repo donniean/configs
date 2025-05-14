@@ -200,6 +200,11 @@ npm pkg delete \
   devDependencies.@vitest/coverage-v8 \
   devDependencies.vitest
 
+# all
+npm pkg delete \
+  scripts.lint \
+  scripts.lint:fix
+
 rm -rf **/node_modules/
 rm **/package-lock.json
 ```
@@ -285,8 +290,9 @@ npm pkg delete \
 npm pkg delete \
   scripts.lint:tsc
 
+# all
 npm pkg delete \
-  scripts.lint:fix \
+  scripts.lint-all \
   scripts.lint-all:fix
 
 rm -rf **/node_modules/
