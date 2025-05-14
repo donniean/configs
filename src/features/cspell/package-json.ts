@@ -12,7 +12,7 @@ export function getPackageJson({
 
   return {
     scripts: {
-      'lint:cspell': `cspell lint --no-progress --relative --no-must-find-files --dot --gitignore ${patternsString}`,
+      'lint:spell': `cspell lint --no-progress --relative --no-must-find-files --dot --gitignore ${patternsString}`,
     },
     devDependencies: {
       cspell: '',

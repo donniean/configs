@@ -6,7 +6,7 @@ import {
   mergeCwdPackageJsonSync,
 } from '@/utils/package-json';
 
-export async function addLintAllToNpmScripts({
+export async function addAggregateLintToNpmScripts({
   normalizedConfigsConfig,
 }: {
   normalizedConfigsConfig: NormalizedConfigsConfig;
@@ -17,15 +17,14 @@ export async function addLintAllToNpmScripts({
   );
 
   if (hasLints) {
-    logger.info('add lint-all to npm scripts');
+    logger.info('add aggregate lint to npm scripts');
 
     const packageName = 'concurrently';
     const version = await fetchPackageLatestVersion(packageName);
     const data = {
       scripts: {
-        'lint-all':
-          'concurrently --group --timings --prefix-colors=auto "npm:lint:*(!:fix)"',
-        'lint-all:fix':
+        lint: 'concurrently --group --timings --prefix-colors=auto "npm:lint:*(!:fix)"',
+        'lint:fix':
           'concurrently --max-processes=1 --group --timings --prefix-colors=auto "npm:lint:*:fix"',
       },
       devDependencies: {

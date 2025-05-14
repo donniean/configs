@@ -1,7 +1,7 @@
 import fs from 'fs-extra';
 import latestVersion from 'latest-version';
 import ora from 'ora';
-import * as shell from 'shelljs';
+import shell from 'shelljs';
 import type { PackageJson } from 'type-fest';
 
 import * as files from '@/utils/files';

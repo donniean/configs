@@ -13,8 +13,8 @@ export function getPackageJson({
 
   return {
     scripts: {
-      'lint:autocorrect': `autocorrect --lint ${patternsString}`,
-      'lint:autocorrect:fix': `autocorrect --fix ${patternsString}`,
+      'lint:text': `autocorrect --lint ${patternsString}`,
+      'lint:text:fix': `autocorrect --fix ${patternsString}`,
     },
     devDependencies: {
       'autocorrect-node': '',

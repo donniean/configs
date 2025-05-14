@@ -4,6 +4,7 @@ export function getPackageJson(): FeaturePackageJson {
   return {
     scripts: {
       knip: 'knip',
+      'knip:fix': 'npm run knip -- --fix',
     },
     devDependencies: {
       knip: '',
