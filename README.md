@@ -52,8 +52,8 @@ npm pkg delete devDependencies.@donniean/configs
 
 # AutoCorrect
 npm pkg delete \
-  scripts.lint:autocorrect \
-  scripts.lint:autocorrect:fix \
+  scripts.lint:text \
+  scripts.lint:text:fix \
   devDependencies.autocorrect-node
 rm \
   .autocorrectrc \
@@ -74,7 +74,7 @@ rm commitlint.config.mjs
 
 # CSpell
 npm pkg delete \
-  scripts.lint:cspell \
+  scripts.lint:spell \
   devDependencies.cspell
 rm cspell.config.cjs
 
@@ -84,8 +84,8 @@ rm .editorconfig
 # ESLint
 # TODO: ESLint uninstallation
 npm pkg delete \
-  scripts.lint:eslint \
-  scripts.lint:eslint:fix \
+  scripts.lint:js \
+  scripts.lint:js:fix \
   devDependencies.@types/eslint \
   devDependencies.eslint \
   devDependencies.eslint-plugin-eslint-comments \
@@ -119,7 +119,7 @@ rm .gitignore
 
 # HTMLHint
 npm pkg delete \
-  scripts.lint:htmlhint \
+  scripts.lint:html \
   devDependencies.htmlhint
 rm .htmlhintrc
 
@@ -132,6 +132,7 @@ rm -rf .husky/
 # Knip
 npm pkg delete \
   scripts.knip \
+  scripts.knip:fix \
   devDependencies.knip
 
 # lint-staged
@@ -142,8 +143,8 @@ rm lint-staged.config.mjs
 
 # markdownlint
 npm pkg delete \
-  scripts.lint:markdownlint \
-  scripts.lint:markdownlint:fix \
+  scripts.lint:md \
+  scripts.lint:md:fix \
   devDependencies.markdownlint-cli
 rm \
   .markdownlint.json \
@@ -152,14 +153,14 @@ rm \
 # npm-check-updates
 
 npm pkg delete \
-  scripts.ncu \
-  scripts.ncu:upgrade \
+  scripts.deps:check \
+  scripts.deps:upgrade \
   devDependencies.npm-check-updates
 
 # Prettier
 npm pkg delete \
-  scripts.lint:prettier \
-  scripts.lint:prettier:fix \
+  scripts.lint:format \
+  scripts.lint:format:fix \
   devDependencies.prettier \
   devDependencies.prettier-plugin-tailwindcss
 rm \
@@ -168,14 +169,14 @@ rm \
 
 # Sort Package.json
 npm pkg delete \
-  scripts.lint:sort-package-json \
-  scripts.lint:sort-package-json:fix \
+  scripts.lint:package-json \
+  scripts.lint:package-json:fix \
   devDependencies.sort-package-json
 
 # Stylelint
 npm pkg delete \
-  scripts.lint:stylelint \
-  scripts.lint:stylelint:fix \
+  scripts.lint:css \
+  scripts.lint:css:fix \
   devDependencies.stylelint \
   devDependencies.stylelint-config-recess-order \
   devDependencies.stylelint-config-standard \
@@ -188,7 +189,7 @@ rm \
 
 # tsc
 npm pkg delete \
-  scripts.lint:tsc \
+  scripts.lint:types \
   devDependencies.typescript
 
 # Vitest

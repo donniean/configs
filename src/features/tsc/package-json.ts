@@ -3,7 +3,7 @@ import type { FeaturePackageJson } from '@/types/feature-configs';
 export function getPackageJson(): FeaturePackageJson {
   return {
     scripts: {
-      'lint:tsc': 'tsc --noEmit',
+      'lint:types': 'tsc --noEmit',
     },
     devDependencies: {
       typescript: '',

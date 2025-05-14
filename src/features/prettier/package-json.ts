@@ -32,8 +32,8 @@ export function getPackageJson({
 
   return {
     scripts: {
-      'lint:prettier': `prettier --check --ignore-unknown ${patternsString}`,
-      'lint:prettier:fix': `prettier --write --ignore-unknown ${patternsString}`,
+      'lint:format': `prettier --check --ignore-unknown ${patternsString}`,
+      'lint:format:fix': `prettier --write --ignore-unknown ${patternsString}`,
     },
     devDependencies,
   };
