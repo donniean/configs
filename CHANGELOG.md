@@ -1,5 +1,11 @@
 # @donniean/configs
 
+## 6.24.1
+
+### Patch Changes
+
+- [#1250](https://github.com/donniean/configs/pull/1250) [`0b07282`](https://github.com/donniean/configs/commit/0b072827710b0d327ad8ae1e515b2d2fabbacf2d) Thanks [@donniean](https://github.com/donniean)! - feat: refactor lint scripts
+
 ## 6.24.0
 
 ### Minor Changes
