@@ -1,20 +1,20 @@
-import type { Config } from './types';
+import type { Configs } from './types';
 
 export const CONFIGS = [
   {
     name: 'AutoCorrect',
     url: 'https://github.com/huacnlee/autocorrect',
     install: [
-      { type: 'installDevDependencies', values: ['autocorrect-node'] },
+      { type: 'devDependencies.install', values: ['autocorrect-node'] },
       {
-        type: 'setPkg',
+        type: 'packageJson.set',
         values: [
-          "scripts.lint:text='autocorrect --lint'",
-          "scripts.lint:text:fix='autocorrect --fix'",
+          'scripts.lint:text="autocorrect --lint"',
+          'scripts.lint:text:fix="autocorrect --fix"',
         ],
       },
       {
-        type: 'createFiles',
+        type: 'files.download',
         values: [
           'https://raw.githubusercontent.com/donniean/react-app/main/.autocorrectrc',
           'https://raw.githubusercontent.com/donniean/react-app/main/.autocorrectignore',
@@ -23,14 +23,19 @@ export const CONFIGS = [
     ],
     uninstall: [
       {
-        type: 'deletePkg',
+        type: 'packageJson.delete',
         values: [
           'devDependencies.autocorrect-node',
           'scripts.lint:text',
           'scripts.lint:text:fix',
         ],
       },
-      { type: 'deleteFiles', values: ['.autocorrectrc', '.autocorrectignore'] },
+      {
+        type: 'files.delete',
+        values: ['.autocorrectrc', '.autocorrectignore'],
+      },
     ],
   },
-] as const satisfies readonly Config[];
+] as const satisfies Configs;
+
+export const MARKDOWN_FILE_NAME = 'configs.md' as const;
