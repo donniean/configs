@@ -158,7 +158,7 @@ npm install --save-dev \
   typescript-eslint
 
 npm pkg set \
-  scripts.lint:js="eslint **/*.{js,mjs,cjs,ts,tsx}" \
+  scripts.lint:js="eslint" \
   scripts.lint:js:fix="npm run lint:js -- --fix"
 
 curl \
