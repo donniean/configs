@@ -2,7 +2,7 @@ import type { Config } from './types';
 
 export const CONFIGS = [
   {
-    name: 'AutoCorrect',
+    name: 'AutoCorrect1',
     url: 'https://github.com/huacnlee/autocorrect',
     install: [
       { type: 'installDevDependencies', values: ['autocorrect-node'] },
