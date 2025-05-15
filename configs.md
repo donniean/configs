@@ -32,7 +32,7 @@ rm \
   .autocorrectignore
 ```
 
-## ~~[Commitizen](https://github.com/commitizen-tools/commitizen)~~ DEPRECATED
+## [Commitizen](https://github.com/commitizen-tools/commitizen)
 
 Install
 
