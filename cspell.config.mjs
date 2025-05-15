@@ -1,35 +1,18 @@
-module.exports = {
+import { defineConfig } from 'cspell';
+
+export default defineConfig({
   version: '0.2',
   language: 'en',
-  ignorePaths: [
-    '.git/',
-    '.history/',
-    '**/node_modules/',
-    '**/coverage/',
-    '**/dist/',
-    '**/.next/',
-    '**/*.min.*',
-    '.idea/',
-    '.vscode/',
-    '.*ignore',
-    '.gitattributes',
-    '**/.htmlhintrc',
-    '**/*.tsbuildinfo',
-    '**/*.svg',
-    '**/package.json',
-    '**/package-lock.json',
-    '**/yarn.lock',
-    '**/pnpm-lock.yaml',
-    '**/Dockerfile',
-    '**/CHANGELOG.md',
-    '**/assets/**/gitattributes.gitattributes',
-    '**/assets/**/gitignore.ignore',
-  ],
+  enableGlobDot: true,
   words: [
+    // apps
     'webstorm',
     'wechat',
+    // brands
     'Vercel',
+    // Docker
     'Buildx',
+    // files
     'autocorrectignore',
     'autocorrectrc',
     'browserslistrc',
@@ -41,8 +24,11 @@ module.exports = {
     'markdownlintignore',
     'stylelintignore',
     'stylelintrc',
+    // Git
     'signoff',
+    // nginx
     'proxied',
+    // npm
     'autocorrect',
     'clsx',
     'commitlint',
@@ -64,6 +50,26 @@ module.exports = {
     'tsup',
     'vitest',
     'zustand',
+    // TypeScript
     'classname',
+    // custom
+    '**/assets/**/gitattributes.gitattributes',
+    '**/assets/**/gitignore.ignore',
   ],
-};
+  ignorePaths: [
+    '.git/',
+    '.idea/',
+    '.vscode/',
+    '**/*.min.*',
+    '**/*.svg',
+    '**/package.json',
+    '**/package-lock.json',
+    '**/yarn.lock',
+    '**/pnpm-lock.yaml',
+    '**/Dockerfile',
+    '**/CHANGELOG.md',
+    '**/.htmlhintrc',
+    '.*ignore',
+    '.gitattributes',
+  ],
+});
