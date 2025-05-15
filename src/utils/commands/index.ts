@@ -1,4 +1,4 @@
-interface CommandLine {
+interface BuildCommandOptions {
   mainCommand: string;
   subCommand?: string;
   options?: string[];
@@ -10,7 +10,7 @@ function buildCommand({
   subCommand = '',
   options = [],
   args = [],
-}: CommandLine) {
+}: BuildCommandOptions) {
   const firstLineValues = [mainCommand, subCommand, ...options].filter(Boolean);
   const firstLine = firstLineValues.join(' ').trim();
   const argLines = args.filter(Boolean);
