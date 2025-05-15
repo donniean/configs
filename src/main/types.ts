@@ -28,4 +28,4 @@ interface Config {
 
 type Configs = readonly Config[];
 
-export type { Configs, InstallCommandItem, UninstallCommandItem };
+export type { Config, Configs, InstallCommandItem, UninstallCommandItem };
