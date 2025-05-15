@@ -183,14 +183,14 @@ async function getMarkdown(configs: Configs) {
     ...sections,
     // all
     { h2: 'All' },
-    { p: 'Install' },
+    { h3: 'Install' },
     {
       code: {
         language: 'shell',
         content: allInstallCommands.join('\n\n'),
       },
     },
-    { p: 'Uninstall' },
+    { h3: 'Uninstall' },
     {
       code: {
         language: 'shell',

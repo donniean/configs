@@ -13,6 +13,8 @@
   - [gitignore](#gitignore)
   - [HTMLHint](#htmlhint)
 - [All](#all)
+  - [Install](#install)
+  - [Uninstall](#uninstall)
 
 ## Sections
 
@@ -250,7 +252,7 @@ rm .htmlhintrc
 
 ## All
 
-Install
+### Install
 
 ```shell
 # AutoCorrect
@@ -343,7 +345,7 @@ npm pkg set scripts.lint:html="htmlhint --ignore=\"**/coverage/**\" \"**/*.html\
 curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.htmlhintrc
 ```
 
-Uninstall
+### Uninstall
 
 ```shell
 # AutoCorrect
