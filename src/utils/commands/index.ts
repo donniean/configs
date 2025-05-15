@@ -13,7 +13,7 @@ function buildCommand({
 }: CommandLine) {
   const firstLineValues = [mainCommand, subCommand, ...options].filter(Boolean);
   const firstLine = firstLineValues.join(' ').trim();
-  const argLines = args.filter(Boolean).map((token) => token);
+  const argLines = args.filter(Boolean).map((token) => `  ${token}`);
   const lines = [firstLine, ...argLines];
   return lines.join(' \\ \n').trim();
 }

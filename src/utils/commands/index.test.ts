@@ -1,44 +1,59 @@
-import { describe, expect, test } from 'vitest';
+import { expect, test } from 'vitest';
 
 import { buildCommand } from './index';
 
-describe('buildCommand', () => {
-  test('should handle only mainCommand', () => {
-    expect(buildCommand({ mainCommand: 'echo' })).toBe('echo');
+test('buildCommand without subCommand, options, args', () => {
+  const result = buildCommand({ mainCommand: 'git' });
+  expect(result).toBe('git');
+});
+
+test('buildCommand with subCommand only', () => {
+  const result = buildCommand({
+    mainCommand: 'git',
+    subCommand: 'status',
   });
+  expect(result).toBe('git status');
+});
 
-  test('should include subCommand when provided', () => {
-    expect(buildCommand({ mainCommand: 'git', subCommand: 'commit' })).toBe(
-      'git commit',
-    );
+test('buildCommand with options only', () => {
+  const result = buildCommand({
+    mainCommand: 'npm',
+    options: ['--save-dev', '-E'],
   });
+  expect(result).toBe('npm --save-dev -E');
+});
 
-  test('should include options in the first line', () => {
-    expect(
-      buildCommand({ mainCommand: 'git', options: ['-a', '--amend'] }),
-    ).toBe('git -a --amend');
+test('buildCommand with args only', () => {
+  const result = buildCommand({
+    mainCommand: 'echo',
+    args: ['hello', 'world'],
   });
+  const expected = ['echo', '  hello', '  world'].join(' \\ \n');
+  expect(result).toBe(expected);
+});
 
-  test('should include args each on its own line with continuation slashes', () => {
-    const result = buildCommand({
-      mainCommand: 'ls',
-      args: ['file1', 'file2'],
-    });
-    expect(result.endsWith('file2')).toBe(true);
-
-    const parts = result.split(' \\ \n');
-    expect(parts).toEqual(['ls', 'file1', 'file2']);
+test('buildCommand with full command: subCommand, options, args', () => {
+  const result = buildCommand({
+    mainCommand: 'docker',
+    subCommand: 'run',
+    options: ['-d', '--name my-container'],
+    args: ['ubuntu:latest', '-p 8080:80'],
   });
+  const expected = [
+    'docker run -d --name my-container',
+    '  ubuntu:latest',
+    '  -p 8080:80',
+  ].join(' \\ \n');
+  expect(result).toBe(expected);
+});
 
-  test('should combine command, subCommand, options, and args correctly', () => {
-    const result = buildCommand({
-      mainCommand: 'docker',
-      subCommand: 'run',
-      options: ['-d', '--name test'],
-      args: ['image', 'bash'],
-    });
-
-    const parts = result.split(' \\ \n');
-    expect(parts).toEqual(['docker run -d --name test', 'image', 'bash']);
+test('buildCommand trims empty strings in options and args', () => {
+  const result = buildCommand({
+    mainCommand: 'cmd',
+    subCommand: '',
+    options: ['', '--flag'],
+    args: ['', 'param'],
   });
+  const expected = ['cmd --flag', '  param'].join(' \\ \n');
+  expect(result).toBe(expected);
 });

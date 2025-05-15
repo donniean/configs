@@ -34,7 +34,7 @@ function getInstallCommand(installCommandItem: InstallCommandItem) {
     case 'files.download': {
       return buildCommand({
         mainCommand: 'curl',
-        args: values.map((value) => `  -O ${value}`),
+        args: values.map((value) => `-O ${value}`),
       });
     }
     default: {
