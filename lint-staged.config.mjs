@@ -8,7 +8,7 @@ export default {
     'bash -c tsc --noEmit',
     'vitest related --run',
     'npm run docs',
-    'git add configs.md',
+    `git add ${globalThis.process.env.npm_package_config_docsFilePath}`,
   ],
   '*.{js,mjs,cjs,ts}': 'eslint --fix',
   '*.md': 'markdownlint --dot --fix',

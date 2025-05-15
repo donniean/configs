@@ -59,7 +59,7 @@
     "changeset:publish": "changeset publish",
     "changeset:version": "changeset version",
     "clean": "rimraf dist/",
-    "docs": "tsx src/main/ && prettier --write configs.md",
+    "docs": "npx tsx src/main/ && prettier --write $npm_package_config_docsFilePath",
     "knip": "knip",
     "knip:fix": "npm run knip -- --fix",
     "link": "npm run build && npm link",
@@ -82,6 +82,9 @@
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "test:watch": "vitest watch"
+  },
+  "config": {
+    "docsFilePath": "configs.md"
   },
   "dependencies": {
     "chalk": "^5.4.1",
