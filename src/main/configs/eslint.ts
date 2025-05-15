@@ -1,7 +1,7 @@
 import type { Config } from '../types';
 
 export const CONFIG = {
-  name: 'ESLint',
+  name: 'ESLint1',
   url: 'https://github.com/eslint/eslint',
   pkg: {
     devDependencies: [
