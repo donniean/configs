@@ -213,3 +213,19 @@ Uninstall
 rm \
   .gitattributes
 ```
+
+## [gitignore](https://git-scm.com/docs/gitignore)
+
+Install
+
+```shell
+curl \
+  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.gitignore
+```
+
+Uninstall
+
+```shell
+rm \
+  .gitignore
+```

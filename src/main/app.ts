@@ -14,20 +14,28 @@ import type {
   UninstallCommandItem,
 } from './types';
 
-type GetCommandOptions = Pick<Config, 'pkg' | 'filePaths'>;
+type GetCommandOptions = Pick<Config, 'name' | 'pkg' | 'filePaths'>;
 
 function getInstallCommand({
+  name,
   pkg,
   filePaths,
   installCommandItem,
 }: GetCommandOptions & {
   installCommandItem: InstallCommandItem;
 }) {
+  const errorTitle = `Install Error(${name})`;
+
   const { type, command } = installCommandItem;
 
   switch (type) {
     case 'pkg.devDependencies.install': {
-      const devDependencies = pkg?.devDependencies ?? [];
+      const devDependencies = pkg?.devDependencies;
+      if (!(Array.isArray(devDependencies) && devDependencies.length > 0)) {
+        throw new Error(
+          `${errorTitle}: please set devDependencies in config.pkg`,
+        );
+      }
       return buildCommand({
         mainCommand: 'npm',
         subCommand: 'install',
@@ -36,7 +44,10 @@ function getInstallCommand({
       });
     }
     case 'pkg.scripts.set': {
-      const scripts = pkg?.scripts ?? [];
+      const scripts = pkg?.scripts;
+      if (!(Array.isArray(scripts) && scripts.length > 0)) {
+        throw new Error(`${errorTitle}: Please set scripts in config.pkg`);
+      }
       return buildCommand({
         mainCommand: 'npm',
         subCommand: 'pkg set',
@@ -44,12 +55,14 @@ function getInstallCommand({
       });
     }
     case 'files.download': {
+      if (!(Array.isArray(filePaths) && filePaths.length > 0)) {
+        throw new Error(`${errorTitle}: Please set filePaths in config`);
+      }
       return buildCommand({
         mainCommand: 'curl',
-        args:
-          filePaths?.map(
-            (value) => `--remote-name ${CONFIG_BASE_URL}${value}`,
-          ) ?? [],
+        args: filePaths.map(
+          (value) => `--remote-name ${CONFIG_BASE_URL}${value}`,
+        ),
       });
     }
     default: {
@@ -59,17 +72,25 @@ function getInstallCommand({
 }
 
 function getUninstallCommand({
+  name,
   pkg,
   filePaths,
   uninstallCommandItem,
 }: GetCommandOptions & {
   uninstallCommandItem: UninstallCommandItem;
 }) {
+  const errorTitle = `Uninstall Error(${name})`;
+
   const { type, command } = uninstallCommandItem;
 
   switch (type) {
     case 'pkg.devDependencies.uninstall': {
-      const devDependencies = pkg?.devDependencies ?? [];
+      const devDependencies = pkg?.devDependencies;
+      if (!(Array.isArray(devDependencies) && devDependencies.length > 0)) {
+        throw new Error(
+          `${errorTitle}: please set devDependencies in config.pkg`,
+        );
+      }
       return buildCommand({
         mainCommand: 'npm',
         subCommand: 'pkg delete',
@@ -79,7 +100,10 @@ function getUninstallCommand({
       });
     }
     case 'pkg.scripts.delete': {
-      const scripts = pkg?.scripts ?? [];
+      const scripts = pkg?.scripts;
+      if (!(Array.isArray(scripts) && scripts.length > 0)) {
+        throw new Error(`${errorTitle}: please set scripts in config.pkg`);
+      }
       return buildCommand({
         mainCommand: 'npm',
         subCommand: 'pkg delete',
@@ -87,9 +111,12 @@ function getUninstallCommand({
       });
     }
     case 'files.delete': {
+      if (!(Array.isArray(filePaths) && filePaths.length > 0)) {
+        throw new Error(`${errorTitle}: please set filePaths in config`);
+      }
       return buildCommand({
         mainCommand: 'rm',
-        args: filePaths ?? [],
+        args: filePaths,
       });
     }
     default: {
@@ -103,18 +130,10 @@ function getMarkdown(configs: Configs) {
   for (const config of configs) {
     const { name, url, pkg = {}, filePaths = [], install, uninstall } = config;
     const installCommands = install.map((item) =>
-      getInstallCommand({
-        pkg,
-        filePaths,
-        installCommandItem: item,
-      }),
+      getInstallCommand({ name, pkg, filePaths, installCommandItem: item }),
     );
     const uninstallCommands = uninstall.map((item) =>
-      getUninstallCommand({
-        pkg,
-        filePaths,
-        uninstallCommandItem: item,
-      }),
+      getUninstallCommand({ name, pkg, filePaths, uninstallCommandItem: item }),
     );
     const section: DataObject[] = [
       {
