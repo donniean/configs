@@ -4,6 +4,7 @@ export const CONFIG = {
   name: 'Commitizen',
   url: 'https://github.com/commitizen-tools/commitizen',
   devDependencies: ['commitizen', 'cz-conventional-changelog'],
+  filePaths: ['.cz.json'],
   install: [
     {
       type: 'devDependencies.install',
@@ -14,9 +15,6 @@ export const CONFIG = {
     },
     {
       type: 'files.download',
-      values: [
-        'https://raw.githubusercontent.com/donniean/react-app/main/.cz.json',
-      ],
     },
   ],
   uninstall: [
@@ -27,6 +25,6 @@ export const CONFIG = {
       type: 'packageJson.delete',
       values: ['scripts.commit'],
     },
-    { type: 'files.delete', values: ['.cz.json'] },
+    { type: 'files.delete' },
   ],
 } as const satisfies Config;

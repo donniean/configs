@@ -22,6 +22,7 @@ interface Config {
   name: string;
   url: string;
   devDependencies?: string[];
+  filePaths?: string[];
   install: InstallCommandItem[];
   uninstall: UninstallCommandItem[];
 }

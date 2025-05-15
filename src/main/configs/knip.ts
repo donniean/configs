@@ -4,6 +4,7 @@ export const CONFIG = {
   name: '',
   url: '',
   devDependencies: [''],
+  filePaths: [],
   install: [
     { type: 'devDependencies.install' },
     {
@@ -12,7 +13,6 @@ export const CONFIG = {
     },
     {
       type: 'files.download',
-      values: [''],
     },
   ],
   uninstall: [
@@ -23,7 +23,6 @@ export const CONFIG = {
     },
     {
       type: 'files.delete',
-      values: [''],
     },
   ],
 } as const satisfies Config;

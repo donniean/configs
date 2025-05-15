@@ -4,6 +4,7 @@ export const CONFIG = {
   name: 'AutoCorrect',
   url: 'https://github.com/huacnlee/autocorrect',
   devDependencies: ['autocorrect-node'],
+  filePaths: ['.autocorrectrc', '.autocorrectignore'],
   install: [
     { type: 'devDependencies.install' },
     {
@@ -15,10 +16,6 @@ export const CONFIG = {
     },
     {
       type: 'files.download',
-      values: [
-        'https://raw.githubusercontent.com/donniean/react-app/main/.autocorrectrc',
-        'https://raw.githubusercontent.com/donniean/react-app/main/.autocorrectignore',
-      ],
     },
   ],
   uninstall: [
@@ -29,7 +26,6 @@ export const CONFIG = {
     },
     {
       type: 'files.delete',
-      values: ['.autocorrectrc', '.autocorrectignore'],
     },
   ],
 } as const satisfies Config;

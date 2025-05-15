@@ -4,6 +4,7 @@ export const CONFIG = {
   name: 'CSpell',
   url: 'https://github.com/streetsidesoftware/cspell',
   devDependencies: ['cspell'],
+  filePaths: ['cspell.config.mjs'],
   install: [
     { type: 'devDependencies.install' },
     {
@@ -14,9 +15,6 @@ export const CONFIG = {
     },
     {
       type: 'files.download',
-      values: [
-        'https://raw.githubusercontent.com/donniean/react-app/main/cspell.config.mjs',
-      ],
     },
   ],
   uninstall: [
@@ -27,7 +25,6 @@ export const CONFIG = {
     },
     {
       type: 'files.delete',
-      values: ['cspell.config.mjs'],
     },
   ],
 } as const satisfies Config;
