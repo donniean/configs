@@ -68,8 +68,5 @@ export default defineConfig({
     '**/.htmlhintrc',
     '.*ignore',
     '.gitattributes',
-    // custom
-    '**/assets/**/gitattributes.gitattributes',
-    '**/assets/**/gitignore.ignore',
   ],
 });
