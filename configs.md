@@ -208,7 +208,7 @@ Uninstall
 rm .gitignore
 ```
 
-## [HTMLHint](https://github.com/htmlhint/HTMLHint)
+## [HTMLHint1](https://github.com/htmlhint/HTMLHint)
 
 Install
 
