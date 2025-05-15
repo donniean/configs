@@ -1,13 +1,14 @@
+// tests/buildCommand.test.ts
 import { expect, test } from 'vitest';
 
 import { buildCommand } from './index';
 
-test('buildCommand without subCommand, options, args', () => {
+test('no subCommand, no options, no args', () => {
   const result = buildCommand({ mainCommand: 'git' });
   expect(result).toBe('git');
 });
 
-test('buildCommand with subCommand only', () => {
+test('with subCommand only', () => {
   const result = buildCommand({
     mainCommand: 'git',
     subCommand: 'status',
@@ -15,7 +16,7 @@ test('buildCommand with subCommand only', () => {
   expect(result).toBe('git status');
 });
 
-test('buildCommand with options only', () => {
+test('with options only', () => {
   const result = buildCommand({
     mainCommand: 'npm',
     options: ['--save-dev', '-E'],
@@ -23,7 +24,15 @@ test('buildCommand with options only', () => {
   expect(result).toBe('npm --save-dev -E');
 });
 
-test('buildCommand with args only', () => {
+test('with single arg only', () => {
+  const result = buildCommand({
+    mainCommand: 'echo',
+    args: ['hello'],
+  });
+  expect(result).toBe('echo hello');
+});
+
+test('with multiple args only', () => {
   const result = buildCommand({
     mainCommand: 'echo',
     args: ['hello', 'world'],
@@ -32,7 +41,18 @@ test('buildCommand with args only', () => {
   expect(result).toBe(expected);
 });
 
-test('buildCommand with full command: subCommand, options, args', () => {
+test('with full command: subCommand, options, single arg', () => {
+  const result = buildCommand({
+    mainCommand: 'docker',
+    subCommand: 'pull',
+    options: ['--quiet'],
+    args: ['ubuntu:latest'],
+  });
+  // single arg, no line breaks
+  expect(result).toBe('docker pull --quiet ubuntu:latest');
+});
+
+test('with full command: subCommand, options, multiple args', () => {
   const result = buildCommand({
     mainCommand: 'docker',
     subCommand: 'run',
@@ -47,13 +67,21 @@ test('buildCommand with full command: subCommand, options, args', () => {
   expect(result).toBe(expected);
 });
 
-test('buildCommand trims empty strings in options and args', () => {
+test('trims empty strings in options and args', () => {
   const result = buildCommand({
     mainCommand: 'cmd',
-    subCommand: '',
     options: ['', '--flag'],
     args: ['', 'param'],
   });
-  const expected = ['cmd --flag', '  param'].join(' \\ \n');
-  expect(result).toBe(expected);
+  // single non-empty arg, should be single-line
+  expect(result).toBe('cmd --flag param');
+});
+
+test('empty args array treated as no args', () => {
+  const result = buildCommand({
+    mainCommand: 'ls',
+    options: ['-la'],
+    args: [],
+  });
+  expect(result).toBe('ls -la');
 });

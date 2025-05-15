@@ -5,8 +5,7 @@
 Install
 
 ```shell
-npm install --save-dev \
-  autocorrect-node
+npm install --save-dev autocorrect-node
 
 npm pkg set \
   scripts.lint:text="autocorrect --lint" \
@@ -20,8 +19,7 @@ curl \
 Uninstall
 
 ```shell
-npm pkg delete \
-  devDependencies.autocorrect-node
+npm pkg delete devDependencies.autocorrect-node
 
 npm pkg delete \
   scripts.lint:text \
@@ -41,11 +39,9 @@ npm install --save-dev \
   commitizen \
   cz-conventional-changelog
 
-npm pkg set \
-  scripts.commit="cz"
+npm pkg set scripts.commit="cz"
 
-curl \
-  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.cz.json
+curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.cz.json
 ```
 
 Uninstall
@@ -55,11 +51,9 @@ npm pkg delete \
   devDependencies.commitizen \
   devDependencies.cz-conventional-changelog
 
-npm pkg delete \
-  scripts.commit
+npm pkg delete scripts.commit
 
-rm \
-  .cz.json
+rm .cz.json
 ```
 
 ## [commitlint](https://github.com/conventional-changelog/commitlint)
@@ -71,8 +65,7 @@ npm install --save-dev \
   @commitlint/cli \
   @commitlint/config-conventional
 
-curl \
-  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/commitlint.config.mjs
+curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/commitlint.config.mjs
 ```
 
 Uninstall
@@ -82,8 +75,7 @@ npm pkg delete \
   devDependencies.@commitlint/cli \
   devDependencies.@commitlint/config-conventional
 
-rm \
-  commitlint.config.mjs
+rm commitlint.config.mjs
 ```
 
 ## [CSpell](https://github.com/streetsidesoftware/cspell)
@@ -91,27 +83,21 @@ rm \
 Install
 
 ```shell
-npm install --save-dev \
-  cspell
+npm install --save-dev cspell
 
-npm pkg set \
-  scripts.lint:spell="cspell lint --no-progress --no-must-find-files --gitignore ."
+npm pkg set scripts.lint:spell="cspell lint --no-progress --no-must-find-files --gitignore ."
 
-curl \
-  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/cspell.config.mjs
+curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/cspell.config.mjs
 ```
 
 Uninstall
 
 ```shell
-npm pkg delete \
-  devDependencies.cspell
+npm pkg delete devDependencies.cspell
 
-npm pkg delete \
-  scripts.lint:spell
+npm pkg delete scripts.lint:spell
 
-rm \
-  cspell.config.mjs
+rm cspell.config.mjs
 ```
 
 ## [EditorConfig](https://editorconfig.org/)
@@ -119,15 +105,13 @@ rm \
 Install
 
 ```shell
-curl \
-  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.editorconfig
+curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.editorconfig
 ```
 
 Uninstall
 
 ```shell
-rm \
-  .editorconfig
+rm .editorconfig
 ```
 
 ## [ESLint](https://github.com/eslint/eslint)
@@ -161,8 +145,7 @@ npm pkg set \
   scripts.lint:js="eslint" \
   scripts.lint:js:fix="npm run lint:js -- --fix"
 
-curl \
-  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/eslint.config.mjs
+curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/eslint.config.mjs
 ```
 
 Uninstall
@@ -194,8 +177,7 @@ npm pkg delete \
   scripts.lint:js \
   scripts.lint:js:fix
 
-rm \
-  eslint.config.mjs
+rm eslint.config.mjs
 ```
 
 ## [gitattributes](https://git-scm.com/docs/gitattributes)
@@ -203,15 +185,13 @@ rm \
 Install
 
 ```shell
-curl \
-  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.gitattributes
+curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.gitattributes
 ```
 
 Uninstall
 
 ```shell
-rm \
-  .gitattributes
+rm .gitattributes
 ```
 
 ## [gitignore](https://git-scm.com/docs/gitignore)
@@ -219,13 +199,11 @@ rm \
 Install
 
 ```shell
-curl \
-  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.gitignore
+curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.gitignore
 ```
 
 Uninstall
 
 ```shell
-rm \
-  .gitignore
+rm .gitignore
 ```
