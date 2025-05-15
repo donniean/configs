@@ -61,3 +61,27 @@ npm pkg delete \
 rm \
   .cz.json
 ```
+
+## [commitlint](https://github.com/conventional-changelog/commitlint)
+
+Install
+
+```shell
+npm install --save-dev \
+  @commitlint/cli \
+  @commitlint/config-conventional
+
+curl \
+  -O https://raw.githubusercontent.com/donniean/react-app/main/commitlint.config.mjs
+```
+
+Uninstall
+
+```shell
+npm pkg delete \
+  devDependencies.@commitlint/cli \
+  devDependencies.@commitlint/config-conventional
+
+rm \
+  commitlint.config.mjs
+```
