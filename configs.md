@@ -129,3 +129,71 @@ Uninstall
 rm \
   .editorconfig
 ```
+
+## [ESLint](https://github.com/eslint/eslint)
+
+Install
+
+```shell
+npm install --save-dev \
+  @eslint-community/eslint-plugin-eslint-comments \
+  @eslint/js \
+  @tanstack/eslint-plugin-query \
+  @vitest/eslint-plugin \
+  eslint \
+  eslint-config-prettier \
+  eslint-import-resolver-typescript \
+  eslint-plugin-import-x \
+  eslint-plugin-jsx-a11y \
+  eslint-plugin-n \
+  eslint-plugin-promise \
+  eslint-plugin-react \
+  eslint-plugin-react-hooks \
+  eslint-plugin-react-refresh \
+  eslint-plugin-simple-import-sort \
+  eslint-plugin-sonarjs \
+  eslint-plugin-unicorn \
+  eslint-plugin-unused-imports \
+  globals \
+  typescript-eslint
+
+npm pkg set \
+  scripts.lint:js="eslint **/*.{js,mjs,cjs,ts,tsx}" \
+  scripts.lint:js:fix="npm run lint:js -- --fix
+
+curl \
+  -O https://raw.githubusercontent.com/donniean/react-app/main/eslint.config.mjs
+```
+
+Uninstall
+
+```shell
+npm pkg delete \
+  devDependencies.@eslint-community/eslint-plugin-eslint-comments \
+  devDependencies.@eslint/js \
+  devDependencies.@tanstack/eslint-plugin-query \
+  devDependencies.@vitest/eslint-plugin \
+  devDependencies.eslint \
+  devDependencies.eslint-config-prettier \
+  devDependencies.eslint-import-resolver-typescript \
+  devDependencies.eslint-plugin-import-x \
+  devDependencies.eslint-plugin-jsx-a11y \
+  devDependencies.eslint-plugin-n \
+  devDependencies.eslint-plugin-promise \
+  devDependencies.eslint-plugin-react \
+  devDependencies.eslint-plugin-react-hooks \
+  devDependencies.eslint-plugin-react-refresh \
+  devDependencies.eslint-plugin-simple-import-sort \
+  devDependencies.eslint-plugin-sonarjs \
+  devDependencies.eslint-plugin-unicorn \
+  devDependencies.eslint-plugin-unused-imports \
+  devDependencies.globals \
+  devDependencies.typescript-eslint
+
+npm pkg delete \
+  scripts.lint:js \
+  scripts.lint:js:fix
+
+rm \
+  eslint.config.mjs
+```
