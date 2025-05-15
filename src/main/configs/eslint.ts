@@ -31,8 +31,8 @@ export const CONFIG = {
     {
       type: 'packageJson.set',
       values: [
-        'scripts.lint:js="eslint **/*.{js,mjs,cjs,ts,tsx}"',
-        'scripts.lint:js:fix="npm run lint:js -- --fix',
+        `scripts.lint:js="eslint"`,
+        'scripts.lint:js:fix="npm run lint:js -- --fix"',
       ],
     },
     {

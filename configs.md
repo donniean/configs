@@ -159,7 +159,7 @@ npm install --save-dev \
 
 npm pkg set \
   scripts.lint:js="eslint **/*.{js,mjs,cjs,ts,tsx}" \
-  scripts.lint:js:fix="npm run lint:js -- --fix
+  scripts.lint:js:fix="npm run lint:js -- --fix"
 
 curl \
   -O https://raw.githubusercontent.com/donniean/react-app/main/eslint.config.mjs
