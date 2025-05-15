@@ -197,13 +197,6 @@ References
 - <https://github.com/iamturns/eslint-config-airbnb-typescript/blob/master/lib/shared.js>
 - <https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb/index.js>
 
-## TODOs
-
-commitlint
-
-- [ ] <https://commitlint.js.org/guides/local-setup.html>
-- [ ] <https://commitlint.js.org/guides/ci-setup.html>
-
 ## License
 
 [MIT](./LICENSE)
