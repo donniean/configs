@@ -1,7 +1,7 @@
 import type { Config } from '../types';
 
 export const CONFIG = {
-  name: 'HTMLHint1',
+  name: 'HTMLHint',
   url: 'https://github.com/htmlhint/HTMLHint',
   pkg: {
     devDependencies: ['htmlhint'],
