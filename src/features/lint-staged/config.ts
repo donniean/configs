@@ -23,9 +23,9 @@ function addCommand({
   pattern,
   command,
 }: {
+  command: string;
   data: Record<string, string | string[]>;
   pattern: string;
-  command: string;
 }) {
   const result = { ...data };
   const currentCommand = result[pattern];

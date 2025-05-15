@@ -208,8 +208,8 @@ function writeMarkdown({
   fileName,
   content,
 }: {
-  fileName: string;
   content: string;
+  fileName: string;
 }) {
   const filePath = resolveCwd(fileName);
   fs.writeFile(filePath, content, (error) => {
