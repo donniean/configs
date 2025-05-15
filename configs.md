@@ -113,3 +113,19 @@ npm pkg delete \
 rm \
   cspell.config.mjs
 ```
+
+## [EditorConfig](https://editorconfig.org/)
+
+Install
+
+```shell
+curl \
+  -O https://raw.githubusercontent.com/donniean/react-app/main/.editorconfig
+```
+
+Uninstall
+
+```shell
+rm \
+  .editorconfig
+```
