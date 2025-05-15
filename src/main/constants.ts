@@ -64,6 +64,28 @@ export const CONFIGS = [
       { type: 'files.delete', values: ['.cz.json'] },
     ],
   },
+  {
+    name: 'commitlint',
+    url: 'https://github.com/conventional-changelog/commitlint',
+    devDependencies: ['@commitlint/cli', '@commitlint/config-conventional'],
+    install: [
+      {
+        type: 'devDependencies.install',
+      },
+      {
+        type: 'files.download',
+        values: [
+          'https://raw.githubusercontent.com/donniean/react-app/main/commitlint.config.mjs',
+        ],
+      },
+    ],
+    uninstall: [
+      {
+        type: 'devDependencies.uninstall',
+      },
+      { type: 'files.delete', values: ['commitlint.config.mjs'] },
+    ],
+  },
 ] as const satisfies Configs;
 
 export const MARKDOWN_FILE_NAME = 'configs.md' as const;
