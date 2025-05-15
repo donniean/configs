@@ -12,8 +12,15 @@ import type {
   UninstallCommandItem,
 } from './types';
 
-function getInstallCommand(installCommandItem: InstallCommandItem) {
+function getInstallCommand({
+  devDependencies,
+  installCommandItem,
+}: {
+  devDependencies?: string[] | undefined;
+  installCommandItem: InstallCommandItem;
+}) {
   const { type, values } = installCommandItem;
+  const args = values ?? [];
 
   switch (type) {
     case 'devDependencies.install': {
@@ -21,47 +28,62 @@ function getInstallCommand(installCommandItem: InstallCommandItem) {
         mainCommand: 'npm',
         subCommand: 'install',
         options: ['--save-dev'],
-        args: values,
+        args: values ?? devDependencies ?? [],
       });
     }
     case 'packageJson.set': {
       return buildCommand({
         mainCommand: 'npm',
         subCommand: 'pkg set',
-        args: values,
+        args,
       });
     }
     case 'files.download': {
       return buildCommand({
         mainCommand: 'curl',
-        args: values.map((value) => `-O ${value}`),
+        args: args.map((value) => `-O ${value}`),
       });
     }
     default: {
-      return values.join(' ');
+      return args.join(' ');
     }
   }
 }
 
-function getUninstallCommand(uninstallCommandItem: UninstallCommandItem) {
+function getUninstallCommand({
+  devDependencies,
+  uninstallCommandItem,
+}: {
+  devDependencies?: string[] | undefined;
+  uninstallCommandItem: UninstallCommandItem;
+}) {
   const { type, values } = uninstallCommandItem;
+  const args = values ?? [];
+  const finalDevDependencies = values ?? devDependencies ?? [];
 
   switch (type) {
+    case 'devDependencies.uninstall': {
+      return buildCommand({
+        mainCommand: 'npm',
+        subCommand: 'pkg delete',
+        args: finalDevDependencies.map((dep) => `devDependencies.${dep}`),
+      });
+    }
     case 'packageJson.delete': {
       return buildCommand({
         mainCommand: 'npm',
         subCommand: 'pkg delete',
-        args: values,
+        args: args,
       });
     }
     case 'files.delete': {
       return buildCommand({
         mainCommand: 'rm',
-        args: values,
+        args: args,
       });
     }
     default: {
-      return values.join(' ');
+      return args.join(' ');
     }
   }
 }
@@ -69,10 +91,12 @@ function getUninstallCommand(uninstallCommandItem: UninstallCommandItem) {
 function getMarkdown(configs: Configs) {
   const sections: DataObject[] = [];
   for (const config of configs) {
-    const { name, url, install, uninstall } = config;
-    const installCommands = install.map((item) => getInstallCommand(item));
+    const { name, url, devDependencies, install, uninstall } = config;
+    const installCommands = install.map((item) =>
+      getInstallCommand({ devDependencies, installCommandItem: item }),
+    );
     const uninstallCommands = uninstall.map((item) =>
-      getUninstallCommand(item),
+      getUninstallCommand({ devDependencies, uninstallCommandItem: item }),
     );
     const section: DataObject[] = [
       {

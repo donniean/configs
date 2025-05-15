@@ -3,21 +3,25 @@ type InstallCommandType =
   | 'packageJson.set'
   | 'files.download';
 
-type UninstallCommandType = 'packageJson.delete' | 'files.delete';
+type UninstallCommandType =
+  | 'devDependencies.uninstall'
+  | 'packageJson.delete'
+  | 'files.delete';
 
 interface InstallCommandItem {
   type?: InstallCommandType;
-  values: string[];
+  values?: string[];
 }
 
 interface UninstallCommandItem {
-  type: UninstallCommandType;
-  values: string[];
+  type?: UninstallCommandType;
+  values?: string[];
 }
 
 interface Config {
   name: string;
   url: string;
+  devDependencies?: string[];
   install: InstallCommandItem[];
   uninstall: UninstallCommandItem[];
 }
