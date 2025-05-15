@@ -197,3 +197,19 @@ npm pkg delete \
 rm \
   eslint.config.mjs
 ```
+
+## [gitattributes](https://git-scm.com/docs/gitattributes)
+
+Install
+
+```shell
+curl \
+  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.gitattributes
+```
+
+Uninstall
+
+```shell
+rm \
+  .gitattributes
+```
