@@ -1,16 +1,18 @@
 import type { Config } from '../types';
 
 export const CONFIG = {
-  name: '',
-  url: '',
+  name: 'HTMLHint',
+  url: 'https://github.com/htmlhint/HTMLHint',
   pkg: {
-    devDependencies: [],
+    devDependencies: ['htmlhint'],
     scripts: [
-      { key: '', value: '' },
-      { key: '', value: '' },
+      {
+        key: 'lint:html',
+        value: String.raw`htmlhint --ignore=\"**/coverage/**\" \"**/*.html\"`,
+      },
     ],
   },
-  filePaths: [],
+  filePaths: ['.htmlhintrc'],
   install: [
     { type: 'pkg.devDependencies.install' },
     { type: 'pkg.scripts.set' },

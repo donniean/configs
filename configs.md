@@ -207,3 +207,25 @@ Uninstall
 ```shell
 rm .gitignore
 ```
+
+## [HTMLHint](https://github.com/htmlhint/HTMLHint)
+
+Install
+
+```shell
+npm install --save-dev htmlhint
+
+npm pkg set scripts.lint:html="htmlhint --ignore=\"**/coverage/**\" \"**/*.html\""
+
+curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.htmlhintrc
+```
+
+Uninstall
+
+```shell
+npm pkg delete devDependencies.htmlhint
+
+npm pkg delete scripts.lint:html
+
+rm .htmlhintrc
+```

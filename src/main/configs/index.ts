@@ -6,6 +6,7 @@ import { CONFIG as editorconfig } from './editorconfig';
 import { CONFIG as eslint } from './eslint';
 import { CONFIG as gitattributes } from './gitattributes';
 import { CONFIG as gitignore } from './gitignore';
+import { CONFIG as htmlhint } from './htmlhint';
 
 export const CONFIGS = [
   autocorrect,
@@ -16,4 +17,5 @@ export const CONFIGS = [
   eslint,
   gitattributes,
   gitignore,
+  htmlhint,
 ] as const;
