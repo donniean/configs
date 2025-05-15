@@ -1,26 +1,15 @@
 import type { Config } from '../types';
 
 export const CONFIG = {
-  name: '',
-  url: '',
-  devDependencies: [''],
-  filePaths: [],
+  name: 'gitattributes',
+  url: 'https://git-scm.com/docs/gitattributes',
+  filePaths: ['.gitattributes'],
   install: [
-    { type: 'devDependencies.install' },
-    {
-      type: 'packageJson.set',
-      values: [''],
-    },
     {
       type: 'files.download',
     },
   ],
   uninstall: [
-    { type: 'devDependencies.uninstall' },
-    {
-      type: 'packageJson.delete',
-      values: [''],
-    },
     {
       type: 'files.delete',
     },
