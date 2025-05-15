@@ -4,6 +4,7 @@ import { CONFIG as commitlint } from './commitlint';
 import { CONFIG as cspell } from './cspell';
 import { CONFIG as editorconfig } from './editorconfig';
 import { CONFIG as eslint } from './eslint';
+import { CONFIG as gitattributes } from './gitattributes';
 
 export const CONFIGS = [
   autocorrect,
@@ -12,4 +13,5 @@ export const CONFIGS = [
   cspell,
   editorconfig,
   eslint,
+  gitattributes,
 ] as const;
