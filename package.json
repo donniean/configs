@@ -59,7 +59,7 @@
     "changeset:publish": "changeset publish",
     "changeset:version": "changeset version",
     "clean": "rimraf dist/",
-    "docs": "tsx src/md/",
+    "docs": "tsx src/md/ && prettier --write configs.md",
     "knip": "knip",
     "knip:fix": "npm run knip -- --fix",
     "link": "npm run build && npm link",
