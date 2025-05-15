@@ -13,8 +13,8 @@ npm pkg set \
   scripts.lint:text:fix="autocorrect --fix"
 
 curl \
-  -O https://raw.githubusercontent.com/donniean/react-app/main/.autocorrectrc \
-  -O https://raw.githubusercontent.com/donniean/react-app/main/.autocorrectignore
+  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.autocorrectrc \
+  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.autocorrectignore
 ```
 
 Uninstall
@@ -45,7 +45,7 @@ npm pkg set \
   scripts.commit="cz"
 
 curl \
-  -O https://raw.githubusercontent.com/donniean/react-app/main/.cz.json
+  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.cz.json
 ```
 
 Uninstall
@@ -72,7 +72,7 @@ npm install --save-dev \
   @commitlint/config-conventional
 
 curl \
-  -O https://raw.githubusercontent.com/donniean/react-app/main/commitlint.config.mjs
+  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/commitlint.config.mjs
 ```
 
 Uninstall
@@ -98,7 +98,7 @@ npm pkg set \
   scripts.lint:spell="cspell lint --no-progress --no-must-find-files --gitignore ."
 
 curl \
-  -O https://raw.githubusercontent.com/donniean/react-app/main/cspell.config.mjs
+  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/cspell.config.mjs
 ```
 
 Uninstall
@@ -120,7 +120,7 @@ Install
 
 ```shell
 curl \
-  -O https://raw.githubusercontent.com/donniean/react-app/main/.editorconfig
+  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.editorconfig
 ```
 
 Uninstall
@@ -162,7 +162,7 @@ npm pkg set \
   scripts.lint:js:fix="npm run lint:js -- --fix"
 
 curl \
-  -O https://raw.githubusercontent.com/donniean/react-app/main/eslint.config.mjs
+  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/eslint.config.mjs
 ```
 
 Uninstall

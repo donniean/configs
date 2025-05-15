@@ -8,90 +8,92 @@ import { resolveCwd } from '@/utils/paths';
 
 import { CONFIG_BASE_URL } from './constants';
 import type {
+  Config,
   Configs,
   InstallCommandItem,
   UninstallCommandItem,
 } from './types';
 
+type GetCommandOptions = Pick<Config, 'pkg' | 'filePaths'>;
+
 function getInstallCommand({
-  devDependencies,
+  pkg,
   filePaths,
   installCommandItem,
-}: {
-  devDependencies?: string[] | undefined;
-  filePaths?: string[] | undefined;
+}: GetCommandOptions & {
   installCommandItem: InstallCommandItem;
 }) {
-  const { type, values } = installCommandItem;
-  const args = values ?? [];
-  const finalDevDependencies = values ?? devDependencies ?? [];
-  const finalFilePaths = values ?? filePaths ?? [];
+  const { type, command } = installCommandItem;
 
   switch (type) {
-    case 'devDependencies.install': {
+    case 'pkg.devDependencies.install': {
+      const devDependencies = pkg?.devDependencies ?? [];
       return buildCommand({
         mainCommand: 'npm',
         subCommand: 'install',
         options: ['--save-dev'],
-        args: finalDevDependencies,
+        args: devDependencies,
       });
     }
-    case 'packageJson.set': {
+    case 'pkg.scripts.set': {
+      const scripts = pkg?.scripts ?? [];
       return buildCommand({
         mainCommand: 'npm',
         subCommand: 'pkg set',
-        args,
+        args: scripts.map(({ key, value }) => `scripts.${key}="${value}"`),
       });
     }
     case 'files.download': {
       return buildCommand({
         mainCommand: 'curl',
-        args: finalFilePaths.map((value) => `-O ${CONFIG_BASE_URL}${value}`),
+        args:
+          filePaths?.map(
+            (value) => `--remote-name ${CONFIG_BASE_URL}${value}`,
+          ) ?? [],
       });
     }
     default: {
-      return args.join(' ');
+      return command;
     }
   }
 }
 
 function getUninstallCommand({
-  devDependencies,
+  pkg,
   filePaths,
   uninstallCommandItem,
-}: {
-  devDependencies?: string[] | undefined;
-  filePaths?: string[] | undefined;
+}: GetCommandOptions & {
   uninstallCommandItem: UninstallCommandItem;
 }) {
-  const { type, values } = uninstallCommandItem;
-  const args = values ?? [];
+  const { type, command } = uninstallCommandItem;
 
   switch (type) {
-    case 'devDependencies.uninstall': {
-      const finalDevDependencies = values ?? devDependencies ?? [];
+    case 'pkg.devDependencies.uninstall': {
+      const devDependencies = pkg?.devDependencies ?? [];
       return buildCommand({
         mainCommand: 'npm',
         subCommand: 'pkg delete',
-        args: finalDevDependencies.map((dep) => `devDependencies.${dep}`),
+        args: devDependencies.map(
+          (dependency) => `devDependencies.${dependency}`,
+        ),
       });
     }
-    case 'packageJson.delete': {
+    case 'pkg.scripts.delete': {
+      const scripts = pkg?.scripts ?? [];
       return buildCommand({
         mainCommand: 'npm',
         subCommand: 'pkg delete',
-        args: args,
+        args: scripts.map(({ key }) => `scripts.${key}`),
       });
     }
     case 'files.delete': {
-      const finalFilePaths = values ?? filePaths ?? [];
       return buildCommand({
         mainCommand: 'rm',
-        args: finalFilePaths,
+        args: filePaths ?? [],
       });
     }
     default: {
-      return args.join(' ');
+      return command;
     }
   }
 }
@@ -99,18 +101,17 @@ function getUninstallCommand({
 function getMarkdown(configs: Configs) {
   const sections: DataObject[] = [];
   for (const config of configs) {
-    const { name, url, devDependencies, filePaths, install, uninstall } =
-      config;
+    const { name, url, pkg = {}, filePaths = [], install, uninstall } = config;
     const installCommands = install.map((item) =>
       getInstallCommand({
-        devDependencies,
+        pkg,
         filePaths,
         installCommandItem: item,
       }),
     );
     const uninstallCommands = uninstall.map((item) =>
       getUninstallCommand({
-        devDependencies,
+        pkg,
         filePaths,
         uninstallCommandItem: item,
       }),

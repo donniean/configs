@@ -3,26 +3,22 @@ import type { Config } from '../types';
 export const CONFIG = {
   name: '',
   url: '',
-  devDependencies: [''],
+  pkg: {
+    devDependencies: [],
+    scripts: [
+      { key: '', value: '' },
+      { key: '', value: '' },
+    ],
+  },
   filePaths: [],
   install: [
-    { type: 'devDependencies.install' },
-    {
-      type: 'packageJson.set',
-      values: [''],
-    },
-    {
-      type: 'files.download',
-    },
+    { type: 'pkg.devDependencies.install' },
+    { type: 'pkg.scripts.set' },
+    { type: 'files.download' },
   ],
   uninstall: [
-    { type: 'devDependencies.uninstall' },
-    {
-      type: 'packageJson.delete',
-      values: [''],
-    },
-    {
-      type: 'files.delete',
-    },
+    { type: 'pkg.devDependencies.uninstall' },
+    { type: 'pkg.scripts.delete' },
+    { type: 'files.delete' },
   ],
 } as const satisfies Config;

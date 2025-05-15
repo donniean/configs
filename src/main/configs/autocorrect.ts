@@ -3,29 +3,22 @@ import type { Config } from '../types';
 export const CONFIG = {
   name: 'AutoCorrect',
   url: 'https://github.com/huacnlee/autocorrect',
-  devDependencies: ['autocorrect-node'],
+  pkg: {
+    devDependencies: ['autocorrect-node'],
+    scripts: [
+      { key: 'lint:text', value: 'autocorrect --lint' },
+      { key: 'lint:text:fix', value: 'autocorrect --fix' },
+    ],
+  },
   filePaths: ['.autocorrectrc', '.autocorrectignore'],
   install: [
-    { type: 'devDependencies.install' },
-    {
-      type: 'packageJson.set',
-      values: [
-        'scripts.lint:text="autocorrect --lint"',
-        'scripts.lint:text:fix="autocorrect --fix"',
-      ],
-    },
-    {
-      type: 'files.download',
-    },
+    { type: 'pkg.devDependencies.install' },
+    { type: 'pkg.scripts.set' },
+    { type: 'files.download' },
   ],
   uninstall: [
-    { type: 'devDependencies.uninstall' },
-    {
-      type: 'packageJson.delete',
-      values: ['scripts.lint:text', 'scripts.lint:text:fix'],
-    },
-    {
-      type: 'files.delete',
-    },
+    { type: 'pkg.devDependencies.uninstall' },
+    { type: 'pkg.scripts.delete' },
+    { type: 'files.delete' },
   ],
 } as const satisfies Config;

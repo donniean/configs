@@ -1,27 +1,32 @@
 type InstallCommandType =
-  | 'devDependencies.install'
-  | 'packageJson.set'
-  | 'files.download';
+  | 'pkg.devDependencies.install'
+  | 'pkg.scripts.set'
+  | 'files.download'
+  | 'custom';
 
 type UninstallCommandType =
-  | 'devDependencies.uninstall'
-  | 'packageJson.delete'
-  | 'files.delete';
+  | 'pkg.devDependencies.uninstall'
+  | 'pkg.scripts.delete'
+  | 'files.delete'
+  | 'custom';
 
 interface InstallCommandItem {
-  type?: InstallCommandType;
-  values?: string[];
+  type: InstallCommandType;
+  command?: string;
 }
 
 interface UninstallCommandItem {
   type?: UninstallCommandType;
-  values?: string[];
+  command?: string;
 }
 
 interface Config {
   name: string;
   url: string;
-  devDependencies?: string[];
+  pkg?: {
+    devDependencies?: string[];
+    scripts?: { key: string; value: string }[];
+  };
   filePaths?: string[];
   install: InstallCommandItem[];
   uninstall: UninstallCommandItem[];

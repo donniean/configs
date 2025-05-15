@@ -3,28 +3,19 @@ import type { Config } from '../types';
 export const CONFIG = {
   name: 'Commitizen',
   url: 'https://github.com/commitizen-tools/commitizen',
-  devDependencies: ['commitizen', 'cz-conventional-changelog'],
+  pkg: {
+    devDependencies: ['commitizen', 'cz-conventional-changelog'],
+    scripts: [{ key: 'commit', value: 'cz' }],
+  },
   filePaths: ['.cz.json'],
   install: [
-    {
-      type: 'devDependencies.install',
-    },
-    {
-      type: 'packageJson.set',
-      values: ['scripts.commit="cz"'],
-    },
-    {
-      type: 'files.download',
-    },
+    { type: 'pkg.devDependencies.install' },
+    { type: 'pkg.scripts.set' },
+    { type: 'files.download' },
   ],
   uninstall: [
-    {
-      type: 'devDependencies.uninstall',
-    },
-    {
-      type: 'packageJson.delete',
-      values: ['scripts.commit'],
-    },
+    { type: 'pkg.devDependencies.uninstall' },
+    { type: 'pkg.scripts.delete' },
     { type: 'files.delete' },
   ],
 } as const satisfies Config;

@@ -3,28 +3,24 @@ import type { Config } from '../types';
 export const CONFIG = {
   name: 'CSpell',
   url: 'https://github.com/streetsidesoftware/cspell',
-  devDependencies: ['cspell'],
+  pkg: {
+    devDependencies: ['cspell'],
+    scripts: [
+      {
+        key: 'lint:spell',
+        value: 'cspell lint --no-progress --no-must-find-files --gitignore .',
+      },
+    ],
+  },
   filePaths: ['cspell.config.mjs'],
   install: [
-    { type: 'devDependencies.install' },
-    {
-      type: 'packageJson.set',
-      values: [
-        'scripts.lint:spell="cspell lint --no-progress --no-must-find-files --gitignore ."',
-      ],
-    },
-    {
-      type: 'files.download',
-    },
+    { type: 'pkg.devDependencies.install' },
+    { type: 'pkg.scripts.set' },
+    { type: 'files.download' },
   ],
   uninstall: [
-    { type: 'devDependencies.uninstall' },
-    {
-      type: 'packageJson.delete',
-      values: ['scripts.lint:spell'],
-    },
-    {
-      type: 'files.delete',
-    },
+    { type: 'pkg.devDependencies.uninstall' },
+    { type: 'pkg.scripts.delete' },
+    { type: 'files.delete' },
   ],
 } as const satisfies Config;
