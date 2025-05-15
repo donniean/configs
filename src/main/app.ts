@@ -145,6 +145,7 @@ async function getMarkdown(configs: Configs) {
         uninstallCommandAction: item,
       }),
     ) as string[];
+
     const section: DataObject[] = [
       {
         h3: `[${name}](${url})`,
