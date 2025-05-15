@@ -114,7 +114,7 @@ Uninstall
 rm .editorconfig
 ```
 
-## [ESLint2](https://github.com/eslint/eslint)
+## [ESLint](https://github.com/eslint/eslint)
 
 Install
 
