@@ -1,5 +1,17 @@
 # Configs
 
+## Table of Contents
+
+- [AutoCorrect](#autocorrect)
+- [Commitizen](#commitizen)
+- [commitlint](#commitlint)
+- [CSpell](#cspell)
+- [EditorConfig](#editorconfig)
+- [ESLint](#eslint)
+- [gitattributes](#gitattributes)
+- [gitignore](#gitignore)
+- [HTMLHint](#htmlhint)
+
 ## [AutoCorrect](https://github.com/huacnlee/autocorrect)
 
 Install

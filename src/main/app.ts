@@ -2,6 +2,8 @@ import fs from 'node:fs';
 
 import type { DataObject } from 'json2md';
 import json2md from 'json2md';
+import { remark } from 'remark';
+import remarkToc from 'remark-toc';
 
 import { buildCommand } from '@/utils/commands';
 import { resolveCwd } from '@/utils/paths';
@@ -125,7 +127,7 @@ function getUninstallCommand({
   }
 }
 
-function getMarkdown(configs: Configs) {
+async function getMarkdown(configs: Configs) {
   const sections: DataObject[] = [];
   for (const config of configs) {
     const { name, url, pkg = {}, filePaths = [], install, uninstall } = config;
@@ -160,12 +162,14 @@ function getMarkdown(configs: Configs) {
     sections.push(section);
   }
 
-  const data = [{ h1: 'Configs' }, ...sections];
+  const data = [{ h1: 'Configs' }, { h2: 'Table of Contents' }, ...sections];
 
-  return json2md(data);
+  const markdown = json2md(data);
+
+  return await remark().use(remarkToc).process(markdown);
 }
 
-function writeMarkdownSync({
+function writeMarkdown({
   fileName,
   content,
 }: {
@@ -173,7 +177,12 @@ function writeMarkdownSync({
   content: string;
 }) {
   const filePath = resolveCwd(fileName);
-  fs.writeFileSync(filePath, content);
+  fs.writeFile(filePath, content, (error) => {
+    if (!error) {
+      return;
+    }
+    console.error(error);
+  });
 }
 
-export { getMarkdown, writeMarkdownSync };
+export { getMarkdown, writeMarkdown };
