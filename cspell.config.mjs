@@ -52,9 +52,6 @@ export default defineConfig({
     'zustand',
     // TypeScript
     'classname',
-    // custom
-    '**/assets/**/gitattributes.gitattributes',
-    '**/assets/**/gitignore.ignore',
   ],
   ignorePaths: [
     '.git/',
@@ -71,5 +68,8 @@ export default defineConfig({
     '**/.htmlhintrc',
     '.*ignore',
     '.gitattributes',
+    // custom
+    '**/assets/**/gitattributes.gitattributes',
+    '**/assets/**/gitignore.ignore',
   ],
 });

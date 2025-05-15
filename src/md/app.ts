@@ -3,6 +3,8 @@ import fs from 'node:fs';
 import type { DataObject } from 'json2md';
 import json2md from 'json2md';
 
+import { resolveCwd } from '@/utils/paths';
+
 import type { Config, InstallItem } from './types';
 
 function getInstallCommand(installItem: InstallItem) {
@@ -66,10 +68,10 @@ function getMarkdown(configs: readonly Config[]) {
     res.push(content);
   }
 
-   
   const md: string = json2md([{ h1: 'Configs' }, ...res]);
 
-  fs.writeFileSync('configs.md', md);
+  const filePath = resolveCwd('configs.md');
+  fs.writeFileSync(filePath, md);
 }
 
 export { getInstallCommands, getMarkdown };
