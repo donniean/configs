@@ -129,11 +129,14 @@ function getUninstallCommand({
 
 async function getMarkdown(configs: Configs) {
   const sections: DataObject[] = [];
+  const allInstallCommands: string[] = [];
+  const allUninstallCommands: string[] = [];
+
   for (const config of configs) {
     const { name, url, pkg = {}, filePaths = [], install, uninstall } = config;
     const installCommands = install.map((item) =>
       getInstallCommand({ name, pkg, filePaths, installCommandAction: item }),
-    );
+    ) as string[];
     const uninstallCommands = uninstall.map((item) =>
       getUninstallCommand({
         name,
@@ -141,28 +144,59 @@ async function getMarkdown(configs: Configs) {
         filePaths,
         uninstallCommandAction: item,
       }),
-    );
+    ) as string[];
     const section: DataObject[] = [
       {
-        h2: `[${name}](${url})`,
+        h3: `[${name}](${url})`,
       },
       {
         p: 'Install',
       },
       {
-        code: { language: 'shell', content: installCommands.join('\n\n') },
+        code: {
+          language: 'shell',
+          content: installCommands.join('\n\n'),
+        },
       },
       {
         p: 'Uninstall',
       },
       {
-        code: { language: 'shell', content: uninstallCommands.join('\n\n') },
+        code: {
+          language: 'shell',
+          content: uninstallCommands.join('\n\n'),
+        },
       },
     ];
     sections.push(section);
+
+    allInstallCommands.push(`# ${name}`, ...installCommands);
+    allUninstallCommands.push(`# ${name}`, ...uninstallCommands);
   }
 
-  const data = [{ h1: 'Configs' }, { h2: 'Table of Contents' }, ...sections];
+  const data = [
+    { h1: 'Configs' },
+    { h2: 'Table of Contents' },
+    // single
+    { h2: 'Sections' },
+    ...sections,
+    // all
+    { h2: 'All' },
+    { p: 'Install' },
+    {
+      code: {
+        language: 'shell',
+        content: allInstallCommands.join('\n\n'),
+      },
+    },
+    { p: 'Uninstall' },
+    {
+      code: {
+        language: 'shell',
+        content: allUninstallCommands.join('\n\n'),
+      },
+    },
+  ];
 
   const markdown = json2md(data);
 
