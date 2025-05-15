@@ -26,8 +26,8 @@ function answersToConfigsConfig({
   currentConfigsConfig,
   answers,
 }: {
-  currentConfigsConfig: ConfigsConfig | undefined;
   answers: InitAnswers;
+  currentConfigsConfig: ConfigsConfig | undefined;
 }) {
   const { featureKeys } = answers;
   let features: ConfigsConfig['features'] = {};

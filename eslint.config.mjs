@@ -45,6 +45,10 @@ export default typescriptEslint.config([
     name: 'custom/gitignore',
   },
   {
+    ignores: ['**/*.min.*'],
+    name: 'custom/ignore',
+  },
+  {
     name: 'custom/javascript/setup',
     languageOptions: {
       parser: typescriptEslint.parser,
