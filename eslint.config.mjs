@@ -201,6 +201,11 @@ export default typescriptEslint.config([
   {
     name: 'custom/node',
     files: ['src/**'],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+    },
     extends: [eslintPluginN.configs['flat/recommended']],
     rules: {
       'n/no-missing-import': [
