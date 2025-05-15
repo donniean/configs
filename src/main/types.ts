@@ -16,7 +16,7 @@ interface InstallCommandItem {
 }
 
 interface UninstallCommandItem {
-  type?: UninstallCommandType;
+  type: UninstallCommandType;
   command?: string;
 }
 
