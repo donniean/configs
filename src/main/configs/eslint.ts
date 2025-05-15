@@ -6,6 +6,7 @@ export const CONFIG = {
   pkg: {
     devDependencies: [
       '@eslint-community/eslint-plugin-eslint-comments',
+      '@eslint/compat',
       '@eslint/js',
       '@tanstack/eslint-plugin-query',
       '@vitest/eslint-plugin',

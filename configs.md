@@ -133,6 +133,7 @@ Install
 ```shell
 npm install --save-dev \
   @eslint-community/eslint-plugin-eslint-comments \
+  @eslint/compat \
   @eslint/js \
   @tanstack/eslint-plugin-query \
   @vitest/eslint-plugin \
@@ -165,6 +166,7 @@ Uninstall
 ```shell
 npm pkg delete \
   devDependencies.@eslint-community/eslint-plugin-eslint-comments \
+  devDependencies.@eslint/compat \
   devDependencies.@eslint/js \
   devDependencies.@tanstack/eslint-plugin-query \
   devDependencies.@vitest/eslint-plugin \
