@@ -10,8 +10,8 @@ import { CONFIG_BASE_URL } from './constants';
 import type {
   Config,
   Configs,
-  InstallCommandItem,
-  UninstallCommandItem,
+  InstallCommandAction,
+  UninstallCommandAction,
 } from './types';
 
 type GetCommandOptions = Pick<Config, 'name' | 'pkg' | 'filePaths'>;
@@ -20,13 +20,13 @@ function getInstallCommand({
   name,
   pkg,
   filePaths,
-  installCommandItem,
+  installCommandAction,
 }: GetCommandOptions & {
-  installCommandItem: InstallCommandItem;
+  installCommandAction: InstallCommandAction;
 }) {
   const errorTitle = `Install Error(${name})`;
 
-  const { type, command } = installCommandItem;
+  const { type, command } = installCommandAction;
 
   switch (type) {
     case 'pkg.devDependencies.install': {
@@ -75,13 +75,13 @@ function getUninstallCommand({
   name,
   pkg,
   filePaths,
-  uninstallCommandItem,
+  uninstallCommandAction,
 }: GetCommandOptions & {
-  uninstallCommandItem: UninstallCommandItem;
+  uninstallCommandAction: UninstallCommandAction;
 }) {
   const errorTitle = `Uninstall Error(${name})`;
 
-  const { type, command } = uninstallCommandItem;
+  const { type, command } = uninstallCommandAction;
 
   switch (type) {
     case 'pkg.devDependencies.uninstall': {
@@ -130,10 +130,15 @@ function getMarkdown(configs: Configs) {
   for (const config of configs) {
     const { name, url, pkg = {}, filePaths = [], install, uninstall } = config;
     const installCommands = install.map((item) =>
-      getInstallCommand({ name, pkg, filePaths, installCommandItem: item }),
+      getInstallCommand({ name, pkg, filePaths, installCommandAction: item }),
     );
     const uninstallCommands = uninstall.map((item) =>
-      getUninstallCommand({ name, pkg, filePaths, uninstallCommandItem: item }),
+      getUninstallCommand({
+        name,
+        pkg,
+        filePaths,
+        uninstallCommandAction: item,
+      }),
     );
     const section: DataObject[] = [
       {

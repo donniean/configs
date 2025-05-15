@@ -10,12 +10,12 @@ type UninstallCommandType =
   | 'files.delete'
   | 'custom';
 
-interface InstallCommandItem {
+interface InstallCommandAction {
   type: InstallCommandType;
   command?: string;
 }
 
-interface UninstallCommandItem {
+interface UninstallCommandAction {
   type: UninstallCommandType;
   command?: string;
 }
@@ -28,10 +28,10 @@ interface Config {
     scripts?: { key: string; value: string }[];
   };
   filePaths?: string[];
-  install: InstallCommandItem[];
-  uninstall: UninstallCommandItem[];
+  install: InstallCommandAction[];
+  uninstall: UninstallCommandAction[];
 }
 
 type Configs = readonly Config[];
 
-export type { Config, Configs, InstallCommandItem, UninstallCommandItem };
+export type { Config, Configs, InstallCommandAction, UninstallCommandAction };
