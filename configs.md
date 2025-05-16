@@ -56,7 +56,7 @@ Install
 ```shell
 npm install --save-dev cspell
 
-npm pkg set scripts.lint:spell="cspell lint --no-progress --no-must-find-files --gitignore ."
+npm pkg set scripts.lint:spell="cspell lint --no-progress --no-must-find-files --dot --gitignore ."
 
 curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/cspell.config.mjs
 ```
@@ -211,6 +211,8 @@ Install
 npm install --save-dev husky
 
 npm pkg set scripts.prepare="husky"
+
+npm run prepare
 ```
 
 Uninstall
@@ -292,7 +294,7 @@ curl \
 
 npm install --save-dev cspell
 
-npm pkg set scripts.lint:spell="cspell lint --no-progress --no-must-find-files --gitignore ."
+npm pkg set scripts.lint:spell="cspell lint --no-progress --no-must-find-files --dot --gitignore ."
 
 curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/cspell.config.mjs
 
@@ -352,6 +354,8 @@ curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.ht
 npm install --save-dev husky
 
 npm pkg set scripts.prepare="husky"
+
+npm run prepare
 
 # commitlint
 

@@ -10,6 +10,7 @@ export const CONFIG = {
   install: [
     { type: 'pkg.devDependencies.install' },
     { type: 'pkg.scripts.set' },
+    { type: 'custom', command: 'npm run prepare' },
   ],
   uninstall: [
     { type: 'pkg.devDependencies.uninstall' },
