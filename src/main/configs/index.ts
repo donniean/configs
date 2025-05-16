@@ -1,5 +1,4 @@
 import { CONFIG as autocorrect } from './autocorrect';
-// import { CONFIG as commitizen } from './commitizen';
 import { CONFIG as commitlint } from './commitlint';
 import { CONFIG as cspell } from './cspell';
 import { CONFIG as editorconfig } from './editorconfig';
@@ -12,7 +11,6 @@ import { CONFIG as lintStaged } from './lint-staged';
 
 export const CONFIGS = [
   autocorrect,
-  // commitizen,
   cspell,
   editorconfig,
   eslint,
