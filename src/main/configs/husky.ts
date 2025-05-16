@@ -1,14 +1,11 @@
 import type { Config } from '../types';
 
 export const CONFIG = {
-  name: '',
-  url: '',
+  name: 'Husky',
+  url: 'https://github.com/typicode/husky',
   pkg: {
-    devDependencies: [],
-    scripts: [
-      { key: '', value: '' },
-      { key: '', value: '' },
-    ],
+    devDependencies: ['husky'],
+    scripts: [{ key: 'prepare', value: 'husky' }],
   },
   filePaths: [],
   install: [
@@ -20,5 +17,6 @@ export const CONFIG = {
     { type: 'pkg.devDependencies.uninstall' },
     { type: 'pkg.scripts.delete' },
     { type: 'files.delete' },
+    { type: 'custom', command: 'rm -rf .husky/' },
   ],
 } as const satisfies Config;
