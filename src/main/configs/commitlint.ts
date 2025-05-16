@@ -10,9 +10,17 @@ export const CONFIG = {
   install: [
     { type: 'pkg.devDependencies.install' },
     { type: 'files.download' },
+    {
+      type: 'custom',
+      command: String.raw`echo "npx --no -- commitlint --edit \$1" > .husky/commit-msg`,
+    },
   ],
   uninstall: [
     { type: 'pkg.devDependencies.uninstall' },
     { type: 'files.delete' },
+    {
+      type: 'custom',
+      command: 'rm .husky/commit-msg',
+    },
   ],
 } as const satisfies Config;
