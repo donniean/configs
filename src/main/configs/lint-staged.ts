@@ -1,7 +1,7 @@
 import type { Config } from '../types';
 
 export const CONFIG = {
-  name: 'lint-staged',
+  name: 'lint-staged1',
   url: 'https://github.com/lint-staged/lint-staged',
   pkg: {
     devDependencies: ['lint-staged'],

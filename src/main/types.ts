@@ -35,5 +35,3 @@ interface Config {
 type Configs = readonly Config[];
 
 export type { Config, Configs, InstallCommandAction, UninstallCommandAction };
-
-// testing
