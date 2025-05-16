@@ -12,7 +12,7 @@
   - [HTMLHint](#htmlhint)
   - [Husky](#husky)
   - [commitlint](#commitlint)
-  - [lint-staged1](#lint-staged1)
+  - [lint-staged](#lint-staged)
 - [All](#all)
   - [Install](#install)
   - [Uninstall](#uninstall)
@@ -251,7 +251,7 @@ rm commitlint.config.mjs
 rm .husky/commit-msg
 ```
 
-### [lint-staged1](https://github.com/lint-staged/lint-staged)
+### [lint-staged](https://github.com/lint-staged/lint-staged)
 
 Install
 
@@ -367,7 +367,7 @@ curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/com
 
 echo "npx --no -- commitlint --edit \$1" > .husky/commit-msg
 
-# lint-staged1
+# lint-staged
 
 npm install --save-dev lint-staged
 
@@ -468,7 +468,7 @@ rm commitlint.config.mjs
 
 rm .husky/commit-msg
 
-# lint-staged1
+# lint-staged
 
 npm pkg delete devDependencies.lint-staged
 
