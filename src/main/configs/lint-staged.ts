@@ -1,24 +1,26 @@
 import type { Config } from '../types';
 
 export const CONFIG = {
-  name: '',
-  url: '',
+  name: 'lint-staged',
+  url: 'https://github.com/lint-staged/lint-staged',
   pkg: {
-    devDependencies: [],
-    scripts: [
-      { key: '', value: '' },
-      { key: '', value: '' },
-    ],
+    devDependencies: ['lint-staged'],
   },
-  filePaths: [],
+  filePaths: ['lint-staged.config.mjs'],
   install: [
     { type: 'pkg.devDependencies.install' },
-    { type: 'pkg.scripts.set' },
     { type: 'files.download' },
+    {
+      type: 'custom',
+      command: String.raw`echo "npx lint-staged --concurrent false" > .husky/pre-commit`,
+    },
   ],
   uninstall: [
     { type: 'pkg.devDependencies.uninstall' },
-    { type: 'pkg.scripts.delete' },
     { type: 'files.delete' },
+    {
+      type: 'custom',
+      command: 'rm .husky/pre-commit',
+    },
   ],
 } as const satisfies Config;
