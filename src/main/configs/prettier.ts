@@ -1,16 +1,16 @@
 import type { Config } from '../types';
 
 export const CONFIG = {
-  name: '',
-  url: '',
+  name: 'Prettier',
+  url: 'https://github.com/prettier/prettier',
   pkg: {
-    devDependencies: [],
+    devDependencies: ['prettier', 'prettier-plugin-tailwindcss'],
     scripts: [
-      { key: '', value: '' },
-      { key: '', value: '' },
+      { key: 'lint:format', value: 'prettier --check --ignore-unknown .' },
+      { key: 'lint:format:fix', value: 'prettier --write --ignore-unknown .' },
     ],
   },
-  filePaths: [],
+  filePaths: ['prettier.config.mjs', '.prettierignore'],
   install: [
     { type: 'pkg.devDependencies.install' },
     { type: 'pkg.scripts.set' },

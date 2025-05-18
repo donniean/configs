@@ -11,6 +11,7 @@ import { CONFIG as knip } from './knip';
 import { CONFIG as lintStaged } from './lint-staged';
 import { CONFIG as markdownlint } from './markdownlint';
 import { CONFIG as npmCheckUpdates } from './npm-check-updates';
+import { CONFIG as prettier } from './prettier';
 
 export const CONFIGS = [
   autocorrect,
@@ -28,4 +29,5 @@ export const CONFIGS = [
   knip,
   markdownlint,
   npmCheckUpdates,
+  prettier,
 ] as const;

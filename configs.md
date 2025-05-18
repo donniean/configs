@@ -16,6 +16,7 @@
   - [Knip](#knip)
   - [markdownlint](#markdownlint)
   - [npm-check-updates](#npm-check-updates)
+  - [Prettier](#prettier)
 - [All](#all)
   - [Install](#install)
   - [Uninstall](#uninstall)
@@ -350,6 +351,40 @@ npm pkg delete \
   scripts.ncu:upgrade
 ```
 
+### [Prettier](https://github.com/prettier/prettier)
+
+Install
+
+```shell
+npm install --save-dev \
+  prettier \
+  prettier-plugin-tailwindcss
+
+npm pkg set \
+  scripts.lint:format="prettier --check --ignore-unknown ." \
+  scripts.lint:format:fix="prettier --write --ignore-unknown ."
+
+curl \
+  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/prettier.config.mjs \
+  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.prettierignore
+```
+
+Uninstall
+
+```shell
+npm pkg delete \
+  devDependencies.prettier \
+  devDependencies.prettier-plugin-tailwindcss
+
+npm pkg delete \
+  scripts.lint:format \
+  scripts.lint:format:fix
+
+rm \
+  prettier.config.mjs \
+  .prettierignore
+```
+
 ## All
 
 ### Install
@@ -479,6 +514,20 @@ npm install --save-dev npm-check-updates
 npm pkg set \
   scripts.ncu="npx npm-check-updates --deep" \
   scripts.ncu:upgrade="npm run ncu -- --upgrade"
+
+# Prettier
+
+npm install --save-dev \
+  prettier \
+  prettier-plugin-tailwindcss
+
+npm pkg set \
+  scripts.lint:format="prettier --check --ignore-unknown ." \
+  scripts.lint:format:fix="prettier --write --ignore-unknown ."
+
+curl \
+  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/prettier.config.mjs \
+  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.prettierignore
 ```
 
 ### Uninstall
@@ -608,4 +657,18 @@ npm pkg delete devDependencies.npm-check-updates
 npm pkg delete \
   scripts.ncu \
   scripts.ncu:upgrade
+
+# Prettier
+
+npm pkg delete \
+  devDependencies.prettier \
+  devDependencies.prettier-plugin-tailwindcss
+
+npm pkg delete \
+  scripts.lint:format \
+  scripts.lint:format:fix
+
+rm \
+  prettier.config.mjs \
+  .prettierignore
 ```
