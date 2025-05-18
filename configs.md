@@ -13,6 +13,7 @@
   - [Husky](#husky)
   - [commitlint](#commitlint)
   - [lint-staged](#lint-staged)
+  - [Knip](#knip)
 - [All](#all)
   - [Install](#install)
   - [Uninstall](#uninstall)
@@ -273,6 +274,28 @@ rm lint-staged.config.mjs
 rm .husky/pre-commit
 ```
 
+### [Knip](https://github.com/webpro-nl/knip)
+
+Install
+
+```shell
+npm install --save-dev knip
+
+npm pkg set \
+  scripts.knip="knip" \
+  scripts.knip:fix="npm run knip -- --fix"
+```
+
+Uninstall
+
+```shell
+npm pkg delete devDependencies.knip
+
+npm pkg delete \
+  scripts.knip \
+  scripts.knip:fix
+```
+
 ## All
 
 ### Install
@@ -374,6 +397,14 @@ npm install --save-dev lint-staged
 curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/lint-staged.config.mjs
 
 echo "npx lint-staged --concurrent false" > .husky/pre-commit
+
+# Knip
+
+npm install --save-dev knip
+
+npm pkg set \
+  scripts.knip="knip" \
+  scripts.knip:fix="npm run knip -- --fix"
 ```
 
 ### Uninstall
@@ -475,4 +506,12 @@ npm pkg delete devDependencies.lint-staged
 rm lint-staged.config.mjs
 
 rm .husky/pre-commit
+
+# Knip
+
+npm pkg delete devDependencies.knip
+
+npm pkg delete \
+  scripts.knip \
+  scripts.knip:fix
 ```

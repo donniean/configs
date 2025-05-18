@@ -7,6 +7,7 @@ import { CONFIG as gitattributes } from './gitattributes';
 import { CONFIG as gitignore } from './gitignore';
 import { CONFIG as htmlhint } from './htmlhint';
 import { CONFIG as husky } from './husky';
+import { CONFIG as knip } from './knip';
 import { CONFIG as lintStaged } from './lint-staged';
 
 export const CONFIGS = [
@@ -21,4 +22,6 @@ export const CONFIGS = [
   husky,
   commitlint,
   lintStaged,
+  //
+  knip,
 ] as const;
