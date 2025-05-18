@@ -10,13 +10,13 @@
   - [gitattributes](#gitattributes)
   - [gitignore](#gitignore)
   - [HTMLHint](#htmlhint)
-  - [Husky](#husky)
-  - [commitlint](#commitlint)
-  - [lint-staged](#lint-staged)
   - [Knip](#knip)
   - [markdownlint](#markdownlint)
   - [npm-check-updates](#npm-check-updates)
   - [Prettier](#prettier)
+  - [Husky](#husky)
+  - [commitlint](#commitlint)
+  - [lint-staged](#lint-staged)
 - [All](#all)
   - [Install](#install)
   - [Uninstall](#uninstall)
@@ -207,76 +207,6 @@ npm pkg delete scripts.lint:html
 rm .htmlhintrc
 ```
 
-### [Husky](https://github.com/typicode/husky)
-
-Install
-
-```shell
-npm install --save-dev husky
-
-npm pkg set scripts.prepare="husky"
-
-npm run prepare
-```
-
-Uninstall
-
-```shell
-npm pkg delete devDependencies.husky
-
-npm pkg delete scripts.prepare
-
-rm -rf .husky/
-```
-
-### [commitlint](https://github.com/conventional-changelog/commitlint)
-
-Install
-
-```shell
-npm install --save-dev \
-  @commitlint/cli \
-  @commitlint/config-conventional
-
-curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/commitlint.config.mjs
-
-echo "npx --no -- commitlint --edit \$1" > .husky/commit-msg
-```
-
-Uninstall
-
-```shell
-npm pkg delete \
-  devDependencies.@commitlint/cli \
-  devDependencies.@commitlint/config-conventional
-
-rm commitlint.config.mjs
-
-rm .husky/commit-msg
-```
-
-### [lint-staged](https://github.com/lint-staged/lint-staged)
-
-Install
-
-```shell
-npm install --save-dev lint-staged
-
-curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/lint-staged.config.mjs
-
-echo "npx lint-staged --concurrent false" > .husky/pre-commit
-```
-
-Uninstall
-
-```shell
-npm pkg delete devDependencies.lint-staged
-
-rm lint-staged.config.mjs
-
-rm .husky/pre-commit
-```
-
 ### [Knip](https://github.com/webpro-nl/knip)
 
 Install
@@ -385,6 +315,76 @@ rm \
   .prettierignore
 ```
 
+### [Husky](https://github.com/typicode/husky)
+
+Install
+
+```shell
+npm install --save-dev husky
+
+npm pkg set scripts.prepare="husky"
+
+npm run prepare
+```
+
+Uninstall
+
+```shell
+npm pkg delete devDependencies.husky
+
+npm pkg delete scripts.prepare
+
+rm -rf .husky/
+```
+
+### [commitlint](https://github.com/conventional-changelog/commitlint)
+
+Install
+
+```shell
+npm install --save-dev \
+  @commitlint/cli \
+  @commitlint/config-conventional
+
+curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/commitlint.config.mjs
+
+echo "npx --no -- commitlint --edit \$1" > .husky/commit-msg
+```
+
+Uninstall
+
+```shell
+npm pkg delete \
+  devDependencies.@commitlint/cli \
+  devDependencies.@commitlint/config-conventional
+
+rm commitlint.config.mjs
+
+rm .husky/commit-msg
+```
+
+### [lint-staged](https://github.com/lint-staged/lint-staged)
+
+Install
+
+```shell
+npm install --save-dev lint-staged
+
+curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/lint-staged.config.mjs
+
+echo "npx lint-staged --concurrent false" > .husky/pre-commit
+```
+
+Uninstall
+
+```shell
+npm pkg delete devDependencies.lint-staged
+
+rm lint-staged.config.mjs
+
+rm .husky/pre-commit
+```
+
 ## All
 
 ### Install
@@ -461,32 +461,6 @@ npm pkg set scripts.lint:html="htmlhint --ignore=\"**/coverage/**\" \"**/*.html\
 
 curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.htmlhintrc
 
-# Husky
-
-npm install --save-dev husky
-
-npm pkg set scripts.prepare="husky"
-
-npm run prepare
-
-# commitlint
-
-npm install --save-dev \
-  @commitlint/cli \
-  @commitlint/config-conventional
-
-curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/commitlint.config.mjs
-
-echo "npx --no -- commitlint --edit \$1" > .husky/commit-msg
-
-# lint-staged
-
-npm install --save-dev lint-staged
-
-curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/lint-staged.config.mjs
-
-echo "npx lint-staged --concurrent false" > .husky/pre-commit
-
 # Knip
 
 npm install --save-dev knip
@@ -528,6 +502,32 @@ npm pkg set \
 curl \
   --remote-name https://raw.githubusercontent.com/donniean/react-app/main/prettier.config.mjs \
   --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.prettierignore
+
+# Husky
+
+npm install --save-dev husky
+
+npm pkg set scripts.prepare="husky"
+
+npm run prepare
+
+# commitlint
+
+npm install --save-dev \
+  @commitlint/cli \
+  @commitlint/config-conventional
+
+curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/commitlint.config.mjs
+
+echo "npx --no -- commitlint --edit \$1" > .husky/commit-msg
+
+# lint-staged
+
+npm install --save-dev lint-staged
+
+curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/lint-staged.config.mjs
+
+echo "npx lint-staged --concurrent false" > .husky/pre-commit
 ```
 
 ### Uninstall
@@ -604,32 +604,6 @@ npm pkg delete scripts.lint:html
 
 rm .htmlhintrc
 
-# Husky
-
-npm pkg delete devDependencies.husky
-
-npm pkg delete scripts.prepare
-
-rm -rf .husky/
-
-# commitlint
-
-npm pkg delete \
-  devDependencies.@commitlint/cli \
-  devDependencies.@commitlint/config-conventional
-
-rm commitlint.config.mjs
-
-rm .husky/commit-msg
-
-# lint-staged
-
-npm pkg delete devDependencies.lint-staged
-
-rm lint-staged.config.mjs
-
-rm .husky/pre-commit
-
 # Knip
 
 npm pkg delete devDependencies.knip
@@ -671,4 +645,30 @@ npm pkg delete \
 rm \
   prettier.config.mjs \
   .prettierignore
+
+# Husky
+
+npm pkg delete devDependencies.husky
+
+npm pkg delete scripts.prepare
+
+rm -rf .husky/
+
+# commitlint
+
+npm pkg delete \
+  devDependencies.@commitlint/cli \
+  devDependencies.@commitlint/config-conventional
+
+rm commitlint.config.mjs
+
+rm .husky/commit-msg
+
+# lint-staged
+
+npm pkg delete devDependencies.lint-staged
+
+rm lint-staged.config.mjs
+
+rm .husky/pre-commit
 ```

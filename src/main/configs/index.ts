@@ -21,13 +21,12 @@ export const CONFIGS = [
   gitattributes,
   gitignore,
   htmlhint,
-  // husky
-  husky,
-  commitlint,
-  lintStaged,
-  //
   knip,
   markdownlint,
   npmCheckUpdates,
   prettier,
+  // husky
+  husky,
+  commitlint,
+  lintStaged,
 ] as const;
