@@ -14,6 +14,7 @@
   - [commitlint](#commitlint)
   - [lint-staged](#lint-staged)
   - [Knip](#knip)
+  - [markdownlint](#markdownlint)
 - [All](#all)
   - [Install](#install)
   - [Uninstall](#uninstall)
@@ -296,6 +297,36 @@ npm pkg delete \
   scripts.knip:fix
 ```
 
+### [markdownlint](https://github.com/DavidAnson/markdownlint)
+
+Install
+
+```shell
+npm install --save-dev markdownlint-cli
+
+npm pkg set \
+  scripts.lint:md="markdownlint --dot "**/*.md"" \
+  scripts.lint:md:fix="npm run lint:md -- --fix"
+
+curl \
+  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.markdownlint.json \
+  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.markdownlintignore
+```
+
+Uninstall
+
+```shell
+npm pkg delete devDependencies.markdownlint-cli
+
+npm pkg delete \
+  scripts.lint:md \
+  scripts.lint:md:fix
+
+rm \
+  .markdownlint.json \
+  .markdownlintignore
+```
+
 ## All
 
 ### Install
@@ -405,6 +436,18 @@ npm install --save-dev knip
 npm pkg set \
   scripts.knip="knip" \
   scripts.knip:fix="npm run knip -- --fix"
+
+# markdownlint
+
+npm install --save-dev markdownlint-cli
+
+npm pkg set \
+  scripts.lint:md="markdownlint --dot "**/*.md"" \
+  scripts.lint:md:fix="npm run lint:md -- --fix"
+
+curl \
+  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.markdownlint.json \
+  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.markdownlintignore
 ```
 
 ### Uninstall
@@ -514,4 +557,16 @@ npm pkg delete devDependencies.knip
 npm pkg delete \
   scripts.knip \
   scripts.knip:fix
+
+# markdownlint
+
+npm pkg delete devDependencies.markdownlint-cli
+
+npm pkg delete \
+  scripts.lint:md \
+  scripts.lint:md:fix
+
+rm \
+  .markdownlint.json \
+  .markdownlintignore
 ```

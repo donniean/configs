@@ -9,6 +9,7 @@ import { CONFIG as htmlhint } from './htmlhint';
 import { CONFIG as husky } from './husky';
 import { CONFIG as knip } from './knip';
 import { CONFIG as lintStaged } from './lint-staged';
+import { CONFIG as markdownlint } from './markdownlint';
 
 export const CONFIGS = [
   autocorrect,
@@ -24,4 +25,5 @@ export const CONFIGS = [
   lintStaged,
   //
   knip,
+  markdownlint,
 ] as const;
