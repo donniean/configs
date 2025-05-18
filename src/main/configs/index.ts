@@ -7,7 +7,11 @@ import { CONFIG as gitattributes } from './gitattributes';
 import { CONFIG as gitignore } from './gitignore';
 import { CONFIG as htmlhint } from './htmlhint';
 import { CONFIG as husky } from './husky';
+import { CONFIG as knip } from './knip';
 import { CONFIG as lintStaged } from './lint-staged';
+import { CONFIG as markdownlint } from './markdownlint';
+import { CONFIG as npmCheckUpdates } from './npm-check-updates';
+import { CONFIG as prettier } from './prettier';
 
 export const CONFIGS = [
   autocorrect,
@@ -17,6 +21,10 @@ export const CONFIGS = [
   gitattributes,
   gitignore,
   htmlhint,
+  knip,
+  markdownlint,
+  npmCheckUpdates,
+  prettier,
   // husky
   husky,
   commitlint,

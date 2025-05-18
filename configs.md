@@ -10,6 +10,10 @@
   - [gitattributes](#gitattributes)
   - [gitignore](#gitignore)
   - [HTMLHint](#htmlhint)
+  - [Knip](#knip)
+  - [markdownlint](#markdownlint)
+  - [npm-check-updates](#npm-check-updates)
+  - [Prettier](#prettier)
   - [Husky](#husky)
   - [commitlint](#commitlint)
   - [lint-staged](#lint-staged)
@@ -203,6 +207,114 @@ npm pkg delete scripts.lint:html
 rm .htmlhintrc
 ```
 
+### [Knip](https://github.com/webpro-nl/knip)
+
+Install
+
+```shell
+npm install --save-dev knip
+
+npm pkg set \
+  scripts.knip="knip" \
+  scripts.knip:fix="npm run knip -- --fix"
+```
+
+Uninstall
+
+```shell
+npm pkg delete devDependencies.knip
+
+npm pkg delete \
+  scripts.knip \
+  scripts.knip:fix
+```
+
+### [markdownlint](https://github.com/DavidAnson/markdownlint)
+
+Install
+
+```shell
+npm install --save-dev markdownlint-cli
+
+npm pkg set \
+  scripts.lint:md="markdownlint --dot \"**/*.md\"" \
+  scripts.lint:md:fix="npm run lint:md -- --fix"
+
+curl \
+  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.markdownlint.json \
+  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.markdownlintignore
+```
+
+Uninstall
+
+```shell
+npm pkg delete devDependencies.markdownlint-cli
+
+npm pkg delete \
+  scripts.lint:md \
+  scripts.lint:md:fix
+
+rm \
+  .markdownlint.json \
+  .markdownlintignore
+```
+
+### [npm-check-updates](https://github.com/raineorshine/npm-check-updates)
+
+Install
+
+```shell
+npm install --save-dev npm-check-updates
+
+npm pkg set \
+  scripts.ncu="npx npm-check-updates --deep" \
+  scripts.ncu:upgrade="npm run ncu -- --upgrade"
+```
+
+Uninstall
+
+```shell
+npm pkg delete devDependencies.npm-check-updates
+
+npm pkg delete \
+  scripts.ncu \
+  scripts.ncu:upgrade
+```
+
+### [Prettier](https://github.com/prettier/prettier)
+
+Install
+
+```shell
+npm install --save-dev \
+  prettier \
+  prettier-plugin-tailwindcss
+
+npm pkg set \
+  scripts.lint:format="prettier --check --ignore-unknown ." \
+  scripts.lint:format:fix="prettier --write --ignore-unknown ."
+
+curl \
+  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/prettier.config.mjs \
+  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.prettierignore
+```
+
+Uninstall
+
+```shell
+npm pkg delete \
+  devDependencies.prettier \
+  devDependencies.prettier-plugin-tailwindcss
+
+npm pkg delete \
+  scripts.lint:format \
+  scripts.lint:format:fix
+
+rm \
+  prettier.config.mjs \
+  .prettierignore
+```
+
 ### [Husky](https://github.com/typicode/husky)
 
 Install
@@ -349,6 +461,48 @@ npm pkg set scripts.lint:html="htmlhint --ignore=\"**/coverage/**\" \"**/*.html\
 
 curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.htmlhintrc
 
+# Knip
+
+npm install --save-dev knip
+
+npm pkg set \
+  scripts.knip="knip" \
+  scripts.knip:fix="npm run knip -- --fix"
+
+# markdownlint
+
+npm install --save-dev markdownlint-cli
+
+npm pkg set \
+  scripts.lint:md="markdownlint --dot \"**/*.md\"" \
+  scripts.lint:md:fix="npm run lint:md -- --fix"
+
+curl \
+  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.markdownlint.json \
+  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.markdownlintignore
+
+# npm-check-updates
+
+npm install --save-dev npm-check-updates
+
+npm pkg set \
+  scripts.ncu="npx npm-check-updates --deep" \
+  scripts.ncu:upgrade="npm run ncu -- --upgrade"
+
+# Prettier
+
+npm install --save-dev \
+  prettier \
+  prettier-plugin-tailwindcss
+
+npm pkg set \
+  scripts.lint:format="prettier --check --ignore-unknown ." \
+  scripts.lint:format:fix="prettier --write --ignore-unknown ."
+
+curl \
+  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/prettier.config.mjs \
+  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.prettierignore
+
 # Husky
 
 npm install --save-dev husky
@@ -449,6 +603,48 @@ npm pkg delete devDependencies.htmlhint
 npm pkg delete scripts.lint:html
 
 rm .htmlhintrc
+
+# Knip
+
+npm pkg delete devDependencies.knip
+
+npm pkg delete \
+  scripts.knip \
+  scripts.knip:fix
+
+# markdownlint
+
+npm pkg delete devDependencies.markdownlint-cli
+
+npm pkg delete \
+  scripts.lint:md \
+  scripts.lint:md:fix
+
+rm \
+  .markdownlint.json \
+  .markdownlintignore
+
+# npm-check-updates
+
+npm pkg delete devDependencies.npm-check-updates
+
+npm pkg delete \
+  scripts.ncu \
+  scripts.ncu:upgrade
+
+# Prettier
+
+npm pkg delete \
+  devDependencies.prettier \
+  devDependencies.prettier-plugin-tailwindcss
+
+npm pkg delete \
+  scripts.lint:format \
+  scripts.lint:format:fix
+
+rm \
+  prettier.config.mjs \
+  .prettierignore
 
 # Husky
 

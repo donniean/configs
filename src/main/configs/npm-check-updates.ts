@@ -1,24 +1,21 @@
 import type { Config } from '../types';
 
 export const CONFIG = {
-  name: '',
-  url: '',
+  name: 'npm-check-updates',
+  url: 'https://github.com/raineorshine/npm-check-updates',
   pkg: {
-    devDependencies: [],
+    devDependencies: ['npm-check-updates'],
     scripts: [
-      { key: '', value: '' },
-      { key: '', value: '' },
+      { key: 'ncu', value: 'npx npm-check-updates --deep' },
+      { key: 'ncu:upgrade', value: 'npm run ncu -- --upgrade' },
     ],
   },
-  filePaths: [],
   install: [
     { type: 'pkg.devDependencies.install' },
     { type: 'pkg.scripts.set' },
-    { type: 'files.download' },
   ],
   uninstall: [
     { type: 'pkg.devDependencies.uninstall' },
     { type: 'pkg.scripts.delete' },
-    { type: 'files.delete' },
   ],
 } as const satisfies Config;
