@@ -305,7 +305,7 @@ Install
 npm install --save-dev markdownlint-cli
 
 npm pkg set \
-  scripts.lint:md="markdownlint --dot "**/*.md"" \
+  scripts.lint:md="markdownlint --dot \"**/*.md\"" \
   scripts.lint:md:fix="npm run lint:md -- --fix"
 
 curl \
@@ -442,7 +442,7 @@ npm pkg set \
 npm install --save-dev markdownlint-cli
 
 npm pkg set \
-  scripts.lint:md="markdownlint --dot "**/*.md"" \
+  scripts.lint:md="markdownlint --dot \"**/*.md\"" \
   scripts.lint:md:fix="npm run lint:md -- --fix"
 
 curl \
