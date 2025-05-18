@@ -15,6 +15,7 @@
   - [lint-staged](#lint-staged)
   - [Knip](#knip)
   - [markdownlint](#markdownlint)
+  - [npm-check-updates](#npm-check-updates)
 - [All](#all)
   - [Install](#install)
   - [Uninstall](#uninstall)
@@ -327,6 +328,28 @@ rm \
   .markdownlintignore
 ```
 
+### [npm-check-updates](https://github.com/raineorshine/npm-check-updates)
+
+Install
+
+```shell
+npm install --save-dev npm-check-updates
+
+npm pkg set \
+  scripts.ncu="npx npm-check-updates --deep" \
+  scripts.ncu:upgrade="npm run ncu -- --upgrade"
+```
+
+Uninstall
+
+```shell
+npm pkg delete devDependencies.npm-check-updates
+
+npm pkg delete \
+  scripts.ncu \
+  scripts.ncu:upgrade
+```
+
 ## All
 
 ### Install
@@ -448,6 +471,14 @@ npm pkg set \
 curl \
   --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.markdownlint.json \
   --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.markdownlintignore
+
+# npm-check-updates
+
+npm install --save-dev npm-check-updates
+
+npm pkg set \
+  scripts.ncu="npx npm-check-updates --deep" \
+  scripts.ncu:upgrade="npm run ncu -- --upgrade"
 ```
 
 ### Uninstall
@@ -569,4 +600,12 @@ npm pkg delete \
 rm \
   .markdownlint.json \
   .markdownlintignore
+
+# npm-check-updates
+
+npm pkg delete devDependencies.npm-check-updates
+
+npm pkg delete \
+  scripts.ncu \
+  scripts.ncu:upgrade
 ```
