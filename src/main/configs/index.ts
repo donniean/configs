@@ -15,6 +15,7 @@ import { CONFIG as prettier } from './prettier';
 import { CONFIG as sortPackageJson } from './sort-package-json';
 import { CONFIG as stylelint } from './stylelint';
 import { CONFIG as tsc } from './tsc';
+import { CONFIG as vitest } from './vitest';
 
 export const CONFIGS = [
   autocorrect,
@@ -31,6 +32,7 @@ export const CONFIGS = [
   sortPackageJson,
   stylelint,
   tsc,
+  vitest,
   // husky
   husky,
   commitlint,

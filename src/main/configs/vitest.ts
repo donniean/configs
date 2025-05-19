@@ -4,21 +4,19 @@ export const CONFIG = {
   name: 'Vitest',
   url: 'https://github.com/vitest-dev/vitest',
   pkg: {
-    devDependencies: [],
+    devDependencies: ['@vitest/coverage-v8', 'vitest'],
     scripts: [
-      { key: '', value: '' },
-      { key: '', value: '' },
+      { key: 'test', value: 'vitest run' },
+      { key: 'test:coverage', value: 'vitest run --coverage' },
+      { key: 'test:watch', value: 'vitest watch' },
     ],
   },
-  filePaths: [],
   install: [
     { type: 'pkg.devDependencies.install' },
     { type: 'pkg.scripts.set' },
-    { type: 'files.download' },
   ],
   uninstall: [
     { type: 'pkg.devDependencies.uninstall' },
     { type: 'pkg.scripts.delete' },
-    { type: 'files.delete' },
   ],
 } as const satisfies Config;

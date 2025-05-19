@@ -17,6 +17,7 @@
   - [Sort Package.json](#sort-packagejson)
   - [Stylelint](#stylelint)
   - [tsc](#tsc)
+  - [Vitest](#vitest)
   - [Husky](#husky)
   - [commitlint](#commitlint)
   - [lint-staged](#lint-staged)
@@ -396,6 +397,34 @@ npm pkg delete devDependencies.typescript
 npm pkg delete scripts.lint:types
 ```
 
+### [Vitest](https://github.com/vitest-dev/vitest)
+
+Install
+
+```shell
+npm install --save-dev \
+  @vitest/coverage-v8 \
+  vitest
+
+npm pkg set \
+  scripts.test="vitest run" \
+  scripts.test:coverage="vitest run --coverage" \
+  scripts.test:watch="vitest watch"
+```
+
+Uninstall
+
+```shell
+npm pkg delete \
+  devDependencies.@vitest/coverage-v8 \
+  devDependencies.vitest
+
+npm pkg delete \
+  scripts.test \
+  scripts.test:coverage \
+  scripts.test:watch
+```
+
 ### [Husky](https://github.com/typicode/husky)
 
 Install
@@ -614,6 +643,17 @@ npm install --save-dev typescript
 
 npm pkg set scripts.lint:types="tsc --noEmit"
 
+# Vitest
+
+npm install --save-dev \
+  @vitest/coverage-v8 \
+  vitest
+
+npm pkg set \
+  scripts.test="vitest run" \
+  scripts.test:coverage="vitest run --coverage" \
+  scripts.test:watch="vitest watch"
+
 # Husky
 
 npm install --save-dev husky
@@ -786,6 +826,17 @@ rm \
 npm pkg delete devDependencies.typescript
 
 npm pkg delete scripts.lint:types
+
+# Vitest
+
+npm pkg delete \
+  devDependencies.@vitest/coverage-v8 \
+  devDependencies.vitest
+
+npm pkg delete \
+  scripts.test \
+  scripts.test:coverage \
+  scripts.test:watch
 
 # Husky
 
