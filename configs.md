@@ -3,6 +3,7 @@
 ## Table of Contents
 
 - [Sections](#sections)
+  - [AggregateLint](#aggregatelint)
   - [AutoCorrect](#autocorrect)
   - [CSpell](#cspell)
   - [EditorConfig](#editorconfig)
@@ -26,6 +27,24 @@
   - [Uninstall](#uninstall)
 
 ## Sections
+
+### AggregateLint
+
+Install
+
+```shell
+npm pkg set \
+  scripts.lint="concurrently --group --timings --prefix-colors=auto \"npm:lint:*(!:fix)\"" \
+  scripts.lint:fix="concurrently --max-processes=1 --group --timings --prefix-colors=auto \"npm:lint:*:fix\""
+```
+
+Uninstall
+
+```shell
+npm pkg delete \
+  scripts.lint \
+  scripts.lint:fix
+```
 
 ### [AutoCorrect](https://github.com/huacnlee/autocorrect)
 
@@ -500,6 +519,12 @@ rm .husky/pre-commit
 ### Install
 
 ```shell
+# AggregateLint
+
+npm pkg set \
+  scripts.lint="concurrently --group --timings --prefix-colors=auto \"npm:lint:*(!:fix)\"" \
+  scripts.lint:fix="concurrently --max-processes=1 --group --timings --prefix-colors=auto \"npm:lint:*:fix\""
+
 # AutoCorrect
 
 npm install --save-dev autocorrect-node
@@ -684,6 +709,12 @@ echo "npx lint-staged --concurrent false" > .husky/pre-commit
 ### Uninstall
 
 ```shell
+# AggregateLint
+
+npm pkg delete \
+  scripts.lint \
+  scripts.lint:fix
+
 # AutoCorrect
 
 npm pkg delete devDependencies.autocorrect-node

@@ -2,23 +2,18 @@ import type { Config } from '../types';
 
 export const CONFIG = {
   name: 'AggregateLint',
-  url: '',
   pkg: {
-    devDependencies: [],
     scripts: [
-      { key: '', value: '' },
-      { key: '', value: '' },
+      {
+        key: 'lint',
+        value: String.raw`concurrently --group --timings --prefix-colors=auto \"npm:lint:*(!:fix)\"`,
+      },
+      {
+        key: 'lint:fix',
+        value: String.raw`concurrently --max-processes=1 --group --timings --prefix-colors=auto \"npm:lint:*:fix\"`,
+      },
     ],
   },
-  filePaths: [],
-  install: [
-    { type: 'pkg.devDependencies.install' },
-    { type: 'pkg.scripts.set' },
-    { type: 'files.download' },
-  ],
-  uninstall: [
-    { type: 'pkg.devDependencies.uninstall' },
-    { type: 'pkg.scripts.delete' },
-    { type: 'files.delete' },
-  ],
+  install: [{ type: 'pkg.scripts.set' }],
+  uninstall: [{ type: 'pkg.scripts.delete' }],
 } as const satisfies Config;

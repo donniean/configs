@@ -1,3 +1,4 @@
+import { CONFIG as aggregateLint } from './aggregate-lint';
 import { CONFIG as autocorrect } from './autocorrect';
 import { CONFIG as commitlint } from './commitlint';
 import { CONFIG as cspell } from './cspell';
@@ -18,6 +19,7 @@ import { CONFIG as tsc } from './tsc';
 import { CONFIG as vitest } from './vitest';
 
 export const CONFIGS = [
+  aggregateLint,
   autocorrect,
   cspell,
   editorconfig,
