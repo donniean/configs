@@ -477,7 +477,7 @@ npm install --save-dev \
 
 curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/commitlint.config.mjs
 
-echo "npx --no -- commitlint --edit \$1" > .husky/commit-msg
+echo "npx --no -- commitlint --edit $1" > .husky/commit-msg
 ```
 
 Uninstall
@@ -695,7 +695,7 @@ npm install --save-dev \
 
 curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/commitlint.config.mjs
 
-echo "npx --no -- commitlint --edit \$1" > .husky/commit-msg
+echo "npx --no -- commitlint --edit $1" > .husky/commit-msg
 
 # lint-staged
 
