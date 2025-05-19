@@ -15,6 +15,7 @@
   - [npm-check-updates](#npm-check-updates)
   - [Prettier](#prettier)
   - [Sort Package.json](#sort-packagejson)
+  - [Stylelint](#stylelint)
   - [Husky](#husky)
   - [commitlint](#commitlint)
   - [lint-staged](#lint-staged)
@@ -338,6 +339,44 @@ npm pkg delete \
   scripts.lint:package-json:fix
 ```
 
+### [Stylelint](https://github.com/stylelint/stylelint)
+
+Install
+
+```shell
+npm install --save-dev \
+  stylelint \
+  stylelint-config-recess-order \
+  stylelint-config-standard \
+  stylelint-config-css-modules
+
+npm pkg set \
+  scripts.lint:css="stylelint \"**/*.css\"" \
+  scripts.lint:css:fix="npm run lint:css -- --fix"
+
+curl \
+  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/stylelint.config.mjs \
+  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.stylelintignore
+```
+
+Uninstall
+
+```shell
+npm pkg delete \
+  devDependencies.stylelint \
+  devDependencies.stylelint-config-recess-order \
+  devDependencies.stylelint-config-standard \
+  devDependencies.stylelint-config-css-modules
+
+npm pkg delete \
+  scripts.lint:css \
+  scripts.lint:css:fix
+
+rm \
+  stylelint.config.mjs \
+  .stylelintignore
+```
+
 ### [Husky](https://github.com/typicode/husky)
 
 Install
@@ -534,6 +573,22 @@ npm pkg set \
   scripts.lint:package-json="npm run lint:package-json:fix -- --check" \
   scripts.lint:package-json:fix="npx sort-package-json \"**/package.json\" --ignore \"**/node_modules/**/package.json\" --ignore \"**/dist/**/package.json\""
 
+# Stylelint
+
+npm install --save-dev \
+  stylelint \
+  stylelint-config-recess-order \
+  stylelint-config-standard \
+  stylelint-config-css-modules
+
+npm pkg set \
+  scripts.lint:css="stylelint \"**/*.css\"" \
+  scripts.lint:css:fix="npm run lint:css -- --fix"
+
+curl \
+  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/stylelint.config.mjs \
+  --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.stylelintignore
+
 # Husky
 
 npm install --save-dev husky
@@ -684,6 +739,22 @@ npm pkg delete devDependencies.sort-package-json
 npm pkg delete \
   scripts.lint:package-json \
   scripts.lint:package-json:fix
+
+# Stylelint
+
+npm pkg delete \
+  devDependencies.stylelint \
+  devDependencies.stylelint-config-recess-order \
+  devDependencies.stylelint-config-standard \
+  devDependencies.stylelint-config-css-modules
+
+npm pkg delete \
+  scripts.lint:css \
+  scripts.lint:css:fix
+
+rm \
+  stylelint.config.mjs \
+  .stylelintignore
 
 # Husky
 
