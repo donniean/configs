@@ -1,5 +1,4 @@
 {
-  "extends": ["@tsconfig/node-lts/tsconfig.json"],
   "compilerOptions": {
     // https://github.com/tsconfig/bases/blob/main/bases/node-lts.json
     "lib": ["es2023"],
