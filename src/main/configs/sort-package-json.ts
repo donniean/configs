@@ -8,8 +8,7 @@ export const CONFIG = {
     scripts: [
       {
         key: 'lint:package-json',
-        value:
-          'sort-package-json "**/package.json" --ignore "**/dist**/package.json"',
+        value: String.raw`sort-package-json \"**/package.json\" --ignore \"**/dist**/package.json\"`,
       },
       {
         key: 'lint:package-json:fix',
