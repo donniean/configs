@@ -12,7 +12,7 @@ export const CONFIG = {
       },
       {
         key: 'lint:package-json:fix',
-        value: String.raw`npx sort-package-json \"**/package.json\" --ignore \"**/node_modules/**/package.json\" \"**/dist/**/package.json\"`,
+        value: String.raw`npx sort-package-json \"**/package.json\" --ignore \"**/node_modules/**/package.json\" --ignore \"**/dist/**/package.json\"`,
       },
     ],
   },
