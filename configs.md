@@ -324,8 +324,8 @@ Install
 npm install --save-dev sort-package-json
 
 npm pkg set \
-  scripts.lint:package-json="sort-package-json \"**/package.json\" --ignore \"**/dist**/package.json\"" \
-  scripts.lint:package-json:fix="npm run lint:package-json:fix -- --check"
+  scripts.lint:package-json="npm run lint:package-json:fix -- --check" \
+  scripts.lint:package-json:fix="sort-package-json \"**/package.json\" --ignore \"**/dist**/package.json\""
 ```
 
 Uninstall
@@ -531,8 +531,8 @@ curl \
 npm install --save-dev sort-package-json
 
 npm pkg set \
-  scripts.lint:package-json="sort-package-json \"**/package.json\" --ignore \"**/dist**/package.json\"" \
-  scripts.lint:package-json:fix="npm run lint:package-json:fix -- --check"
+  scripts.lint:package-json="npm run lint:package-json:fix -- --check" \
+  scripts.lint:package-json:fix="sort-package-json \"**/package.json\" --ignore \"**/dist**/package.json\""
 
 # Husky
 
