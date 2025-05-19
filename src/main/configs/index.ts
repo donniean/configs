@@ -14,6 +14,7 @@ import { CONFIG as npmCheckUpdates } from './npm-check-updates';
 import { CONFIG as prettier } from './prettier';
 import { CONFIG as sortPackageJson } from './sort-package-json';
 import { CONFIG as stylelint } from './stylelint';
+import { CONFIG as tsc } from './tsc';
 
 export const CONFIGS = [
   autocorrect,
@@ -29,6 +30,7 @@ export const CONFIGS = [
   prettier,
   sortPackageJson,
   stylelint,
+  tsc,
   // husky
   husky,
   commitlint,

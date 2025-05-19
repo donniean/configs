@@ -16,6 +16,7 @@
   - [Prettier](#prettier)
   - [Sort Package.json](#sort-packagejson)
   - [Stylelint](#stylelint)
+  - [tsc](#tsc)
   - [Husky](#husky)
   - [commitlint](#commitlint)
   - [lint-staged](#lint-staged)
@@ -377,6 +378,24 @@ rm \
   .stylelintignore
 ```
 
+### [tsc](https://github.com/microsoft/TypeScript)
+
+Install
+
+```shell
+npm install --save-dev typescript
+
+npm pkg set scripts.lint:types="tsc --noEmit"
+```
+
+Uninstall
+
+```shell
+npm pkg delete devDependencies.typescript
+
+npm pkg delete scripts.lint:types
+```
+
 ### [Husky](https://github.com/typicode/husky)
 
 Install
@@ -589,6 +608,12 @@ curl \
   --remote-name https://raw.githubusercontent.com/donniean/react-app/main/stylelint.config.mjs \
   --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.stylelintignore
 
+# tsc
+
+npm install --save-dev typescript
+
+npm pkg set scripts.lint:types="tsc --noEmit"
+
 # Husky
 
 npm install --save-dev husky
@@ -755,6 +780,12 @@ npm pkg delete \
 rm \
   stylelint.config.mjs \
   .stylelintignore
+
+# tsc
+
+npm pkg delete devDependencies.typescript
+
+npm pkg delete scripts.lint:types
 
 # Husky
 
