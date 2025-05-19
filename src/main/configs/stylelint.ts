@@ -11,7 +11,7 @@ export const CONFIG = {
       'stylelint-config-css-modules',
     ],
     scripts: [
-      { key: 'lint:css', value: String.raw`stylelint \"**/*.css\"` },
+      { key: 'lint:css', value: 'stylelint "**/*.css"' },
       { key: 'lint:css:fix', value: 'npm run lint:css -- --fix' },
     ],
   },

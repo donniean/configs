@@ -372,7 +372,7 @@ npm install --save-dev \
   stylelint-config-css-modules
 
 npm pkg set \
-  scripts.lint:css='stylelint \"**/*.css\"' \
+  scripts.lint:css='stylelint "**/*.css"' \
   scripts.lint:css:fix='npm run lint:css -- --fix'
 
 curl \
@@ -655,7 +655,7 @@ npm install --save-dev \
   stylelint-config-css-modules
 
 npm pkg set \
-  scripts.lint:css='stylelint \"**/*.css\"' \
+  scripts.lint:css='stylelint "**/*.css"' \
   scripts.lint:css:fix='npm run lint:css -- --fix'
 
 curl \
