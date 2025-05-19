@@ -6,7 +6,7 @@ export const CONFIG = {
   pkg: {
     devDependencies: ['markdownlint-cli'],
     scripts: [
-      { key: 'lint:md', value: String.raw`markdownlint --dot \"**/*.md\"` },
+      { key: 'lint:md', value: 'markdownlint --dot "**/*.md"' },
       { key: 'lint:md:fix', value: 'npm run lint:md -- --fix' },
     ],
   },
