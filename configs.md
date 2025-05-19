@@ -33,17 +33,14 @@
 Install
 
 ```shell
-npm pkg set \
-  scripts.lint="concurrently --group --timings --prefix-colors=auto \"npm:lint:*(!:fix)\"" \
-  scripts.lint:fix="concurrently --max-processes=1 --group --timings --prefix-colors=auto \"npm:lint:*:fix\""
+npm pkg set   scripts.lint='concurrently --group --timings --prefix-colors=auto "npm:lint:*(!:fix)"'   scripts.lint:fix='concurrently --max-processes=1 --group --timings --prefix-colors=auto "npm:lint:*:fix"'
+
 ```
 
 Uninstall
 
 ```shell
-npm pkg delete \
-  scripts.lint \
-  scripts.lint:fix
+npm pkg delete   scripts.lint   scripts.lint:fix
 ```
 
 ### [AutoCorrect](https://github.com/huacnlee/autocorrect)
@@ -521,9 +518,8 @@ rm .husky/pre-commit
 ```shell
 # AggregateLint
 
-npm pkg set \
-  scripts.lint="concurrently --group --timings --prefix-colors=auto \"npm:lint:*(!:fix)\"" \
-  scripts.lint:fix="concurrently --max-processes=1 --group --timings --prefix-colors=auto \"npm:lint:*:fix\""
+npm pkg set   scripts.lint='concurrently --group --timings --prefix-colors=auto "npm:lint:*(!:fix)"'   scripts.lint:fix='concurrently --max-processes=1 --group --timings --prefix-colors=auto "npm:lint:*:fix"'
+
 
 # AutoCorrect
 
@@ -711,9 +707,7 @@ echo "npx lint-staged --concurrent false" > .husky/pre-commit
 ```shell
 # AggregateLint
 
-npm pkg delete \
-  scripts.lint \
-  scripts.lint:fix
+npm pkg delete   scripts.lint   scripts.lint:fix
 
 # AutoCorrect
 

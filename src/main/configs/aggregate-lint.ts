@@ -14,6 +14,23 @@ export const CONFIG = {
       },
     ],
   },
-  install: [{ type: 'pkg.scripts.set' }],
-  uninstall: [{ type: 'pkg.scripts.delete' }],
+  install: [
+    // { type: 'pkg.scripts.set' },
+    {
+      type: 'custom',
+      command: `npm pkg set \
+  scripts.lint='concurrently --group --timings --prefix-colors=auto "npm:lint:*(!:fix)"' \
+  scripts.lint:fix='concurrently --max-processes=1 --group --timings --prefix-colors=auto "npm:lint:*:fix"'
+`,
+    },
+  ],
+  uninstall: [
+    // { type: 'pkg.scripts.delete' },
+    {
+      type: 'custom',
+      command: `npm pkg delete \
+  scripts.lint \
+  scripts.lint:fix`,
+    },
+  ],
 } as const satisfies Config;
