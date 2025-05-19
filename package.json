@@ -64,6 +64,7 @@
     "knip:fix": "npm run knip -- --fix",
     "link": "npm run build && npm link",
     "lint": "concurrently --group --timings --prefix-colors=auto \"npm:lint:*(!:fix)\"",
+    "lint:fix": "concurrently --max-processes=1 --group --timings --prefix-colors=auto \"npm:lint:*:fix\"",
     "lint:format": "prettier --check --ignore-unknown .",
     "lint:format:fix": "prettier --write --ignore-unknown .",
     "lint:js": "eslint",
