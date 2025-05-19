@@ -1,24 +1,28 @@
 import type { Config } from '../types';
 
 export const CONFIG = {
-  name: '',
-  url: '',
+  name: 'Sort Package.json',
+  url: 'https://github.com/keithamus/sort-package-json',
   pkg: {
-    devDependencies: [],
+    devDependencies: ['sort-package-json'],
     scripts: [
-      { key: '', value: '' },
-      { key: '', value: '' },
+      {
+        key: 'lint:package-json',
+        value:
+          'sort-package-json "**/package.json" --ignore "**/dist**/package.json"',
+      },
+      {
+        key: 'lint:package-json:fix',
+        value: 'npm run lint:package-json:fix -- --check',
+      },
     ],
   },
-  filePaths: [],
   install: [
     { type: 'pkg.devDependencies.install' },
     { type: 'pkg.scripts.set' },
-    { type: 'files.download' },
   ],
   uninstall: [
     { type: 'pkg.devDependencies.uninstall' },
     { type: 'pkg.scripts.delete' },
-    { type: 'files.delete' },
   ],
 } as const satisfies Config;

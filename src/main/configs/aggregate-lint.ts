@@ -1,7 +1,7 @@
 import type { Config } from '../types';
 
 export const CONFIG = {
-  name: '',
+  name: 'AggregateLint',
   url: '',
   pkg: {
     devDependencies: [],

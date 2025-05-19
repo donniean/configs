@@ -12,6 +12,7 @@ import { CONFIG as lintStaged } from './lint-staged';
 import { CONFIG as markdownlint } from './markdownlint';
 import { CONFIG as npmCheckUpdates } from './npm-check-updates';
 import { CONFIG as prettier } from './prettier';
+import { CONFIG as sortPackageJson } from './sort-package-json';
 
 export const CONFIGS = [
   autocorrect,
@@ -25,6 +26,7 @@ export const CONFIGS = [
   markdownlint,
   npmCheckUpdates,
   prettier,
+  sortPackageJson,
   // husky
   husky,
   commitlint,

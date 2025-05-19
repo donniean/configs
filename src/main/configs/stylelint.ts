@@ -1,8 +1,8 @@
 import type { Config } from '../types';
 
 export const CONFIG = {
-  name: '',
-  url: '',
+  name: 'Stylelint',
+  url: 'https://github.com/stylelint/stylelint',
   pkg: {
     devDependencies: [],
     scripts: [

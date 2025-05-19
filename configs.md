@@ -14,6 +14,7 @@
   - [markdownlint](#markdownlint)
   - [npm-check-updates](#npm-check-updates)
   - [Prettier](#prettier)
+  - [Sort Package.json](#sort-packagejson)
   - [Husky](#husky)
   - [commitlint](#commitlint)
   - [lint-staged](#lint-staged)
@@ -315,6 +316,28 @@ rm \
   .prettierignore
 ```
 
+### [Sort Package.json](https://github.com/keithamus/sort-package-json)
+
+Install
+
+```shell
+npm install --save-dev sort-package-json
+
+npm pkg set \
+  scripts.lint:package-json="sort-package-json "**/package.json" --ignore "**/dist**/package.json"" \
+  scripts.lint:package-json:fix="npm run lint:package-json:fix -- --check"
+```
+
+Uninstall
+
+```shell
+npm pkg delete devDependencies.sort-package-json
+
+npm pkg delete \
+  scripts.lint:package-json \
+  scripts.lint:package-json:fix
+```
+
 ### [Husky](https://github.com/typicode/husky)
 
 Install
@@ -503,6 +526,14 @@ curl \
   --remote-name https://raw.githubusercontent.com/donniean/react-app/main/prettier.config.mjs \
   --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.prettierignore
 
+# Sort Package.json
+
+npm install --save-dev sort-package-json
+
+npm pkg set \
+  scripts.lint:package-json="sort-package-json "**/package.json" --ignore "**/dist**/package.json"" \
+  scripts.lint:package-json:fix="npm run lint:package-json:fix -- --check"
+
 # Husky
 
 npm install --save-dev husky
@@ -645,6 +676,14 @@ npm pkg delete \
 rm \
   prettier.config.mjs \
   .prettierignore
+
+# Sort Package.json
+
+npm pkg delete devDependencies.sort-package-json
+
+npm pkg delete \
+  scripts.lint:package-json \
+  scripts.lint:package-json:fix
 
 # Husky
 

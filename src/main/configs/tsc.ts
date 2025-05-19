@@ -1,8 +1,8 @@
 import type { Config } from '../types';
 
 export const CONFIG = {
-  name: '',
-  url: '',
+  name: 'tsc',
+  url: 'https://github.com/microsoft/TypeScript',
   pkg: {
     devDependencies: [],
     scripts: [

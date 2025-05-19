@@ -148,7 +148,7 @@ async function getMarkdown(configs: Configs) {
 
     const section: DataObject[] = [
       {
-        h3: `[${name}](${url})`,
+        h3: url ? `[${name}](${url})` : name,
       },
       {
         p: 'Install',

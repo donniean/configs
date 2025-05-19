@@ -1,8 +1,8 @@
 import type { Config } from '../types';
 
 export const CONFIG = {
-  name: '',
-  url: '',
+  name: 'Vitest',
+  url: 'https://github.com/vitest-dev/vitest',
   pkg: {
     devDependencies: [],
     scripts: [
