@@ -12,7 +12,7 @@ export const CONFIG = {
     { type: 'files.download' },
     {
       type: 'custom',
-      command: 'echo "npx --no -- commitlint --edit $1" > .husky/commit-msg',
+      command: String.raw`echo "npx --no -- commitlint --edit \$1" > .husky/commit-msg`,
     },
   ],
   uninstall: [
