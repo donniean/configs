@@ -53,7 +53,7 @@ function getInstallCommand({
       return buildCommand({
         mainCommand: 'npm',
         subCommand: 'pkg set',
-        args: scripts.map(({ key, value }) => `scripts.${key}="${value}"`),
+        args: scripts.map(({ key, value }) => `scripts.${key}='${value}'`),
       });
     }
     case 'files.download': {

@@ -33,14 +33,17 @@
 Install
 
 ```shell
-npm pkg set   scripts.lint='concurrently --group --timings --prefix-colors=auto "npm:lint:*(!:fix)"'   scripts.lint:fix='concurrently --max-processes=1 --group --timings --prefix-colors=auto "npm:lint:*:fix"'
-
+npm pkg set \
+  scripts.lint='concurrently --group --timings --prefix-colors=auto "npm:lint:*(!:fix)"' \
+  scripts.lint:fix='concurrently --max-processes=1 --group --timings --prefix-colors=auto "npm:lint:*:fix"'
 ```
 
 Uninstall
 
 ```shell
-npm pkg delete   scripts.lint   scripts.lint:fix
+npm pkg delete \
+  scripts.lint \
+  scripts.lint:fix
 ```
 
 ### [AutoCorrect](https://github.com/huacnlee/autocorrect)
@@ -51,8 +54,8 @@ Install
 npm install --save-dev autocorrect-node
 
 npm pkg set \
-  scripts.lint:text="autocorrect --lint" \
-  scripts.lint:text:fix="autocorrect --fix"
+  scripts.lint:text='autocorrect --lint' \
+  scripts.lint:text:fix='autocorrect --fix'
 
 curl \
   --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.autocorrectrc \
@@ -80,7 +83,7 @@ Install
 ```shell
 npm install --save-dev cspell
 
-npm pkg set scripts.lint:spell="cspell lint --no-progress --no-must-find-files --dot --gitignore ."
+npm pkg set scripts.lint:spell='cspell lint --no-progress --no-must-find-files --dot --gitignore .'
 
 curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/cspell.config.mjs
 ```
@@ -138,8 +141,8 @@ npm install --save-dev \
   typescript-eslint
 
 npm pkg set \
-  scripts.lint:js="eslint" \
-  scripts.lint:js:fix="npm run lint:js -- --fix"
+  scripts.lint:js='eslint' \
+  scripts.lint:js:fix='npm run lint:js -- --fix'
 
 curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/eslint.config.mjs
 ```
@@ -212,7 +215,7 @@ Install
 ```shell
 npm install --save-dev htmlhint
 
-npm pkg set scripts.lint:html="htmlhint --ignore=\"**/coverage/**\" \"**/*.html\""
+npm pkg set scripts.lint:html='htmlhint --ignore=\"**/coverage/**\" \"**/*.html\"'
 
 curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.htmlhintrc
 ```
@@ -235,8 +238,8 @@ Install
 npm install --save-dev knip
 
 npm pkg set \
-  scripts.knip="knip" \
-  scripts.knip:fix="npm run knip -- --fix"
+  scripts.knip='knip' \
+  scripts.knip:fix='npm run knip -- --fix'
 ```
 
 Uninstall
@@ -257,8 +260,8 @@ Install
 npm install --save-dev markdownlint-cli
 
 npm pkg set \
-  scripts.lint:md="markdownlint --dot \"**/*.md\"" \
-  scripts.lint:md:fix="npm run lint:md -- --fix"
+  scripts.lint:md='markdownlint --dot \"**/*.md\"' \
+  scripts.lint:md:fix='npm run lint:md -- --fix'
 
 curl \
   --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.markdownlint.json \
@@ -287,8 +290,8 @@ Install
 npm install --save-dev npm-check-updates
 
 npm pkg set \
-  scripts.ncu="npx npm-check-updates --deep" \
-  scripts.ncu:upgrade="npm run ncu -- --upgrade"
+  scripts.ncu='npx npm-check-updates --deep' \
+  scripts.ncu:upgrade='npm run ncu -- --upgrade'
 ```
 
 Uninstall
@@ -311,8 +314,8 @@ npm install --save-dev \
   prettier-plugin-tailwindcss
 
 npm pkg set \
-  scripts.lint:format="prettier --check --ignore-unknown ." \
-  scripts.lint:format:fix="prettier --write --ignore-unknown ."
+  scripts.lint:format='prettier --check --ignore-unknown .' \
+  scripts.lint:format:fix='prettier --write --ignore-unknown .'
 
 curl \
   --remote-name https://raw.githubusercontent.com/donniean/react-app/main/prettier.config.mjs \
@@ -343,8 +346,8 @@ Install
 npm install --save-dev sort-package-json
 
 npm pkg set \
-  scripts.lint:package-json="npm run lint:package-json:fix -- --check" \
-  scripts.lint:package-json:fix="npx sort-package-json \"**/package.json\" --ignore \"**/node_modules/**/package.json\" --ignore \"**/dist/**/package.json\""
+  scripts.lint:package-json='npm run lint:package-json:fix -- --check' \
+  scripts.lint:package-json:fix='npx sort-package-json \"**/package.json\" --ignore \"**/node_modules/**/package.json\" --ignore \"**/dist/**/package.json\"'
 ```
 
 Uninstall
@@ -369,8 +372,8 @@ npm install --save-dev \
   stylelint-config-css-modules
 
 npm pkg set \
-  scripts.lint:css="stylelint \"**/*.css\"" \
-  scripts.lint:css:fix="npm run lint:css -- --fix"
+  scripts.lint:css='stylelint \"**/*.css\"' \
+  scripts.lint:css:fix='npm run lint:css -- --fix'
 
 curl \
   --remote-name https://raw.githubusercontent.com/donniean/react-app/main/stylelint.config.mjs \
@@ -402,7 +405,7 @@ Install
 ```shell
 npm install --save-dev typescript
 
-npm pkg set scripts.lint:types="tsc --noEmit"
+npm pkg set scripts.lint:types='tsc --noEmit'
 ```
 
 Uninstall
@@ -423,9 +426,9 @@ npm install --save-dev \
   vitest
 
 npm pkg set \
-  scripts.test="vitest run" \
-  scripts.test:coverage="vitest run --coverage" \
-  scripts.test:watch="vitest watch"
+  scripts.test='vitest run' \
+  scripts.test:coverage='vitest run --coverage' \
+  scripts.test:watch='vitest watch'
 ```
 
 Uninstall
@@ -448,7 +451,7 @@ Install
 ```shell
 npm install --save-dev husky
 
-npm pkg set scripts.prepare="husky"
+npm pkg set scripts.prepare='husky'
 
 npm run prepare
 ```
@@ -518,16 +521,17 @@ rm .husky/pre-commit
 ```shell
 # AggregateLint
 
-npm pkg set   scripts.lint='concurrently --group --timings --prefix-colors=auto "npm:lint:*(!:fix)"'   scripts.lint:fix='concurrently --max-processes=1 --group --timings --prefix-colors=auto "npm:lint:*:fix"'
-
+npm pkg set \
+  scripts.lint='concurrently --group --timings --prefix-colors=auto "npm:lint:*(!:fix)"' \
+  scripts.lint:fix='concurrently --max-processes=1 --group --timings --prefix-colors=auto "npm:lint:*:fix"'
 
 # AutoCorrect
 
 npm install --save-dev autocorrect-node
 
 npm pkg set \
-  scripts.lint:text="autocorrect --lint" \
-  scripts.lint:text:fix="autocorrect --fix"
+  scripts.lint:text='autocorrect --lint' \
+  scripts.lint:text:fix='autocorrect --fix'
 
 curl \
   --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.autocorrectrc \
@@ -537,7 +541,7 @@ curl \
 
 npm install --save-dev cspell
 
-npm pkg set scripts.lint:spell="cspell lint --no-progress --no-must-find-files --dot --gitignore ."
+npm pkg set scripts.lint:spell='cspell lint --no-progress --no-must-find-files --dot --gitignore .'
 
 curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/cspell.config.mjs
 
@@ -571,8 +575,8 @@ npm install --save-dev \
   typescript-eslint
 
 npm pkg set \
-  scripts.lint:js="eslint" \
-  scripts.lint:js:fix="npm run lint:js -- --fix"
+  scripts.lint:js='eslint' \
+  scripts.lint:js:fix='npm run lint:js -- --fix'
 
 curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/eslint.config.mjs
 
@@ -588,7 +592,7 @@ curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.gi
 
 npm install --save-dev htmlhint
 
-npm pkg set scripts.lint:html="htmlhint --ignore=\"**/coverage/**\" \"**/*.html\""
+npm pkg set scripts.lint:html='htmlhint --ignore=\"**/coverage/**\" \"**/*.html\"'
 
 curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.htmlhintrc
 
@@ -597,16 +601,16 @@ curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.ht
 npm install --save-dev knip
 
 npm pkg set \
-  scripts.knip="knip" \
-  scripts.knip:fix="npm run knip -- --fix"
+  scripts.knip='knip' \
+  scripts.knip:fix='npm run knip -- --fix'
 
 # markdownlint
 
 npm install --save-dev markdownlint-cli
 
 npm pkg set \
-  scripts.lint:md="markdownlint --dot \"**/*.md\"" \
-  scripts.lint:md:fix="npm run lint:md -- --fix"
+  scripts.lint:md='markdownlint --dot \"**/*.md\"' \
+  scripts.lint:md:fix='npm run lint:md -- --fix'
 
 curl \
   --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.markdownlint.json \
@@ -617,8 +621,8 @@ curl \
 npm install --save-dev npm-check-updates
 
 npm pkg set \
-  scripts.ncu="npx npm-check-updates --deep" \
-  scripts.ncu:upgrade="npm run ncu -- --upgrade"
+  scripts.ncu='npx npm-check-updates --deep' \
+  scripts.ncu:upgrade='npm run ncu -- --upgrade'
 
 # Prettier
 
@@ -627,8 +631,8 @@ npm install --save-dev \
   prettier-plugin-tailwindcss
 
 npm pkg set \
-  scripts.lint:format="prettier --check --ignore-unknown ." \
-  scripts.lint:format:fix="prettier --write --ignore-unknown ."
+  scripts.lint:format='prettier --check --ignore-unknown .' \
+  scripts.lint:format:fix='prettier --write --ignore-unknown .'
 
 curl \
   --remote-name https://raw.githubusercontent.com/donniean/react-app/main/prettier.config.mjs \
@@ -639,8 +643,8 @@ curl \
 npm install --save-dev sort-package-json
 
 npm pkg set \
-  scripts.lint:package-json="npm run lint:package-json:fix -- --check" \
-  scripts.lint:package-json:fix="npx sort-package-json \"**/package.json\" --ignore \"**/node_modules/**/package.json\" --ignore \"**/dist/**/package.json\""
+  scripts.lint:package-json='npm run lint:package-json:fix -- --check' \
+  scripts.lint:package-json:fix='npx sort-package-json \"**/package.json\" --ignore \"**/node_modules/**/package.json\" --ignore \"**/dist/**/package.json\"'
 
 # Stylelint
 
@@ -651,8 +655,8 @@ npm install --save-dev \
   stylelint-config-css-modules
 
 npm pkg set \
-  scripts.lint:css="stylelint \"**/*.css\"" \
-  scripts.lint:css:fix="npm run lint:css -- --fix"
+  scripts.lint:css='stylelint \"**/*.css\"' \
+  scripts.lint:css:fix='npm run lint:css -- --fix'
 
 curl \
   --remote-name https://raw.githubusercontent.com/donniean/react-app/main/stylelint.config.mjs \
@@ -662,7 +666,7 @@ curl \
 
 npm install --save-dev typescript
 
-npm pkg set scripts.lint:types="tsc --noEmit"
+npm pkg set scripts.lint:types='tsc --noEmit'
 
 # Vitest
 
@@ -671,15 +675,15 @@ npm install --save-dev \
   vitest
 
 npm pkg set \
-  scripts.test="vitest run" \
-  scripts.test:coverage="vitest run --coverage" \
-  scripts.test:watch="vitest watch"
+  scripts.test='vitest run' \
+  scripts.test:coverage='vitest run --coverage' \
+  scripts.test:watch='vitest watch'
 
 # Husky
 
 npm install --save-dev husky
 
-npm pkg set scripts.prepare="husky"
+npm pkg set scripts.prepare='husky'
 
 npm run prepare
 
@@ -707,7 +711,9 @@ echo "npx lint-staged --concurrent false" > .husky/pre-commit
 ```shell
 # AggregateLint
 
-npm pkg delete   scripts.lint   scripts.lint:fix
+npm pkg delete \
+  scripts.lint \
+  scripts.lint:fix
 
 # AutoCorrect
 
