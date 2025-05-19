@@ -1,16 +1,21 @@
 import type { Config } from '../types';
 
 export const CONFIG = {
-  name: '',
-  url: '',
+  name: 'Stylelint',
+  url: 'https://github.com/stylelint/stylelint',
   pkg: {
-    devDependencies: [],
+    devDependencies: [
+      'stylelint',
+      'stylelint-config-recess-order',
+      'stylelint-config-standard',
+      'stylelint-config-css-modules',
+    ],
     scripts: [
-      { key: '', value: '' },
-      { key: '', value: '' },
+      { key: 'lint:css', value: 'stylelint "**/*.css"' },
+      { key: 'lint:css:fix', value: 'npm run lint:css -- --fix' },
     ],
   },
-  filePaths: [],
+  filePaths: ['stylelint.config.mjs', '.stylelintignore'],
   install: [
     { type: 'pkg.devDependencies.install' },
     { type: 'pkg.scripts.set' },

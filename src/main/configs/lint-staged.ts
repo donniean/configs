@@ -12,7 +12,7 @@ export const CONFIG = {
     { type: 'files.download' },
     {
       type: 'custom',
-      command: String.raw`echo "npx lint-staged --concurrent false" > .husky/pre-commit`,
+      command: 'echo "npx lint-staged --concurrent false" > .husky/pre-commit',
     },
   ],
   uninstall: [

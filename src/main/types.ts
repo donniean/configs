@@ -22,7 +22,7 @@ interface UninstallCommandAction {
 
 interface Config {
   name: string;
-  url: string;
+  url?: string;
   pkg?: {
     devDependencies?: string[];
     scripts?: { key: string; value: string }[];

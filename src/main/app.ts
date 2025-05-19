@@ -53,7 +53,7 @@ function getInstallCommand({
       return buildCommand({
         mainCommand: 'npm',
         subCommand: 'pkg set',
-        args: scripts.map(({ key, value }) => `scripts.${key}="${value}"`),
+        args: scripts.map(({ key, value }) => `scripts.${key}='${value}'`),
       });
     }
     case 'files.download': {
@@ -148,7 +148,7 @@ async function getMarkdown(configs: Configs) {
 
     const section: DataObject[] = [
       {
-        h3: `[${name}](${url})`,
+        h3: url ? `[${name}](${url})` : name,
       },
       {
         p: 'Install',

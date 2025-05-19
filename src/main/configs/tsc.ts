@@ -1,24 +1,18 @@
 import type { Config } from '../types';
 
 export const CONFIG = {
-  name: '',
-  url: '',
+  name: 'tsc',
+  url: 'https://github.com/microsoft/TypeScript',
   pkg: {
-    devDependencies: [],
-    scripts: [
-      { key: '', value: '' },
-      { key: '', value: '' },
-    ],
+    devDependencies: ['typescript'],
+    scripts: [{ key: 'lint:types', value: 'tsc --noEmit' }],
   },
-  filePaths: [],
   install: [
     { type: 'pkg.devDependencies.install' },
     { type: 'pkg.scripts.set' },
-    { type: 'files.download' },
   ],
   uninstall: [
     { type: 'pkg.devDependencies.uninstall' },
     { type: 'pkg.scripts.delete' },
-    { type: 'files.delete' },
   ],
 } as const satisfies Config;

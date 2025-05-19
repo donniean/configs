@@ -8,7 +8,7 @@ export const CONFIG = {
     scripts: [
       {
         key: 'lint:html',
-        value: String.raw`htmlhint --ignore=\"**/coverage/**\" \"**/*.html\"`,
+        value: 'htmlhint --ignore="**/coverage/**" "**/*.html"',
       },
     ],
   },

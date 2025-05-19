@@ -1,3 +1,4 @@
+import { CONFIG as aggregateLint } from './aggregate-lint';
 import { CONFIG as autocorrect } from './autocorrect';
 import { CONFIG as commitlint } from './commitlint';
 import { CONFIG as cspell } from './cspell';
@@ -12,8 +13,13 @@ import { CONFIG as lintStaged } from './lint-staged';
 import { CONFIG as markdownlint } from './markdownlint';
 import { CONFIG as npmCheckUpdates } from './npm-check-updates';
 import { CONFIG as prettier } from './prettier';
+import { CONFIG as sortPackageJson } from './sort-package-json';
+import { CONFIG as stylelint } from './stylelint';
+import { CONFIG as tsc } from './tsc';
+import { CONFIG as vitest } from './vitest';
 
 export const CONFIGS = [
+  aggregateLint,
   autocorrect,
   cspell,
   editorconfig,
@@ -25,6 +31,10 @@ export const CONFIGS = [
   markdownlint,
   npmCheckUpdates,
   prettier,
+  sortPackageJson,
+  stylelint,
+  tsc,
+  vitest,
   // husky
   husky,
   commitlint,
