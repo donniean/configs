@@ -215,7 +215,7 @@ Install
 ```shell
 npm install --save-dev htmlhint
 
-npm pkg set scripts.lint:html='htmlhint --ignore=\"**/coverage/**\" \"**/*.html\"'
+npm pkg set scripts.lint:html='htmlhint --ignore="**/coverage/**" "**/*.html"'
 
 curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.htmlhintrc
 ```
@@ -592,7 +592,7 @@ curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.gi
 
 npm install --save-dev htmlhint
 
-npm pkg set scripts.lint:html='htmlhint --ignore=\"**/coverage/**\" \"**/*.html\"'
+npm pkg set scripts.lint:html='htmlhint --ignore="**/coverage/**" "**/*.html"'
 
 curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.htmlhintrc
 

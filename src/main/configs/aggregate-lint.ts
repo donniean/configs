@@ -6,7 +6,8 @@ export const CONFIG = {
     scripts: [
       {
         key: 'lint',
-        value: `concurrently --group --timings --prefix-colors=auto "npm:lint:*(!:fix)"`,
+        value:
+          'concurrently --group --timings --prefix-colors=auto "npm:lint:*(!:fix)"',
       },
       {
         key: 'lint:fix',
