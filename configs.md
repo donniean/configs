@@ -423,12 +423,14 @@ Install
 ```shell
 npm install --save-dev \
   @vitest/coverage-v8 \
+  @vitest/ui \
   vitest
 
 npm pkg set \
   scripts.test='vitest run' \
   scripts.test:coverage='vitest run --coverage' \
-  scripts.test:watch='vitest watch'
+  scripts.test:watch='vitest watch' \
+  scripts.test:ui='vitest --ui'
 ```
 
 Uninstall
@@ -436,12 +438,14 @@ Uninstall
 ```shell
 npm pkg delete \
   devDependencies.@vitest/coverage-v8 \
+  devDependencies.@vitest/ui \
   devDependencies.vitest
 
 npm pkg delete \
   scripts.test \
   scripts.test:coverage \
-  scripts.test:watch
+  scripts.test:watch \
+  scripts.test:ui
 ```
 
 ### [Husky](https://github.com/typicode/husky)
@@ -672,12 +676,14 @@ npm pkg set scripts.lint:types='tsc --noEmit'
 
 npm install --save-dev \
   @vitest/coverage-v8 \
+  @vitest/ui \
   vitest
 
 npm pkg set \
   scripts.test='vitest run' \
   scripts.test:coverage='vitest run --coverage' \
-  scripts.test:watch='vitest watch'
+  scripts.test:watch='vitest watch' \
+  scripts.test:ui='vitest --ui'
 
 # Husky
 
@@ -862,12 +868,14 @@ npm pkg delete scripts.lint:types
 
 npm pkg delete \
   devDependencies.@vitest/coverage-v8 \
+  devDependencies.@vitest/ui \
   devDependencies.vitest
 
 npm pkg delete \
   scripts.test \
   scripts.test:coverage \
-  scripts.test:watch
+  scripts.test:watch \
+  scripts.test:ui
 
 # Husky
 
