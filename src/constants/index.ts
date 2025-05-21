@@ -1,3 +1,3 @@
-const ACTIONS = ['setup', 'clean'] as const satisfies string[];
+const ACTIONS = ['setup', 'clean'] as const;
 
 export { ACTIONS };
