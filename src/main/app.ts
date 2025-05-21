@@ -10,25 +10,25 @@ import { resolveCwd } from '@/utils/paths';
 
 import { CONFIG_BASE_URL } from './constants';
 import type {
+  CleanCommandAction,
   Config,
   Configs,
-  InstallCommandAction,
-  UninstallCommandAction,
+  SetupCommandAction,
 } from './types';
 
 type GetCommandOptions = Pick<Config, 'name' | 'pkg' | 'filePaths'>;
 
-function getInstallCommand({
+function getSetupCommand({
   name,
   pkg,
   filePaths,
-  installCommandAction,
+  setupCommandAction,
 }: GetCommandOptions & {
-  installCommandAction: InstallCommandAction;
+  setupCommandAction: SetupCommandAction;
 }) {
-  const errorTitle = `Install Error(${name})`;
+  const errorTitle = `Setup Error(${name})`;
 
-  const { type, command } = installCommandAction;
+  const { type, command } = setupCommandAction;
 
   switch (type) {
     case 'pkg.devDependencies.install': {
@@ -73,20 +73,20 @@ function getInstallCommand({
   }
 }
 
-function getUninstallCommand({
+function getCleanCommand({
   name,
   pkg,
   filePaths,
-  uninstallCommandAction,
+  cleanCommandAction,
 }: GetCommandOptions & {
-  uninstallCommandAction: UninstallCommandAction;
+  cleanCommandAction: CleanCommandAction;
 }) {
-  const errorTitle = `Uninstall Error(${name})`;
+  const errorTitle = `Clean Error(${name})`;
 
-  const { type, command } = uninstallCommandAction;
+  const { type, command } = cleanCommandAction;
 
   switch (type) {
-    case 'pkg.devDependencies.uninstall': {
+    case 'pkg.devDependencies.delete': {
       const devDependencies = pkg?.devDependencies;
       if (!(Array.isArray(devDependencies) && devDependencies.length > 0)) {
         throw new Error(
@@ -129,20 +129,20 @@ function getUninstallCommand({
 
 async function getMarkdown(configs: Configs) {
   const sections: DataObject[] = [];
-  const allInstallCommands: string[] = [];
-  const allUninstallCommands: string[] = [];
+  const allSetupCommands: string[] = [];
+  const allCleanCommands: string[] = [];
 
   for (const config of configs) {
-    const { name, url, pkg = {}, filePaths = [], install, uninstall } = config;
-    const installCommands = install.map((item) =>
-      getInstallCommand({ name, pkg, filePaths, installCommandAction: item }),
+    const { name, url, pkg = {}, filePaths = [], setup, clean } = config;
+    const setupCommands = setup.map((item) =>
+      getSetupCommand({ name, pkg, filePaths, setupCommandAction: item }),
     ) as string[];
-    const uninstallCommands = uninstall.map((item) =>
-      getUninstallCommand({
+    const cleanCommands = clean.map((item) =>
+      getCleanCommand({
         name,
         pkg,
         filePaths,
-        uninstallCommandAction: item,
+        cleanCommandAction: item,
       }),
     ) as string[];
 
@@ -151,50 +151,50 @@ async function getMarkdown(configs: Configs) {
         h3: url ? `[${name}](${url})` : name,
       },
       {
-        p: 'Install',
+        p: 'Setup',
       },
       {
         code: {
           language: 'shell',
-          content: installCommands.join('\n\n'),
+          content: setupCommands.join('\n\n'),
         },
       },
       {
-        p: 'Uninstall',
+        p: 'Clean',
       },
       {
         code: {
           language: 'shell',
-          content: uninstallCommands.join('\n\n'),
+          content: cleanCommands.join('\n\n'),
         },
       },
     ];
     sections.push(section);
 
-    allInstallCommands.push(`# ${name}`, ...installCommands);
-    allUninstallCommands.push(`# ${name}`, ...uninstallCommands);
+    allSetupCommands.push(`# ${name}`, ...setupCommands);
+    allCleanCommands.push(`# ${name}`, ...cleanCommands);
   }
 
   const data = [
     { h1: 'Configs' },
     { h2: 'Table of Contents' },
     // single
-    { h2: 'Sections' },
+    { h2: 'Tools' },
     ...sections,
     // all
     { h2: 'All' },
-    { h3: 'Install' },
+    { h3: 'Setup' },
     {
       code: {
         language: 'shell',
-        content: allInstallCommands.join('\n\n'),
+        content: allSetupCommands.join('\n\n'),
       },
     },
-    { h3: 'Uninstall' },
+    { h3: 'Clean' },
     {
       code: {
         language: 'shell',
-        content: allUninstallCommands.join('\n\n'),
+        content: allCleanCommands.join('\n\n'),
       },
     },
   ];

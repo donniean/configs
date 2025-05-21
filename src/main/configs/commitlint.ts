@@ -1,13 +1,14 @@
 import type { Config } from '../types';
 
 export const CONFIG = {
+  value: 'commitlint',
   name: 'commitlint',
   url: 'https://github.com/conventional-changelog/commitlint',
   pkg: {
     devDependencies: ['@commitlint/cli', '@commitlint/config-conventional'],
   },
   filePaths: ['commitlint.config.mjs'],
-  install: [
+  setup: [
     { type: 'pkg.devDependencies.install' },
     { type: 'files.download' },
     {
@@ -15,8 +16,8 @@ export const CONFIG = {
       command: String.raw`echo "npx --no -- commitlint --edit \$1" > .husky/commit-msg`,
     },
   ],
-  uninstall: [
-    { type: 'pkg.devDependencies.uninstall' },
+  clean: [
+    { type: 'pkg.devDependencies.delete' },
     { type: 'files.delete' },
     {
       type: 'custom',

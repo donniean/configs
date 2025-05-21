@@ -1,6 +1,7 @@
 import type { Config } from '../types';
 
 export const CONFIG = {
+  value: 'aggregate-lint',
   name: 'AggregateLint',
   pkg: {
     scripts: [
@@ -16,6 +17,6 @@ export const CONFIG = {
       },
     ],
   },
-  install: [{ type: 'pkg.scripts.set' }],
-  uninstall: [{ type: 'pkg.scripts.delete' }],
+  setup: [{ type: 'pkg.scripts.set' }],
+  clean: [{ type: 'pkg.scripts.delete' }],
 } as const satisfies Config;

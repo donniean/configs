@@ -1,6 +1,7 @@
 import type { Config } from '../types';
 
 export const CONFIG = {
+  value: 'knip',
   name: 'Knip',
   url: 'https://github.com/webpro-nl/knip',
   pkg: {
@@ -11,12 +12,9 @@ export const CONFIG = {
     ],
   },
   filePaths: [],
-  install: [
-    { type: 'pkg.devDependencies.install' },
-    { type: 'pkg.scripts.set' },
-  ],
-  uninstall: [
-    { type: 'pkg.devDependencies.uninstall' },
+  setup: [{ type: 'pkg.devDependencies.install' }, { type: 'pkg.scripts.set' }],
+  clean: [
+    { type: 'pkg.devDependencies.delete' },
     { type: 'pkg.scripts.delete' },
   ],
 } as const satisfies Config;

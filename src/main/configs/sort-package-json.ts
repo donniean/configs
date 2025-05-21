@@ -1,6 +1,7 @@
 import type { Config } from '../types';
 
 export const CONFIG = {
+  value: 'sort-package-json',
   name: 'Sort Package.json',
   url: 'https://github.com/keithamus/sort-package-json',
   pkg: {
@@ -17,12 +18,9 @@ export const CONFIG = {
       },
     ],
   },
-  install: [
-    { type: 'pkg.devDependencies.install' },
-    { type: 'pkg.scripts.set' },
-  ],
-  uninstall: [
-    { type: 'pkg.devDependencies.uninstall' },
+  setup: [{ type: 'pkg.devDependencies.install' }, { type: 'pkg.scripts.set' }],
+  clean: [
+    { type: 'pkg.devDependencies.delete' },
     { type: 'pkg.scripts.delete' },
   ],
 } as const satisfies Config;

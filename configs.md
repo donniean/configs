@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-- [Sections](#sections)
+- [Tools](#tools)
   - [AggregateLint](#aggregatelint)
   - [AutoCorrect](#autocorrect)
   - [CSpell](#cspell)
@@ -23,14 +23,14 @@
   - [commitlint](#commitlint)
   - [lint-staged](#lint-staged)
 - [All](#all)
-  - [Install](#install)
-  - [Uninstall](#uninstall)
+  - [Setup](#setup)
+  - [Clean](#clean)
 
-## Sections
+## Tools
 
 ### AggregateLint
 
-Install
+Setup
 
 ```shell
 npm pkg set \
@@ -38,7 +38,7 @@ npm pkg set \
   scripts.lint:fix='concurrently --max-processes=1 --group --timings --prefix-colors=auto "npm:lint:*:fix"'
 ```
 
-Uninstall
+Clean
 
 ```shell
 npm pkg delete \
@@ -48,7 +48,7 @@ npm pkg delete \
 
 ### [AutoCorrect](https://github.com/huacnlee/autocorrect)
 
-Install
+Setup
 
 ```shell
 npm install --save-dev autocorrect-node
@@ -62,7 +62,7 @@ curl \
   --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.autocorrectignore
 ```
 
-Uninstall
+Clean
 
 ```shell
 npm pkg delete devDependencies.autocorrect-node
@@ -78,7 +78,7 @@ rm \
 
 ### [CSpell](https://github.com/streetsidesoftware/cspell)
 
-Install
+Setup
 
 ```shell
 npm install --save-dev cspell
@@ -88,7 +88,7 @@ npm pkg set scripts.lint:spell='cspell lint --no-progress --no-must-find-files -
 curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/cspell.config.mjs
 ```
 
-Uninstall
+Clean
 
 ```shell
 npm pkg delete devDependencies.cspell
@@ -100,13 +100,13 @@ rm cspell.config.mjs
 
 ### [EditorConfig](https://editorconfig.org/)
 
-Install
+Setup
 
 ```shell
 curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.editorconfig
 ```
 
-Uninstall
+Clean
 
 ```shell
 rm .editorconfig
@@ -114,7 +114,7 @@ rm .editorconfig
 
 ### [ESLint](https://github.com/eslint/eslint)
 
-Install
+Setup
 
 ```shell
 npm install --save-dev \
@@ -147,7 +147,7 @@ npm pkg set \
 curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/eslint.config.mjs
 ```
 
-Uninstall
+Clean
 
 ```shell
 npm pkg delete \
@@ -182,13 +182,13 @@ rm eslint.config.mjs
 
 ### [gitattributes](https://git-scm.com/docs/gitattributes)
 
-Install
+Setup
 
 ```shell
 curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.gitattributes
 ```
 
-Uninstall
+Clean
 
 ```shell
 rm .gitattributes
@@ -196,13 +196,13 @@ rm .gitattributes
 
 ### [gitignore](https://git-scm.com/docs/gitignore)
 
-Install
+Setup
 
 ```shell
 curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.gitignore
 ```
 
-Uninstall
+Clean
 
 ```shell
 rm .gitignore
@@ -210,7 +210,7 @@ rm .gitignore
 
 ### [HTMLHint](https://github.com/htmlhint/HTMLHint)
 
-Install
+Setup
 
 ```shell
 npm install --save-dev htmlhint
@@ -220,7 +220,7 @@ npm pkg set scripts.lint:html='htmlhint --ignore="**/coverage/**" "**/*.html"'
 curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.htmlhintrc
 ```
 
-Uninstall
+Clean
 
 ```shell
 npm pkg delete devDependencies.htmlhint
@@ -232,7 +232,7 @@ rm .htmlhintrc
 
 ### [Knip](https://github.com/webpro-nl/knip)
 
-Install
+Setup
 
 ```shell
 npm install --save-dev knip
@@ -242,7 +242,7 @@ npm pkg set \
   scripts.knip:fix='npm run knip -- --fix'
 ```
 
-Uninstall
+Clean
 
 ```shell
 npm pkg delete devDependencies.knip
@@ -254,7 +254,7 @@ npm pkg delete \
 
 ### [markdownlint](https://github.com/DavidAnson/markdownlint)
 
-Install
+Setup
 
 ```shell
 npm install --save-dev markdownlint-cli
@@ -268,7 +268,7 @@ curl \
   --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.markdownlintignore
 ```
 
-Uninstall
+Clean
 
 ```shell
 npm pkg delete devDependencies.markdownlint-cli
@@ -284,7 +284,7 @@ rm \
 
 ### [npm-check-updates](https://github.com/raineorshine/npm-check-updates)
 
-Install
+Setup
 
 ```shell
 npm install --save-dev npm-check-updates
@@ -294,7 +294,7 @@ npm pkg set \
   scripts.ncu:upgrade='npm run ncu -- --upgrade'
 ```
 
-Uninstall
+Clean
 
 ```shell
 npm pkg delete devDependencies.npm-check-updates
@@ -306,7 +306,7 @@ npm pkg delete \
 
 ### [Prettier](https://github.com/prettier/prettier)
 
-Install
+Setup
 
 ```shell
 npm install --save-dev \
@@ -322,7 +322,7 @@ curl \
   --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.prettierignore
 ```
 
-Uninstall
+Clean
 
 ```shell
 npm pkg delete \
@@ -340,7 +340,7 @@ rm \
 
 ### [Sort Package.json](https://github.com/keithamus/sort-package-json)
 
-Install
+Setup
 
 ```shell
 npm install --save-dev sort-package-json
@@ -350,7 +350,7 @@ npm pkg set \
   scripts.lint:package-json:fix='npx sort-package-json "**/package.json" --ignore "**/node_modules/**/package.json" --ignore "**/dist/**/package.json"'
 ```
 
-Uninstall
+Clean
 
 ```shell
 npm pkg delete devDependencies.sort-package-json
@@ -362,7 +362,7 @@ npm pkg delete \
 
 ### [Stylelint](https://github.com/stylelint/stylelint)
 
-Install
+Setup
 
 ```shell
 npm install --save-dev \
@@ -380,7 +380,7 @@ curl \
   --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.stylelintignore
 ```
 
-Uninstall
+Clean
 
 ```shell
 npm pkg delete \
@@ -400,7 +400,7 @@ rm \
 
 ### [tsc](https://github.com/microsoft/TypeScript)
 
-Install
+Setup
 
 ```shell
 npm install --save-dev typescript
@@ -408,7 +408,7 @@ npm install --save-dev typescript
 npm pkg set scripts.lint:types='tsc --noEmit'
 ```
 
-Uninstall
+Clean
 
 ```shell
 npm pkg delete devDependencies.typescript
@@ -418,7 +418,7 @@ npm pkg delete scripts.lint:types
 
 ### [Vitest](https://github.com/vitest-dev/vitest)
 
-Install
+Setup
 
 ```shell
 npm install --save-dev \
@@ -433,7 +433,7 @@ npm pkg set \
   scripts.test:ui='vitest --ui'
 ```
 
-Uninstall
+Clean
 
 ```shell
 npm pkg delete \
@@ -450,7 +450,7 @@ npm pkg delete \
 
 ### [Husky](https://github.com/typicode/husky)
 
-Install
+Setup
 
 ```shell
 npm install --save-dev husky
@@ -460,7 +460,7 @@ npm pkg set scripts.prepare='husky'
 npm run prepare
 ```
 
-Uninstall
+Clean
 
 ```shell
 npm pkg delete devDependencies.husky
@@ -472,7 +472,7 @@ rm -rf .husky/
 
 ### [commitlint](https://github.com/conventional-changelog/commitlint)
 
-Install
+Setup
 
 ```shell
 npm install --save-dev \
@@ -484,7 +484,7 @@ curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/com
 echo "npx --no -- commitlint --edit \$1" > .husky/commit-msg
 ```
 
-Uninstall
+Clean
 
 ```shell
 npm pkg delete \
@@ -498,7 +498,7 @@ rm .husky/commit-msg
 
 ### [lint-staged](https://github.com/lint-staged/lint-staged)
 
-Install
+Setup
 
 ```shell
 npm install --save-dev lint-staged
@@ -508,7 +508,7 @@ curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/lin
 echo "npx lint-staged --concurrent false" > .husky/pre-commit
 ```
 
-Uninstall
+Clean
 
 ```shell
 npm pkg delete devDependencies.lint-staged
@@ -520,7 +520,7 @@ rm .husky/pre-commit
 
 ## All
 
-### Install
+### Setup
 
 ```shell
 # AggregateLint
@@ -712,7 +712,7 @@ curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/lin
 echo "npx lint-staged --concurrent false" > .husky/pre-commit
 ```
 
-### Uninstall
+### Clean
 
 ```shell
 # AggregateLint

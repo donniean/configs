@@ -1,6 +1,7 @@
 import type { Config } from '../types';
 
 export const CONFIG = {
+  value: 'vitest',
   name: 'Vitest',
   url: 'https://github.com/vitest-dev/vitest',
   pkg: {
@@ -12,12 +13,9 @@ export const CONFIG = {
       { key: 'test:ui', value: 'vitest --ui' },
     ],
   },
-  install: [
-    { type: 'pkg.devDependencies.install' },
-    { type: 'pkg.scripts.set' },
-  ],
-  uninstall: [
-    { type: 'pkg.devDependencies.uninstall' },
+  setup: [{ type: 'pkg.devDependencies.install' }, { type: 'pkg.scripts.set' }],
+  clean: [
+    { type: 'pkg.devDependencies.delete' },
     { type: 'pkg.scripts.delete' },
   ],
 } as const satisfies Config;

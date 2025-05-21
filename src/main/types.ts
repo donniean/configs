@@ -1,26 +1,27 @@
-type InstallCommandType =
+type SetupCommandType =
   | 'pkg.devDependencies.install'
   | 'pkg.scripts.set'
   | 'files.download'
   | 'custom';
 
-type UninstallCommandType =
-  | 'pkg.devDependencies.uninstall'
+type CleanCommandType =
+  | 'pkg.devDependencies.delete'
   | 'pkg.scripts.delete'
   | 'files.delete'
   | 'custom';
 
-interface InstallCommandAction {
-  type: InstallCommandType;
+interface SetupCommandAction {
+  type: SetupCommandType;
   command?: string;
 }
 
-interface UninstallCommandAction {
-  type: UninstallCommandType;
+interface CleanCommandAction {
+  type: CleanCommandType;
   command?: string;
 }
 
 interface Config {
+  value: string;
   name: string;
   url?: string;
   pkg?: {
@@ -28,10 +29,10 @@ interface Config {
     scripts?: { key: string; value: string }[];
   };
   filePaths?: string[];
-  install: InstallCommandAction[];
-  uninstall: UninstallCommandAction[];
+  setup: SetupCommandAction[];
+  clean: CleanCommandAction[];
 }
 
 type Configs = readonly Config[];
 
-export type { Config, Configs, InstallCommandAction, UninstallCommandAction };
+export type { CleanCommandAction, Config, Configs, SetupCommandAction };

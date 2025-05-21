@@ -1,6 +1,7 @@
 import type { Config } from '../types';
 
 export const CONFIG = {
+  value: 'eslint',
   name: 'ESLint',
   url: 'https://github.com/eslint/eslint',
   pkg: {
@@ -33,13 +34,13 @@ export const CONFIG = {
     ],
   },
   filePaths: ['eslint.config.mjs'],
-  install: [
+  setup: [
     { type: 'pkg.devDependencies.install' },
     { type: 'pkg.scripts.set' },
     { type: 'files.download' },
   ],
-  uninstall: [
-    { type: 'pkg.devDependencies.uninstall' },
+  clean: [
+    { type: 'pkg.devDependencies.delete' },
     { type: 'pkg.scripts.delete' },
     { type: 'files.delete' },
   ],
