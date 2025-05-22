@@ -19,7 +19,7 @@ export const CONFIG = {
       'eslint-plugin-n',
       'eslint-plugin-promise',
       'eslint-plugin-react',
-      'eslint-plugin-react-hooks',
+      'eslint-plugin-react-hooks@rc',
       'eslint-plugin-react-refresh',
       'eslint-plugin-simple-import-sort',
       'eslint-plugin-sonarjs',

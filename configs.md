@@ -131,7 +131,7 @@ npm install --save-dev \
   eslint-plugin-n \
   eslint-plugin-promise \
   eslint-plugin-react \
-  eslint-plugin-react-hooks \
+  eslint-plugin-react-hooks@rc \
   eslint-plugin-react-refresh \
   eslint-plugin-simple-import-sort \
   eslint-plugin-sonarjs \
@@ -164,7 +164,7 @@ npm pkg delete \
   devDependencies.eslint-plugin-n \
   devDependencies.eslint-plugin-promise \
   devDependencies.eslint-plugin-react \
-  devDependencies.eslint-plugin-react-hooks \
+  devDependencies.eslint-plugin-react-hooks@rc \
   devDependencies.eslint-plugin-react-refresh \
   devDependencies.eslint-plugin-simple-import-sort \
   devDependencies.eslint-plugin-sonarjs \
@@ -569,7 +569,7 @@ npm install --save-dev \
   eslint-plugin-n \
   eslint-plugin-promise \
   eslint-plugin-react \
-  eslint-plugin-react-hooks \
+  eslint-plugin-react-hooks@rc \
   eslint-plugin-react-refresh \
   eslint-plugin-simple-import-sort \
   eslint-plugin-sonarjs \
@@ -761,7 +761,7 @@ npm pkg delete \
   devDependencies.eslint-plugin-n \
   devDependencies.eslint-plugin-promise \
   devDependencies.eslint-plugin-react \
-  devDependencies.eslint-plugin-react-hooks \
+  devDependencies.eslint-plugin-react-hooks@rc \
   devDependencies.eslint-plugin-react-refresh \
   devDependencies.eslint-plugin-simple-import-sort \
   devDependencies.eslint-plugin-sonarjs \
