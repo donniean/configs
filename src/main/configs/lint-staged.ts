@@ -13,7 +13,8 @@ export const CONFIG = {
     { type: 'files.download' },
     {
       type: 'custom',
-      command: 'echo "npx lint-staged --concurrent false" > .husky/pre-commit',
+      command:
+        'echo "npm run i18n:extract\nnpm run i18n:compile\nnpx lint-staged --concurrent false" > .husky/pre-commit',
     },
   ],
   clean: [

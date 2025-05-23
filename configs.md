@@ -505,7 +505,9 @@ npm install --save-dev lint-staged
 
 curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/lint-staged.config.mjs
 
-echo "npx lint-staged --concurrent false" > .husky/pre-commit
+echo "npm run i18n:extract
+npm run i18n:compile
+npx lint-staged --concurrent false" > .husky/pre-commit
 ```
 
 Clean
@@ -709,7 +711,9 @@ npm install --save-dev lint-staged
 
 curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/lint-staged.config.mjs
 
-echo "npx lint-staged --concurrent false" > .husky/pre-commit
+echo "npm run i18n:extract
+npm run i18n:compile
+npx lint-staged --concurrent false" > .husky/pre-commit
 ```
 
 ### Clean
