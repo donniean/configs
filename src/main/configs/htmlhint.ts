@@ -1,6 +1,7 @@
 import type { Config } from '../types';
 
 export const CONFIG = {
+  value: 'htmlhint',
   name: 'HTMLHint',
   url: 'https://github.com/htmlhint/HTMLHint',
   pkg: {
@@ -13,13 +14,13 @@ export const CONFIG = {
     ],
   },
   filePaths: ['.htmlhintrc'],
-  install: [
+  setup: [
     { type: 'pkg.devDependencies.install' },
     { type: 'pkg.scripts.set' },
     { type: 'files.download' },
   ],
-  uninstall: [
-    { type: 'pkg.devDependencies.uninstall' },
+  clean: [
+    { type: 'pkg.devDependencies.delete' },
     { type: 'pkg.scripts.delete' },
     { type: 'files.delete' },
   ],

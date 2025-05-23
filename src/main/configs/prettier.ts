@@ -1,6 +1,7 @@
 import type { Config } from '../types';
 
 export const CONFIG = {
+  value: 'prettier',
   name: 'Prettier',
   url: 'https://github.com/prettier/prettier',
   pkg: {
@@ -11,13 +12,13 @@ export const CONFIG = {
     ],
   },
   filePaths: ['prettier.config.mjs', '.prettierignore'],
-  install: [
+  setup: [
     { type: 'pkg.devDependencies.install' },
     { type: 'pkg.scripts.set' },
     { type: 'files.download' },
   ],
-  uninstall: [
-    { type: 'pkg.devDependencies.uninstall' },
+  clean: [
+    { type: 'pkg.devDependencies.delete' },
     { type: 'pkg.scripts.delete' },
     { type: 'files.delete' },
   ],

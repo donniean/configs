@@ -1,6 +1,7 @@
 import type { Config } from '../types';
 
 export const CONFIG = {
+  value: 'autocorrect',
   name: 'AutoCorrect',
   url: 'https://github.com/huacnlee/autocorrect',
   pkg: {
@@ -11,13 +12,13 @@ export const CONFIG = {
     ],
   },
   filePaths: ['.autocorrectrc', '.autocorrectignore'],
-  install: [
+  setup: [
     { type: 'pkg.devDependencies.install' },
     { type: 'pkg.scripts.set' },
     { type: 'files.download' },
   ],
-  uninstall: [
-    { type: 'pkg.devDependencies.uninstall' },
+  clean: [
+    { type: 'pkg.devDependencies.delete' },
     { type: 'pkg.scripts.delete' },
     { type: 'files.delete' },
   ],

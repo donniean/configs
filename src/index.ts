@@ -5,3 +5,7 @@ export function defineConfig(configsConfig: ConfigsConfig): ConfigsConfig {
 }
 
 export { type ConfigsConfig } from '@/types/configs-config';
+
+import cli from './cli';
+
+cli();

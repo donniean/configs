@@ -1,6 +1,7 @@
 import type { Config } from '../types';
 
 export const CONFIG = {
+  value: 'markdownlint',
   name: 'markdownlint',
   url: 'https://github.com/DavidAnson/markdownlint',
   pkg: {
@@ -11,13 +12,13 @@ export const CONFIG = {
     ],
   },
   filePaths: ['.markdownlint.json', '.markdownlintignore'],
-  install: [
+  setup: [
     { type: 'pkg.devDependencies.install' },
     { type: 'pkg.scripts.set' },
     { type: 'files.download' },
   ],
-  uninstall: [
-    { type: 'pkg.devDependencies.uninstall' },
+  clean: [
+    { type: 'pkg.devDependencies.delete' },
     { type: 'pkg.scripts.delete' },
     { type: 'files.delete' },
   ],

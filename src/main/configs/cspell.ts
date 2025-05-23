@@ -1,6 +1,7 @@
 import type { Config } from '../types';
 
 export const CONFIG = {
+  value: 'cspell',
   name: 'CSpell',
   url: 'https://github.com/streetsidesoftware/cspell',
   pkg: {
@@ -14,13 +15,13 @@ export const CONFIG = {
     ],
   },
   filePaths: ['cspell.config.mjs'],
-  install: [
+  setup: [
     { type: 'pkg.devDependencies.install' },
     { type: 'pkg.scripts.set' },
     { type: 'files.download' },
   ],
-  uninstall: [
-    { type: 'pkg.devDependencies.uninstall' },
+  clean: [
+    { type: 'pkg.devDependencies.delete' },
     { type: 'pkg.scripts.delete' },
     { type: 'files.delete' },
   ],
