@@ -132,7 +132,7 @@ npm pkg set devDependencies.eslint-plugin-jsx-a11y="^$(npm view eslint-plugin-js
 npm pkg set devDependencies.eslint-plugin-n="^$(npm view eslint-plugin-n version)"
 npm pkg set devDependencies.eslint-plugin-promise="^$(npm view eslint-plugin-promise version)"
 npm pkg set devDependencies.eslint-plugin-react="^$(npm view eslint-plugin-react version)"
-npm pkg set devDependencies.eslint-plugin-react-hooks@rc="^$(npm view eslint-plugin-react-hooks@rc version)"
+npm pkg set devDependencies.eslint-plugin-react-hooks="^$(npm view eslint-plugin-react-hooks@rc version)"
 npm pkg set devDependencies.eslint-plugin-react-refresh="^$(npm view eslint-plugin-react-refresh version)"
 npm pkg set devDependencies.eslint-plugin-simple-import-sort="^$(npm view eslint-plugin-simple-import-sort version)"
 npm pkg set devDependencies.eslint-plugin-sonarjs="^$(npm view eslint-plugin-sonarjs version)"
@@ -165,7 +165,7 @@ npm pkg delete \
   devDependencies.eslint-plugin-n \
   devDependencies.eslint-plugin-promise \
   devDependencies.eslint-plugin-react \
-  devDependencies.eslint-plugin-react-hooks@rc \
+  devDependencies.eslint-plugin-react-hooks \
   devDependencies.eslint-plugin-react-refresh \
   devDependencies.eslint-plugin-simple-import-sort \
   devDependencies.eslint-plugin-sonarjs \
@@ -502,8 +502,7 @@ npm pkg set devDependencies.lint-staged="^$(npm view lint-staged version)"
 
 curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/lint-staged.config.mjs
 
-echo "npm run i18n:extract
-npm run i18n:compile
+echo "npm run i18n:ci
 npx lint-staged --concurrent false" > .husky/pre-commit
 ```
 
@@ -567,7 +566,7 @@ npm pkg set devDependencies.eslint-plugin-jsx-a11y="^$(npm view eslint-plugin-js
 npm pkg set devDependencies.eslint-plugin-n="^$(npm view eslint-plugin-n version)"
 npm pkg set devDependencies.eslint-plugin-promise="^$(npm view eslint-plugin-promise version)"
 npm pkg set devDependencies.eslint-plugin-react="^$(npm view eslint-plugin-react version)"
-npm pkg set devDependencies.eslint-plugin-react-hooks@rc="^$(npm view eslint-plugin-react-hooks@rc version)"
+npm pkg set devDependencies.eslint-plugin-react-hooks="^$(npm view eslint-plugin-react-hooks@rc version)"
 npm pkg set devDependencies.eslint-plugin-react-refresh="^$(npm view eslint-plugin-react-refresh version)"
 npm pkg set devDependencies.eslint-plugin-simple-import-sort="^$(npm view eslint-plugin-simple-import-sort version)"
 npm pkg set devDependencies.eslint-plugin-sonarjs="^$(npm view eslint-plugin-sonarjs version)"
@@ -703,8 +702,7 @@ npm pkg set devDependencies.lint-staged="^$(npm view lint-staged version)"
 
 curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/lint-staged.config.mjs
 
-echo "npm run i18n:extract
-npm run i18n:compile
+echo "npm run i18n:ci
 npx lint-staged --concurrent false" > .husky/pre-commit
 ```
 
@@ -757,7 +755,7 @@ npm pkg delete \
   devDependencies.eslint-plugin-n \
   devDependencies.eslint-plugin-promise \
   devDependencies.eslint-plugin-react \
-  devDependencies.eslint-plugin-react-hooks@rc \
+  devDependencies.eslint-plugin-react-hooks \
   devDependencies.eslint-plugin-react-refresh \
   devDependencies.eslint-plugin-simple-import-sort \
   devDependencies.eslint-plugin-sonarjs \

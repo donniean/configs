@@ -27,6 +27,7 @@ const ConfigSchema = z
           .array(
             z.object({
               packageName: z.string(),
+              tag: z.string().optional(),
               version: z.string().optional(),
             }),
           )
