@@ -35,7 +35,7 @@ function buildSetupCommand({
         return buildCommand({
           mainCommand: 'npm',
           subCommand: 'pkg set',
-          args: [`devDependencies.${packageName}='^${packageVersion}'`],
+          args: [`devDependencies.${packageName}="^${packageVersion}"`],
         });
       });
       return commands.join('\n');
