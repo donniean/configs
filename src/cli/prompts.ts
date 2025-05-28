@@ -1,19 +1,15 @@
-import { checkbox, Separator } from '@inquirer/prompts';
+import { checkbox } from '@inquirer/prompts';
+
+import { CONFIGS } from '@/configs';
+
+const choices = CONFIGS.map(({ key, name }) => ({ value: key, name }));
 
 export const questions = {
   tools: () =>
     checkbox({
       message: 'Select tools',
-      choices: [
-        { value: 'npm', name: 'npm' },
-        { value: 'yarn', name: 'yarn' },
-        new Separator(),
-        { name: 'pnpm', value: 'pnpm', disabled: true },
-        {
-          value: 'pnpm',
-          name: 'pnpm',
-          disabled: '(pnpm is not available)',
-        },
-      ],
+      choices: choices,
+      pageSize: choices.length,
+      required: true,
     }),
 };

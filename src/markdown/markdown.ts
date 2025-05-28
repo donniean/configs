@@ -1,0 +1,105 @@
+import fs from 'node:fs';
+
+import type { DataObject } from 'json2md';
+import json2md from 'json2md';
+import { remark } from 'remark';
+import remarkToc from 'remark-toc';
+
+import { buildCleanCommand, buildSetupCommand } from '@/helpers/commands';
+import type { Configs } from '@/types/configs';
+import { resolveCwd } from '@/utils/paths';
+
+async function getMarkdown(configs: Configs) {
+  const sections: DataObject[] = [];
+  const allSetupCommands: string[] = [];
+  const allCleanCommands: string[] = [];
+
+  for (const config of configs) {
+    const { name, url, pkg = {}, filePaths = [], setup, clean } = config;
+    const setupCommands = setup.map((item) =>
+      buildSetupCommand({ name, pkg, filePaths, setupCommandAction: item }),
+    ) as string[];
+    const cleanCommands = clean.map((item) =>
+      buildCleanCommand({
+        name,
+        pkg,
+        filePaths,
+        cleanCommandAction: item,
+      }),
+    ) as string[];
+
+    const section: DataObject[] = [
+      {
+        h3: url ? `[${name}](${url})` : name,
+      },
+      {
+        p: 'Setup',
+      },
+      {
+        code: {
+          language: 'shell',
+          content: setupCommands.join('\n\n'),
+        },
+      },
+      {
+        p: 'Clean',
+      },
+      {
+        code: {
+          language: 'shell',
+          content: cleanCommands.join('\n\n'),
+        },
+      },
+    ];
+    sections.push(section);
+
+    allSetupCommands.push(`# ${name}`, ...setupCommands);
+    allCleanCommands.push(`# ${name}`, ...cleanCommands);
+  }
+
+  const data = [
+    { h1: 'Configs' },
+    { h2: 'Table of Contents' },
+    // single
+    { h2: 'Tools' },
+    ...sections,
+    // all
+    { h2: 'All' },
+    { h3: 'Setup' },
+    {
+      code: {
+        language: 'shell',
+        content: allSetupCommands.join('\n\n'),
+      },
+    },
+    { h3: 'Clean' },
+    {
+      code: {
+        language: 'shell',
+        content: allCleanCommands.join('\n\n'),
+      },
+    },
+  ];
+
+  const markdown = json2md(data);
+
+  return await remark().use(remarkToc).process(markdown);
+}
+
+function writeMarkdown({
+  fileName,
+  content,
+}: {
+  content: string;
+  fileName: string;
+}) {
+  const filePath = resolveCwd(fileName);
+  fs.writeFile(filePath, content, (error) => {
+    if (!error) {
+      return;
+    }
+    console.error(error);
+  });
+}
+
+export { getMarkdown, writeMarkdown };

@@ -51,7 +51,7 @@ npm pkg delete \
 Setup
 
 ```shell
-npm install --save-dev autocorrect-node
+npm pkg set devDependencies.autocorrect-node='^$(npm view autocorrect-node version)'
 
 npm pkg set \
   scripts.lint:text='autocorrect --lint' \
@@ -81,7 +81,7 @@ rm \
 Setup
 
 ```shell
-npm install --save-dev cspell
+npm pkg set devDependencies.cspell='^$(npm view cspell version)'
 
 npm pkg set scripts.lint:spell='cspell lint --no-progress --no-must-find-files --dot --gitignore .'
 
@@ -117,28 +117,27 @@ rm .editorconfig
 Setup
 
 ```shell
-npm install --save-dev \
-  @eslint-community/eslint-plugin-eslint-comments \
-  @eslint/compat \
-  @eslint/js \
-  @tanstack/eslint-plugin-query \
-  @vitest/eslint-plugin \
-  eslint \
-  eslint-config-prettier \
-  eslint-import-resolver-typescript \
-  eslint-plugin-import-x \
-  eslint-plugin-jsx-a11y \
-  eslint-plugin-n \
-  eslint-plugin-promise \
-  eslint-plugin-react \
-  eslint-plugin-react-hooks@rc \
-  eslint-plugin-react-refresh \
-  eslint-plugin-simple-import-sort \
-  eslint-plugin-sonarjs \
-  eslint-plugin-unicorn \
-  eslint-plugin-unused-imports \
-  globals \
-  typescript-eslint
+npm pkg set devDependencies.@eslint-community/eslint-plugin-eslint-comments='^$(npm view @eslint-community/eslint-plugin-eslint-comments version)'
+npm pkg set devDependencies.@eslint/compat='^$(npm view @eslint/compat version)'
+npm pkg set devDependencies.@eslint/js='^$(npm view @eslint/js version)'
+npm pkg set devDependencies.@tanstack/eslint-plugin-query='^$(npm view @tanstack/eslint-plugin-query version)'
+npm pkg set devDependencies.@vitest/eslint-plugin='^$(npm view @vitest/eslint-plugin version)'
+npm pkg set devDependencies.eslint='^$(npm view eslint version)'
+npm pkg set devDependencies.eslint-config-prettier='^$(npm view eslint-config-prettier version)'
+npm pkg set devDependencies.eslint-import-resolver-typescript='^$(npm view eslint-import-resolver-typescript version)'
+npm pkg set devDependencies.eslint-plugin-import-x='^$(npm view eslint-plugin-import-x version)'
+npm pkg set devDependencies.eslint-plugin-jsx-a11y='^$(npm view eslint-plugin-jsx-a11y version)'
+npm pkg set devDependencies.eslint-plugin-n='^$(npm view eslint-plugin-n version)'
+npm pkg set devDependencies.eslint-plugin-promise='^$(npm view eslint-plugin-promise version)'
+npm pkg set devDependencies.eslint-plugin-react='^$(npm view eslint-plugin-react version)'
+npm pkg set devDependencies.eslint-plugin-react-hooks@rc='^$(npm view eslint-plugin-react-hooks@rc version)'
+npm pkg set devDependencies.eslint-plugin-react-refresh='^$(npm view eslint-plugin-react-refresh version)'
+npm pkg set devDependencies.eslint-plugin-simple-import-sort='^$(npm view eslint-plugin-simple-import-sort version)'
+npm pkg set devDependencies.eslint-plugin-sonarjs='^$(npm view eslint-plugin-sonarjs version)'
+npm pkg set devDependencies.eslint-plugin-unicorn='^$(npm view eslint-plugin-unicorn version)'
+npm pkg set devDependencies.eslint-plugin-unused-imports='^$(npm view eslint-plugin-unused-imports version)'
+npm pkg set devDependencies.globals='^$(npm view globals version)'
+npm pkg set devDependencies.typescript-eslint='^$(npm view typescript-eslint version)'
 
 npm pkg set \
   scripts.lint:js='eslint' \
@@ -213,7 +212,7 @@ rm .gitignore
 Setup
 
 ```shell
-npm install --save-dev htmlhint
+npm pkg set devDependencies.htmlhint='^$(npm view htmlhint version)'
 
 npm pkg set scripts.lint:html='htmlhint --ignore="**/coverage/**" "**/*.html"'
 
@@ -235,7 +234,7 @@ rm .htmlhintrc
 Setup
 
 ```shell
-npm install --save-dev knip
+npm pkg set devDependencies.knip='^$(npm view knip version)'
 
 npm pkg set \
   scripts.knip='knip' \
@@ -257,7 +256,7 @@ npm pkg delete \
 Setup
 
 ```shell
-npm install --save-dev markdownlint-cli
+npm pkg set devDependencies.markdownlint-cli='^$(npm view markdownlint-cli version)'
 
 npm pkg set \
   scripts.lint:md='markdownlint --dot "**/*.md"' \
@@ -287,7 +286,7 @@ rm \
 Setup
 
 ```shell
-npm install --save-dev npm-check-updates
+npm pkg set devDependencies.npm-check-updates='^$(npm view npm-check-updates version)'
 
 npm pkg set \
   scripts.ncu='npx npm-check-updates --deep' \
@@ -309,9 +308,8 @@ npm pkg delete \
 Setup
 
 ```shell
-npm install --save-dev \
-  prettier \
-  prettier-plugin-tailwindcss
+npm pkg set devDependencies.prettier='^$(npm view prettier version)'
+npm pkg set devDependencies.prettier-plugin-tailwindcss='^$(npm view prettier-plugin-tailwindcss version)'
 
 npm pkg set \
   scripts.lint:format='prettier --check --ignore-unknown .' \
@@ -343,7 +341,7 @@ rm \
 Setup
 
 ```shell
-npm install --save-dev sort-package-json
+npm pkg set devDependencies.sort-package-json='^$(npm view sort-package-json version)'
 
 npm pkg set \
   scripts.lint:package-json='npm run lint:package-json:fix -- --check' \
@@ -365,11 +363,10 @@ npm pkg delete \
 Setup
 
 ```shell
-npm install --save-dev \
-  stylelint \
-  stylelint-config-recess-order \
-  stylelint-config-standard \
-  stylelint-config-css-modules
+npm pkg set devDependencies.stylelint='^$(npm view stylelint version)'
+npm pkg set devDependencies.stylelint-config-recess-order='^$(npm view stylelint-config-recess-order version)'
+npm pkg set devDependencies.stylelint-config-standard='^$(npm view stylelint-config-standard version)'
+npm pkg set devDependencies.stylelint-config-css-modules='^$(npm view stylelint-config-css-modules version)'
 
 npm pkg set \
   scripts.lint:css='stylelint "**/*.css"' \
@@ -403,7 +400,7 @@ rm \
 Setup
 
 ```shell
-npm install --save-dev typescript
+npm pkg set devDependencies.typescript='^$(npm view typescript version)'
 
 npm pkg set scripts.lint:types='tsc --noEmit'
 ```
@@ -421,10 +418,9 @@ npm pkg delete scripts.lint:types
 Setup
 
 ```shell
-npm install --save-dev \
-  @vitest/coverage-v8 \
-  @vitest/ui \
-  vitest
+npm pkg set devDependencies.@vitest/coverage-v8='^$(npm view @vitest/coverage-v8 version)'
+npm pkg set devDependencies.@vitest/ui='^$(npm view @vitest/ui version)'
+npm pkg set devDependencies.vitest='^$(npm view vitest version)'
 
 npm pkg set \
   scripts.test='vitest run' \
@@ -453,7 +449,7 @@ npm pkg delete \
 Setup
 
 ```shell
-npm install --save-dev husky
+npm pkg set devDependencies.husky='^$(npm view husky version)'
 
 npm pkg set scripts.prepare='husky'
 
@@ -475,9 +471,8 @@ rm -rf .husky/
 Setup
 
 ```shell
-npm install --save-dev \
-  @commitlint/cli \
-  @commitlint/config-conventional
+npm pkg set devDependencies.@commitlint/cli='^$(npm view @commitlint/cli version)'
+npm pkg set devDependencies.@commitlint/config-conventional='^$(npm view @commitlint/config-conventional version)'
 
 curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/commitlint.config.mjs
 
@@ -501,7 +496,7 @@ rm .husky/commit-msg
 Setup
 
 ```shell
-npm install --save-dev lint-staged
+npm pkg set devDependencies.lint-staged='^$(npm view lint-staged version)'
 
 curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/lint-staged.config.mjs
 
@@ -533,7 +528,7 @@ npm pkg set \
 
 # AutoCorrect
 
-npm install --save-dev autocorrect-node
+npm pkg set devDependencies.autocorrect-node='^$(npm view autocorrect-node version)'
 
 npm pkg set \
   scripts.lint:text='autocorrect --lint' \
@@ -545,7 +540,7 @@ curl \
 
 # CSpell
 
-npm install --save-dev cspell
+npm pkg set devDependencies.cspell='^$(npm view cspell version)'
 
 npm pkg set scripts.lint:spell='cspell lint --no-progress --no-must-find-files --dot --gitignore .'
 
@@ -557,28 +552,27 @@ curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.ed
 
 # ESLint
 
-npm install --save-dev \
-  @eslint-community/eslint-plugin-eslint-comments \
-  @eslint/compat \
-  @eslint/js \
-  @tanstack/eslint-plugin-query \
-  @vitest/eslint-plugin \
-  eslint \
-  eslint-config-prettier \
-  eslint-import-resolver-typescript \
-  eslint-plugin-import-x \
-  eslint-plugin-jsx-a11y \
-  eslint-plugin-n \
-  eslint-plugin-promise \
-  eslint-plugin-react \
-  eslint-plugin-react-hooks@rc \
-  eslint-plugin-react-refresh \
-  eslint-plugin-simple-import-sort \
-  eslint-plugin-sonarjs \
-  eslint-plugin-unicorn \
-  eslint-plugin-unused-imports \
-  globals \
-  typescript-eslint
+npm pkg set devDependencies.@eslint-community/eslint-plugin-eslint-comments='^$(npm view @eslint-community/eslint-plugin-eslint-comments version)'
+npm pkg set devDependencies.@eslint/compat='^$(npm view @eslint/compat version)'
+npm pkg set devDependencies.@eslint/js='^$(npm view @eslint/js version)'
+npm pkg set devDependencies.@tanstack/eslint-plugin-query='^$(npm view @tanstack/eslint-plugin-query version)'
+npm pkg set devDependencies.@vitest/eslint-plugin='^$(npm view @vitest/eslint-plugin version)'
+npm pkg set devDependencies.eslint='^$(npm view eslint version)'
+npm pkg set devDependencies.eslint-config-prettier='^$(npm view eslint-config-prettier version)'
+npm pkg set devDependencies.eslint-import-resolver-typescript='^$(npm view eslint-import-resolver-typescript version)'
+npm pkg set devDependencies.eslint-plugin-import-x='^$(npm view eslint-plugin-import-x version)'
+npm pkg set devDependencies.eslint-plugin-jsx-a11y='^$(npm view eslint-plugin-jsx-a11y version)'
+npm pkg set devDependencies.eslint-plugin-n='^$(npm view eslint-plugin-n version)'
+npm pkg set devDependencies.eslint-plugin-promise='^$(npm view eslint-plugin-promise version)'
+npm pkg set devDependencies.eslint-plugin-react='^$(npm view eslint-plugin-react version)'
+npm pkg set devDependencies.eslint-plugin-react-hooks@rc='^$(npm view eslint-plugin-react-hooks@rc version)'
+npm pkg set devDependencies.eslint-plugin-react-refresh='^$(npm view eslint-plugin-react-refresh version)'
+npm pkg set devDependencies.eslint-plugin-simple-import-sort='^$(npm view eslint-plugin-simple-import-sort version)'
+npm pkg set devDependencies.eslint-plugin-sonarjs='^$(npm view eslint-plugin-sonarjs version)'
+npm pkg set devDependencies.eslint-plugin-unicorn='^$(npm view eslint-plugin-unicorn version)'
+npm pkg set devDependencies.eslint-plugin-unused-imports='^$(npm view eslint-plugin-unused-imports version)'
+npm pkg set devDependencies.globals='^$(npm view globals version)'
+npm pkg set devDependencies.typescript-eslint='^$(npm view typescript-eslint version)'
 
 npm pkg set \
   scripts.lint:js='eslint' \
@@ -596,7 +590,7 @@ curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.gi
 
 # HTMLHint
 
-npm install --save-dev htmlhint
+npm pkg set devDependencies.htmlhint='^$(npm view htmlhint version)'
 
 npm pkg set scripts.lint:html='htmlhint --ignore="**/coverage/**" "**/*.html"'
 
@@ -604,7 +598,7 @@ curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/.ht
 
 # Knip
 
-npm install --save-dev knip
+npm pkg set devDependencies.knip='^$(npm view knip version)'
 
 npm pkg set \
   scripts.knip='knip' \
@@ -612,7 +606,7 @@ npm pkg set \
 
 # markdownlint
 
-npm install --save-dev markdownlint-cli
+npm pkg set devDependencies.markdownlint-cli='^$(npm view markdownlint-cli version)'
 
 npm pkg set \
   scripts.lint:md='markdownlint --dot "**/*.md"' \
@@ -624,7 +618,7 @@ curl \
 
 # npm-check-updates
 
-npm install --save-dev npm-check-updates
+npm pkg set devDependencies.npm-check-updates='^$(npm view npm-check-updates version)'
 
 npm pkg set \
   scripts.ncu='npx npm-check-updates --deep' \
@@ -632,9 +626,8 @@ npm pkg set \
 
 # Prettier
 
-npm install --save-dev \
-  prettier \
-  prettier-plugin-tailwindcss
+npm pkg set devDependencies.prettier='^$(npm view prettier version)'
+npm pkg set devDependencies.prettier-plugin-tailwindcss='^$(npm view prettier-plugin-tailwindcss version)'
 
 npm pkg set \
   scripts.lint:format='prettier --check --ignore-unknown .' \
@@ -646,7 +639,7 @@ curl \
 
 # Sort Package.json
 
-npm install --save-dev sort-package-json
+npm pkg set devDependencies.sort-package-json='^$(npm view sort-package-json version)'
 
 npm pkg set \
   scripts.lint:package-json='npm run lint:package-json:fix -- --check' \
@@ -654,11 +647,10 @@ npm pkg set \
 
 # Stylelint
 
-npm install --save-dev \
-  stylelint \
-  stylelint-config-recess-order \
-  stylelint-config-standard \
-  stylelint-config-css-modules
+npm pkg set devDependencies.stylelint='^$(npm view stylelint version)'
+npm pkg set devDependencies.stylelint-config-recess-order='^$(npm view stylelint-config-recess-order version)'
+npm pkg set devDependencies.stylelint-config-standard='^$(npm view stylelint-config-standard version)'
+npm pkg set devDependencies.stylelint-config-css-modules='^$(npm view stylelint-config-css-modules version)'
 
 npm pkg set \
   scripts.lint:css='stylelint "**/*.css"' \
@@ -670,16 +662,15 @@ curl \
 
 # tsc
 
-npm install --save-dev typescript
+npm pkg set devDependencies.typescript='^$(npm view typescript version)'
 
 npm pkg set scripts.lint:types='tsc --noEmit'
 
 # Vitest
 
-npm install --save-dev \
-  @vitest/coverage-v8 \
-  @vitest/ui \
-  vitest
+npm pkg set devDependencies.@vitest/coverage-v8='^$(npm view @vitest/coverage-v8 version)'
+npm pkg set devDependencies.@vitest/ui='^$(npm view @vitest/ui version)'
+npm pkg set devDependencies.vitest='^$(npm view vitest version)'
 
 npm pkg set \
   scripts.test='vitest run' \
@@ -689,7 +680,7 @@ npm pkg set \
 
 # Husky
 
-npm install --save-dev husky
+npm pkg set devDependencies.husky='^$(npm view husky version)'
 
 npm pkg set scripts.prepare='husky'
 
@@ -697,9 +688,8 @@ npm run prepare
 
 # commitlint
 
-npm install --save-dev \
-  @commitlint/cli \
-  @commitlint/config-conventional
+npm pkg set devDependencies.@commitlint/cli='^$(npm view @commitlint/cli version)'
+npm pkg set devDependencies.@commitlint/config-conventional='^$(npm view @commitlint/config-conventional version)'
 
 curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/commitlint.config.mjs
 
@@ -707,7 +697,7 @@ echo "npx --no -- commitlint --edit \$1" > .husky/commit-msg
 
 # lint-staged
 
-npm install --save-dev lint-staged
+npm pkg set devDependencies.lint-staged='^$(npm view lint-staged version)'
 
 curl --remote-name https://raw.githubusercontent.com/donniean/react-app/main/lint-staged.config.mjs
 
