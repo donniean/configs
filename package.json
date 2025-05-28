@@ -124,7 +124,7 @@
     "@types/json2md": "^1.5.4",
     "@types/lodash-es": "^4.17.12",
     "@types/micromatch": "^4.0.9",
-    "@types/node": "^22.15.21",
+    "@types/node": "^22.15.23",
     "@types/parse-glob": "^3.0.32",
     "@types/prompts": "^2.4.9",
     "@types/shelljs": "^0.8.16",
@@ -147,7 +147,7 @@
     "globals": "^16.2.0",
     "husky": "^9.1.7",
     "knip": "^5.58.1",
-    "lint-staged": "^16.0.0",
+    "lint-staged": "^16.1.0",
     "markdownlint-cli": "^0.45.0",
     "npm-check-updates": "^18.0.1",
     "prettier": "^3.5.3",
@@ -155,7 +155,7 @@
     "sort-package-json": "^3.2.1",
     "tsup": "^8.5.0",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.32.1",
+    "typescript-eslint": "^8.33.0",
     "vitest": "^3.1.4"
   },
   "engines": {
