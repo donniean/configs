@@ -5,7 +5,7 @@
 ## Table of Contents
 
 - [Tools](#tools)
-  - [AggregateLint](#aggregatelint)
+  - [Aggregate Lint](#aggregate-lint)
   - [AutoCorrect](#autocorrect)
   - [CSpell](#cspell)
   - [EditorConfig](#editorconfig)
@@ -30,7 +30,7 @@
 
 ## Tools
 
-### AggregateLint
+### Aggregate Lint
 
 Setup
 
@@ -522,7 +522,7 @@ rm .husky/pre-commit
 ### Setup
 
 ```shell
-# AggregateLint
+# Aggregate Lint
 
 npm pkg set \
   scripts.lint='concurrently --group --timings --prefix-colors=auto "npm:lint:*(!:fix)"' \
@@ -711,7 +711,7 @@ npx lint-staged --concurrent false" > .husky/pre-commit
 ### Clean
 
 ```shell
-# AggregateLint
+# Aggregate Lint
 
 npm pkg delete \
   scripts.lint \
