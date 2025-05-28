@@ -10,7 +10,7 @@ import type { Configs } from '@/types/configs';
 import { resolveCwd } from '@/utils/paths';
 
 async function getMarkdown(configs: Configs) {
-  const sections: DataObject[] = [];
+  const tools: DataObject[] = [];
   const allSetupCommands: string[] = [];
   const allCleanCommands: string[] = [];
 
@@ -51,7 +51,7 @@ async function getMarkdown(configs: Configs) {
         },
       },
     ];
-    sections.push(section);
+    tools.push(section);
 
     allSetupCommands.push(`# ${name}`, ...setupCommands);
     allCleanCommands.push(`# ${name}`, ...cleanCommands);
@@ -62,7 +62,7 @@ async function getMarkdown(configs: Configs) {
     { h2: 'Table of Contents' },
     // single
     { h2: 'Tools' },
-    ...sections,
+    ...tools,
     // all
     { h2: 'All' },
     { h3: 'Setup' },
