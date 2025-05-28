@@ -58,7 +58,10 @@ async function getMarkdown(configs: Configs) {
   }
 
   const data = [
-    { h1: 'Configs' },
+    { h1: '@donniean/configs' },
+    {
+      p: '[![Version](https://img.shields.io/npm/v/@donniean/configs.svg)](https://www.npmjs.com/package/@donniean/configs) [![License: MIT](https://img.shields.io/github/license/donniean/configs)](https://github.com/donniean/configs/blob/master/LICENSE) [![CI](https://github.com/donniean/configs/actions/workflows/ci.yaml/badge.svg)](https://github.com/donniean/configs/actions/workflows/ci.yaml) [![Release](https://github.com/donniean/configs/actions/workflows/release.yaml/badge.svg)](https://github.com/donniean/configs/actions/workflows/release.yaml)',
+    },
     { h2: 'Table of Contents' },
     // single
     { h2: 'Tools' },
