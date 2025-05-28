@@ -28,9 +28,10 @@ function buildSetupCommand({
           `${errorTitle}: please set devDependencies in config.pkg`,
         );
       }
-      const commands = devDependencies.map(({ packageName, version }) => {
+      const commands = devDependencies.map(({ packageName, tag, version }) => {
+        const packageTag = tag ? `@${tag}` : '';
         const packageVersion = (
-          version ?? `$(npm view ${packageName} version)`
+          version ?? `$(npm view ${packageName}${packageTag} version)`
         ).trim();
         return buildCommand({
           mainCommand: 'npm',
