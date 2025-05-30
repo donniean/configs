@@ -11,7 +11,7 @@ export const CONFIG = {
       { packageName: 'vitest' },
     ],
     scripts: [
-      { key: 'test', value: 'vitest run' },
+      { key: 'test', value: 'vitest run --passWithNoTests' },
       { key: 'test:coverage', value: 'vitest run --coverage' },
       { key: 'test:watch', value: 'vitest watch' },
       { key: 'test:ui', value: 'vitest --ui' },
