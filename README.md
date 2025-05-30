@@ -425,7 +425,7 @@ npm pkg set devDependencies.@vitest/ui="^$(npm view @vitest/ui version)"
 npm pkg set devDependencies.vitest="^$(npm view vitest version)"
 
 npm pkg set \
-  scripts.test='vitest run' \
+  scripts.test='vitest run --passWithNoTests' \
   scripts.test:coverage='vitest run --coverage' \
   scripts.test:watch='vitest watch' \
   scripts.test:ui='vitest --ui'
@@ -674,7 +674,7 @@ npm pkg set devDependencies.@vitest/ui="^$(npm view @vitest/ui version)"
 npm pkg set devDependencies.vitest="^$(npm view vitest version)"
 
 npm pkg set \
-  scripts.test='vitest run' \
+  scripts.test='vitest run --passWithNoTests' \
   scripts.test:coverage='vitest run --coverage' \
   scripts.test:watch='vitest watch' \
   scripts.test:ui='vitest --ui'
