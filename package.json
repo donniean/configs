@@ -99,7 +99,7 @@
     "remark": "^15.0.1",
     "remark-toc": "^9.0.0",
     "type-fest": "^4.41.0",
-    "zod": "^3.25.46"
+    "zod": "^3.25.48"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.1",
