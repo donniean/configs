@@ -50,6 +50,7 @@
 
 # Production
 **/dist/
+**/dist-ssr/
 
 # Next.js
 **/.next/
