@@ -45,9 +45,7 @@
   },
   "files": [
     "bin",
-    "dist",
-    "README.md",
-    "LICENSE"
+    "dist"
   ],
   "scripts": {
     "prebuild": "npm run clean",
@@ -57,6 +55,7 @@
     "changeset:publish": "changeset publish",
     "changeset:version": "changeset version",
     "clean": "rimraf dist/",
+    "dev": "npx tsx src/cli md",
     "docs": "npx tsx src/scripts",
     "postdocs": "prettier --write $npm_package_config_docsFilePath",
     "knip": "knip",
