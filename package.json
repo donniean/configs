@@ -44,7 +44,6 @@
     "configs": "./bin/configs.js"
   },
   "files": [
-    "assets",
     "bin",
     "dist"
   ],
