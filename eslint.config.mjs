@@ -1,6 +1,6 @@
 // @ts-check
 
-import { fileURLToPath } from 'node:url';
+import path from 'node:path';
 
 import { includeIgnoreFile } from '@eslint/compat';
 import eslint from '@eslint/js';
@@ -18,7 +18,8 @@ import eslintPluginUnusedImports from 'eslint-plugin-unused-imports';
 import globals from 'globals';
 import typescriptEslint from 'typescript-eslint';
 
-const gitignorePath = fileURLToPath(new URL('.gitignore', import.meta.url));
+const { dirname } = import.meta;
+const gitignorePath = path.resolve(dirname, '.gitignore');
 
 const nodeGlobs = [
   '**/*.stories.{js,jsx,ts,tsx}',
@@ -28,6 +29,7 @@ const nodeGlobs = [
   '**/cspell.config.{js,mjs,cjs,ts}',
   '**/eslint.config.{js,mjs,cjs,ts}',
   '**/jest.config.{js,mjs,cjs,ts}',
+  '**/lingui.config.{js,mjs,cjs,ts}',
   '**/lint-staged.config.{js,mjs,cjs,ts}',
   '**/prettier.config.{js,mjs,cjs,ts}',
   '**/rollup.config.{js,mjs,cjs,ts}',
@@ -77,10 +79,10 @@ export default typescriptEslint.config([
   {
     name: 'custom/javascript/rules',
     rules: {
-      'no-console':
-        globalThis.process.env.NODE_ENV === 'development'
-          ? 'warn'
-          : ['error', { allow: ['warn', 'error'] }],
+      'no-console': [
+        globalThis.process.env.NODE_ENV === 'development' ? 'warn' : 'error',
+        { allow: ['warn', 'error'] },
+      ],
       'no-param-reassign': [
         'error',
         {
@@ -113,6 +115,8 @@ export default typescriptEslint.config([
   {
     name: 'custom/import-x/rules',
     rules: {
+      'import-x/first': 'error',
+      'import-x/newline-after-import': 'error',
       'import-x/no-cycle': 'error',
       'import-x/no-duplicates': [
         'error',
@@ -128,10 +132,8 @@ export default typescriptEslint.config([
           peerDependencies: true,
         },
       ],
-      // 'import-x/no-named-as-default': 'off',
-      // 'import-x/no-named-as-default-member': 'off',
       'import-x/order': [
-        'warn',
+        'error',
         {
           groups: [
             // 'type',
@@ -154,6 +156,9 @@ export default typescriptEslint.config([
         },
       ],
     },
+    settings: {
+      'import-x/resolver-next': [eslintPluginImportX.createNodeResolver()],
+    },
   },
   {
     name: 'custom/unicorn/rules',
@@ -163,8 +168,8 @@ export default typescriptEslint.config([
         {
           cases: {
             kebabCase: true,
-            camelCase: true,
-            pascalCase: true,
+            camelCase: false,
+            pascalCase: false,
           },
         },
       ],
@@ -181,8 +186,8 @@ export default typescriptEslint.config([
     rules: {
       'sort-imports': 'off',
       'import-x/order': 'off',
-      'simple-import-sort/imports': 'warn',
-      'simple-import-sort/exports': 'warn',
+      'simple-import-sort/imports': 'error',
+      'simple-import-sort/exports': 'error',
     },
   },
   {
@@ -207,6 +212,7 @@ export default typescriptEslint.config([
     rules: {
       '@typescript-eslint/consistent-type-exports': 'error',
       '@typescript-eslint/consistent-type-imports': 'error',
+      '@typescript-eslint/member-ordering': 'error',
     },
   },
   {
