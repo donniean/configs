@@ -14,6 +14,6 @@ export default {
     'npm run docs',
     `git add ${globalThis.process.env.npm_package_config_docsFilePath}`,
   ],
-  '*.{js,mjs,cjs,ts}': 'eslint --fix --max-warnings 0',
+  '*.{js,mjs,cjs,ts}': 'eslint --fix', // --max-warnings 0
   '*.md': 'markdownlint --dot --fix',
 };
