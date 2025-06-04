@@ -1,6 +1,6 @@
 {
   "name": "@donniean/node-app",
-  "version": "0.0.0-development",
+  "version": "0.0.0",
   "homepage": "https://github.com/donniean/node-app#readme",
   "bugs": {
     "url": "https://github.com/donniean/node-app/issues"
