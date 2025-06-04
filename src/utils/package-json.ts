@@ -1,4 +1,4 @@
-import fs from 'fs-extra';
+import * as fs from 'fs-extra';
 import type { PackageJson } from 'type-fest';
 
 import * as paths from '@/utils/paths';
