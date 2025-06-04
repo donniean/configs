@@ -1,7 +1,7 @@
 import type { Config } from '@/types/configs';
 
 export const CONFIG = {
-  key: 'aggregate-lint',
+  key: 'aggregate-lint1',
   name: 'Aggregate Lint',
   pkg: {
     scripts: [
