@@ -53,7 +53,7 @@ async function getMarkdown(configs: Configs) {
         },
       },
     ];
-    tools.push(section);
+    tools.push(...section);
 
     allSetupCommands.push(`# ${name}`, ...setupCommands);
     allCleanCommands.push(`# ${name}`, ...cleanCommands);
