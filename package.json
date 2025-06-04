@@ -39,6 +39,7 @@
     "dev": "npx tsx src/cli md",
     "docs": "npx tsx src/scripts",
     "postdocs": "prettier --write $npm_package_config_docsFilePath",
+    "preinstall": "npx only-allow npm",
     "knip": "knip",
     "knip:fix": "npm run knip -- --fix",
     "link": "npm run build && npm link",
