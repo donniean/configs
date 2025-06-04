@@ -5,6 +5,8 @@ import json2md from 'json2md';
 import { remark } from 'remark';
 import remarkToc from 'remark-toc';
 
+import { CONFIGS } from '@/configs';
+import { DEFAULT_OUTPUT_FILE_NAME } from '@/constants/configs';
 import { buildCleanCommand, buildSetupCommand } from '@/helpers/commands';
 import type { Configs } from '@/types/configs';
 import { resolveCwd } from '@/utils/paths';
@@ -58,9 +60,9 @@ async function getMarkdown(configs: Configs) {
   }
 
   const data = [
-    { h1: '@donniean/configs' },
+    { h1: '@donniean/node-app' },
     {
-      p: '[![Version](https://img.shields.io/npm/v/@donniean/configs.svg)](https://www.npmjs.com/package/@donniean/configs) [![License: MIT](https://img.shields.io/github/license/donniean/configs)](https://github.com/donniean/configs/blob/master/LICENSE) [![CI](https://github.com/donniean/configs/actions/workflows/ci.yaml/badge.svg)](https://github.com/donniean/configs/actions/workflows/ci.yaml) [![Release](https://github.com/donniean/configs/actions/workflows/release.yaml/badge.svg)](https://github.com/donniean/configs/actions/workflows/release.yaml)',
+      p: '[![Version](https://img.shields.io/npm/v/@donniean/node-app.svg)](https://www.npmjs.com/package/@donniean/node-app) [![License: MIT](https://img.shields.io/github/license/donniean/node-app)](https://github.com/donniean/node-app/blob/master/LICENSE) [![CI](https://github.com/donniean/node-app/actions/workflows/ci.yaml/badge.svg)](https://github.com/donniean/node-app/actions/workflows/ci.yaml) [![Release](https://github.com/donniean/node-app/actions/workflows/release.yaml/badge.svg)](https://github.com/donniean/node-app/actions/workflows/release.yaml)',
     },
     { h2: 'Table of Contents' },
     // single
@@ -89,14 +91,12 @@ async function getMarkdown(configs: Configs) {
   return await remark().use(remarkToc).process(markdown);
 }
 
-function writeMarkdown({
-  fileName,
-  content,
-}: {
+interface WriteMarkdownOptions {
+  filePath: string;
   content: string;
-  fileName: string;
-}) {
-  const filePath = resolveCwd(fileName);
+}
+
+function writeMarkdown({ filePath, content }: WriteMarkdownOptions) {
   fs.writeFile(filePath, content, (error) => {
     if (!error) {
       return;
@@ -105,4 +105,12 @@ function writeMarkdown({
   });
 }
 
-export { getMarkdown, writeMarkdown };
+async function writeMarkdownWithDefaults(options?: {
+  filePath?: string | undefined;
+}) {
+  const filePath = options?.filePath ?? resolveCwd(DEFAULT_OUTPUT_FILE_NAME);
+  const content = await getMarkdown(CONFIGS);
+  writeMarkdown({ filePath, content: String(content) });
+}
+
+export { getMarkdown, writeMarkdown, writeMarkdownWithDefaults };

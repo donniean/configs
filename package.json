@@ -1,35 +1,13 @@
 {
-  "name": "@donniean/configs",
-  "version": "6.24.1",
-  "description": "an opinionated configs generator",
-  "keywords": [
-    "cli",
-    "autocorrect",
-    "commitlint",
-    "cspell",
-    "editorconfig",
-    "eslint",
-    "gitattributes",
-    "gitignore",
-    "htmlhint",
-    "husky",
-    "knip",
-    "lint-staged",
-    "markdownlint",
-    "npm-check-updates",
-    "prettier",
-    "sort-package-json",
-    "stylelint",
-    "tsc",
-    "vitest"
-  ],
-  "homepage": "https://github.com/donniean/configs#readme",
+  "name": "@donniean/node-app",
+  "version": "0.0.0-development",
+  "homepage": "https://github.com/donniean/node-app#readme",
   "bugs": {
-    "url": "https://github.com/donniean/configs/issues"
+    "url": "https://github.com/donniean/node-app/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/donniean/configs.git"
+    "url": "https://github.com/donniean/node-app.git"
   },
   "license": "MIT",
   "author": "Donnie An",
@@ -43,10 +21,9 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "configs": "./bin/configs.js"
+    "configs-md": "./bin/cli.js"
   },
   "files": [
-    "assets",
     "bin",
     "dist"
   ],
@@ -58,7 +35,8 @@
     "changeset:publish": "changeset publish",
     "changeset:version": "changeset version",
     "clean": "rimraf dist/",
-    "docs": "npx tsx src/markdown/",
+    "dev": "npx tsx src/cli md",
+    "docs": "npx tsx src/scripts",
     "postdocs": "prettier --write $npm_package_config_docsFilePath",
     "knip": "knip",
     "knip:fix": "npm run knip -- --fix",
@@ -88,11 +66,7 @@
     "docsFilePath": "README.md"
   },
   "dependencies": {
-    "@inquirer/prompts": "^7.5.3",
-    "chalk": "^5.4.1",
-    "clipboardy": "^4.0.0",
     "commander": "^14.0.0",
-    "date-fns": "^4.1.0",
     "fs-extra": "^11.3.0",
     "json2md": "^2.0.3",
     "prettier": "^3.5.3",

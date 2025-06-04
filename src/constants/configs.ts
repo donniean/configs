@@ -15,4 +15,12 @@ const CLEAN_COMMAND_TYPE = [
 const CONFIG_BASE_URL =
   'https://raw.githubusercontent.com/donniean/react-app/main/';
 
-export { CLEAN_COMMAND_TYPE, CONFIG_BASE_URL, SETUP_COMMAND_TYPES };
+const DEFAULT_OUTPUT_FILE_NAME =
+  process.env.npm_package_config_docsFilePath ?? 'configs.md';
+
+export {
+  CLEAN_COMMAND_TYPE,
+  CONFIG_BASE_URL,
+  DEFAULT_OUTPUT_FILE_NAME,
+  SETUP_COMMAND_TYPES,
+};
