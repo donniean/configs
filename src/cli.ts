@@ -6,7 +6,7 @@ import { writeMarkdownWithDefaults } from '@/api';
 import { readRootPackageJsonSync } from '@/utils/package-json';
 
 const program = new Command();
-program.name('configs');
+program.name('configs-md');
 
 const version = readRootPackageJsonSync().version;
 
