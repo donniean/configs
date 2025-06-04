@@ -44,6 +44,7 @@
     "configs": "./bin/cli.js"
   },
   "files": [
+    "bin",
     "dist",
     "README.md",
     "LICENSE"

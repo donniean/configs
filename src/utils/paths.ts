@@ -4,10 +4,19 @@ import * as env from '@/utils/env';
 
 const { dirname } = import.meta;
 
-const root = path.resolve(
-  dirname,
-  ...(env.isTest ? ['..', '..', '..'] : ['..', '..']),
-);
+const getRelativePaths = () => {
+  if (env.isProduction) {
+    return ['..'];
+  }
+
+  if (env.isTest) {
+    return ['..', '..', '..'];
+  }
+
+  return ['..', '..'];
+};
+
+const root = path.resolve(dirname, ...getRelativePaths());
 
 const cwd = process.cwd();
 
