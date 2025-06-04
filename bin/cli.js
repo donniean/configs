@@ -1,4 +1,5 @@
 #!/usr/bin/env node
 
-// eslint-disable-next-line import-x/no-unresolved
-import 'dist/cli';
+/* eslint import-x/no-unresolved: ['error', { ignore: ['^../dist/'] }] */
+
+import '../dist/cli';
