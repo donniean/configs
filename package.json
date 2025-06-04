@@ -1,26 +1,6 @@
 {
   "name": "@donniean/node-app",
   "version": "0.0.0-development",
-  "keywords": [
-    "autocorrect",
-    "commitlint",
-    "cspell",
-    "editorconfig",
-    "eslint",
-    "gitattributes",
-    "gitignore",
-    "htmlhint",
-    "husky",
-    "knip",
-    "lint-staged",
-    "markdownlint",
-    "npm-check-updates",
-    "prettier",
-    "sort-package-json",
-    "stylelint",
-    "tsc",
-    "vitest"
-  ],
   "homepage": "https://github.com/donniean/node-app#readme",
   "bugs": {
     "url": "https://github.com/donniean/node-app/issues"
