@@ -15,7 +15,6 @@ if (version) {
 }
 
 program
-  .command('md')
   .description('generate markdown file')
   .option('-f, --file <path>', 'output file path')
   .action(async (options: { file?: string }) => {
