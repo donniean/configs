@@ -2,4 +2,4 @@
 
 /* eslint import-x/no-unresolved: ['error', { ignore: ['^../dist/'] }] */
 
-import '../dist/cli';
+import '../dist/cli.js';
