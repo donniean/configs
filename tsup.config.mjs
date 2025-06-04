@@ -3,7 +3,7 @@ import { defineConfig } from 'tsup';
 export default defineConfig(({ watch }) => ({
   entry: {
     index: 'src/index.ts',
-    cli: 'src/cli/index.ts',
+    cli: 'src/cli.ts',
   },
   minify: !watch,
   format: ['esm'],
