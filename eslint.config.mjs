@@ -16,7 +16,6 @@ import eslintPluginSonarjs from 'eslint-plugin-sonarjs';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import eslintPluginUnusedImports from 'eslint-plugin-unused-imports';
 import globals from 'globals';
-// eslint-disable-next-line import-x/no-unresolved
 import typescriptEslint from 'typescript-eslint';
 
 const gitignorePath = fileURLToPath(new URL('.gitignore', import.meta.url));
