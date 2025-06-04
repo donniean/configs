@@ -1,9 +1,7 @@
 {
-  "name": "@donniean/configs",
-  "version": "6.24.1",
-  "description": "an opinionated configs generator",
+  "name": "@donniean/node-app",
+  "version": "0.0.0-development",
   "keywords": [
-    "cli",
     "autocorrect",
     "commitlint",
     "cspell",
@@ -23,13 +21,13 @@
     "tsc",
     "vitest"
   ],
-  "homepage": "https://github.com/donniean/configs#readme",
+  "homepage": "https://github.com/donniean/node-app#readme",
   "bugs": {
-    "url": "https://github.com/donniean/configs/issues"
+    "url": "https://github.com/donniean/node-app/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/donniean/configs.git"
+    "url": "https://github.com/donniean/node-app.git"
   },
   "license": "MIT",
   "author": "Donnie An",
