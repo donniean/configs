@@ -17,8 +17,8 @@ if (version) {
 program
   .command('md')
   .description('generate markdown file')
-  .option('-f, --file', 'output file path', '')
-  .action(async (_action: unknown, options: { file?: string }) => {
+  .option('-f, --file <path>', 'output file path')
+  .action(async (options: { file?: string }) => {
     const filePath = options.file;
     await writeMarkdownWithDefaults({ filePath });
     info('Markdown file generated successfully');
