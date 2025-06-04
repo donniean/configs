@@ -41,11 +41,12 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "configs": "./bin/configs.js"
+    "configs": "./dist/cli.js"
   },
   "files": [
-    "bin",
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
     "prebuild": "npm run clean",
@@ -55,7 +56,7 @@
     "changeset:publish": "changeset publish",
     "changeset:version": "changeset version",
     "clean": "rimraf dist/",
-    "docs": "npx tsx src/markdown/",
+    "docs": "npx tsx src/scripts",
     "postdocs": "prettier --write $npm_package_config_docsFilePath",
     "knip": "knip",
     "knip:fix": "npm run knip -- --fix",
@@ -85,11 +86,7 @@
     "docsFilePath": "README.md"
   },
   "dependencies": {
-    "@inquirer/prompts": "^7.5.3",
-    "chalk": "^5.4.1",
-    "clipboardy": "^4.0.0",
     "commander": "^14.0.0",
-    "date-fns": "^4.1.0",
     "fs-extra": "^11.3.0",
     "json2md": "^2.0.3",
     "prettier": "^3.5.3",

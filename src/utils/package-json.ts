@@ -1,7 +1,6 @@
 import fs from 'fs-extra';
 import type { PackageJson } from 'type-fest';
 
-import * as logger from '@/utils/logger';
 import * as paths from '@/utils/paths';
 
 function readRootPackageJsonSync() {
@@ -12,17 +11,4 @@ function readRootPackageJsonSync() {
   }) as PackageJson;
 }
 
-function checkCwdPackageJsonSync() {
-  const isExistsCwdPackageJson = fs.existsSync(paths.cwdPackageJson);
-
-  if (!isExistsCwdPackageJson) {
-    logger.error(
-      `${paths.cwdPackageJson} does not exist, please run "npm init"`,
-    );
-    return false;
-  }
-
-  return true;
-}
-
-export { checkCwdPackageJsonSync, readRootPackageJsonSync };
+export { readRootPackageJsonSync };

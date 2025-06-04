@@ -5,6 +5,8 @@ import json2md from 'json2md';
 import { remark } from 'remark';
 import remarkToc from 'remark-toc';
 
+import { CONFIGS } from '@/configs';
+import { DEFAULT_OUTPUT_FILE_NAME } from '@/constants/configs';
 import { buildCleanCommand, buildSetupCommand } from '@/helpers/commands';
 import type { Configs } from '@/types/configs';
 import { resolveCwd } from '@/utils/paths';
@@ -89,14 +91,12 @@ async function getMarkdown(configs: Configs) {
   return await remark().use(remarkToc).process(markdown);
 }
 
-function writeMarkdown({
-  fileName,
-  content,
-}: {
+interface WriteMarkdownOptions {
+  filePath: string;
   content: string;
-  fileName: string;
-}) {
-  const filePath = resolveCwd(fileName);
+}
+
+function writeMarkdown({ filePath, content }: WriteMarkdownOptions) {
   fs.writeFile(filePath, content, (error) => {
     if (!error) {
       return;
@@ -105,4 +105,12 @@ function writeMarkdown({
   });
 }
 
-export { getMarkdown, writeMarkdown };
+async function writeMarkdownWithDefaults(options?: {
+  filePath?: string | undefined;
+}) {
+  const filePath = options?.filePath ?? resolveCwd(DEFAULT_OUTPUT_FILE_NAME);
+  const content = await getMarkdown(CONFIGS);
+  writeMarkdown({ filePath, content: String(content) });
+}
+
+export { getMarkdown, writeMarkdown, writeMarkdownWithDefaults };
