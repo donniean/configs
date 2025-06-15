@@ -94,7 +94,7 @@
     "@vitest/ui": "^3.2.3",
     "autocorrect-node": "^2.14.0",
     "concurrently": "^9.1.2",
-    "cspell": "^9.0.2",
+    "cspell": "^9.1.1",
     "eslint": "^9.29.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-import-resolver-typescript": "^4.4.3",
